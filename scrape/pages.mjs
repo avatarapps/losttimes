@@ -223,7 +223,7 @@ function ssrRows(rows) {
       const res = resultsLink(e);
       return `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div></div>` +
         `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(e.name)}</a></h2>` +
-        `<div class="acts">${res ? `<a class="res" href="${esc(res)}">Results</a>` : `<a class="res" href="/race/${e.slug}">Results</a>`}</div></div></article>`;
+        `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}">Results <span class="arr">↗</span></a></div></div></article>`;
     })
     .join('');
 }

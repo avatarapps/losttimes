@@ -69,9 +69,12 @@
   .icons button[aria-expanded="true"]{color:var(--red)}
 
   /* ---------- pealkiri ---------- */
+  /* Pealkiri peab mahtuma ÜHELE reale ka kitsal telefonil. Kirjasuurus tuleb
+     seetõttu ekraani laiusest (vw), mitte kindlast arvust, ja nowrap hoiab
+     ära murdumise. 6.6vw tähendab 390px telefonil ~26px — mahub. */
   h1{
-    margin:34px 0 0;font-size:clamp(34px,9.2vw,46px);font-weight:700;
-    letter-spacing:-.038em;line-height:1.02;
+    margin:34px 0 0;font-size:clamp(21px,6.6vw,44px);font-weight:700;
+    letter-spacing:-.038em;line-height:1.05;white-space:nowrap;
   }
   /* Küsimärk on SVG, mitte tähemärk — nii saab kaare ja punkti eraldi värvida
      ja kuju jääb igas suuruses teravaks.
@@ -197,7 +200,7 @@
 
   <div id="yearbar"></div>
 
-  <h1>Jälle ei leia<br>tulemusi<svg class="qm" viewBox="0 0 100 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
+  <h1>Jälle ei leia tulemusi<svg class="qm" viewBox="26 0 48 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
   <p class="sub">Siin nad on.</p>
 
   <div class="searchbar" id="searchbar">
@@ -433,6 +436,9 @@ function render(){
 // juhuslikud vanad aastad. Kasutaja tahab näha kõiki aastaid, mis olemas on.
 function buildMenu(){
   const box = document.getElementById('menu-years');
+  // Aastad kolisid menüüst /arhiiv/ lehele. Kui seda elementi ei ole, siis
+  // ei ole ka midagi ehitada — ja kogu ülejäänud skript peab edasi töötama.
+  if (!box) return;
   const years = state.meta ? state.meta.years.map(y => y.year) : [];
 
   box.innerHTML = years
@@ -458,6 +464,7 @@ function buildMenu(){
 // miks nimekiri äkki teistsugune on, ega oska seda tagasi lülitada.
 function drawYearPill(){
   const bar = document.getElementById('yearbar');
+  if (!bar) return;
   if (!state.year){ bar.innerHTML = ''; return; }
   bar.innerHTML = `<span class="yearpill">${state.year}<button aria-label="Eemalda aasta">×</button></span>`;
   bar.querySelector('button').addEventListener('click', () => {
