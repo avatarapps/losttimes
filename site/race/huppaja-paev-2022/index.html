@@ -21,10 +21,22 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{padding:26px 0 0}
+.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
 .logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
+.icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
+background:none;border:0;cursor:pointer;color:var(--ink)}
+.icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
+stroke-linecap:round;stroke-linejoin:round}
+.icons button[aria-expanded="true"]{color:var(--red)}
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
+border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
+.menu[hidden]{display:none}
+.menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
+color:var(--ink);text-decoration:none}
+.menu a:hover{color:var(--red)}
 h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
 letter-spacing:-.032em;line-height:1.12}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
@@ -43,21 +55,42 @@ ul.list .s{font-weight:600;font-size:14.5px;text-decoration:none;margin-left:12p
 .years a{padding:7px 13px;border:1px solid var(--line);border-radius:100px;
 font-size:13.5px;font-weight:600;text-decoration:none}
 footer{margin-top:40px;padding:20px 0 44px;border-top:1px solid var(--line);
-color:var(--slate);font-size:13px}
-footer a{color:var(--ink);font-weight:600;text-decoration:none}
+color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
+footer strong{color:var(--ink);font-weight:600}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsEvent","name":"Hüppaja päev","startDate":"2022-09-28","location":{"@type":"Place","name":"Narva Lasteaed Tareke"}}</script>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><a class="logo" href="/">LOSTTIMES<i>.</i></a></div>
+<div class="top">
+<a class="logo" href="/">LOSTTIMES<i>.</i></a>
+<div class="icons">
+<button id="btn-menu" aria-label="Menüü" aria-expanded="false" aria-controls="menu">
+<svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+</button>
+</div>
+<div class="menu" id="menu" hidden>
+<a href="/arhiiv/">Arhiiv</a>
+<a href="/advertise.html">Reklaam</a>
+<a href="/about.html">Kontakt</a>
+<a href="mailto:info@losttimes.ee?subject=V%C3%B5istlus%20puudu">Võistlus puudu?</a>
+</div>
+</div>
 <h1>Hüppaja päev</h1>
 <p class="meta">28. september 2022, Narva Lasteaed Tareke</p>
 <a class="cta" href="https://www.google.com/search?q=H%C3%BCppaja%20p%C3%A4ev%202022%20tulemused">Otsi tulemusi →</a><a class="alt" href="http://lasteaiad.narvakultuur.ee/tareke/ru/avaleht-ru">Korraldaja</a>
 <p class="note">Selle võistluse tulemuste asukoht ei ole meil teada. Kui sa selle leiad, kirjuta ja lisan.</p>
 <p class="note"><a href="/race/huppaja-paev">Kõik Hüppaja päev aastad →</a></p>
 <p class="note"><a href="/arhiiv/2022/">Kõik 2022. aasta võistlused →</a></p>
-<footer><a href="/">Tulemused</a> · <a href="/upcoming/">Tulemas</a> · <a href="/arhiiv/">Arhiiv</a> · <a href="/about.html">Mis on LostTimes</a></footer>
+<footer><strong>Me ei hoia tulemusi. Me lihtsalt teame, kus need on.</strong><br>
+Iga link viib otse ametlikku allikasse.</footer>
 </div>
+<script>
+var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
+b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
+b.setAttribute('aria-expanded',String(!m.hidden));});
+document.addEventListener('click',function(e){if(!m.hidden&&!m.contains(e.target))m.hidden=true;});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')m.hidden=true;});
+</script>
 </body>
 </html>
