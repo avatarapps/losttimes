@@ -61,7 +61,10 @@
     margin-top:6px;font-size:9.5px;font-weight:600;
     letter-spacing:.155em;text-transform:uppercase;color:var(--ink);
   }
-  .icons{display:flex;gap:6px;margin-top:-4px}
+  /* Nupud on 40px kõrged puutetäpsuse pärast, aga negatiivsed marginaalid
+     hoiavad ära, et see kõrgus lükkaks hero't allapoole. Just see tekitas
+     logo ja pealkirja vahele suure tühja ala. */
+  .icons{display:flex;gap:6px;margin:-9px -8px -11px 0}
   .icons button{
     width:40px;height:40px;display:grid;place-items:center;
     background:none;border:0;cursor:pointer;color:var(--ink);
@@ -78,7 +81,7 @@
      mahtuma ühele reale ka 360px telefonil — 8vw on suurim, mis sinna mahub.
      Ilma nowrapita murduks see kitsal ekraanil ja rikuks rütmi. */
   h1{
-    margin:24px 0 0;font-size:clamp(24px,8vw,40px);font-weight:700;
+    margin:10px 0 0;font-size:clamp(24px,8vw,40px);font-weight:700;
     letter-spacing:-.038em;line-height:1.08;white-space:nowrap;
   }
   /* Küsimärk on SVG, mitte tähemärk — nii saab kaare ja punkti eraldi värvida
@@ -143,15 +146,21 @@
   /* ---------- tabid ---------- */
   /* Tabid on navigatsioon, mitte kolmas pealkiri. Alljoon on õhuke ja täpselt
      sõna laiune — punast on heros juba piisavalt. */
-  .tabs{display:flex;gap:28px;margin-top:26px;border-bottom:1px solid var(--line)}
+  .tabs{display:flex;gap:28px;margin-top:8px;border-bottom:1px solid var(--line)}
   .tabs a{
     font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.095em;
-    text-transform:uppercase;color:var(--slate);text-decoration:none;
+    text-transform:uppercase;text-decoration:none;
     padding:0 0 12px;cursor:pointer;position:relative;
+    /* Mitteaktiivne tab on sama tekstivärv, lihtsalt vaiksem — hall mõjus
+       väljalülitatuna, mitte lihtsalt valimata olekuna. */
+    color:var(--ink);opacity:.55;
   }
-  .tabs a[aria-selected="true"]{color:var(--red)}
+  .tabs a[aria-selected="true"]{color:var(--red);opacity:1}
   .tabs a[aria-selected="true"]::after{
-    content:'';position:absolute;left:0;right:0;bottom:-1px;height:1.5px;background:var(--red);
+    /* Alljoon lõpeb koos sõnaga. Tähevahe jätab viimase tähe järele tühja
+       ruumi, mille me siin maha arvame — muidu ulatub joon sõnast üle. */
+    content:'';position:absolute;left:0;right:.095em;bottom:-1px;
+    height:1.5px;background:var(--red);
   }
 
   /* ---------- nimekiri ---------- */
@@ -161,7 +170,7 @@
   .row .mon{margin-top:6px;font-size:10.5px;font-weight:500;letter-spacing:.11em;
     text-transform:uppercase;color:var(--slate)}
   .row .body{min-width:0;flex:1}
-  .row h2{margin:0;font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.3}
+  .row h2{margin:0;font-size:18px;font-weight:500;letter-spacing:-.014em;line-height:1.3}
   .row .acts{margin-top:9px;font-size:14.5px;font-weight:500;display:flex;flex-wrap:wrap;
     align-items:center;gap:4px 9px}
   .row .acts a{text-decoration:none;font-weight:600;white-space:nowrap}
