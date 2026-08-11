@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tulemas — Eesti võistluste kalender | LostTimes</title>
+<meta name="description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://losttimes.ee/upcoming/">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<!-- iPhone / iPad avaekraan -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="LostTimes">
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#13202B;
+    --red:#FF4938;
+    --slate:#66717D;
+    --line:#E7EBED;
+    --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg)}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.4;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  a{color:inherit}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+  /* ---------- pais ---------- */
+  .top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
+  /* Logo on alati link avalehele — ka avalehel endal, kus ta toimib
+     värskendusena. See on koht, kust kasutaja instinktiivselt tagasi otsib. */
+  .logo{display:inline-block;font-weight:700;font-size:23px;letter-spacing:-.035em;
+    line-height:1;text-decoration:none;color:var(--ink)}
+  .logo i{color:var(--red);font-style:normal}
+  .tagline{
+    margin-top:6px;font-size:9.5px;font-weight:600;
+    letter-spacing:.155em;text-transform:uppercase;color:var(--ink);
+  }
+  .icons{display:flex;gap:6px;margin-top:-4px}
+  .icons button{
+    width:40px;height:40px;display:grid;place-items:center;
+    background:none;border:0;cursor:pointer;color:var(--ink);
+  }
+  .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
+    stroke-linecap:round;stroke-linejoin:round}
+  .icons button[aria-expanded="true"]{color:var(--red)}
+
+  /* ---------- pealkiri ---------- */
+  h1{
+    margin:34px 0 0;font-size:clamp(34px,9.2vw,46px);font-weight:700;
+    letter-spacing:-.038em;line-height:1.02;
+  }
+  /* Küsimärk on SVG, mitte tähemärk — nii saab kaare ja punkti eraldi värvida
+     ja kuju jääb igas suuruses teravaks.
+
+     viewBox'i alumine serv = tähejoon, seega `vertical-align: baseline`
+     istutab ta teksti sisse õigesti. Suurust reguleerib ainult `height`:
+     kui märk tundub tekstiga võrreldes suur või väike, muuda seda üht arvu. */
+  .qm{height:.80em;width:auto;vertical-align:baseline;margin-left:.03em}
+  .qm .hook{fill:none;stroke:currentColor;stroke-width:11.3;stroke-linecap:butt}
+  .qm .dot{fill:var(--red)}
+  .sub{margin:10px 0 0;font-size:clamp(20px,5.4vw,26px);font-weight:600;
+    letter-spacing:-.03em;color:var(--red)}
+
+  /* ---------- otsing ---------- */
+  .searchbar{display:none;padding-top:18px}
+  .searchbar.open{display:block}
+  .searchbar input{
+    width:100%;padding:12px 0;font-family:var(--sans);font-size:17px;font-weight:500;
+    color:var(--ink);background:none;border:0;border-bottom:2px solid var(--ink);outline:none;
+  }
+  .searchbar input::placeholder{color:var(--slate);font-weight:500}
+
+  /* ---------- rippmenüü ---------- */
+  .menu{
+    position:absolute;right:0;top:calc(100% + 8px);z-index:40;
+    width:290px;max-width:calc(100vw - 44px);
+    background:var(--bg);border:1px solid var(--line);border-radius:16px;
+    padding:16px;box-shadow:0 12px 32px rgba(19,32,43,.10);
+  }
+  .menu[hidden]{display:none}
+  .menu-label{
+    font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:10px;
+  }
+  .menu-years{display:flex;flex-wrap:wrap;gap:6px;max-height:196px;overflow-y:auto}
+  .menu-years button{
+    font-family:var(--sans);font-size:12.5px;font-weight:600;
+    padding:6px 11px;border-radius:100px;cursor:pointer;
+    border:1px solid var(--line);background:none;color:var(--slate);
+  }
+  .menu-years button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+  .menu-links{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:2px}
+  .menu-links a{
+    display:block;padding:9px 0;font-size:15px;font-weight:600;
+    color:var(--ink);text-decoration:none;
+  }
+  .menu-links a:hover{color:var(--red)}
+
+  .yearpill{
+    display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+    padding:6px 8px 6px 14px;border-radius:100px;background:var(--ink);color:#fff;
+    font-size:13px;font-weight:600;
+  }
+  .yearpill button{
+    border:0;background:none;color:#fff;cursor:pointer;font-size:15px;
+    line-height:1;padding:2px 6px;font-family:var(--sans);
+  }
+
+  /* ---------- tabid ---------- */
+  .tabs{display:flex;gap:30px;margin-top:30px;border-bottom:1px solid var(--line)}
+  .tabs a{
+    font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--slate);text-decoration:none;
+    padding:0 0 13px;cursor:pointer;position:relative;
+  }
+  .tabs a[aria-selected="true"]{color:var(--red)}
+  .tabs a[aria-selected="true"]::after{
+    content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--red);
+  }
+
+  /* ---------- nimekiri ---------- */
+  .row{display:flex;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}
+  .row .date{width:44px;flex:none;padding-top:2px}
+  .row .day{font-size:25px;font-weight:600;letter-spacing:-.035em;line-height:1}
+  .row .mon{margin-top:6px;font-size:10.5px;font-weight:500;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--slate)}
+  .row .body{min-width:0;flex:1}
+  .row h2{margin:0;font-size:19px;font-weight:600;letter-spacing:-.025em;line-height:1.25}
+  .row .acts{margin-top:9px;font-size:14.5px;font-weight:500;display:flex;flex-wrap:wrap;
+    align-items:center;gap:4px 9px}
+  .row .acts a{text-decoration:none;font-weight:600;white-space:nowrap}
+  .row .acts a.res{color:var(--red)}
+  .row .acts a.other{color:var(--ink)}
+  .row .acts a.live{color:#fff;background:var(--red);padding:2px 9px;border-radius:100px;
+    font-size:12.5px;letter-spacing:.05em}
+  .row .acts .sep{color:var(--line);font-weight:500}
+  .row .acts .lost{flex-basis:100%;margin-top:2px;font-size:13px;font-weight:500;color:var(--slate)}
+  .row h2 a.title{text-decoration:none;color:inherit}
+  .row h2 a.title:hover{text-decoration:underline;text-underline-offset:3px}
+  .arr{font-size:.85em;display:inline-block;transform:translateY(-1px)}
+
+  .empty{padding:64px 0;text-align:center;color:var(--slate);font-weight:500}
+  footer{padding:36px 0 48px;color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
+  footer strong{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <a class="logo" href="/">LOSTTIMES<i>.</i></a>
+    </div>
+    <div class="icons">
+      <button id="btn-search" aria-label="Otsi" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <button id="btn-menu" aria-label="Menüü" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+
+    <div class="menu" id="menu" hidden>
+      <div class="menu-links">
+        <a href="/arhiiv/">Arhiiv</a>
+        <a href="/advertise.html">Reklaam</a>
+        <a href="/about.html">Kontakt</a>
+        <a href="mailto:info@losttimes.ee?subject=V%C3%B5istlus%20puudu">Võistlus puudu?</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="yearbar"></div>
+
+  <h1>Jälle ei leia<br>tulemusi<svg class="qm" viewBox="0 0 100 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
+  <p class="sub">Siin nad on.</p>
+
+  <div class="searchbar" id="searchbar">
+    <input id="q" type="search" autocomplete="off" placeholder="Otsi võistlust…" aria-label="Otsi võistlust">
+  </div>
+
+  <!-- Tabid on päris lingid, mitte nupud: /upcoming on eraldi URL, mille
+       Google saab indekseerida ja inimene jagada. JS võtab kliki üle ja
+       vahetab vaadet ilma laadimiseta, aga link töötab ka ilma JS-ita. -->
+  <div class="tabs" role="tablist">
+    <a id="tab-past" role="tab" href="/" aria-selected="true">Tulemused</a>
+    <a id="tab-next" role="tab" href="/upcoming/" aria-selected="false">Tulevased</a>
+  </div>
+</div>
+
+<main class="wrap" id="list"><!--SSR-START--><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/14-etapp-jarve-terviserada-2026">14. ETAPP / Järve terviserada</a></h2><div class="acts"><a class="res" href="/race/14-etapp-jarve-terviserada-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/24-tervisejooks-ja-kond-2026-3">24. Tervisejooks ja -kõnd</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3440">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/filter-temposari-6-etapp-2026">Filter Temposari (6. etapp)</a></h2><div class="acts"><a class="res" href="https://www.racetecresults.com/results.aspx?CId=16573&amp;RId=666">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/kiili-kuubiku-5-etapp-paekna-umber-jarve-jooks-2026">KIILI KUUBIKU 5. ETAPP – PAEKNA ÜMBER JÄRVE JOOKS</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/374301/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/kohila-pikamaajooksude-sari-2026-x-etapp-5000m-2026">Kohila pikamaajooksude sari 2026 X etapp 5000m</a></h2><div class="acts"><a class="res" href="/race/kohila-pikamaajooksude-sari-2026-x-etapp-5000m-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/rava-swimrun-2026">Rava SwimRun</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/rava-swimrun-2026/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/skoda-mtb-kolmapaevakud-2026-pirita-2026">Škoda MTB Kolmapäevakud 2026 - Pirita</a></h2><div class="acts"><a class="res" href="/race/skoda-mtb-kolmapaevakud-2026-pirita-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">13</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/31-joosu-jarvejooksu-sarja-5-etapp-2026">31. Joosu Järvejooksu sarja 5. etapp</a></h2><div class="acts"><a class="res" href="/race/31-joosu-jarvejooksu-sarja-5-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">14</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/hawaii-express-kokova-900-500-2026">Hawaii Express KÕKÕVA 900/500</a></h2><div class="acts"><a class="res" href="/race/hawaii-express-kokova-900-500-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">14</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/ulemiste-oojooks-tallinn-2026-2026">ÜLEMISTE Ööjooks - Tallinn 2026</a></h2><div class="acts"><a class="res" href="/race/ulemiste-oojooks-tallinn-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">15</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/emv-maratonis-hupoteeklaen-27-joulumae-rattamaraton-europark-2026">EMV maratonis / Hüpoteeklaen 27. Jõulumäe Rattamaraton (EuroPark Estonian Cup)</a></h2><div class="acts"><a class="res" href="/race/emv-maratonis-hupoteeklaen-27-joulumae-rattamaraton-europark-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">15</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/laane-virumaa-jooksusari-2026-27-viru-nigula-rahvajooks-2026">Lääne-Virumaa jooksusari 2026 - 27. Viru-Nigula Rahvajooks</a></h2><div class="acts"><a class="res" href="/race/laane-virumaa-jooksusari-2026-27-viru-nigula-rahvajooks-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">16</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/parnu-triatlon-2026-2026">Pärnu triatlon 2026</a></h2><div class="acts"><a class="res" href="/race/parnu-triatlon-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">17</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/jk-sarma-seeriajooks-1500-m-2026">JK Sarma seeriajooks 1500 m</a></h2><div class="acts"><a class="res" href="/race/jk-sarma-seeriajooks-1500-m-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">18</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/parnu-aasta-jooksud-9-etapp-2026">Pärnu Aasta jooksud 9 etapp</a></h2><div class="acts"><a class="res" href="/race/parnu-aasta-jooksud-9-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">18</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/parnu-aastajooksud-2026">Pärnu Aastajooksud</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3392">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/15-etapp-vabaohumuuseum-2026">15. ETAPP / Vabaõhumuuseum</a></h2><div class="acts"><a class="res" href="/race/15-etapp-vabaohumuuseum-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/24-tervisejooks-ja-kond-2026-2">24. Tervisejooks ja -kõnd</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3442">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/50-jarvamaa-orienteerumispaevakud-7-etapp-2026">50. Järvamaa orienteerumispäevakud 7. etapp</a></h2><div class="acts"><a class="res" href="/race/50-jarvamaa-orienteerumispaevakud-7-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/jarvamaa-meistrivoistlused-orienteerumise-luhirajal-2026">Järvamaa meistrivõistlused orienteerumise lühirajal</a></h2><div class="acts"><a class="res" href="/race/jarvamaa-meistrivoistlused-orienteerumise-luhirajal-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/viljandimaa-orienteerumispaevakud-6-etapp-2026">Viljandimaa orienteerumispäevakud 6. etapp</a></h2><div class="acts"><a class="res" href="/race/viljandimaa-orienteerumispaevakud-6-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/10-uts-ummamuudu-liina-uujuusk-kond-2026">10. Üts Ummamuudu liina üüjuusk-kõnd</a></h2><div class="acts"><a class="res" href="/race/10-uts-ummamuudu-liina-uujuusk-kond-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/ironkids-tallinn-2026-2026">IRONKIDS Tallinn 2026</a></h2><div class="acts"><a class="res" href="/race/ironkids-tallinn-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/karu-jarve-jooks-jarvamaa-jarvede-joksu-7-etapp-2026">Käru järve jooks, Järvamaa järvede joksu 7 etapp</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/liikumissari-8-jarvamaa-jarvede-jooksud-vii-etapp-karu-jarve-jooks/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/kooraste-rahvatriatlon-2026">Kooraste rahvatriatlon</a></h2><div class="acts"><a class="res" href="/race/kooraste-rahvatriatlon-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/sunset-run-2026-2026">Sunset Run 2026</a></h2><div class="acts"><a class="res" href="/race/sunset-run-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/toravere-tt5-transtar-temposari-v-etapp-2026">Tõravere TT5 - Transtar Temposari V etapp</a></h2><div class="acts"><a class="res" href="/race/toravere-tt5-transtar-temposari-v-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">20</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/voru-cup-voistkondlikus-valiboccias-2026-2026">VÕRU CUP VÕISTKONDLIKUS VÄLIBOCCIAS 2026</a></h2><div class="acts"><a class="res" href="/race/voru-cup-voistkondlikus-valiboccias-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/husqvarna-eesti-olumpiakrossi-karikasarja-v-etapp-hiiumaa-xc-2026">Husqvarna Eesti Olümpiakrossi karikasarja V etapp - Hiiumaa XCO</a></h2><div class="acts"><a class="res" href="/race/husqvarna-eesti-olumpiakrossi-karikasarja-v-etapp-hiiumaa-xc-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/ironman-tallinn-2026">IRONMAN Tallinn</a></h2><div class="acts"><a class="res" href="/race/ironman-tallinn-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/luganuse-rahvajooks-2026">Lüganuse rahvajooks</a></h2><div class="acts"><a class="res" href="/race/luganuse-rahvajooks-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/sh-rapla-rogain-2026">SH Rapla Rogain</a></h2><div class="acts"><a class="res" href="/race/sh-rapla-rogain-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">23</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/ironman-70-3-tallinn-2026">IRONMAN 70.3 Tallinn</a></h2><div class="acts"><a class="res" href="/race/ironman-70-3-tallinn-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">23</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/luunja-2-moisapargi-jooksukross-2026-2026">Luunja 2. Mõisapargi jooksukross 2026</a></h2><div class="acts"><a class="res" href="/race/luunja-2-moisapargi-jooksukross-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">28</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/telliskivi-5000-2026">Telliskivi 5000</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3482">Results</a></div></div></article><article class="row"><div class="date"><div class="day">29</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/tallinna-vee-54-jooks-umber-ulemiste-jarve-2026">Tallinna Vee 54. jooks ümber Ülemiste järve</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3297">Results</a></div></div></article><article class="row"><div class="date"><div class="day">02</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/24-tervisejooks-ja-kond-2026">24. Tervisejooks ja -kõnd</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3449">Results</a></div></div></article><article class="row"><div class="date"><div class="day">04</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/xx-saue-ohtujooks-2026">XX SAUE ÕHTUJOOKS</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3433">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/parnu-ohtujooks-2026">PÄRNU ÕHTUJOOKS</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3268">Results</a></div></div></article><article class="row"><div class="date"><div class="day">06</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/26-juri-jaansoni-kahe-silla-jooks-2026">26. JÜRI JAANSONI KAHE SILLA JOOKS</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3262">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/27-tallinna-sugisjooks-2026">27. Tallinna Sügisjooks</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3248">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/nike-noortejooks-2026">NIKE NOORTEJOOKS</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3256">Results</a></div></div></article><article class="row"><div class="date"><div class="day">12</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/tallinna-maraton-2026">TALLINNA MARATON</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3255">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/179-pooripaevajooks-jooks-sugisesse-2026">179. Pööripäevajooks - jooks sügisesse</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3325">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">SEP</div></div><div class="body"><h2><a class="title" href="/race/29-tartu-rattamaraton-2026">29. TARTU RATTAMARATON</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3232">Results</a></div></div></article><article class="row"><div class="date"><div class="day">02</div><div class="mon">OCT</div></div><div class="body"><h2><a class="title" href="/race/friday-night-run-2026">FRIDAY NIGHT RUN</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3327">Results</a></div></div></article><article class="row"><div class="date"><div class="day">03</div><div class="mon">OCT</div></div><div class="body"><h2><a class="title" href="/race/15-tartu-linnamaraton-2026">15. TARTU LINNAMARATON</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3236">Results</a></div></div></article><article class="row"><div class="date"><div class="day">11</div><div class="mon">OCT</div></div><div class="body"><h2><a class="title" href="/race/71-viljandi-linnajooks-2026">71. Viljandi Linnajooks</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3280">Results</a></div></div></article><article class="row"><div class="date"><div class="day">16</div><div class="mon">OCT</div></div><div class="body"><h2><a class="title" href="/race/53-saaremaa-kolme-paeva-jooks-2026">53. Saaremaa Kolme Päeva Jooks</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3308">Results</a></div></div></article><article class="row"><div class="date"><div class="day">30</div><div class="mon">JAN</div></div><div class="body"><h2><a class="title" href="/race/27-neeruti-maraton-2027">27. Neeruti Maraton</a></h2><div class="acts"><a class="res" href="https://www.estoloppet.ee/et/tulemused">Results</a></div></div></article><article class="row"><div class="date"><div class="day">07</div><div class="mon">FEB</div></div><div class="body"><h2><a class="title" href="/race/49-alutaguse-maraton-2027">49. Alutaguse Maraton</a></h2><div class="acts"><a class="res" href="https://www.estoloppet.ee/et/tulemused">Results</a></div></div></article><!--SSR-END--></main>
+
+<footer class="wrap">
+  <p><strong>Me ei hoia tulemusi. Me lihtsalt teame, kus need on.</strong><br>
+     Iga link viib otse ametlikku allikasse.</p>
+  <p id="stamp"></p>
+</footer>
+
+<script>
+// Service workerit siin meelega EI OLE.
+//
+// Ta oleks hoidnud lehe telefonis, aga tulemused elavad niikuinii ajavõtjate
+// serverites — ilma võrguta ei näe neid keegi. Vastu oleks saanud uue viisi,
+// kuidas asjad katki lähevad: vana leht jääb vahemällu kinni ja kasutaja ei
+// saa aru, miks andmed ei uuene. Ikoon avaekraanil töötab ka ilma selleta.
+
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const ARROW = '<span class="arr">↗</span>';
+const state = {
+  events: [],      // laetud võistlused (kasvab, kui aastaid juurde laetakse)
+  meta: null,      // index.json — mis aastaid üldse olemas on
+  loaded: new Set(),
+  // Vaade tuleb aadressist, mitte vaikeväärtusest — /upcoming/ peab avanema
+  // kohe õigel sakil, ka siis kui keegi selle lingi otse jagas.
+  tab: location.pathname.startsWith('/upcoming') ? 'next' : 'past',
+  q: '', year: null, loading: false,
+};
+const today = new Date().toISOString().slice(0, 10);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function actions(e){
+  const out = [];
+  for (const s of e.sources){
+    if (s.links.live)
+      out.push(`<a class="live" href="${s.links.live}">LIVE</a>`);
+  }
+  // Igal real on ALATI "Results". Ei "Organiser", ei "Search", ei tühja rida.
+  // Kasutaja tuli siia üheks asjaks ja tal ei ole vaja meie sisemist
+  // teadmatust sildina lugeda.
+  //
+  // Kui otselinki ei ole, viib nupp valmis otsingusse ja me ütleme ausalt
+  // ühe lausega, et see üks läks meil käest.
+  const res = e.sources.find(s => s.links.results);
+  let lost = false;
+
+  if (res){
+    out.push(`<a class="res" href="${res.links.results}">Results ${ARROW}</a>`);
+  } else {
+    const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
+    out.push(`<a class="res" href="https://www.google.com/search?q=${q}">Results ${ARROW}</a>`);
+    lost = true;
+  }
+
+  const start = e.sources.find(s => s.links.startlist && s.links.startlist !== (res && res.links.results));
+  if (start){
+    out.push('<span class="sep">·</span>');
+    out.push(`<a class="other" href="${start.links.startlist}">Start list ${ARROW}</a>`);
+  }
+
+  if (lost) out.push('<span class="lost">Ups, seda lehte esimese hooga ei leia</span>');
+
+  return out.join('');
+}
+
+// Võistluse nimi on link ta enda infolehele — korraldaja koduleht, kui see
+// on teada, muidu ajavõtja ürituseleht. Kui kumbagi pole, jääb tavaline tekst.
+// NB: eelistame "info" linki, mitte korraldaja oma. Sportos annab korraldajaks
+// tihti lihtsalt kodulehe juure (tartu.ee, pyhajarve.com), mis ei ütle selle
+// konkreetse võistluse kohta midagi. Info-link viib alati just sellele
+// võistlusele — see on see, mida inimene tegelikult tahab.
+// Nimi viib VÕISTLUSE enda lehele — korraldaja omale.
+//
+// Ajavõtja ürituseleht (Sportos, ChampionChip) EI OLE võistluse koduleht.
+// Seal on samad andmed, mis meil juba on, ja veel üks link edasi. Kasutaja
+// ootab nime taga korraldajat, mitte vahendajat. Ajavõtja leht jääb ainult
+// viimaseks õlekõrreks, kui korraldajat me ei tea.
+function nameHtml(e){
+  const stage = e.sources.find(s => s.id === 'organiser' && s.links.info);
+  const org = e.sources.find(s => s.links.organiser);
+  const info = e.sources.find(s => s.links.info);
+  const url = (stage && stage.links.info)
+    || (org && org.links.organiser)
+    || (info && info.links.info);
+  const name = esc(e.name);
+  return url
+    ? `<a class="title" href="${url}">${name}</a>`
+    : name;
+}
+
+// --- arhiivi laadimine aastate kaupa ---------------------------------------
+
+// --- otsing ----------------------------------------------------------------
+
+// "Pühajärve" -> "puhajarve". Eestlane trükib telefonis tihti täpitähtedeta,
+// ja võistluste nimed on täpitähti täis. Ilma selleta ei leiaks pool asju.
+const fold = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+// Levenshtein, aga peatume niipea kui vahe on üle lubatud piiri.
+function closeEnough(word, target, max){
+  if (Math.abs(word.length - target.length) > max) return false;
+  let prev = Array.from({ length: target.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= word.length; i++){
+    const row = [i];
+    let best = i;
+    for (let j = 1; j <= target.length; j++){
+      row[j] = Math.min(
+        prev[j] + 1,
+        row[j-1] + 1,
+        prev[j-1] + (word[i-1] === target[j-1] ? 0 : 1)
+      );
+      if (row[j] < best) best = row[j];
+    }
+    if (best > max) return false;
+    prev = row;
+  }
+  return prev[target.length] <= max;
+}
+
+function matches(e, terms){
+  // 1. Kõik sõnad peavad esinema — järjekord ei loe.
+  //    Nii leiab "tartu maraton" ka kirje "52. Maraton Tartus".
+  if (terms.every(t => e._s.includes(t))) return true;
+
+  // 2. Kui ei leidnud, lubame ühe näpuvea sõna kohta. Ainult pikematel
+  //    sõnadel, muidu hakkab lühikest juppi liiga paljuga sobitama.
+  return terms.every(t => {
+    if (t.length < 5) return e._s.includes(t);
+    return e._w.some(w => closeEnough(t, w, 1));
+  });
+}
+
+// --- arhiivi laadimine aastate kaupa ---------------------------------------
+
+async function loadYear(year){
+  if (state.loaded.has(year)) return;
+  state.loaded.add(year);
+  const res = await fetch(`events-${year}.json`);
+  if (!res.ok) return;
+  const rows = await res.json();
+  for (const e of rows){
+    e._s = fold(`${e.name} ${e.location||''} ${e.sport||''}`);
+    e._w = e._s.split(/[^a-z0-9]+/).filter(w => w.length > 2);
+  }
+  state.events = state.events.concat(rows);
+  state.events.sort((a,b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
+}
+
+// Otsing peab käima üle kogu ajaloo, mitte ainult selle, mis juhtub laetud olema.
+async function loadAllYears(){
+  if (!state.meta) return;
+  const missing = state.meta.years.map(y => y.year).filter(y => !state.loaded.has(y));
+  if (!missing.length) return;
+  state.loading = true;
+  render();
+  await Promise.all(missing.map(loadYear));
+  state.loading = false;
+  buildMenu();
+}
+
+// Kui arhiiviaasta on valitud, ei ole KUMBKI tab aktiivne. Muidu põleb
+// "Upcoming" punaselt ajal, mil ekraanil on 2012. aasta võistlused — ja
+// kasutaja otsib süüdlast enda seest, mitte liidesest.
+function syncTabs(){
+  const active = state.year ? null : state.tab;
+  document.getElementById('tab-past').setAttribute('aria-selected', String(active === 'past'));
+  document.getElementById('tab-next').setAttribute('aria-selected', String(active === 'next'));
+}
+
+function render(){
+  syncTabs();
+  const list = document.getElementById('list');
+  const terms = fold(state.q).split(/\s+/).filter(Boolean);
+
+  let rows = state.events.filter(e => {
+    if (state.year && !e.date.startsWith(state.year)) return false;
+    if (terms.length) return matches(e, terms);
+    if (state.year) return true;   // aastat vaadates näita kõike, ka tulevast
+    return state.tab === 'past' ? e.date <= today : e.date > today;
+  });
+  const q = terms.length ? state.q : '';
+  // Tulevased võistlused ALATI lähimast kaugemani. Varem jäi see tegemata,
+  // kui aasta oli valitud, ja Upcoming algas detsembriga — täiesti vale ots.
+  if (state.tab === 'next' && !terms.length){
+    rows = rows.slice().sort((a,b) => a.date.localeCompare(b.date));
+  }
+
+  if (!rows.length){
+    list.innerHTML = `<div class="empty">${
+      state.loading ? 'Otsin arhiivist…' : (q ? 'Midagi ei leidnud.' : 'Siin pole hetkel midagi.')
+    }</div>`;
+    return;
+  }
+
+  list.innerHTML = rows.slice(0, 300).map(e => {
+    const d = new Date(e.date + 'T12:00:00');
+    return `<article class="row">
+      <div class="date">
+        <div class="day">${String(d.getDate()).padStart(2,'0')}</div>
+        <div class="mon">${MONTHS[d.getMonth()]}</div>
+      </div>
+      <div class="body">
+        <h2>${nameHtml(e)}</h2>
+        <div class="acts">${actions(e)}</div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+// Menüüs on ainult aastad.
+//
+// Siin olid varem ka spordialad, aga need tulid andmetest eestikeelsena
+// ("Maanteerattasõit") keset ingliskeelset liidest — ja keegi ei otsi tulemusi
+// ala järgi. Sa tead, mis võistlusel sa käisid. Ala jääb otsingusse sisse,
+// nii et "triatlon" kirjutades leiab ikka.
+// Aastaid EI filtreerita. Siin oli varem reegel, mis peitis kehva katvusega
+// aastad ära — ja tulemus oli, et menüüst kadusid 2026 ja 2025, sest neis on
+// palju värskeid võistlusi, mille tulemusi pole veel avaldatud. Alles jäid
+// juhuslikud vanad aastad. Kasutaja tahab näha kõiki aastaid, mis olemas on.
+function buildMenu(){
+  const box = document.getElementById('menu-years');
+  const years = state.meta ? state.meta.years.map(y => y.year) : [];
+
+  box.innerHTML = years
+    .map(y => `<button data-year="${y}" aria-pressed="${state.year === y}">${y}</button>`)
+    .join('');
+
+  box.querySelectorAll('button[data-year]').forEach(b => b.addEventListener('click', async () => {
+    const year = b.dataset.year;
+    state.year = state.year === year ? null : year;
+    closeMenu();
+    if (state.year){
+      state.loading = true; render();
+      await loadYear(state.year);
+      state.loading = false;
+    }
+    buildMenu();
+    drawYearPill();
+    render();
+  }));
+}
+
+// Kui aasta on valitud, peab see olema NÄHA — muidu ei saa kasutaja aru,
+// miks nimekiri äkki teistsugune on, ega oska seda tagasi lülitada.
+function drawYearPill(){
+  const bar = document.getElementById('yearbar');
+  if (!state.year){ bar.innerHTML = ''; return; }
+  bar.innerHTML = `<span class="yearpill">${state.year}<button aria-label="Eemalda aasta">×</button></span>`;
+  bar.querySelector('button').addEventListener('click', () => {
+    state.year = null;
+    buildMenu(); drawYearPill(); render();
+  });
+}
+
+document.getElementById('btn-search').addEventListener('click', () => {
+  const box = document.getElementById('searchbar');
+  const open = box.classList.toggle('open');
+  document.getElementById('btn-search').setAttribute('aria-expanded', open);
+  if (open) document.getElementById('q').focus();
+});
+
+const menuEl = document.getElementById('menu');
+const menuBtn = document.getElementById('btn-menu');
+function closeMenu(){ menuEl.hidden = true; menuBtn.setAttribute('aria-expanded','false'); }
+menuBtn.addEventListener('click', (ev) => {
+  ev.stopPropagation();
+  menuEl.hidden = !menuEl.hidden;
+  menuBtn.setAttribute('aria-expanded', String(!menuEl.hidden));
+});
+// Väljapoole klõpsamine ja Escape sulgevad — nagu iga rippmenüü puhul oodatakse.
+document.addEventListener('click', (ev) => {
+  if (!menuEl.hidden && !menuEl.contains(ev.target)) closeMenu();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeMenu(); });
+
+const qEl = document.getElementById('q');
+
+// Otsingu sulgemine: väli tühjaks, riba kinni, nimekiri tagasi.
+function closeSearch(){
+  qEl.value = '';
+  state.q = '';
+  document.getElementById('searchbar').classList.remove('open');
+  document.getElementById('btn-search').setAttribute('aria-expanded', 'false');
+  qEl.blur();
+  render();
+}
+
+// Esimene otsingutäht laeb kogu arhiivi taustal — pärast seda on otsing kohene.
+let searchLoaded = false;
+qEl.addEventListener('input', async ev => {
+  state.q = ev.target.value;
+  render();
+  if (!searchLoaded && state.q.trim()){
+    searchLoaded = true;
+    await loadAllYears();
+    render();
+  }
+});
+
+// Ristike välja sees tekitab "search" sündmuse. Kui väli jäi tühjaks, on
+// kasutaja otsingu lõpetanud — paneme riba kinni, mitte ei jäta tühjalt ette.
+// NB: Enter tekitab sama sündmuse, aga siis on väljal tekst ja me ei sulge.
+qEl.addEventListener('search', () => { if (!qEl.value) closeSearch(); });
+qEl.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeSearch(); });
+// Tabid on lingid. JS võtab kliki üle ja vahetab vaadet kohe, aga aadressiriba
+// uuendame ka — nii saab kasutaja lehe jagada ja tagasinupp töötab.
+for (const [id, tab, path] of [['tab-past','past','/'], ['tab-next','next','/upcoming/']]){
+  document.getElementById(id).addEventListener('click', (ev) => {
+    ev.preventDefault();
+    state.tab = tab;
+    state.year = null;
+    history.pushState({ tab }, '', path);
+    buildMenu();
+    drawYearPill();
+    render();
+  });
+}
+window.addEventListener('popstate', () => {
+  state.tab = location.pathname.startsWith('/upcoming') ? 'next' : 'past';
+  state.year = null;
+  buildMenu(); drawYearPill(); render();
+});
+
+(async () => {
+  try {
+    state.meta = await (await fetch('index.json')).json();
+  } catch {
+    document.getElementById('list').innerHTML =
+      '<div class="empty">Andmeid ei leitud.</div>';
+    return;
+  }
+
+  // Laeme jooksva aasta kohe. Kui aasta on alles alanud ja kirjeid on vähe,
+  // võtame eelmise ka — muidu oleks jaanuaris leht peaaegu tühi.
+  const years = state.meta.years.map(y => y.year);
+  const thisYear = String(new Date().getFullYear());
+  const first = years.includes(thisYear) ? thisYear : years[0];
+  await loadYear(first);
+  if (state.events.length < 60 && years[years.indexOf(first) + 1]) {
+    await loadYear(years[years.indexOf(first) + 1]);
+  }
+
+  const d = new Date(state.meta.generated);
+  const span = years.length ? `${years[years.length - 1]}–${years[0]}` : '';
+  document.getElementById('stamp').textContent =
+    `Uuendatud ${d.toLocaleString('et-EE', { dateStyle: 'medium', timeStyle: 'short' })} · `
+    + `${state.meta.total} võistlust · ${span}`;
+
+  buildMenu();
+  render();
+})();
+</script>
+</body>
+</html>

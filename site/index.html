@@ -6,6 +6,7 @@
 <title>LOSTTIMES — Eesti võistluste tulemused ühes kohas</title>
 <meta name="description" content="Kõikide Eesti jooksu-, suusa-, ratta- ja triatlonivõistluste stardinimekirjad ja tulemused ühes kohas. Üks klikk õigele ajavõtulehele.">
 <meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://losttimes.ee/">
 
 <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -132,13 +133,13 @@
 
   /* ---------- tabid ---------- */
   .tabs{display:flex;gap:30px;margin-top:30px;border-bottom:1px solid var(--line)}
-  .tabs button{
+  .tabs a{
     font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.09em;
-    text-transform:uppercase;color:var(--slate);
-    background:none;border:0;padding:0 0 13px;cursor:pointer;position:relative;
+    text-transform:uppercase;color:var(--slate);text-decoration:none;
+    padding:0 0 13px;cursor:pointer;position:relative;
   }
-  .tabs button[aria-selected="true"]{color:var(--red)}
-  .tabs button[aria-selected="true"]::after{
+  .tabs a[aria-selected="true"]{color:var(--red)}
+  .tabs a[aria-selected="true"]::after{
     content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--red);
   }
 
@@ -174,49 +175,49 @@
   <div class="top">
     <div>
       <a class="logo" href="/">LOSTTIMES<i>.</i></a>
-      <div class="tagline">We know where they are.</div>
     </div>
     <div class="icons">
-      <button id="btn-search" aria-label="Search" aria-expanded="false">
+      <button id="btn-search" aria-label="Otsi" aria-expanded="false">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       </button>
-      <button id="btn-menu" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+      <button id="btn-menu" aria-label="Menüü" aria-expanded="false" aria-controls="menu">
         <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
 
     <div class="menu" id="menu" hidden>
-      <div class="menu-label">Archive</div>
-      <div class="menu-years" id="menu-years"></div>
       <div class="menu-links">
-        <a href="/about.html">About</a>
-        <a href="/advertise.html">Advertise</a>
-        <a href="mailto:info@losttimes.ee?subject=LostTimes">Contact</a>
+        <a href="/arhiiv/">Arhiiv</a>
+        <a href="/advertise.html">Reklaam</a>
+        <a href="/about.html">Kontakt</a>
+        <a href="mailto:info@losttimes.ee?subject=V%C3%B5istlus%20puudu">Võistlus puudu?</a>
       </div>
     </div>
   </div>
 
   <div id="yearbar"></div>
 
-  <h1>Where the hell<br>are my results<svg class="qm" viewBox="0 0 100 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
-  <p class="sub">Right here.</p>
+  <h1>Jälle ei leia<br>tulemusi<svg class="qm" viewBox="0 0 100 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
+  <p class="sub">Siin nad on.</p>
 
   <div class="searchbar" id="searchbar">
-    <input id="q" type="search" autocomplete="off" placeholder="Search a race…" aria-label="Search a race">
+    <input id="q" type="search" autocomplete="off" placeholder="Otsi võistlust…" aria-label="Otsi võistlust">
   </div>
 
+  <!-- Tabid on päris lingid, mitte nupud: /upcoming on eraldi URL, mille
+       Google saab indekseerida ja inimene jagada. JS võtab kliki üle ja
+       vahetab vaadet ilma laadimiseta, aga link töötab ka ilma JS-ita. -->
   <div class="tabs" role="tablist">
-    <button id="tab-past" role="tab" aria-selected="true">Results</button>
-    <button id="tab-next" role="tab" aria-selected="false">Upcoming</button>
+    <a id="tab-past" role="tab" href="/" aria-selected="true">Tulemused</a>
+    <a id="tab-next" role="tab" href="/upcoming/" aria-selected="false">Tulevased</a>
   </div>
 </div>
 
-<main class="wrap" id="list"><div class="empty">Loading…</div></main>
+<main class="wrap" id="list"><!--SSR-START--><article class="row"><div class="date"><div class="day">10</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/37-lauritsapaevajooks-2026">37. Lauritsapäevajooks</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3451">Results</a></div></div></article><article class="row"><div class="date"><div class="day">10</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/urumarja-38-velotuur-2026">Urumarja 38. velotuur</a></h2><div class="acts"><a class="res" href="https://timing.ee/_000/club/live_results.php?event=131&amp;distance_id=724">Results</a></div></div></article><article class="row"><div class="date"><div class="day">09</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/oismae-raba-terviseraja-jooks-2026">Õismäe Raba Terviseraja jooks</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/393665/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">09</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/turi-triatlon-2026">Türi triatlon</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/triatloniakadeemia-triatlonid/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/baltimaade-ja-eesti-veteranide-meistrivoistlused-2026">Baltimaade- ja Eesti veteranide Meistrivõistlused</a></h2><div class="acts"><a class="res" href="/race/baltimaade-ja-eesti-veteranide-meistrivoistlused-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/filter-rull-de-tallinn-2026">Filter Rull de Tallinn</a></h2><div class="acts"><a class="res" href="/race/filter-rull-de-tallinn-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/filter-tour-de-tallinn-2026">Filter Tour de Tallinn</a></h2><div class="acts"><a class="res" href="https://www.racetecresults.com/results.aspx?CId=16573&amp;RId=669">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/heavy-metal-ultra-2026">HEAVY METAL ULTRA</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/414423/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/hiiumaa-elamusretk-2026">Hiiumaa Elamusretk</a></h2><div class="acts"><a class="res" href="/race/hiiumaa-elamusretk-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/laane-virumaa-jooksusari-2026-20-tapa-linnajooks-2026">Lääne-Virumaa jooksusari 2026 - 20. Tapa linnajooks</a></h2><div class="acts"><a class="res" href="/race/laane-virumaa-jooksusari-2026-20-tapa-linnajooks-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/paldiski-liigub-2026">Paldiski liigub</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/laane-harju-jooksusarja-jooksud/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">08</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/xxiii-muhu-jooks-2026">XXIII Muhu Jooks</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/muhu-maraton/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">06</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/egcc-we-love-cycling-kriteerium-2026">EGCC / We Love Cycling kriteerium</a></h2><div class="acts"><a class="res" href="/race/egcc-we-love-cycling-kriteerium-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/13-etapp-botaanikaaed-2026">13. ETAPP / Botaanikaaed</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/13-etapp-2026/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/24-tervisejooks-ja-kond-2026-4">24. Tervisejooks ja -kõnd</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3438">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/filter-temposari-5-etapp-2026">Filter Temposari (5. etapp)</a></h2><div class="acts"><a class="res" href="https://www.racetecresults.com/results.aspx?CId=16573&amp;RId=665">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/ingliste-mudajooks-2026">INGLISTE MUDAJOOKS</a></h2><div class="acts"><a class="res" href="https://antrotsenter.ee/tulemused/2026ingliste.pdf">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/kevek-ja-tartu-kalev-2026-a-staadionijooksu-vii-etapp-2026">KEVEK ja Tartu KALEV 2026.a. STAADIONIJOOKSU VII etapp</a></h2><div class="acts"><a class="res" href="/race/kevek-ja-tartu-kalev-2026-a-staadionijooksu-vii-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/kohila-pikamaajooksude-sari-2026-ix-etapp-1-miil-2026">Kohila pikamaajooksude sari 2026 IX etapp 1 miil</a></h2><div class="acts"><a class="res" href="/race/kohila-pikamaajooksude-sari-2026-ix-etapp-1-miil-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">05</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/laane-harju-liikumissarja-3-etapp-paldiski-2026">LÄÄNE-HARJU LIIKUMISSARJA 3. ETAPP, PALDISKI</a></h2><div class="acts"><a class="res" href="https://antrotsenter.ee/tulemused/2026paldiskijooks.pdf">Results</a></div></div></article><article class="row"><div class="date"><div class="day">04</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/parnu-aasta-jooksud-8-etapp-2026">Pärnu Aasta jooksud 8 etapp</a></h2><div class="acts"><a class="res" href="/race/parnu-aasta-jooksud-8-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">04</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/parnu-aastajooksud-2026-2">Pärnu Aastajooksud</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3393">Results</a></div></div></article><article class="row"><div class="date"><div class="day">02</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/noo-veskijarve-v-triatlon-2026">NÕO VESKIJÄRVE V TRIATLON</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3395">Results</a></div></div></article><article class="row"><div class="date"><div class="day">02</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/sko-motorsi-26-rakke-rattamaraton-2026">SKO MOTORSI 26. Rakke Rattamaraton</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/rakke-rattamaraton/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">02</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/vaana-joesuu-jooks-2026">Vääna-Jõesuu jooks</a></h2><div class="acts"><a class="res" href="/race/vaana-joesuu-jooks-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">02</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/vagilase-jooksusarja-3-etapp-2026">VÄGILASE JOOKSUSARJA 3. ETAPP</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/414296/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/28-holstre-paistu-maanteejooks-hanno-priksi-malestuseks-2026">28. Holstre-Paistu maanteejooks Hanno Priksi mälestuseks</a></h2><div class="acts"><a class="res" href="/race/28-holstre-paistu-maanteejooks-hanno-priksi-malestuseks-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/4-koogi-triatlon-2026">4. Koogi triatlon</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/koogi-triatlon/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-iv-etapp-jarva-jaan-2026">Husqvarna Eesti Olümpiakrossi karikasari IV etapp - Järva-Jaani XCO</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/jarva-jaani-xco/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/mapri-ehitus-x-oovagilane-2026">Mapri Ehitus x Öövägilane</a></h2><div class="acts"><a class="res" href="/race/mapri-ehitus-x-oovagilane-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/mapri-ehitus-x-vagilase-jooks-lahte-eliit-2026">MAPRI EHITUS x VÄGILASE JOOKS – LÄHTE: ELIIT</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/413851/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/mapri-ehitus-x-vagilase-jooks-lahte-2026">Mapri Ehitus x Vägilase jooks Lähte</a></h2><div class="acts"><a class="res" href="/race/mapri-ehitus-x-vagilase-jooks-lahte-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/murutraktorite-liiga-moisakula-etapp-baltic-cup-finaal-laste-2026">MURUTRAKTORITE LIIGA MÕISAKÜLA ETAPP, BALTIC CUP FINAAL, LASTE ATV HOBIKROSS</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/413842/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/oovagilase-jooks-2026">ÖÖVÄGILASE JOOKS</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/413095/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">01</div><div class="mon">AUG</div></div><div class="body"><h2><a class="title" href="/race/vaatsa-3-rahvatriatlon-2026">VÄÄTSA 3. RAHVATRIATLON</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/394805/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">31</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/gravely-fest-2026-2026">Grävely Fest 2026</a></h2><div class="acts"><a class="res" href="/race/gravely-fest-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">29</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/12-etapp-sutiste-parkmets-2026">12. ETAPP - Sütiste parkmets</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/12-etapp-2026/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">29</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/24-tervisejooks-ja-kond-2026-5">24. Tervisejooks ja -kõnd</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3436">Results</a></div></div></article><article class="row"><div class="date"><div class="day">29</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/skoda-mtb-kolmapaevakud-2026-keila-2026">Škoda MTB Kolmapäevakud 2026 - Keila</a></h2><div class="acts"><a class="res" href="/race/skoda-mtb-kolmapaevakud-2026-keila-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">29</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/vorbuse-tt4-transtar-temposari-iv-etapp-2026">Vorbuse TT4 - Transtar Temposari IV etapp</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/transtar-temposari-iv-etapp-348/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/24-kilingi-nomme-triatlon-2026">24. KILINGI-NÕMME TRIATLON</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/391598/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/kambja-kruus-26-jaab-ara-2026">Kambja Kruus &#39;26 JÄÄB ÄRA</a></h2><div class="acts"><a class="res" href="/race/kambja-kruus-26-jaab-ara-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/kfc-sudasuve-challenge-pirita-2026-2026">KFC Südasuve Challenge - Pirita 2026</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/kfc-sudasuve-challenge-pirita-2026/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/leigo-trail-2026">Leigo Trail</a></h2><div class="acts"><a class="res" href="/race/leigo-trail-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/otepaa-triatlon-2026">Otepää triatlon</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/otepaa-triatlon-2026/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/soela-maastikutriatlon-2026">SOELA MAASTIKUTRIATLON</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/400013/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">26</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/suur-kilingi-nomme-spordipidu-2026">Suur Kilingi-Nõmme Spordipidu</a></h2><div class="acts"><a class="res" href="/race/suur-kilingi-nomme-spordipidu-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">25</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/rand-tuulberg-26-elva-rattamaraton-europark-estonian-cup-2026">Rand &amp; Tuulberg 26. Elva Rattamaraton (EuroPark Estonian Cup)</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/rand-tuulberg-26-elva-rattamaraton-europark-estonian-cup/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">25</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/sk-viraaz-vasaraheite-voistlused-2026">SK &quot;Viraaž&quot; vasaraheite võistlused</a></h2><div class="acts"><a class="res" href="/race/sk-viraaz-vasaraheite-voistlused-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">24</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/jk-sarma-seeriajooks-10-000-m-2026">JK Sarma seeriajooks 10 000 m</a></h2><div class="acts"><a class="res" href="/race/jk-sarma-seeriajooks-10-000-m-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/11-etapp-pae-park-2026">11. ETAPP - Pae park</a></h2><div class="acts"><a class="res" href="https://www.sportos.eu/ee/et/11-etapp-2026/tulemused/">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/24-tervisejooks-ja-kond-2026-6">24. Tervisejooks ja -kõnd</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3434">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/kohila-pikamaajooksude-sari-2026-viii-etapp-600m-2026">Kohila pikamaajooksude sari 2026 VIII etapp 600m</a></h2><div class="acts"><a class="res" href="/race/kohila-pikamaajooksude-sari-2026-viii-etapp-600m-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/ttp-14-tallinna-noortetuur-m-n12-2026">TTP 14. Tallinna Noortetuur M/N12</a></h2><div class="acts"><a class="res" href="https://timing.ee/_000/club/live_results.php?event=124&amp;distance_id=682">Results</a></div></div></article><article class="row"><div class="date"><div class="day">22</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/ttp-14-tallinna-noortetuur-m-n14-2026">TTP 14. Tallinna Noortetuur M/N14</a></h2><div class="acts"><a class="res" href="https://timing.ee/_000/club/live_results.php?event=129&amp;distance_id=713">Results</a></div></div></article><article class="row"><div class="date"><div class="day">21</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/balti-voistkondlikud-meistrivoistlused-u20-2026-2026">Balti võistkondlikud meistrivõistlused (U20) 2026</a></h2><div class="acts"><a class="res" href="/race/balti-voistkondlikud-meistrivoistlused-u20-2026-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">21</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/parnu-aasta-jooksud-7-etapp-2026">Pärnu Aasta jooksud 7 etapp</a></h2><div class="acts"><a class="res" href="/race/parnu-aasta-jooksud-7-etapp-2026">Results</a></div></div></article><article class="row"><div class="date"><div class="day">21</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/parnu-aastajooksud-2026-3">Pärnu Aastajooksud</a></h2><div class="acts"><a class="res" href="https://www.championchip.ee/results/3390">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/15-saaksi-triathlon-2026">15. SÄÄKSI TRIATHLON</a></h2><div class="acts"><a class="res" href="https://my.raceresult.com/411625/results">Results</a></div></div></article><article class="row"><div class="date"><div class="day">19</div><div class="mon">JUL</div></div><div class="body"><h2><a class="title" href="/race/31-jooks-kond-umber-uhtjarve-2026">31. Jooks-kõnd ümber Uhtjärve</a></h2><div class="acts"><a class="res" href="/race/31-jooks-kond-umber-uhtjarve-2026">Results</a></div></div></article><!--SSR-END--></main>
 
 <footer class="wrap">
-  <p><strong>We don't host results. We just know where they are.</strong><br>
-     Every link takes you to the timekeeper's own page — ChampionChip, Sportos, Estoloppet,
-     Antrotsenter, TolkNet or the organiser.</p>
+  <p><strong>Me ei hoia tulemusi. Me lihtsalt teame, kus need on.</strong><br>
+     Iga link viib otse ametlikku allikasse.</p>
   <p id="stamp"></p>
 </footer>
 
@@ -234,7 +235,10 @@ const state = {
   events: [],      // laetud võistlused (kasvab, kui aastaid juurde laetakse)
   meta: null,      // index.json — mis aastaid üldse olemas on
   loaded: new Set(),
-  tab: 'past', q: '', year: null, loading: false,
+  // Vaade tuleb aadressist, mitte vaikeväärtusest — /upcoming/ peab avanema
+  // kohe õigel sakil, ka siis kui keegi selle lingi otse jagas.
+  tab: location.pathname.startsWith('/upcoming') ? 'next' : 'past',
+  q: '', year: null, loading: false,
 };
 const today = new Date().toISOString().slice(0, 10);
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -268,7 +272,7 @@ function actions(e){
     out.push(`<a class="other" href="${start.links.startlist}">Start list ${ARROW}</a>`);
   }
 
-  if (lost) out.push('<span class="lost">Ups, this one is really lost</span>');
+  if (lost) out.push('<span class="lost">Ups, seda lehte esimese hooga ei leia</span>');
 
   return out.join('');
 }
@@ -397,7 +401,7 @@ function render(){
 
   if (!rows.length){
     list.innerHTML = `<div class="empty">${
-      state.loading ? 'Searching the archive…' : (q ? 'Nothing found.' : 'Nothing here yet.')
+      state.loading ? 'Otsin arhiivist…' : (q ? 'Midagi ei leidnud.' : 'Siin pole hetkel midagi.')
     }</div>`;
     return;
   }
@@ -455,7 +459,7 @@ function buildMenu(){
 function drawYearPill(){
   const bar = document.getElementById('yearbar');
   if (!state.year){ bar.innerHTML = ''; return; }
-  bar.innerHTML = `<span class="yearpill">${state.year}<button aria-label="Clear year">×</button></span>`;
+  bar.innerHTML = `<span class="yearpill">${state.year}<button aria-label="Eemalda aasta">×</button></span>`;
   bar.querySelector('button').addEventListener('click', () => {
     state.year = null;
     buildMenu(); drawYearPill(); render();
@@ -512,22 +516,31 @@ qEl.addEventListener('input', async ev => {
 // NB: Enter tekitab sama sündmuse, aga siis on väljal tekst ja me ei sulge.
 qEl.addEventListener('search', () => { if (!qEl.value) closeSearch(); });
 qEl.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeSearch(); });
-for (const [id, tab] of [['tab-past','past'], ['tab-next','next']]){
-  document.getElementById(id).addEventListener('click', () => {
+// Tabid on lingid. JS võtab kliki üle ja vahetab vaadet kohe, aga aadressiriba
+// uuendame ka — nii saab kasutaja lehe jagada ja tagasinupp töötab.
+for (const [id, tab, path] of [['tab-past','past','/'], ['tab-next','next','/upcoming/']]){
+  document.getElementById(id).addEventListener('click', (ev) => {
+    ev.preventDefault();
     state.tab = tab;
-    state.year = null;   // tabile vajutamine viib arhiivist tavavaatesse tagasi
+    state.year = null;
+    history.pushState({ tab }, '', path);
     buildMenu();
     drawYearPill();
     render();
   });
 }
+window.addEventListener('popstate', () => {
+  state.tab = location.pathname.startsWith('/upcoming') ? 'next' : 'past';
+  state.year = null;
+  buildMenu(); drawYearPill(); render();
+});
 
 (async () => {
   try {
     state.meta = await (await fetch('index.json')).json();
   } catch {
     document.getElementById('list').innerHTML =
-      '<div class="empty">No data. Run npm run scrape first.</div>';
+      '<div class="empty">Andmeid ei leitud.</div>';
     return;
   }
 
@@ -544,8 +557,8 @@ for (const [id, tab] of [['tab-past','past'], ['tab-next','next']]){
   const d = new Date(state.meta.generated);
   const span = years.length ? `${years[years.length - 1]}–${years[0]}` : '';
   document.getElementById('stamp').textContent =
-    `Updated ${d.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })} · `
-    + `${state.meta.total} races · ${span}`;
+    `Uuendatud ${d.toLocaleString('et-EE', { dateStyle: 'medium', timeStyle: 'short' })} · `
+    + `${state.meta.total} võistlust · ${span}`;
 
   buildMenu();
   render();

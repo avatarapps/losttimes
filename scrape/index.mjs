@@ -26,6 +26,7 @@ import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { normalizeName } from './lib.mjs';
 import { explainFilter } from './filter.mjs';
 import { resolveMissing } from './resolve.mjs';
+import { buildPages } from './pages.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -201,6 +202,10 @@ async function finish(collected, health) {
       }),
     })
   );
+
+  // Staatilised lehed — need on ainus asi, mida Google naeb.
+  const yearMeta = years.map((y) => ({ year: y, count: byYear.get(y).length }));
+  await buildPages(all, yearMeta);
 
   console.log(`\n=> arhiivis ${all.length} voistlust (sellest jooksust ${events.length})`);
   console.log(`=> aastad: ${years.map((y) => `${y}(${byYear.get(y).length})`).join(' ')}`);

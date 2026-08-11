@@ -35,6 +35,11 @@ const NOT_RESULTS = /organizer\.|iseteenindus\.|registreeru|registration|\/shop/
 const TIMEOUT = 8000;   // aeglane korraldaja leht ei tohi kogu tood kinni panna
 const DELAY = 500;
 
+// Tosta seda numbrit, kui findResultLink() loogika muutub.
+// v2: sarjade eristamine nime jargi + noue, et link naeks valja tulemuste
+//     lingina (varem votis suvalise ajavotja alamdomeeni).
+const RESOLVER_VERSION = 2;
+
 /** "2026-08-13" -> "13.08" */
 function dateKey(iso) {
   const [, m, d] = iso.split('-').map(Number);
@@ -204,7 +209,12 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
     if (/facebook\.com|instagram\.com/i.test(organiser)) continue;
 
     // Kord leitud vastus ei muutu — ka "ei leidnud" on vastus.
-    const key = `resolve|${organiser}|${event.date}`;
+    //
+    // NB: votmes on VERSIOONINUMBER. Kui ma resolveri loogikat parandan,
+    // tostan seda numbrit ja koik vanad vastused — sh eitavad — muutuvad
+    // kehtetuks. Ilma selleta ei jouaks parandus kunagi nende voistlusteni,
+    // mille kohta vana loogika juba "ei leidnud" utles.
+    const key = `resolve${RESOLVER_VERSION}|${organiser}|${event.date}`;
     const remembered = cacheGet(key, event.date);
     if (remembered) {
       fromCache++;
