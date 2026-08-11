@@ -5,8 +5,8 @@ import path from 'node:path';
 export const SAVE_FIXTURES = process.argv.includes('--save-fixtures');
 
 const UA =
-  'Mozilla/5.0 (compatible; wheresmytime.ee/0.1; +https://wheresmytime.ee) ' +
-  'link-aggregator, contact: info@wheresmytime.ee';
+  'Mozilla/5.0 (compatible; losttimes.ee/0.1; +https://losttimes.ee) ' +
+  'link-aggregator, contact: info@losttimes.ee';
 
 /**
  * Laeb lehe alla. --save-fixtures lipuga salvestab toorHTML-i fixtures/ kausta,

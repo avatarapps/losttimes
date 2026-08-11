@@ -1,7 +1,11 @@
-# Where's My Time
+# LOSTTIMES
+
+**We know where they are.**
 
 Kõikide Eesti harrastusvõistluste stardinimekirjade ja tulemuste lingid ühes kohas.
 Me ei hoia tulemusi — me teame ainult, kus need on.
+
+→ [losttimes.ee](https://losttimes.ee)
 
 ## Kuidas see töötab
 
