@@ -130,21 +130,43 @@ function findResultLink(html, pageUrl, event) {
     if (!RESULT_URL.test(href)) return;
 
     const ctx = anchorDate($, el);
+
+    // Laiem umbrus, et teada saada, MILLISE SARJA all see link on.
+    // spordisarjad.ee/tulemused hoiab kuut sarja uhel lehel ja kahel sarjal
+    // voib olla etapp samal kuupaeval — ainult kuupaevast ei piisa.
+    let wide = el;
+    for (let i = 0; i < 6 && wide.parent().length; i++) wide = wide.parent();
+
     timerLinks.push({
       url: href,
       text: clean(el.text()),
       date: ctx.date,
       stage: stagePage($, ctx.box, pageUrl),
+      context: fold(wide.text()),
     });
   });
 
   if (!timerLinks.length) return null;
 
-  // 1. Kuupaev klapib tapselt — kindel tabamus.
+  // Voistluse nimest olulised sonad, mille jargi sarju eristada.
+  const words = fold(event.name)
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length >= 5 && !/^(etapp|sari|sarja|voistlus|jooks)$/.test(w));
+  const sameSeries = (l) => words.length === 0 || words.some((w) => l.context.includes(w));
+
+  // 1. Kuupaev klapib JA sari klapib — kindlaim tabamus.
+  const best = timerLinks.find((l) => l.date === want && sameSeries(l));
+  if (best) return best;
+
+  // 2. Kuupaev klapib tapselt.
   const exact = timerLinks.find((l) => l.date === want);
   if (exact) return exact;
 
-  // 1b. Klapib uhe paeva luhkkiga.
+  // 3. Klapib uhe paeva luhkkiga, sari klapib.
+  const nearSeries = timerLinks.find((l) => l.date && accepted.includes(l.date) && sameSeries(l));
+  if (nearSeries) return nearSeries;
+
+  // 4. Klapib uhe paeva luhkkiga.
   const near = timerLinks.find((l) => l.date && accepted.includes(l.date));
   if (near) return near;
 

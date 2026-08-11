@@ -1,12 +1,37 @@
 [
   {
+    "name": "Filter Temposari (6. etapp)",
+    "date": "2026-08-12",
+    "location": "Tallinn",
+    "sport": "Jalgrattasport",
+    "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=666",
+    "organiser": "https://spordisarjad.ee/temposari",
+    "timer": "TolkNet"
+  },
+  {
+    "name": "Filter Temposari (5. etapp)",
+    "date": "2026-08-05",
+    "location": "Viimsi",
+    "sport": "Jalgrattasport",
+    "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=665",
+    "organiser": "https://spordisarjad.ee/temposari",
+    "timer": "TolkNet"
+  },
+  {
+    "name": "Filter Tour de Tallinn",
+    "date": "2026-08-08",
+    "location": "Tallinn",
+    "sport": "Jalgrattasport",
+    "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=669",
+    "organiser": "https://spordisarjad.ee/tourdetallinn",
+    "timer": "TolkNet"
+  },
+  {
     "name": "Pühajärve pargitriatlon",
     "date": "2026-07-12",
     "location": "Pühajärve",
     "sport": "Triatlon",
     "results": "https://www.championchip.ee/results/1863",
-    "startlist": null,
-    "live": null,
     "organiser": "https://stamina.ee/et/triatlon",
     "timer": "ChampionChip"
   }

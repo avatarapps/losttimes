@@ -1,25 +1,30 @@
 // timing.ee — ABC ajavõtt. Ratas, jooks, triatlon, rulluisk.
 //
-// Kogu nimekiri on uhel lehel ja struktuur on selge:
+// Kogu nimekiri on uhel lehel ja HTML on erakordselt korralik:
 //
-//   <h3>URUMARJA 38. VELOTUUR</h3>
-//   10.08.2026 Urumarja
-//   1. etapp Grupisõit ...
-//     [Osavõtjad]      public_participants.php?event=131&distance_id=724
-//     [Live tulemused] live_results.php?event=131&distance_id=724
-//     [PDF tulemused]  official_results_pdf.php?event=131&distance_id=724
+//   <article class="competition" data-competition-date="2026-08-10"
+//                                data-is-upcoming="0">
+//     <h3 class="competition-title">URUMARJA 38. VELOTUUR</h3>
+//     <span class="tag tag-loc">Urumarja</span>
+//     <div class="distances">
+//       ... public_participants.php?event=131&distance_id=724   (osalejad)
+//       ... live_results.php?event=131&distance_id=724          (tulemused)
+//       ... official_results_pdf.php?event=131&distance_id=724  (PDF)
+//     </div>
+//   </article>
 //
-// Tulemuste lingiks votame live_results — see on veebileht, mis toimib nii
+// Kuupaev on juba ISO-kujul atribuudis — midagi ei ole vaja parsida.
+//
+// Tulemuste lingiks votame live_results: see on veebileht, mis toimib nii
 // voistluse ajal kui parast. PDF on ametlik, aga mobiilis vaevaline.
 
 import * as cheerio from 'cheerio';
-import { fetchHtml, absoluteUrl, clean, parseNumericDate } from '../lib.mjs';
+import { fetchHtml, absoluteUrl, clean } from '../lib.mjs';
 
 const BASE = 'https://timing.ee';
-const DATE = /(\d{1,2})\.(\d{1,2})\.(\d{4})/;
 
 // Autovoistlused siia lehele ei kuulu.
-const DROP = /porsche|võidusõit|ringrada|kart/i;
+const DROP = /porsche|võidusõit|ringrada|\bkart\b/i;
 
 export default {
   id: 'timing',
@@ -29,57 +34,58 @@ export default {
     const $ = cheerio.load(html);
     const events = [];
 
-    $('h1, h2, h3, h4').each((_, el) => {
-      const heading = $(el);
-      const name = clean(heading.text());
-      if (!name || name.length < 4) return;
-      if (/võistlused|fotofiniš|kontakt|registreer/i.test(name)) return;
-      if (DROP.test(name)) return;
+    $('article.competition').each((_, el) => {
+      const box = $(el);
 
-      // Plokk = koik kuni jargmise sama tasemega pealkirjani. Kui pealkiri ei
-      // ole sisuga ode-vend, votame vanemelemendi.
-      let block = heading.nextUntil(el.tagName);
-      if (!block.find('a[href*="event="]').length) {
-        block = heading.parent();
-      }
+      const date = clean(box.attr('data-competition-date'));
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return;
 
-      const links = block
-        .find('a[href*="event="]')
+      const name = clean(box.find('.competition-title').first().text());
+      if (!name || name.length < 4 || DROP.test(name)) return;
+
+      const location = clean(box.find('.tag-loc').first().text()) || null;
+
+      // Lingid elavad distantside plokis. Registreerimislink sisaldab samuti
+      // "event=", seepArast otsime failinime jargi, mitte parameetri jargi.
+      const links = box
+        .find('a[href]')
         .map((__, a) => absoluteUrl($(a).attr('href'), BASE))
-        .get();
-      if (!links.length) return;
+        .get()
+        .filter(Boolean);
 
-      const text = clean(block.text());
-      const m = text.match(DATE);
-      if (!m) return;
-      const date = parseNumericDate(m[0]);
-      if (!date) return;
-
-      // Asukoht on kuupaeva jarel samas reas: "10.08.2026 Urumarja"
-      const after = text.slice(text.indexOf(m[0]) + m[0].length).trim();
-      const location = clean(after.split(/\s{2,}|\n|Juhend|Registreerimine/)[0]).slice(0, 60) || null;
-
-      const pick = (needle) => links.find((u) => u.includes(needle)) || null;
+      const pick = (file) => links.find((u) => u.includes(file)) || null;
       const results = pick('live_results.php');
       const pdf = pick('official_results_pdf.php');
       const startlist = pick('public_participants.php');
 
       if (!results && !pdf && !startlist) return;
 
-      const eventId = (links[0].match(/event=(\d+)/) || [])[1] || name;
+      const upcoming = box.attr('data-is-upcoming') === '1';
       const isToday = date === new Date().toISOString().slice(0, 10);
+
+      const distances = box
+        .find('.distances .distance-title, .distances h4, .distance-name')
+        .map((__, d) => clean($(d).text()))
+        .get()
+        .filter(Boolean)
+        .slice(0, 12);
+
+      const eventId = (links.find((u) => /event=\d+/.test(u)) || '').match(/event=(\d+)/);
 
       events.push({
         source: 'timing',
-        sourceId: eventId,
+        sourceId: eventId ? eventId[1] : `${date}-${name.replace(/\W+/g, '-').toLowerCase()}`,
         name,
         date,
         location,
         sport: null,
-        distanceCount: new Set(links.map((u) => (u.match(/distance_id=(\d+)/) || [])[1])).size || 1,
-        distances: [],
+        distanceCount: new Set(
+          links.map((u) => (u.match(/distance_id=(\d+)/) || [])[1]).filter(Boolean)
+        ).size || 1,
+        distances,
         links: {
-          results: results || pdf,
+          // Tulevasel voistlusel ei ole tulemusi, isegi kui link on olemas.
+          results: upcoming ? null : results || pdf,
           startlist,
           live: isToday ? results : null,
           organiser: null,

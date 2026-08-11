@@ -27,6 +27,10 @@ const DROP_NAME = new RegExp(
     'heiteseriaal', 'heitjate', '\\bheited\\b', 'kuulitõuge', 'kettaheit', 'odavise',
     'kergejõustikuvõistlus', 'kergejõustikuõhtu', 'mitmevõistlus', 'mitmevõistlused',
     'spordipäev', 'suvemängud', 'talimängud', 'külamängud',
+    // Treening, laager voi koolitus ei ole voistlus — seal ei ole tulemusi,
+    // mida keegi hiljem otsiks.
+    'treening', '\\btrenn', 'koolitus', '\\blaager', '\\blaagri', 'õpituba',
+    'workshop', 'tutvustus', 'proovitund',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',
     'petank', 'mälumäng', 'motokross', 'kardi', 'rally', 'ralli\\b',
   ].join('|'),

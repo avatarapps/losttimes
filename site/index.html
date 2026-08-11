@@ -48,8 +48,11 @@
   .wrap{max-width:680px;margin:0 auto;padding:0 22px}
 
   /* ---------- pais ---------- */
-  .top{display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-  .logo{font-weight:700;font-size:23px;letter-spacing:-.035em;line-height:1}
+  .top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
+  /* Logo on alati link avalehele — ka avalehel endal, kus ta toimib
+     värskendusena. See on koht, kust kasutaja instinktiivselt tagasi otsib. */
+  .logo{display:inline-block;font-weight:700;font-size:23px;letter-spacing:-.035em;
+    line-height:1;text-decoration:none;color:var(--ink)}
   .logo i{color:var(--red);font-style:normal}
   .tagline{
     margin-top:6px;font-size:9.5px;font-weight:600;
@@ -69,17 +72,15 @@
     margin:34px 0 0;font-size:clamp(34px,9.2vw,46px);font-weight:700;
     letter-spacing:-.038em;line-height:1.02;
   }
-  /* Küsimärgi punkt punaseks — nagu ikoonil.
-     Sama märk kaks korda kohakuti: all tavaline, peal punane koopia, millest
-     on näha ainult alumine osa ehk punkt. Kui lõikekoht paistab veidi vale,
-     on ainus number, mida nihutada, see 72% siin all. */
-  .qm{position:relative;display:inline-block;line-height:1}
-  .qm::after{
-    content:'?';
-    position:absolute;left:0;top:0;
-    color:var(--red);
-    clip-path:inset(72% 0 0 0);
-  }
+  /* Küsimärk on SVG, mitte tähemärk — nii saab kaare ja punkti eraldi värvida
+     ja kuju jääb igas suuruses teravaks.
+
+     viewBox'i alumine serv = tähejoon, seega `vertical-align: baseline`
+     istutab ta teksti sisse õigesti. Suurust reguleerib ainult `height`:
+     kui märk tundub tekstiga võrreldes suur või väike, muuda seda üht arvu. */
+  .qm{height:.80em;width:auto;vertical-align:baseline;margin-left:.03em}
+  .qm .hook{fill:none;stroke:currentColor;stroke-width:11.3;stroke-linecap:butt}
+  .qm .dot{fill:var(--red)}
   .sub{margin:10px 0 0;font-size:clamp(20px,5.4vw,26px);font-weight:600;
     letter-spacing:-.03em;color:var(--red)}
 
@@ -92,22 +93,42 @@
   }
   .searchbar input::placeholder{color:var(--slate);font-weight:500}
 
-  /* ---------- filter ---------- */
-  .filters{display:none;flex-wrap:wrap;gap:7px;padding-top:16px}
-  .filters.open{display:flex}
-  .filters button{
-    font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.02em;
-    padding:7px 12px;border-radius:100px;cursor:pointer;
+  /* ---------- rippmenüü ---------- */
+  .menu{
+    position:absolute;right:0;top:calc(100% + 8px);z-index:40;
+    width:290px;max-width:calc(100vw - 44px);
+    background:var(--bg);border:1px solid var(--line);border-radius:16px;
+    padding:16px;box-shadow:0 12px 32px rgba(19,32,43,.10);
+  }
+  .menu[hidden]{display:none}
+  .menu-label{
+    font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:10px;
+  }
+  .menu-years{display:flex;flex-wrap:wrap;gap:6px;max-height:196px;overflow-y:auto}
+  .menu-years button{
+    font-family:var(--sans);font-size:12.5px;font-weight:600;
+    padding:6px 11px;border-radius:100px;cursor:pointer;
     border:1px solid var(--line);background:none;color:var(--slate);
   }
-  .filters button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink)}
-  .filters .fsep{flex-basis:100%;height:4px}
-  .filters .pagelink{
-    font-size:13px;font-weight:600;letter-spacing:.02em;padding:7px 12px;
-    border-radius:100px;border:1px solid transparent;color:var(--ink);
-    text-decoration:none;
+  .menu-years button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+  .menu-links{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:2px}
+  .menu-links a{
+    display:block;padding:9px 0;font-size:15px;font-weight:600;
+    color:var(--ink);text-decoration:none;
   }
-  .filters .pagelink:hover{border-color:var(--line)}
+  .menu-links a:hover{color:var(--red)}
+
+  .yearpill{
+    display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+    padding:6px 8px 6px 14px;border-radius:100px;background:var(--ink);color:#fff;
+    font-size:13px;font-weight:600;
+  }
+  .yearpill button{
+    border:0;background:none;color:#fff;cursor:pointer;font-size:15px;
+    line-height:1;padding:2px 6px;font-family:var(--sans);
+  }
 
   /* ---------- tabid ---------- */
   .tabs{display:flex;gap:30px;margin-top:30px;border-bottom:1px solid var(--line)}
@@ -137,6 +158,7 @@
   .row .acts a.live{color:#fff;background:var(--red);padding:2px 9px;border-radius:100px;
     font-size:12.5px;letter-spacing:.05em}
   .row .acts .sep{color:var(--line);font-weight:500}
+  .row .acts .lost{flex-basis:100%;margin-top:2px;font-size:13px;font-weight:500;color:var(--slate)}
   .row h2 a.title{text-decoration:none;color:inherit}
   .row h2 a.title:hover{text-decoration:underline;text-underline-offset:3px}
   .arr{font-size:.85em;display:inline-block;transform:translateY(-1px)}
@@ -151,27 +173,37 @@
 <div class="wrap">
   <div class="top">
     <div>
-      <div class="logo">LOSTTIMES<i>.</i></div>
+      <a class="logo" href="/">LOSTTIMES<i>.</i></a>
       <div class="tagline">We know where they are.</div>
     </div>
     <div class="icons">
       <button id="btn-search" aria-label="Search" aria-expanded="false">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       </button>
-      <button id="btn-filter" aria-label="Filter" aria-expanded="false">
+      <button id="btn-menu" aria-label="Menu" aria-expanded="false" aria-controls="menu">
         <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
+
+    <div class="menu" id="menu" hidden>
+      <div class="menu-label">Archive</div>
+      <div class="menu-years" id="menu-years"></div>
+      <div class="menu-links">
+        <a href="/about.html">About</a>
+        <a href="/advertise.html">Advertise</a>
+        <a href="mailto:info@losttimes.ee?subject=LostTimes">Contact</a>
+      </div>
+    </div>
   </div>
 
-  <h1>Where the hell<br>are my results<span class="qm">?</span></h1>
+  <div id="yearbar"></div>
+
+  <h1>Where the hell<br>are my results<svg class="qm" viewBox="0 0 100 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
   <p class="sub">Right here.</p>
 
   <div class="searchbar" id="searchbar">
     <input id="q" type="search" autocomplete="off" placeholder="Search a race…" aria-label="Search a race">
   </div>
-
-  <div class="filters" id="filters"></div>
 
   <div class="tabs" role="tablist">
     <button id="tab-past" role="tab" aria-selected="true">Results</button>
@@ -213,28 +245,31 @@ function actions(e){
     if (s.links.live)
       out.push(`<a class="live" href="${s.links.live}" target="_blank" rel="noopener">LIVE</a>`);
   }
-  // "Results" tähendab ainult üht asja: otselink tulemustele. Kui meil seda
-  // ei ole, siis me seda sõna ei kasuta — pakume ausalt otsingut.
+  // Igal real on ALATI "Results". Ei "Organiser", ei "Search", ei tühja rida.
+  // Kasutaja tuli siia üheks asjaks ja tal ei ole vaja meie sisemist
+  // teadmatust sildina lugeda.
+  //
+  // Kui otselinki ei ole, viib nupp valmis otsingusse ja me ütleme ausalt
+  // ühe lausega, et see üks läks meil käest.
   const res = e.sources.find(s => s.links.results);
+  let lost = false;
+
   if (res){
     out.push(`<a class="res" href="${res.links.results}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
-  } else if (e.date <= today){
+  } else {
     const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
-    out.push(`<a class="other" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Search ${ARROW}</a>`);
+    out.push(`<a class="res" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
+    lost = true;
   }
+
   const start = e.sources.find(s => s.links.startlist && s.links.startlist !== (res && res.links.results));
   if (start){
-    if (out.length) out.push('<span class="sep">·</span>');
+    out.push('<span class="sep">·</span>');
     out.push(`<a class="other" href="${start.links.startlist}" target="_blank" rel="noopener">Start list ${ARROW}</a>`);
   }
 
-  // Tulevasel võistlusel, millel veel stardinimekirja ega tulemusi pole,
-  // anname vähemalt korraldaja lingi — muidu jääks rida tühjaks.
-  if (!out.length){
-    const org = e.sources.find(s => s.links.organiser) || e.sources.find(s => s.links.info);
-    const url = org && (org.links.organiser || org.links.info);
-    if (url) out.push(`<a class="other" href="${url}" target="_blank" rel="noopener">Organiser ${ARROW}</a>`);
-  }
+  if (lost) out.push('<span class="lost">Ups, this one is really lost</span>');
+
   return out.join('');
 }
 
@@ -244,13 +279,19 @@ function actions(e){
 // tihti lihtsalt kodulehe juure (tartu.ee, pyhajarve.com), mis ei ütle selle
 // konkreetse võistluse kohta midagi. Info-link viib alati just sellele
 // võistlusele — see on see, mida inimene tegelikult tahab.
+// Nimi viib VÕISTLUSE enda lehele — korraldaja omale.
+//
+// Ajavõtja ürituseleht (Sportos, ChampionChip) EI OLE võistluse koduleht.
+// Seal on samad andmed, mis meil juba on, ja veel üks link edasi. Kasutaja
+// ootab nime taga korraldajat, mitte vahendajat. Ajavõtja leht jääb ainult
+// viimaseks õlekõrreks, kui korraldajat me ei tea.
 function nameHtml(e){
   const stage = e.sources.find(s => s.id === 'organiser' && s.links.info);
-  const info = e.sources.find(s => s.links.info);
   const org = e.sources.find(s => s.links.organiser);
+  const info = e.sources.find(s => s.links.info);
   const url = (stage && stage.links.info)
-    || (info && info.links.info)
-    || (org && org.links.organiser);
+    || (org && org.links.organiser)
+    || (info && info.links.info);
   const name = esc(e.name);
   return url
     ? `<a class="title" href="${url}" target="_blank" rel="noopener">${name}</a>`
@@ -324,10 +365,20 @@ async function loadAllYears(){
   render();
   await Promise.all(missing.map(loadYear));
   state.loading = false;
-  buildFilters();
+  buildMenu();
+}
+
+// Kui arhiiviaasta on valitud, ei ole KUMBKI tab aktiivne. Muidu põleb
+// "Upcoming" punaselt ajal, mil ekraanil on 2012. aasta võistlused — ja
+// kasutaja otsib süüdlast enda seest, mitte liidesest.
+function syncTabs(){
+  const active = state.year ? null : state.tab;
+  document.getElementById('tab-past').setAttribute('aria-selected', String(active === 'past'));
+  document.getElementById('tab-next').setAttribute('aria-selected', String(active === 'next'));
 }
 
 function render(){
+  syncTabs();
   const list = document.getElementById('list');
   const terms = fold(state.q).split(/\s+/).filter(Boolean);
 
@@ -338,7 +389,11 @@ function render(){
     return state.tab === 'past' ? e.date <= today : e.date > today;
   });
   const q = terms.length ? state.q : '';
-  if (state.tab === 'next' && !q && !state.year) rows = rows.slice().reverse();
+  // Tulevased võistlused ALATI lähimast kaugemani. Varem jäi see tegemata,
+  // kui aasta oli valitud, ja Upcoming algas detsembriga — täiesti vale ots.
+  if (state.tab === 'next' && !terms.length){
+    rows = rows.slice().sort((a,b) => a.date.localeCompare(b.date));
+  }
 
   if (!rows.length){
     list.innerHTML = `<div class="empty">${
@@ -368,54 +423,65 @@ function render(){
 // ("Maanteerattasõit") keset ingliskeelset liidest — ja keegi ei otsi tulemusi
 // ala järgi. Sa tead, mis võistlusel sa käisid. Ala jääb otsingusse sisse,
 // nii et "triatlon" kirjutades leiab ikka.
-// Kui suur osa aasta võistlustest peab olema päris tulemuste lingiga, et seda
-// aastat üldse sirvimiseks pakkuda. Vana aasta, kus kaks kolmandikku ridadest
-// viivad Google'i otsingusse, näeb kasutaja silmis katkine välja — parem seda
-// mitte pakkuda kui pakkuda halvasti.
-//
-// NB: see EI PEIDA midagi otsingu eest. Otsing käib alati üle kogu arhiivi,
-// nii et 2016. aasta võistlus on nime järgi ikka leitav. Kuratud on ainult
-// sirvimine, mitte sisu.
-const YEAR_MIN_COVERAGE = 0.5;
-const YEAR_MIN_EVENTS = 20;
+// Aastaid EI filtreerita. Siin oli varem reegel, mis peitis kehva katvusega
+// aastad ära — ja tulemus oli, et menüüst kadusid 2026 ja 2025, sest neis on
+// palju värskeid võistlusi, mille tulemusi pole veel avaldatud. Alles jäid
+// juhuslikud vanad aastad. Kasutaja tahab näha kõiki aastaid, mis olemas on.
+function buildMenu(){
+  const box = document.getElementById('menu-years');
+  const years = state.meta ? state.meta.years.map(y => y.year) : [];
 
-function buildFilters(){
-  const box = document.getElementById('filters');
-  const all = state.meta ? state.meta.years : [];
-  const years = all
-    .filter(y => {
-      if (y.withResults === undefined) return true;   // vana index.json
-      if (y.count < YEAR_MIN_EVENTS) return false;
-      return y.withResults / y.count >= YEAR_MIN_COVERAGE;
-    })
-    .map(y => y.year);
-
-  box.innerHTML =
-    years.map(y => `<button data-year="${y}" aria-pressed="${state.year === y}">${y}</button>`).join('') +
-    '<span class="fsep"></span>' +
-    '<a class="pagelink" href="/about.html">About</a>' +
-    '<a class="pagelink" href="/advertise.html">Advertise</a>' +
-    '<a class="pagelink" href="mailto:info@losttimes.ee?subject=LostTimes">Contact</a>';
+  box.innerHTML = years
+    .map(y => `<button data-year="${y}" aria-pressed="${state.year === y}">${y}</button>`)
+    .join('');
 
   box.querySelectorAll('button[data-year]').forEach(b => b.addEventListener('click', async () => {
     const year = b.dataset.year;
     state.year = state.year === year ? null : year;
-    if (state.year){ state.loading = true; render(); await loadYear(state.year); state.loading = false; }
-    buildFilters();
+    closeMenu();
+    if (state.year){
+      state.loading = true; render();
+      await loadYear(state.year);
+      state.loading = false;
+    }
+    buildMenu();
+    drawYearPill();
     render();
   }));
 }
 
-function toggle(btnId, boxId, onOpen){
-  const btn = document.getElementById(btnId), box = document.getElementById(boxId);
-  btn.addEventListener('click', () => {
-    const open = box.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    if (open && onOpen) onOpen();
+// Kui aasta on valitud, peab see olema NÄHA — muidu ei saa kasutaja aru,
+// miks nimekiri äkki teistsugune on, ega oska seda tagasi lülitada.
+function drawYearPill(){
+  const bar = document.getElementById('yearbar');
+  if (!state.year){ bar.innerHTML = ''; return; }
+  bar.innerHTML = `<span class="yearpill">${state.year}<button aria-label="Clear year">×</button></span>`;
+  bar.querySelector('button').addEventListener('click', () => {
+    state.year = null;
+    buildMenu(); drawYearPill(); render();
   });
 }
-toggle('btn-search', 'searchbar', () => document.getElementById('q').focus());
-toggle('btn-filter', 'filters');
+
+document.getElementById('btn-search').addEventListener('click', () => {
+  const box = document.getElementById('searchbar');
+  const open = box.classList.toggle('open');
+  document.getElementById('btn-search').setAttribute('aria-expanded', open);
+  if (open) document.getElementById('q').focus();
+});
+
+const menuEl = document.getElementById('menu');
+const menuBtn = document.getElementById('btn-menu');
+function closeMenu(){ menuEl.hidden = true; menuBtn.setAttribute('aria-expanded','false'); }
+menuBtn.addEventListener('click', (ev) => {
+  ev.stopPropagation();
+  menuEl.hidden = !menuEl.hidden;
+  menuBtn.setAttribute('aria-expanded', String(!menuEl.hidden));
+});
+// Väljapoole klõpsamine ja Escape sulgevad — nagu iga rippmenüü puhul oodatakse.
+document.addEventListener('click', (ev) => {
+  if (!menuEl.hidden && !menuEl.contains(ev.target)) closeMenu();
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeMenu(); });
 
 const qEl = document.getElementById('q');
 
@@ -449,10 +515,9 @@ qEl.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeSearch(); 
 for (const [id, tab] of [['tab-past','past'], ['tab-next','next']]){
   document.getElementById(id).addEventListener('click', () => {
     state.tab = tab;
-    state.year = null;
-    document.getElementById('tab-past').setAttribute('aria-selected', tab === 'past');
-    document.getElementById('tab-next').setAttribute('aria-selected', tab === 'next');
-    buildFilters();
+    state.year = null;   // tabile vajutamine viib arhiivist tavavaatesse tagasi
+    buildMenu();
+    drawYearPill();
     render();
   });
 }
@@ -482,7 +547,7 @@ for (const [id, tab] of [['tab-past','past'], ['tab-next','next']]){
     `Updated ${d.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })} · `
     + `${state.meta.total} races · ${span}`;
 
-  buildFilters();
+  buildMenu();
   render();
 })();
 </script>

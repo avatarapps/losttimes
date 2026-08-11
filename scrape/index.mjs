@@ -114,8 +114,6 @@ async function finish(collected, health) {
 
   const events = kept.sort((a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
 
-  if (!SKIP_RESOLVE) await resolveMissing(events);
-
   // Arhiiv jaotatakse aastate kaupa. Uks 11 000 voistlusega fail oleks
   // mobiilis liiga range — leht laeb jooksva aasta kohe ja vanemad siis,
   // kui kasutaja otsib voi aastat vahetab.
@@ -149,6 +147,15 @@ async function finish(collected, health) {
   const all = [...archive.values()].sort(
     (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
+
+  // Korraldaja-hupe kaib ULE KOGU ARHIIVI, mitte ainult selle jooksu kirjete.
+  //
+  // Varem oli see enne arhiiviga liitmist ja puudutas seega ainult varskeid
+  // uritusi. See tahendas, et 2019. aasta voistlus, millel tulemuste linki ei
+  // ole, ei saanud seda mitte kunagi — sest teda ei olnud uheski hilisemas
+  // jooksus. Nuud korjab iga jooks vana arhiivi puudujaake juurde ja vahemalu
+  // hoolitseb selle eest, et sama lehte kaks korda ei kusitaks.
+  if (!SKIP_RESOLVE) await resolveMissing(all);
 
   const byYear = new Map();
   for (const e of all) {
