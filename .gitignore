@@ -1,0 +1,11 @@
+# Sõltuvused — need paigaldatakse käsuga npm install, neid ei hoita repos
+node_modules/
+
+# Salvestatud toorlehed parseri silumiseks — ainult sinu masina jaoks
+fixtures/
+
+# Vahefail, mille scraper ise tekitab (--from-raw kasutab seda)
+data/raw.json
+
+# macOS
+.DS_Store

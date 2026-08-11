@@ -1,0 +1,18 @@
+{
+  "name": "wheresmytime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Koondab Eesti harrastusvoistluste stardinimekirjade ja tulemuste lingid uhte kohta.",
+  "scripts": {
+    "scrape": "node scrape/index.mjs",
+    "fixtures": "node scrape/index.mjs --save-fixtures",
+    "serve": "npx --yes serve site"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

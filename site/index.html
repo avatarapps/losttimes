@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LOSTTIMES — Eesti võistluste tulemused ühes kohas</title>
+<meta name="description" content="Kõikide Eesti jooksu-, suusa-, ratta- ja triatlonivõistluste stardinimekirjad ja tulemused ühes kohas. Üks klikk õigele ajavõtulehele.">
+<meta name="theme-color" content="#FFFFFF">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#13202B;
+    --red:#FF4938;
+    --slate:#66717D;
+    --line:#E7EBED;
+    --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg)}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.4;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  a{color:inherit}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+  /* ---------- pais ---------- */
+  .top{display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
+  .logo{font-weight:700;font-size:23px;letter-spacing:-.035em;line-height:1}
+  .logo i{color:var(--red);font-style:normal}
+  .tagline{
+    margin-top:6px;font-size:9.5px;font-weight:600;
+    letter-spacing:.155em;text-transform:uppercase;color:var(--ink);
+  }
+  .icons{display:flex;gap:6px;margin-top:-4px}
+  .icons button{
+    width:40px;height:40px;display:grid;place-items:center;
+    background:none;border:0;cursor:pointer;color:var(--ink);
+  }
+  .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
+    stroke-linecap:round;stroke-linejoin:round}
+  .icons button[aria-expanded="true"]{color:var(--red)}
+
+  /* ---------- pealkiri ---------- */
+  h1{
+    margin:34px 0 0;font-size:clamp(34px,9.2vw,46px);font-weight:700;
+    letter-spacing:-.038em;line-height:1.02;
+  }
+  .sub{margin:10px 0 0;font-size:clamp(20px,5.4vw,26px);font-weight:600;
+    letter-spacing:-.03em;color:var(--red)}
+
+  /* ---------- otsing ---------- */
+  .searchbar{display:none;padding-top:18px}
+  .searchbar.open{display:block}
+  .searchbar input{
+    width:100%;padding:12px 0;font-family:var(--sans);font-size:17px;font-weight:500;
+    color:var(--ink);background:none;border:0;border-bottom:2px solid var(--ink);outline:none;
+  }
+  .searchbar input::placeholder{color:var(--slate);font-weight:500}
+
+  /* ---------- filter ---------- */
+  .filters{display:none;flex-wrap:wrap;gap:7px;padding-top:16px}
+  .filters.open{display:flex}
+  .filters button{
+    font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+    padding:7px 12px;border-radius:100px;cursor:pointer;
+    border:1px solid var(--line);background:none;color:var(--slate);
+  }
+  .filters button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink)}
+
+  /* ---------- tabid ---------- */
+  .tabs{display:flex;gap:30px;margin-top:30px;border-bottom:1px solid var(--line)}
+  .tabs button{
+    font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--slate);
+    background:none;border:0;padding:0 0 13px;cursor:pointer;position:relative;
+  }
+  .tabs button[aria-selected="true"]{color:var(--red)}
+  .tabs button[aria-selected="true"]::after{
+    content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--red);
+  }
+
+  /* ---------- nimekiri ---------- */
+  .row{display:flex;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}
+  .row .date{width:44px;flex:none;padding-top:2px}
+  .row .day{font-size:25px;font-weight:600;letter-spacing:-.035em;line-height:1}
+  .row .mon{margin-top:6px;font-size:10.5px;font-weight:500;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--slate)}
+  .row .body{min-width:0;flex:1}
+  .row h2{margin:0;font-size:19px;font-weight:600;letter-spacing:-.025em;line-height:1.25}
+  .row .acts{margin-top:9px;font-size:14.5px;font-weight:500;display:flex;flex-wrap:wrap;
+    align-items:center;gap:4px 9px}
+  .row .acts a{text-decoration:none;font-weight:600;white-space:nowrap}
+  .row .acts a.res{color:var(--red)}
+  .row .acts a.other{color:var(--ink)}
+  .row .acts a.live{color:#fff;background:var(--red);padding:2px 9px;border-radius:100px;
+    font-size:12.5px;letter-spacing:.05em}
+  .row .acts .sep{color:var(--line);font-weight:500}
+  .row .acts .src{color:var(--slate);font-weight:500;font-size:12px}
+  .arr{font-size:.85em;display:inline-block;transform:translateY(-1px)}
+
+  .empty{padding:64px 0;text-align:center;color:var(--slate);font-weight:500}
+  footer{padding:36px 0 48px;color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
+  footer strong{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="logo">LOSTTIMES<i>.</i></div>
+      <div class="tagline">We know where they are.</div>
+    </div>
+    <div class="icons">
+      <button id="btn-search" aria-label="Search" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <button id="btn-filter" aria-label="Filter" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <h1>Where the hell<br>are my results?</h1>
+  <p class="sub">Right here.</p>
+
+  <div class="searchbar" id="searchbar">
+    <input id="q" type="search" autocomplete="off" placeholder="Search a race…" aria-label="Search a race">
+  </div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="tabs" role="tablist">
+    <button id="tab-past" role="tab" aria-selected="true">Results</button>
+    <button id="tab-next" role="tab" aria-selected="false">Upcoming</button>
+  </div>
+</div>
+
+<main class="wrap" id="list"><div class="empty">Loading…</div></main>
+
+<footer class="wrap">
+  <p><strong>We don't host results. We just know where they are.</strong><br>
+     Every link takes you to the timekeeper's own page — ChampionChip, Sportos, Estoloppet,
+     Antrotsenter, TolkNet or the organiser.</p>
+  <p id="stamp"></p>
+</footer>
+
+<script>
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const ARROW = '<span class="arr">↗</span>';
+const state = { events: [], tab: 'past', q: '', sport: null };
+const today = new Date().toISOString().slice(0, 10);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function actions(e){
+  const out = [];
+  for (const s of e.sources){
+    if (s.links.live)
+      out.push(`<a class="live" href="${s.links.live}" target="_blank" rel="noopener">LIVE</a>`);
+  }
+  // Iga real on alati "Results" — kui ajavõtja link on olemas, viib see sinna;
+  // kui ei ole, viib valmis otsingusse. Väike hall silt ütleb ausalt, kumb.
+  const res = e.sources.find(s => s.links.results);
+  if (res){
+    out.push(`<a class="res" href="${res.links.results}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
+    out.push(`<span class="src">${esc(res.label)}</span>`);
+  } else if (e.date <= today){
+    const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
+    out.push(`<a class="res" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
+    out.push(`<span class="src">search</span>`);
+  }
+  const start = e.sources.find(s => s.links.startlist && s.links.startlist !== (res && res.links.results));
+  if (start){
+    if (out.length) out.push('<span class="sep">·</span>');
+    out.push(`<a class="other" href="${start.links.startlist}" target="_blank" rel="noopener">Start list ${ARROW}</a>`);
+  }
+
+  // Tulevasel võistlusel, millel veel stardinimekirja ega tulemusi pole,
+  // anname vähemalt korraldaja lingi — muidu jääks rida tühjaks.
+  if (!out.length){
+    const org = e.sources.find(s => s.links.organiser) || e.sources.find(s => s.links.info);
+    const url = org && (org.links.organiser || org.links.info);
+    if (url) out.push(`<a class="other" href="${url}" target="_blank" rel="noopener">Organiser ${ARROW}</a>`);
+  }
+  return out.join('');
+}
+
+function render(){
+  const list = document.getElementById('list');
+  const q = state.q.trim().toLowerCase();
+
+  let rows = state.events.filter(e => {
+    if (state.sport && (e.sport || '') !== state.sport) return false;
+    if (q) return (e.name + ' ' + (e.location||'') + ' ' + (e.sport||'')).toLowerCase().includes(q);
+    return state.tab === 'past' ? e.date <= today : e.date > today;
+  });
+  if (state.tab === 'next' && !q) rows = rows.slice().reverse();
+
+  if (!rows.length){
+    list.innerHTML = `<div class="empty">${q ? 'Nothing found.' : 'Nothing here yet.'}</div>`;
+    return;
+  }
+
+  list.innerHTML = rows.slice(0, 300).map(e => {
+    const d = new Date(e.date + 'T12:00:00');
+    return `<article class="row">
+      <div class="date">
+        <div class="day">${String(d.getDate()).padStart(2,'0')}</div>
+        <div class="mon">${MONTHS[d.getMonth()]}</div>
+      </div>
+      <div class="body">
+        <h2>${esc(e.name)}</h2>
+        <div class="acts">${actions(e)}</div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function buildFilters(){
+  const counts = {};
+  for (const e of state.events) if (e.sport) counts[e.sport] = (counts[e.sport]||0) + 1;
+  const sports = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0, 10);
+  const box = document.getElementById('filters');
+  box.innerHTML = sports.map(s =>
+    `<button data-sport="${esc(s)}" aria-pressed="false">${esc(s)}</button>`).join('');
+  box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    const sport = b.dataset.sport;
+    state.sport = state.sport === sport ? null : sport;
+    box.querySelectorAll('button').forEach(x =>
+      x.setAttribute('aria-pressed', x.dataset.sport === state.sport));
+    render();
+  }));
+}
+
+function toggle(btnId, boxId, onOpen){
+  const btn = document.getElementById(btnId), box = document.getElementById(boxId);
+  btn.addEventListener('click', () => {
+    const open = box.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    if (open && onOpen) onOpen();
+  });
+}
+toggle('btn-search', 'searchbar', () => document.getElementById('q').focus());
+toggle('btn-filter', 'filters');
+
+document.getElementById('q').addEventListener('input', ev => { state.q = ev.target.value; render(); });
+for (const [id, tab] of [['tab-past','past'], ['tab-next','next']]){
+  document.getElementById(id).addEventListener('click', () => {
+    state.tab = tab;
+    document.getElementById('tab-past').setAttribute('aria-selected', tab === 'past');
+    document.getElementById('tab-next').setAttribute('aria-selected', tab === 'next');
+    render();
+  });
+}
+
+fetch('events.json').then(r => r.json()).then(data => {
+  state.events = data.events || [];
+  buildFilters();
+  const d = new Date(data.generated);
+  document.getElementById('stamp').textContent =
+    `Updated ${d.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })} · ${state.events.length} races`;
+  render();
+}).catch(() => {
+  document.getElementById('list').innerHTML =
+    '<div class="empty">No data. Run npm run scrape first.</div>';
+});
+</script>
+</body>
+</html>
