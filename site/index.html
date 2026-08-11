@@ -243,7 +243,7 @@ function actions(e){
   const out = [];
   for (const s of e.sources){
     if (s.links.live)
-      out.push(`<a class="live" href="${s.links.live}" target="_blank" rel="noopener">LIVE</a>`);
+      out.push(`<a class="live" href="${s.links.live}">LIVE</a>`);
   }
   // Igal real on ALATI "Results". Ei "Organiser", ei "Search", ei tühja rida.
   // Kasutaja tuli siia üheks asjaks ja tal ei ole vaja meie sisemist
@@ -255,17 +255,17 @@ function actions(e){
   let lost = false;
 
   if (res){
-    out.push(`<a class="res" href="${res.links.results}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
+    out.push(`<a class="res" href="${res.links.results}">Results ${ARROW}</a>`);
   } else {
     const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
-    out.push(`<a class="res" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
+    out.push(`<a class="res" href="https://www.google.com/search?q=${q}">Results ${ARROW}</a>`);
     lost = true;
   }
 
   const start = e.sources.find(s => s.links.startlist && s.links.startlist !== (res && res.links.results));
   if (start){
     out.push('<span class="sep">·</span>');
-    out.push(`<a class="other" href="${start.links.startlist}" target="_blank" rel="noopener">Start list ${ARROW}</a>`);
+    out.push(`<a class="other" href="${start.links.startlist}">Start list ${ARROW}</a>`);
   }
 
   if (lost) out.push('<span class="lost">Ups, this one is really lost</span>');
@@ -294,7 +294,7 @@ function nameHtml(e){
     || (info && info.links.info);
   const name = esc(e.name);
   return url
-    ? `<a class="title" href="${url}" target="_blank" rel="noopener">${name}</a>`
+    ? `<a class="title" href="${url}">${name}</a>`
     : name;
 }
 

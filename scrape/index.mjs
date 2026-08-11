@@ -144,9 +144,22 @@ async function finish(collected, health) {
 
   for (const e of events) archive.set(e.id, e);
 
-  const all = [...archive.values()].sort(
+  // Filter kaib ULE KOGU ARHIIVI, mitte ainult selle jooksu kirjete.
+  //
+  // Muidu jaab uks kord sisse paasenud praht sinna igaveseks: kumulatiivne
+  // liitmine toob ta iga kord tagasi ja uus filtrireegel ei puuduta teda.
+  // Nuud puhastab iga jooks kogu ajaloo uute reeglite jargi.
+  const beforeClean = archive.size;
+  const cleaned = explainFilter([...archive.values()]);
+  if (cleaned.dropped.length) {
+    console.log(`[filter] arhiivist eemaldatud ${cleaned.dropped.length}: ` +
+      cleaned.dropped.slice(0, 5).map((e) => e.name).join(' | '));
+  }
+
+  const all = cleaned.kept.sort(
     (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
+  if (beforeClean !== all.length) console.log(`[arhiiv] ${beforeClean} -> ${all.length}`);
 
   // Korraldaja-hupe kaib ULE KOGU ARHIIVI, mitte ainult selle jooksu kirjete.
   //
