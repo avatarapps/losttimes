@@ -19,7 +19,10 @@ import * as cheerio from 'cheerio';
 import { fetchHtml, absoluteUrl, clean, parseTextDate, sleep } from '../lib.mjs';
 
 const BASE = 'https://www.championchip.ee';
-const PAGES = 4; // 4 x 25 = 100 viimast kirjet
+// 20 x 25 = 500 kirjet. ChampionChipi id-d EI OLE kuupäeva järjekorras
+// (voistlus voidakse susteemi luua ammu ette), seega ei saa lehtede arvu
+// pealt kokku hoida — tuleb lihtsalt piisavalt sugavale minna.
+const PAGES = process.argv.includes('--deep') ? 400 : 20;
 
 // Voistlused, mis ei toimu Eestis, jaavad valja.
 const FOREIGN = /jyväskylä|jyvaskyla|kalevan kisat|helsinki|riga|vilnius/i;
@@ -110,6 +113,9 @@ export default {
       const found = parsePage(html);
       all.push(...found);
       if (!found.length) break;
+      // Sugaval jooksul on siin 400 lehekulge. Ilma selle reata istub
+      // kasutaja kumme minutit tuhja ekraani ees ja arvab, et miski on katki.
+      if (page % 10 === 0) console.log(`    lehekulg ${page}, kokku ${all.length} kirjet`);
       await sleep(800);
     }
 

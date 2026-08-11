@@ -18,9 +18,15 @@
 
 import * as cheerio from 'cheerio';
 import { fetchHtml, absoluteUrl, clean, parseNumericDate, sleep } from '../lib.mjs';
+import { loadCache, saveCache, get as cacheGet, put as cachePut } from '../cache.mjs';
 
 const BASE = 'https://www.sportos.eu';
-const PAGES = 3;                        // 3 x 40 = 120 viimast kirjet
+
+// --deep laeb kogu arhiivi (289 lehekulge, ~11 500 uritust). Seda tehakse
+// UKS KORD; edaspidi piisab varskest otsast, sest ulejaanu on vahemalus.
+const DEEP = process.argv.includes('--deep');
+const PAGES = DEEP ? 300 : 8;
+
 const SKIP_DETAILS = process.argv.includes('--no-details');
 const DETAIL_DELAY = 600;               // ms paringute vahel — ara kiirenda
 
@@ -52,8 +58,13 @@ function parseListing(html) {
     const dateIdx = lines.findIndex((l) => ET_DATE.test(l));
     if (dateIdx === -1) return;
 
-    const date = parseNumericDate(lines[dateIdx].match(ET_DATE).slice(2).join('.'));
-    if (!date) return;
+    // Sportos naitab nimekirjas ainult paeva ja kuud: "T 11.08".
+    // Aasta paneme hiljem paika, jarjekorra pohjal — vaata assignYears().
+    const dm = lines[dateIdx].match(ET_DATE);
+    const day = Number(dm[2]);
+    const month = Number(dm[3]);
+    const explicitYear = dm[4] ? Number(dm[4]) : null;
+    if (!day || !month || month > 12 || day > 31) return;
 
     const nameIdx = lines.findIndex((l) => l === name);
     const location = nameIdx > dateIdx + 1 ? lines[dateIdx + 1] : null;
@@ -71,7 +82,10 @@ function parseListing(html) {
     events.push({
       pageUrl: href.endsWith('/') ? href : href + '/',
       name,
-      date,
+      day,
+      month,
+      explicitYear,
+      date: null, // taidetakse assignYears() abil
       location,
       sport: sport ? clean(sport) : null,
       distances,
@@ -79,6 +93,34 @@ function parseListing(html) {
   });
 
   return events;
+}
+
+/**
+ * Paneb aastad paika nimekirja jarjekorra pohjal.
+ *
+ * Sportose tulemuste nimekiri on rangelt uuemast vanemani ja kuupaeval ei ole
+ * aastat. Seega: alustame teadaolevast aastast ja iga kord, kui kuupaev huppab
+ * jarsult ETTEPOOLE (nt 03.01 -> 28.12), oleme labinud aastavahetuse.
+ *
+ * Vaike edasiminek (paar paeva) on tavaline mura sama paeva urituste vahel,
+ * seepArast noaame vahemalt 45 paeva hupet. Nii ei nihuta uks kohatu rida
+ * kogu ulejaanud arhiivi aasta vorra valeks.
+ */
+function assignYears(rows, startYear) {
+  let year = startYear;
+  let prev = null; // eelmise rea ligikaudne paev aastas
+
+  for (const row of rows) {
+    if (row.explicitYear) {
+      year = row.explicitYear;
+    } else {
+      const doy = row.month * 31 + row.day;
+      if (prev !== null && doy > prev + 45) year -= 1;
+      prev = doy;
+    }
+    row.date = `${year}-${String(row.month).padStart(2, '0')}-${String(row.day).padStart(2, '0')}`;
+  }
+  return rows;
 }
 
 /**
@@ -114,22 +156,42 @@ export default {
   id: 'sportos',
   label: 'Sportos',
   async fetchEvents() {
-    const listing = [];
-
+    // Arhiiv: leheküljed jarjekorras, uuemast vanemani. Jarjekord ON tahtis —
+    // just selle pealt tuletame aastad.
+    const archive = [];
     for (let page = 0; page < PAGES; page++) {
       const html = await fetchHtml(`${BASE}/ee/et/tulemused?page=${page}`, `sportos-tulemused-${page}`);
       const found = parseListing(html);
-      listing.push(...found);
+      archive.push(...found);
       if (!found.length) break;
+      if (page % 10 === 0 && page) console.log(`    lehekulg ${page}, kokku ${archive.length} kirjet`);
       await sleep(800);
     }
+    assignYears(archive, new Date().getFullYear());
 
+    // Kalender on tulevik ja koik kirjed on kaesolevast voi jargmisest aastast.
+    // Seda EI TOHI arhiiviga samasse jarjestusse panna — ta laheks vastupidi.
+    const upcoming = [];
     try {
       const html = await fetchHtml(`${BASE}/ee/et/voistluskalender`, 'sportos-kalender');
-      listing.push(...parseListing(html));
+      const rows = parseListing(html);
+      const now = new Date();
+      for (const row of rows) {
+        const guess = new Date(Date.UTC(now.getFullYear(), row.month - 1, row.day));
+        // Kui kuupaev jai juba moodunud aastasse, on tegu jargmise aastaga.
+        const year = guess < now && (now - guess) / 86400000 > 60
+          ? now.getFullYear() + 1
+          : now.getFullYear();
+        row.date = `${year}-${String(row.month).padStart(2, '0')}-${String(row.day).padStart(2, '0')}`;
+        upcoming.push(row);
+      }
     } catch (err) {
       console.warn(`  [sportos] kalender ebaonnestus: ${err.message}`);
     }
+
+    const listing = [...archive, ...upcoming];
+    const spread = [...new Set(listing.map((e) => e.date.slice(0, 4)))].sort();
+    console.log(`  aastad nimekirjas: ${spread[0]} - ${spread[spread.length - 1]}`);
 
     // Duplikaadid ara, enne kui hakkame lehti avama.
     const seen = new Set();
@@ -143,23 +205,44 @@ export default {
       return unique.map((e) => toEvent(e, { results: null, startlist: null, organiser: null }));
     }
 
-    console.log(`  ${unique.length} uritust, avan igauhe lehe...`);
+    await loadCache();
+    console.log(`  ${unique.length} uritust, avan lehed (vahemalus juba olemas: kontrollin)...`);
+
     const events = [];
     let withResults = 0;
+    let fromCache = 0;
+    let fetched = 0;
 
     for (const [i, e] of unique.entries()) {
-      try {
-        const links = await fetchDetail(e.pageUrl, i < 2 ? `sportos-detail-${i}` : null);
-        if (links.results) withResults++;
-        events.push(toEvent(e, links));
-      } catch (err) {
-        console.warn(`    ! ${e.name}: ${err.message}`);
-        events.push(toEvent(e, { results: null, startlist: null, organiser: null }));
+      const cached = cacheGet(e.pageUrl, e.date);
+      let links;
+
+      if (cached) {
+        links = cached;
+        fromCache++;
+      } else {
+        try {
+          links = await fetchDetail(e.pageUrl, null);
+          cachePut(e.pageUrl, links);
+          fetched++;
+          await sleep(DETAIL_DELAY);
+        } catch (err) {
+          console.warn(`    ! ${e.name}: ${err.message}`);
+          links = { results: null, startlist: null, organiser: null };
+        }
       }
-      if ((i + 1) % 25 === 0) console.log(`    ${i + 1}/${unique.length}`);
-      await sleep(DETAIL_DELAY);
+
+      if (links.results) withResults++;
+      events.push(toEvent(e, links));
+
+      if ((i + 1) % 250 === 0) {
+        console.log(`    ${i + 1}/${unique.length}  (vahemalust ${fromCache}, laetud ${fetched})`);
+        await saveCache(); // et pikk jooks ei laheks katkestusel kaotsi
+      }
     }
 
+    await saveCache();
+    console.log(`  vahemalust ${fromCache}, uusi laetud ${fetched}`);
     console.log(`  tulemused olemas: ${withResults}/${events.length}`);
     return events;
   },

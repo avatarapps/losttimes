@@ -1,9 +1,14 @@
-// Kaivitab koik allikad, liidab tulemused kokku ja kirjutab site/events.json.
+// Kaivitab koik allikad, liidab tulemused kokku ja kirjutab site/ kausta.
 //
-//   npm run scrape           -- tavaline kaivitus
-//   npm run fixtures         -- salvestab ka toor-HTML-i fixtures/ kausta
+//   node scrape/index.mjs                  -- tavajooks (varske ots)
+//   node scrape/index.mjs --deep           -- kogu arhiiv, 1-2 tundi, uks kord
+//   node scrape/index.mjs --from-raw       -- kasutab eelmise jooksu toorandmeid
+//   node scrape/index.mjs --only=sportos   -- uks allikas korraga (silumiseks)
+//   node scrape/index.mjs --no-resolve     -- jatab korraldaja lehed vahele
+//   node scrape/index.mjs --no-details     -- Sportos ilma urituselehtedeta
+//   node scrape/index.mjs --save-fixtures  -- salvestab toor-HTML-i fixtures/
 //
-// Valjub koodiga 1, kui moni allikas tagastas 0 kirjet. GitHub Actions
+// Valjub koodiga 1, kui moni scraper tagastas 0 kirjet. GitHub Actions
 // saadab siis kirja — see on kogu monitooring, mida sul vaja on.
 
 const NODE_MAJOR = Number(process.versions.node.split('.')[0]);
@@ -22,35 +27,38 @@ import { normalizeName } from './lib.mjs';
 import { explainFilter } from './filter.mjs';
 import { resolveMissing } from './resolve.mjs';
 
-// --no-resolve jatab korraldaja lehtede kulastamise vahele (kiirem testimine).
-const SKIP_RESOLVE = process.argv.includes('--no-resolve');
-
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
 import estoloppet from './sources/estoloppet.mjs';
 import antrotsenter from './sources/antrotsenter.mjs';
+import timing from './sources/timing.mjs';
 import manual from './sources/manual.mjs';
 
-const ALL_SOURCES = [sportos, championchip, estoloppet, antrotsenter, manual];
+const ALL_SOURCES = [sportos, championchip, estoloppet, antrotsenter, timing, manual];
 
 // Uhe allika kaupa testimiseks:  node scrape/index.mjs --only=sportos
 const onlyArg = process.argv.find((a) => a.startsWith('--only='));
 const only = onlyArg ? onlyArg.split('=')[1] : null;
-const SOURCES = only
-  ? ALL_SOURCES.filter((s) => only.split(',').includes(s.id))
-  : ALL_SOURCES;
+const SOURCES = only ? ALL_SOURCES.filter((s) => only.split(',').includes(s.id)) : ALL_SOURCES;
 
 if (!SOURCES.length) {
   console.error(`Tundmatu allikas: ${only}. Valikus: ${ALL_SOURCES.map((s) => s.id).join(', ')}`);
   process.exit(1);
 }
 
-// Kui vana kirjeid alles hoiame. Vanemad kaovad JSON-ist, et fail ei paisuks.
-const KEEP_MONTHS = 18;
+// --no-resolve jatab korraldaja lehtede kulastamise vahele (kiirem testimine).
+const SKIP_RESOLVE = process.argv.includes('--no-resolve');
 
 // --from-raw kasutab eelmise kaivituse toorandmeid ja jatab allikate
 // kulastamise vahele. Kokkuliitmise silumiseks — sekundiga, mitte kahe minutiga.
 const FROM_RAW = process.argv.includes('--from-raw');
+
+// --rebuild jatab olemasoleva arhiivi arvestamata. Vaja siis, kui vanad
+// kirjed on VALED (nt vale aastaga) — muidu jaaksid nad kumulatiivse
+// liitmise tottu igavesti alles ja tekiksid duplikaadid.
+const REBUILD = process.argv.includes('--rebuild');
+
+// Arhiivi ei karbita — kogu ajalugu jaab alles, aastate kaupa failides.
 
 async function main() {
   let collected = [];
@@ -70,7 +78,14 @@ async function main() {
       const events = await source.fetchEvents();
       console.log(`  ${events.length} kirjet`);
       collected.push(...events.map((e) => ({ ...e, sourceLabel: source.label })));
-      health.push({ id: source.id, label: source.label, count: events.length, ok: events.length > 0 });
+      health.push({
+        id: source.id,
+        label: source.label,
+        count: events.length,
+        // Kasitsi-nimekiri tohib olla tuhi. Scraper mitte — kui tema ei leia
+        // midagi, on ta katki ja sellest peab teada saama.
+        ok: events.length > 0 || source.optional === true,
+      });
     } catch (err) {
       console.error(`  VIGA: ${err.message}`);
       health.push({ id: source.id, label: source.label, count: 0, ok: false, error: err.message });
@@ -88,32 +103,87 @@ async function main() {
 
 async function finish(collected, health) {
   const merged = merge(collected);
-  const cutoff = new Date();
-  cutoff.setMonth(cutoff.getMonth() - KEEP_MONTHS);
-
-  const inWindow = merged.filter((e) => e.date && new Date(e.date) >= cutoff);
+  const withDate = merged.filter((e) => e.date);
 
   // Vali valja see, mis siia lehele ei kuulu (discgolf, male, heiteseriaalid...).
-  const { kept, dropped } = explainFilter(inWindow);
+  const { kept, dropped } = explainFilter(withDate);
   console.log(`\n[filter] jatsin ${kept.length}, viskasin valja ${dropped.length}`);
   if (dropped.length) {
     console.log('  naiteid: ' + dropped.slice(0, 6).map((e) => e.name).join(' | '));
   }
 
-  const events = kept.sort(
-    (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
-  );
+  const events = kept.sort((a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
 
   if (!SKIP_RESOLVE) await resolveMissing(events);
 
+  // Arhiiv jaotatakse aastate kaupa. Uks 11 000 voistlusega fail oleks
+  // mobiilis liiga range — leht laeb jooksva aasta kohe ja vanemad siis,
+  // kui kasutaja otsib voi aastat vahetab.
   await mkdir('site', { recursive: true });
-  await writeFile(
-    'site/events.json',
-    JSON.stringify({ generated: new Date().toISOString(), sources: health, events }, null, 0)
+
+  // TAHTIS: arhiiv on KUMULATIIVNE.
+  //
+  // Tavajooks loeb ainult varsket otsa (8 lehekulge Sportost jne). Kui me
+  // kirjutaksime failid lihtsalt ule, kaoks kogu 11 000 voistlusega arhiiv
+  // ara juba jargmisel ool. Seega loeme olemasoleva sisse ja liidame uue
+  // peale — uus info voidab, vana jaab alles.
+  //
+  // Korvalkasu: kui moni scraper laheb katki ja tagastab prugi, ei havita
+  // see ajalugu. Halvim, mis juhtuda saab, on et andmed ei uuene.
+  const archive = new Map();
+  if (REBUILD) {
+    console.log('[arhiiv] --rebuild: vana arhiiv jaetakse arvestamata, ehitan nullist');
+  } else try {
+    const meta = JSON.parse(await readFile('site/index.json', 'utf8'));
+    for (const { year } of meta.years) {
+      const rows = JSON.parse(await readFile(`site/events-${year}.json`, 'utf8'));
+      for (const e of rows) archive.set(e.id, e);
+    }
+    console.log(`[arhiiv] olemas ${archive.size} voistlust, liidan uued peale`);
+  } catch {
+    console.log('[arhiiv] varasemat arhiivi ei leidnud, alustan nullist');
+  }
+
+  for (const e of events) archive.set(e.id, e);
+
+  const all = [...archive.values()].sort(
+    (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
 
-  console.log(`\n=> ${events.length} voistlust, ${collected.length} toorkirjet`);
-  console.log(`=> site/events.json kirjutatud`);
+  const byYear = new Map();
+  for (const e of all) {
+    const year = e.date.slice(0, 4);
+    if (!byYear.has(year)) byYear.set(year, []);
+    byYear.get(year).push(e);
+  }
+
+  const years = [...byYear.keys()].sort().reverse();
+  for (const year of years) {
+    await writeFile(`site/events-${year}.json`, JSON.stringify(byYear.get(year)));
+  }
+
+  await writeFile(
+    'site/index.json',
+    JSON.stringify({
+      generated: new Date().toISOString(),
+      sources: health,
+      total: all.length,
+      // withResults = mitmel selle aasta voistlusel on paris tulemuste link.
+      // Leht kasutab seda otsustamaks, milliseid aastaid uldse sirvimiseks
+      // pakkuda — kehva kattega aasta naeb kasutaja silmis katkine valja.
+      years: years.map((y) => {
+        const rows = byYear.get(y);
+        return {
+          year: y,
+          count: rows.length,
+          withResults: rows.filter((e) => e.sources.some((s) => s.links.results)).length,
+        };
+      }),
+    })
+  );
+
+  console.log(`\n=> arhiivis ${all.length} voistlust (sellest jooksust ${events.length})`);
+  console.log(`=> aastad: ${years.map((y) => `${y}(${byYear.get(y).length})`).join(' ')}`);
 
   const broken = health.filter((h) => !h.ok);
   if (broken.length) {

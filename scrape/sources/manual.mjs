@@ -13,6 +13,9 @@ import { readFile } from 'node:fs/promises';
 export default {
   id: 'manual',
   label: 'Käsitsi',
+  // Tuhi kasitsi-nimekiri EI OLE viga. Ilma selle margeta luges monitooring
+  // tuhja faili katkiseks allikaks ja kogu ooine too kukkus labi.
+  optional: true,
   async fetchEvents() {
     let rows;
     try {
@@ -40,6 +43,7 @@ export default {
           startlist: r.startlist || null,
           live: r.live || null,
           organiser: r.organiser || null,
+          info: r.info || r.organiser || null,
         },
         distances: [],
       }));

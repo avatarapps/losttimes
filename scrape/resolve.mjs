@@ -16,71 +16,164 @@
 
 import * as cheerio from 'cheerio';
 import { fetchHtml, absoluteUrl, clean, sleep } from './lib.mjs';
+import { loadCache, saveCache, get as cacheGet, put as cachePut } from './cache.mjs';
 
-const TIMER_DOMAINS = /racetecresults\.com|championchip\.ee|sportos\.eu|estoloppet\.ee|antrotsenter\.ee|my\.raceresult\.com|tulemused/i;
+// AINULT paris ajavotjate domeenid. Varem oli siin ka sona "tulemused",
+// mis tahendas, et korraldaja enda uldine /tulemused leht voitis otselinkide
+// ule — ja kasutaja sattus etappide nimekirja, mitte oma voistluse tulemustesse.
+const TIMER_DOMAINS = /racetecresults\.com|championchip\.ee|sportos\.eu|estoloppet\.ee|antrotsenter\.ee|raceresult\.com|timing\.ee|sporttiming|tulemused\.ee/i;
 const RESULT_WORD = /tulemus|result|protokoll/i;
+const DATE_TOKEN = /\b(\d{1,2})\.(\d{1,2})(?:\.(\d{4}))?\b/g;
+
+// Link peab ka VALJA NAGEMA tulemuste lingina. Ilma selleta nopib resolver
+// ules suvalise ajavotja alamdomeeni (nt organizer.sportos.eu) ja paneb selle
+// "Results" nupu taha.
+const RESULT_URL = /results?|tulemus|protokoll|RId=/i;
+
+// Registreerimis- ja korraldajakeskkonnad EI OLE tulemused.
+const NOT_RESULTS = /organizer\.|iseteenindus\.|registreeru|registration|\/shop/i;
 const TIMEOUT = 8000;   // aeglane korraldaja leht ei tohi kogu tood kinni panna
 const DELAY = 500;
 
-/** "2026-08-05" -> ["5.08", "05.08", "5.8", "05.8", "5. august"] */
-function dateNeedles(iso) {
-  const [y, m, d] = iso.split('-').map(Number);
-  const dd = String(d).padStart(2, '0');
-  const mm = String(m).padStart(2, '0');
-  return [`${d}.${mm}`, `${dd}.${mm}`, `${d}.${m}`, `${dd}.${mm}.${y}`, `${d}.${m}.${y}`];
+/** "2026-08-13" -> "13.08" */
+function dateKey(iso) {
+  const [, m, d] = iso.split('-').map(Number);
+  return `${d}.${String(m).padStart(2, '0')}`;
 }
 
 /**
- * Otsib lehelt tulemuste linki. Kui lehel on mitu etappi, valib selle,
- * mille lahedal on meie voistluse kuupaev.
+ * Lubatud kuupaevad: pais- ja jarelpaev kaasa.
+ * Sportos utleb Filter Temposari 6. etapi kohta 12.08, korraldaja enda leht
+ * utleb 13.08. Uks neist eksib, aga meie ei tea kumb — ja etapid on nadalase
+ * vahega, nii et uhe paeva luhk ei saa vale etapi peale sattuda.
+ */
+function dateKeys(iso) {
+  const base = new Date(iso + 'T12:00:00');
+  return [-1, 0, 1].map((shift) => {
+    const d = new Date(base);
+    d.setDate(d.getDate() + shift);
+    return `${d.getDate()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
+  });
+}
+
+/**
+ * Leiab lingi juurde kuuluva kuupaeva.
+ *
+ * Korraldajate lehtedel on etapid tuupiliselt sellises pesas:
+ *   <div>Tallinn 13.08 <a>Tulemused</a></div>
+ * ehk kuupaev ei ole lingi enda sees, vaid uks-kaks taset ulevalpool.
+ *
+ * Laheme ulespoole seni, kuni leiame taseme, kus on TAPSELT UKS kuupaev.
+ * Kui tasemel on mitu kuupaeva, oleme laineud liiga laiaks (naeme juba kogu
+ * etappide nimekirja) ja siis me ei tea enam, milline neist selle lingi oma on.
+ */
+function anchorDate($, el) {
+  let node = el;
+  for (let level = 0; level < 4; level++) {
+    node = node.parent();
+    if (!node || !node.length) break;
+
+    const text = clean(node.text());
+    const found = [...text.matchAll(DATE_TOKEN)].map(
+      (m) => `${Number(m[1])}.${String(Number(m[2])).padStart(2, '0')}`
+    );
+    const unique = [...new Set(found)];
+
+    if (unique.length === 1) return { date: unique[0], box: node };
+    if (unique.length > 1) return { date: null, box: null }; // liiga lai kontekst
+  }
+  return { date: null, box: null };
+}
+
+/**
+ * Sama ploki seest, kus oli tulemuste link, otsime ka korraldaja enda
+ * etapilehe — nt spordisarjad.ee/temposari/etapp/tallinn. See on tapselt see
+ * leht, mida inimene tahab, kui ta voistluse nimele klikib.
+ */
+function stagePage($, box, pageUrl) {
+  if (!box || !box.length) return null;
+  const host = new URL(pageUrl).hostname;
+
+  let found = null;
+  box.find('a[href]').each((_, a) => {
+    if (found) return;
+    const href = absoluteUrl($(a).attr('href'), pageUrl);
+    if (!href) return;
+    try {
+      if (new URL(href).hostname !== host) return;
+    } catch {
+      return;
+    }
+    if (RESULT_WORD.test(href) || NOT_RESULTS.test(href)) return;
+    if (href.replace(/\/$/, '') === pageUrl.replace(/\/$/, '')) return;
+    found = href;
+  });
+  return found;
+}
+
+/**
+ * Otsib lehelt tulemuste lingi. Votab ainult siis, kui on KINDEL:
+ * kas kuupaev klapib, voi lehel on tapselt uks ajavotja link.
  */
 function findResultLink(html, pageUrl, event) {
   const $ = cheerio.load(html);
-  const needles = dateNeedles(event.date);
-  const candidates = [];
+  const want = dateKey(event.date);
+  const accepted = dateKeys(event.date);
+  const timerLinks = [];
 
   $('a[href]').each((_, a) => {
     const el = $(a);
     const href = absoluteUrl(el.attr('href'), pageUrl);
     if (!href || /^(mailto|tel|javascript)/i.test(href)) return;
+    if (!TIMER_DOMAINS.test(href)) return;
+    if (NOT_RESULTS.test(href)) return;
+    if (!RESULT_URL.test(href)) return;
 
-    const text = clean(el.text());
-    const isTimerLink = TIMER_DOMAINS.test(href);
-    const saysResults = RESULT_WORD.test(text) || RESULT_WORD.test(href);
-    if (!isTimerLink && !saysResults) return;
-
-    // Kontekst = lingi enda tekst + vanemelemendi tekst, kust leiame kuupaeva.
-    const context = clean(text + ' ' + el.parent().text() + ' ' + el.parent().parent().text());
-    const dateMatch = needles.some((n) => context.includes(n));
-
-    candidates.push({
+    const ctx = anchorDate($, el);
+    timerLinks.push({
       url: href,
-      text,
-      score: (isTimerLink ? 2 : 0) + (dateMatch ? 4 : 0) + (saysResults ? 1 : 0),
+      text: clean(el.text()),
+      date: ctx.date,
+      stage: stagePage($, ctx.box, pageUrl),
     });
   });
 
-  if (!candidates.length) return null;
-  candidates.sort((a, b) => b.score - a.score);
+  if (!timerLinks.length) return null;
 
-  // Skoor alla 3 tahendab "leidsin sona tulemused, aga ei tea kas oige oma".
-  // Sellisel juhul parem mitte valetada.
-  return candidates[0].score >= 3 ? candidates[0] : null;
+  // 1. Kuupaev klapib tapselt — kindel tabamus.
+  const exact = timerLinks.find((l) => l.date === want);
+  if (exact) return exact;
+
+  // 1b. Klapib uhe paeva luhkkiga.
+  const near = timerLinks.find((l) => l.date && accepted.includes(l.date));
+  if (near) return near;
+
+  // 2. Kuupaeva ei leidnud kuskilt, aga lehel on ainult uks ajavotja link
+  //    ja see uritus ei ole sari. Siis on see ilmselt oige.
+  const distinct = [...new Set(timerLinks.map((l) => l.url))];
+  if (distinct.length === 1 && timerLinks.every((l) => l.date === null)) {
+    return timerLinks[0];
+  }
+
+  // 3. Mitu linki, kuupaev ei klapi ukskiga — me ei tea. Parem mitte valetada.
+  return null;
 }
 
 /**
  * Kaib labi voistlused, millel tulemusi ei ole, ja proovib korraldaja lehelt.
  * Muudab events massiivi kohapeal.
  */
-export async function resolveMissing(events, { limit = 120 } = {}) {
+export async function resolveMissing(events, { limit = 4000 } = {}) {
   const targets = events.filter(
     (e) => !e.sources.some((s) => s.links.results) && e.sources.some((s) => s.links.organiser)
   );
 
+  await loadCache();
   console.log(`\n[resolve] ${targets.length} voistlust ilma tulemusteta, proovin korraldaja lehti...`);
 
   let found = 0;
-  const cache = new Map();
+  let fromCache = 0;
+  const cache = new Map(); // laetud HTML uhe jooksu jooksul
 
   for (const [i, event] of targets.slice(0, limit).entries()) {
     const organiser = event.sources.find((s) => s.links.organiser).links.organiser;
@@ -88,9 +181,34 @@ export async function resolveMissing(events, { limit = 120 } = {}) {
     // Facebook ja Instagram ei anna meile midagi.
     if (/facebook\.com|instagram\.com/i.test(organiser)) continue;
 
+    // Kord leitud vastus ei muutu — ka "ei leidnud" on vastus.
+    const key = `resolve|${organiser}|${event.date}`;
+    const remembered = cacheGet(key, event.date);
+    if (remembered) {
+      fromCache++;
+      if (remembered.url) {
+        found++;
+        event.sources.push({
+          id: 'organiser',
+          label: 'Korraldaja kaudu',
+          links: {
+            results: remembered.url,
+            startlist: null,
+            live: null,
+            organiser,
+            info: remembered.stage || null,
+          },
+          distanceCount: 1,
+        });
+      }
+      continue;
+    }
+
     try {
       // Sama sarja etapid jagavad korraldaja lehte — laeme uks kord.
-      const pages = [organiser, organiser.replace(/\/?$/, '/tulemused')];
+      // Otselingid elavad harva esilehel — enamasti korraldaja tulemuste alalehel.
+      const base = organiser.replace(/\/+$/, '');
+      const pages = [`${base}/tulemused`, organiser, `${base}/results`];
       let hit = null;
 
       for (const url of pages) {
@@ -106,12 +224,21 @@ export async function resolveMissing(events, { limit = 120 } = {}) {
         if (hit) break;
       }
 
+      // Jatame meelde ka eitava vastuse, et sama lehte uuesti ei kusiks.
+      cachePut(key, hit ? { url: hit.url, stage: hit.stage || null } : { url: null });
+
       if (hit) {
         found++;
         event.sources.push({
           id: 'organiser',
           label: 'Korraldaja kaudu',
-          links: { results: hit.url, startlist: null, live: null, organiser },
+          links: {
+            results: hit.url,
+            startlist: null,
+            live: null,
+            organiser,
+            info: hit.stage || null, // korraldaja etapileht, kui leidsime
+          },
           distanceCount: 1,
         });
       }
@@ -119,9 +246,13 @@ export async function resolveMissing(events, { limit = 120 } = {}) {
       // vaikselt edasi — see samm on boonus, mitte kohustus
     }
 
-    if ((i + 1) % 25 === 0) console.log(`  ${i + 1}/${Math.min(targets.length, limit)} (leitud ${found})`);
+    if ((i + 1) % 100 === 0) {
+      console.log(`  ${i + 1}/${Math.min(targets.length, limit)} (leitud ${found}, vahemalust ${fromCache})`);
+      await saveCache();
+    }
   }
 
-  console.log(`[resolve] leidsin tulemuste lingi ${found} voistlusele`);
+  await saveCache();
+  console.log(`[resolve] leidsin tulemuste lingi ${found} voistlusele (vahemalust ${fromCache})`);
   return found;
 }

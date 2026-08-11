@@ -1,12 +1,13 @@
 [
   {
-    "name": "NÄIDE — kustuta see rida",
-    "date": "2026-08-10",
-    "location": "Tallinn",
-    "sport": "Jooksmine",
-    "results": "https://www.racetecresults.com/Results.aspx?CId=16573",
+    "name": "Pühajärve pargitriatlon",
+    "date": "2026-07-12",
+    "location": "Pühajärve",
+    "sport": "Triatlon",
+    "results": "https://www.championchip.ee/results/1863",
     "startlist": null,
     "live": null,
-    "timer": "TolkNet"
+    "organiser": "https://stamina.ee/et/triatlon",
+    "timer": "ChampionChip"
   }
 ]

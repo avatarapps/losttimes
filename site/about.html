@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About — LostTimes</title>
+<meta name="description" content="Miks LostTimes olemas on: kõik Eesti võistluste tulemused ühest kohast, ilma otsimiseta.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --ink:#13202B; --red:#FF4938; --slate:#66717D; --line:#E7EBED;
+    --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg)}
+  body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
+  a{color:inherit}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+  .top{padding:26px 0 0}
+  .logo{font-weight:700;font-size:23px;letter-spacing:-.035em;line-height:1;text-decoration:none}
+  .logo i{color:var(--red);font-style:normal}
+  .back{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:600;
+    color:var(--slate);text-decoration:none}
+  .back:hover{color:var(--ink)}
+  h1{margin:36px 0 0;font-size:clamp(30px,8vw,40px);font-weight:700;
+    letter-spacing:-.038em;line-height:1.05}
+  h2{margin:38px 0 0;font-size:13px;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--red)}
+  p{margin:12px 0 0;max-width:34em}
+  ul{margin:12px 0 0;padding-left:20px;max-width:34em}
+  li{margin:6px 0}
+  .cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;
+    padding:14px 22px;border-radius:100px;background:var(--red);color:#fff;
+    font-size:15.5px;font-weight:600;text-decoration:none}
+  footer{margin-top:52px;padding:26px 0 48px;border-top:1px solid var(--line);
+    color:var(--slate);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <a class="logo" href="/">LOSTTIMES<i>.</i></a><br>
+    <a class="back" href="/">← Back to results</a>
+  </div>
+
+  <h1>Every Estonian race,<br>every result, one place.</h1>
+
+  <p>Estonia has excellent timekeepers. The problem is that there are many of them,
+     and none of them knows about the others. After a race you know your time is
+     published somewhere — you just don't know where. So you search, you guess,
+     you dig through a Facebook group, and sometimes you never find it at all.</p>
+
+  <p>LostTimes solves exactly that and nothing else.</p>
+
+  <h2>How it works</h2>
+  <p>Every night a script reads the event listings of Estonia's timekeepers and
+     collects one thing from each: the link to the results. Where a timekeeper
+     doesn't have them, it follows the organiser's own page one step further.</p>
+
+  <ul>
+    <li><b>We don't host results.</b> Every link takes you to the timekeeper's own page.</li>
+    <li><b>We store no personal data.</b> Only race name, date and a link — no names, no times.</li>
+    <li><b>No account, no login, no cookie banner.</b> You came to see a time, not to register.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <p>ChampionChip, Sportos, timing.ee, Estoloppet, Antrotsenter, TolkNet
+     (via racetecresults) and organisers' own pages.</p>
+  <p>Something missing? That is the most useful thing you can tell me.</p>
+
+  <a class="cta" href="mailto:info@losttimes.ee?subject=LostTimes">Get in touch →</a>
+
+  <footer>
+    LostTimes — we know where they are.
+  </footer>
+</div>
+
+</body>
+</html>

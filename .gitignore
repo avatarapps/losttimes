@@ -7,5 +7,10 @@ fixtures/
 # Vahefail, mille scraper ise tekitab (--from-raw kasutab seda)
 data/raw.json
 
+# NB: data/cache.json EI ole siin meelega — see peab repos olema.
+# Selles on kord juba leitud tulemuste lingid ja tänu sellele ei pea
+# öine töö 11 000 lehte uuesti läbi käima. Ilma selleta oleks iga
+# GitHub Actionsi käivitus kahetunnine.
+
 # macOS
 .DS_Store

@@ -7,6 +7,20 @@
 <meta name="description" content="Kõikide Eesti jooksu-, suusa-, ratta- ja triatlonivõistluste stardinimekirjad ja tulemused ühes kohas. Üks klikk õigele ajavõtulehele.">
 <meta name="theme-color" content="#FFFFFF">
 
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<!-- iPhone / iPad avaekraan -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="LostTimes">
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.webmanifest">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -55,6 +69,17 @@
     margin:34px 0 0;font-size:clamp(34px,9.2vw,46px);font-weight:700;
     letter-spacing:-.038em;line-height:1.02;
   }
+  /* Küsimärgi punkt punaseks — nagu ikoonil.
+     Sama märk kaks korda kohakuti: all tavaline, peal punane koopia, millest
+     on näha ainult alumine osa ehk punkt. Kui lõikekoht paistab veidi vale,
+     on ainus number, mida nihutada, see 72% siin all. */
+  .qm{position:relative;display:inline-block;line-height:1}
+  .qm::after{
+    content:'?';
+    position:absolute;left:0;top:0;
+    color:var(--red);
+    clip-path:inset(72% 0 0 0);
+  }
   .sub{margin:10px 0 0;font-size:clamp(20px,5.4vw,26px);font-weight:600;
     letter-spacing:-.03em;color:var(--red)}
 
@@ -76,6 +101,13 @@
     border:1px solid var(--line);background:none;color:var(--slate);
   }
   .filters button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink)}
+  .filters .fsep{flex-basis:100%;height:4px}
+  .filters .pagelink{
+    font-size:13px;font-weight:600;letter-spacing:.02em;padding:7px 12px;
+    border-radius:100px;border:1px solid transparent;color:var(--ink);
+    text-decoration:none;
+  }
+  .filters .pagelink:hover{border-color:var(--line)}
 
   /* ---------- tabid ---------- */
   .tabs{display:flex;gap:30px;margin-top:30px;border-bottom:1px solid var(--line)}
@@ -105,7 +137,8 @@
   .row .acts a.live{color:#fff;background:var(--red);padding:2px 9px;border-radius:100px;
     font-size:12.5px;letter-spacing:.05em}
   .row .acts .sep{color:var(--line);font-weight:500}
-  .row .acts .src{color:var(--slate);font-weight:500;font-size:12px}
+  .row h2 a.title{text-decoration:none;color:inherit}
+  .row h2 a.title:hover{text-decoration:underline;text-underline-offset:3px}
   .arr{font-size:.85em;display:inline-block;transform:translateY(-1px)}
 
   .empty{padding:64px 0;text-align:center;color:var(--slate);font-weight:500}
@@ -131,7 +164,7 @@
     </div>
   </div>
 
-  <h1>Where the hell<br>are my results?</h1>
+  <h1>Where the hell<br>are my results<span class="qm">?</span></h1>
   <p class="sub">Right here.</p>
 
   <div class="searchbar" id="searchbar">
@@ -156,9 +189,21 @@
 </footer>
 
 <script>
+// Service workerit siin meelega EI OLE.
+//
+// Ta oleks hoidnud lehe telefonis, aga tulemused elavad niikuinii ajavõtjate
+// serverites — ilma võrguta ei näe neid keegi. Vastu oleks saanud uue viisi,
+// kuidas asjad katki lähevad: vana leht jääb vahemällu kinni ja kasutaja ei
+// saa aru, miks andmed ei uuene. Ikoon avaekraanil töötab ka ilma selleta.
+
 const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 const ARROW = '<span class="arr">↗</span>';
-const state = { events: [], tab: 'past', q: '', sport: null };
+const state = {
+  events: [],      // laetud võistlused (kasvab, kui aastaid juurde laetakse)
+  meta: null,      // index.json — mis aastaid üldse olemas on
+  loaded: new Set(),
+  tab: 'past', q: '', year: null, loading: false,
+};
 const today = new Date().toISOString().slice(0, 10);
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -168,16 +213,14 @@ function actions(e){
     if (s.links.live)
       out.push(`<a class="live" href="${s.links.live}" target="_blank" rel="noopener">LIVE</a>`);
   }
-  // Iga real on alati "Results" — kui ajavõtja link on olemas, viib see sinna;
-  // kui ei ole, viib valmis otsingusse. Väike hall silt ütleb ausalt, kumb.
+  // "Results" tähendab ainult üht asja: otselink tulemustele. Kui meil seda
+  // ei ole, siis me seda sõna ei kasuta — pakume ausalt otsingut.
   const res = e.sources.find(s => s.links.results);
   if (res){
     out.push(`<a class="res" href="${res.links.results}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
-    out.push(`<span class="src">${esc(res.label)}</span>`);
   } else if (e.date <= today){
     const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
-    out.push(`<a class="res" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Results ${ARROW}</a>`);
-    out.push(`<span class="src">search</span>`);
+    out.push(`<a class="other" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Search ${ARROW}</a>`);
   }
   const start = e.sources.find(s => s.links.startlist && s.links.startlist !== (res && res.links.results));
   if (start){
@@ -195,19 +238,112 @@ function actions(e){
   return out.join('');
 }
 
+// Võistluse nimi on link ta enda infolehele — korraldaja koduleht, kui see
+// on teada, muidu ajavõtja ürituseleht. Kui kumbagi pole, jääb tavaline tekst.
+// NB: eelistame "info" linki, mitte korraldaja oma. Sportos annab korraldajaks
+// tihti lihtsalt kodulehe juure (tartu.ee, pyhajarve.com), mis ei ütle selle
+// konkreetse võistluse kohta midagi. Info-link viib alati just sellele
+// võistlusele — see on see, mida inimene tegelikult tahab.
+function nameHtml(e){
+  const stage = e.sources.find(s => s.id === 'organiser' && s.links.info);
+  const info = e.sources.find(s => s.links.info);
+  const org = e.sources.find(s => s.links.organiser);
+  const url = (stage && stage.links.info)
+    || (info && info.links.info)
+    || (org && org.links.organiser);
+  const name = esc(e.name);
+  return url
+    ? `<a class="title" href="${url}" target="_blank" rel="noopener">${name}</a>`
+    : name;
+}
+
+// --- arhiivi laadimine aastate kaupa ---------------------------------------
+
+// --- otsing ----------------------------------------------------------------
+
+// "Pühajärve" -> "puhajarve". Eestlane trükib telefonis tihti täpitähtedeta,
+// ja võistluste nimed on täpitähti täis. Ilma selleta ei leiaks pool asju.
+const fold = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+// Levenshtein, aga peatume niipea kui vahe on üle lubatud piiri.
+function closeEnough(word, target, max){
+  if (Math.abs(word.length - target.length) > max) return false;
+  let prev = Array.from({ length: target.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= word.length; i++){
+    const row = [i];
+    let best = i;
+    for (let j = 1; j <= target.length; j++){
+      row[j] = Math.min(
+        prev[j] + 1,
+        row[j-1] + 1,
+        prev[j-1] + (word[i-1] === target[j-1] ? 0 : 1)
+      );
+      if (row[j] < best) best = row[j];
+    }
+    if (best > max) return false;
+    prev = row;
+  }
+  return prev[target.length] <= max;
+}
+
+function matches(e, terms){
+  // 1. Kõik sõnad peavad esinema — järjekord ei loe.
+  //    Nii leiab "tartu maraton" ka kirje "52. Maraton Tartus".
+  if (terms.every(t => e._s.includes(t))) return true;
+
+  // 2. Kui ei leidnud, lubame ühe näpuvea sõna kohta. Ainult pikematel
+  //    sõnadel, muidu hakkab lühikest juppi liiga paljuga sobitama.
+  return terms.every(t => {
+    if (t.length < 5) return e._s.includes(t);
+    return e._w.some(w => closeEnough(t, w, 1));
+  });
+}
+
+// --- arhiivi laadimine aastate kaupa ---------------------------------------
+
+async function loadYear(year){
+  if (state.loaded.has(year)) return;
+  state.loaded.add(year);
+  const res = await fetch(`events-${year}.json`);
+  if (!res.ok) return;
+  const rows = await res.json();
+  for (const e of rows){
+    e._s = fold(`${e.name} ${e.location||''} ${e.sport||''}`);
+    e._w = e._s.split(/[^a-z0-9]+/).filter(w => w.length > 2);
+  }
+  state.events = state.events.concat(rows);
+  state.events.sort((a,b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
+}
+
+// Otsing peab käima üle kogu ajaloo, mitte ainult selle, mis juhtub laetud olema.
+async function loadAllYears(){
+  if (!state.meta) return;
+  const missing = state.meta.years.map(y => y.year).filter(y => !state.loaded.has(y));
+  if (!missing.length) return;
+  state.loading = true;
+  render();
+  await Promise.all(missing.map(loadYear));
+  state.loading = false;
+  buildFilters();
+}
+
 function render(){
   const list = document.getElementById('list');
-  const q = state.q.trim().toLowerCase();
+  const terms = fold(state.q).split(/\s+/).filter(Boolean);
 
   let rows = state.events.filter(e => {
-    if (state.sport && (e.sport || '') !== state.sport) return false;
-    if (q) return (e.name + ' ' + (e.location||'') + ' ' + (e.sport||'')).toLowerCase().includes(q);
+    if (state.year && !e.date.startsWith(state.year)) return false;
+    if (terms.length) return matches(e, terms);
+    if (state.year) return true;   // aastat vaadates näita kõike, ka tulevast
     return state.tab === 'past' ? e.date <= today : e.date > today;
   });
-  if (state.tab === 'next' && !q) rows = rows.slice().reverse();
+  const q = terms.length ? state.q : '';
+  if (state.tab === 'next' && !q && !state.year) rows = rows.slice().reverse();
 
   if (!rows.length){
-    list.innerHTML = `<div class="empty">${q ? 'Nothing found.' : 'Nothing here yet.'}</div>`;
+    list.innerHTML = `<div class="empty">${
+      state.loading ? 'Searching the archive…' : (q ? 'Nothing found.' : 'Nothing here yet.')
+    }</div>`;
     return;
   }
 
@@ -219,25 +355,53 @@ function render(){
         <div class="mon">${MONTHS[d.getMonth()]}</div>
       </div>
       <div class="body">
-        <h2>${esc(e.name)}</h2>
+        <h2>${nameHtml(e)}</h2>
         <div class="acts">${actions(e)}</div>
       </div>
     </article>`;
   }).join('');
 }
 
+// Menüüs on ainult aastad.
+//
+// Siin olid varem ka spordialad, aga need tulid andmetest eestikeelsena
+// ("Maanteerattasõit") keset ingliskeelset liidest — ja keegi ei otsi tulemusi
+// ala järgi. Sa tead, mis võistlusel sa käisid. Ala jääb otsingusse sisse,
+// nii et "triatlon" kirjutades leiab ikka.
+// Kui suur osa aasta võistlustest peab olema päris tulemuste lingiga, et seda
+// aastat üldse sirvimiseks pakkuda. Vana aasta, kus kaks kolmandikku ridadest
+// viivad Google'i otsingusse, näeb kasutaja silmis katkine välja — parem seda
+// mitte pakkuda kui pakkuda halvasti.
+//
+// NB: see EI PEIDA midagi otsingu eest. Otsing käib alati üle kogu arhiivi,
+// nii et 2016. aasta võistlus on nime järgi ikka leitav. Kuratud on ainult
+// sirvimine, mitte sisu.
+const YEAR_MIN_COVERAGE = 0.5;
+const YEAR_MIN_EVENTS = 20;
+
 function buildFilters(){
-  const counts = {};
-  for (const e of state.events) if (e.sport) counts[e.sport] = (counts[e.sport]||0) + 1;
-  const sports = Object.keys(counts).sort((a,b) => counts[b] - counts[a]).slice(0, 10);
   const box = document.getElementById('filters');
-  box.innerHTML = sports.map(s =>
-    `<button data-sport="${esc(s)}" aria-pressed="false">${esc(s)}</button>`).join('');
-  box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
-    const sport = b.dataset.sport;
-    state.sport = state.sport === sport ? null : sport;
-    box.querySelectorAll('button').forEach(x =>
-      x.setAttribute('aria-pressed', x.dataset.sport === state.sport));
+  const all = state.meta ? state.meta.years : [];
+  const years = all
+    .filter(y => {
+      if (y.withResults === undefined) return true;   // vana index.json
+      if (y.count < YEAR_MIN_EVENTS) return false;
+      return y.withResults / y.count >= YEAR_MIN_COVERAGE;
+    })
+    .map(y => y.year);
+
+  box.innerHTML =
+    years.map(y => `<button data-year="${y}" aria-pressed="${state.year === y}">${y}</button>`).join('') +
+    '<span class="fsep"></span>' +
+    '<a class="pagelink" href="/about.html">About</a>' +
+    '<a class="pagelink" href="/advertise.html">Advertise</a>' +
+    '<a class="pagelink" href="mailto:info@losttimes.ee?subject=LostTimes">Contact</a>';
+
+  box.querySelectorAll('button[data-year]').forEach(b => b.addEventListener('click', async () => {
+    const year = b.dataset.year;
+    state.year = state.year === year ? null : year;
+    if (state.year){ state.loading = true; render(); await loadYear(state.year); state.loading = false; }
+    buildFilters();
     render();
   }));
 }
@@ -253,27 +417,74 @@ function toggle(btnId, boxId, onOpen){
 toggle('btn-search', 'searchbar', () => document.getElementById('q').focus());
 toggle('btn-filter', 'filters');
 
-document.getElementById('q').addEventListener('input', ev => { state.q = ev.target.value; render(); });
+const qEl = document.getElementById('q');
+
+// Otsingu sulgemine: väli tühjaks, riba kinni, nimekiri tagasi.
+function closeSearch(){
+  qEl.value = '';
+  state.q = '';
+  document.getElementById('searchbar').classList.remove('open');
+  document.getElementById('btn-search').setAttribute('aria-expanded', 'false');
+  qEl.blur();
+  render();
+}
+
+// Esimene otsingutäht laeb kogu arhiivi taustal — pärast seda on otsing kohene.
+let searchLoaded = false;
+qEl.addEventListener('input', async ev => {
+  state.q = ev.target.value;
+  render();
+  if (!searchLoaded && state.q.trim()){
+    searchLoaded = true;
+    await loadAllYears();
+    render();
+  }
+});
+
+// Ristike välja sees tekitab "search" sündmuse. Kui väli jäi tühjaks, on
+// kasutaja otsingu lõpetanud — paneme riba kinni, mitte ei jäta tühjalt ette.
+// NB: Enter tekitab sama sündmuse, aga siis on väljal tekst ja me ei sulge.
+qEl.addEventListener('search', () => { if (!qEl.value) closeSearch(); });
+qEl.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeSearch(); });
 for (const [id, tab] of [['tab-past','past'], ['tab-next','next']]){
   document.getElementById(id).addEventListener('click', () => {
     state.tab = tab;
+    state.year = null;
     document.getElementById('tab-past').setAttribute('aria-selected', tab === 'past');
     document.getElementById('tab-next').setAttribute('aria-selected', tab === 'next');
+    buildFilters();
     render();
   });
 }
 
-fetch('events.json').then(r => r.json()).then(data => {
-  state.events = data.events || [];
-  buildFilters();
-  const d = new Date(data.generated);
+(async () => {
+  try {
+    state.meta = await (await fetch('index.json')).json();
+  } catch {
+    document.getElementById('list').innerHTML =
+      '<div class="empty">No data. Run npm run scrape first.</div>';
+    return;
+  }
+
+  // Laeme jooksva aasta kohe. Kui aasta on alles alanud ja kirjeid on vähe,
+  // võtame eelmise ka — muidu oleks jaanuaris leht peaaegu tühi.
+  const years = state.meta.years.map(y => y.year);
+  const thisYear = String(new Date().getFullYear());
+  const first = years.includes(thisYear) ? thisYear : years[0];
+  await loadYear(first);
+  if (state.events.length < 60 && years[years.indexOf(first) + 1]) {
+    await loadYear(years[years.indexOf(first) + 1]);
+  }
+
+  const d = new Date(state.meta.generated);
+  const span = years.length ? `${years[years.length - 1]}–${years[0]}` : '';
   document.getElementById('stamp').textContent =
-    `Updated ${d.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })} · ${state.events.length} races`;
+    `Updated ${d.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })} · `
+    + `${state.meta.total} races · ${span}`;
+
+  buildFilters();
   render();
-}).catch(() => {
-  document.getElementById('list').innerHTML =
-    '<div class="empty">No data. Run npm run scrape first.</div>';
-});
+})();
 </script>
 </body>
 </html>

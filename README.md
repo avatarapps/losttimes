@@ -14,7 +14,7 @@ GitHub Actions (kord ööpäevas)
         ↓
    npm run scrape          → käib läbi 4 ajavõtja indeksilehte
         ↓
-   site/events.json        → commititakse repo sisse
+   site/events-YYYY.json   → commititakse repo sisse (aastate kaupa)
         ↓
  Cloudflare Pages          → serveerib site/ kausta staatiliselt
 ```
@@ -25,9 +25,23 @@ Andmebaasi ei ole. Serverit ei ole. Kuutasu ei ole.
 
 ```bash
 npm install
-npm run scrape      # kirjutab site/events.json
+npm run scrape      # tavajooks — värske ots
 npm run serve       # avab lehe aadressil http://localhost:3000
 ```
+
+### Arhiivi allalaadimine (üks kord)
+
+```bash
+node scrape/index.mjs --deep
+```
+
+Käib läbi Sportose kogu arhiivi (~289 lehekülge, üle 11 000 võistluse) ja
+ChampionChipi sügavuti. Võtab **1-2 tundi** — käivita ja tegele muuga.
+
+Iga leitud tulemuste link salvestatakse `data/cache.json` faili. Toimunud
+võistluse link ei muutu enam kunagi, seega järgmised jooksud puudutavad ainult
+uusi üritusi ja kestavad minuteid. **See fail peab repos olema** — ilma selleta
+oleks iga öine käivitus jälle kahetunnine.
 
 Kui mõni allikas annab 0 kirjet, väljub skript veakoodiga ja Actions saadab kirja.
 See on kogu monitooring, mida vaja on.
