@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kontakt — LostTimes</title>
+<meta name="description" content="Kõik tähtsad Eesti võistluste tulemused ühes kohas. Jooks, ratas, suusk ja triatlon. Kirjuta, kui mõni võistlus on puudu.">
+<link rel="canonical" href="https://losttimes.ee/kontakt/">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
+--sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg)}
+body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.6;
+-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
+a{color:inherit}
+.wrap{max-width:640px;margin:0 auto;padding:0 22px}
+.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
+.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.03em;
+line-height:1;text-decoration:none;color:var(--ink)}
+.logo i{color:var(--red);font-style:normal}
+.icons{margin:-11px -11px 0 0}
+.icons button{width:44px;height:44px;display:grid;place-items:center;
+background:none;border:0;cursor:pointer;color:var(--ink)}
+.icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
+stroke-linecap:round;stroke-linejoin:round}
+.icons button[aria-expanded="true"]{color:var(--red)}
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
+border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
+.menu[hidden]{display:none}
+.menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
+color:var(--ink);text-decoration:none}
+.menu a:hover{color:var(--red)}
+h1{margin:44px 0 0;font-size:clamp(28px,7.5vw,36px);font-weight:600;
+letter-spacing:-.035em;line-height:1.1}
+p{margin:18px 0 0;max-width:32em}
+p.lead{font-size:17px}
+p.small{font-size:15px;color:var(--slate);font-weight:450}
+.cta{display:inline-block;margin-top:28px;padding:13px 22px;border-radius:100px;
+background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
+footer{margin-top:52px;padding:20px 0 44px;border-top:1px solid var(--line);
+color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
+footer strong{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="logo" href="/">LOSTTIMES<i>.</i></a>
+    <div class="icons">
+      <button id="btn-menu" aria-label="Menüü" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="menu" id="menu" hidden>
+      <a href="/arhiiv/">Arhiiv</a>
+      <a href="/reklaam/">Reklaam</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a href="mailto:info@losttimes.ee?subject=V%C3%B5istlus%20puudu">Võistlus puudu?</a>
+    </div>
+  </div>
+
+  <h1>Kõik tähtsad tulemused ühes kohas.</h1>
+
+  <p class="lead">Eestis on palju häid ajavõtjaid, kuid keegi neist omavahel ei
+     suhtle. Pärast võistlust tead, et su aeg on kuskil üleval — aga kus?
+     LostTimes püüab need üles leida ja kokku koondada. Meie kirg on eelkõige
+     jooks, ratas, suusk ja triatlon.</p>
+
+  <p class="small">Me ei salvesta tulemusi ega isikuandmeid. Iga link viib
+     ajavõtja enda lehele.</p>
+
+  <p class="small">Allikad: ChampionChip, Sportos, timing.ee, Estoloppet,
+     Antrotsenter, TolkNet ja korraldajate oma lehed. Arhiiv ulatub
+     1970ndatesse.</p>
+
+  <p class="small">Kas mõni oluline võistlus on puudu? Kirjuta meile ja
+     parandame vea!</p>
+
+  <a class="cta" href="mailto:info@losttimes.ee?subject=LostTimes">Saada sõnum</a>
+
+  <footer><strong>Me ei hoia tulemusi. Me lihtsalt teame, kus need on.</strong><br>
+  Iga link viib otse ametlikku allikasse.</footer>
+</div>
+<script>
+if(location.hostname.endsWith('.pages.dev'))location.replace('https://losttimes.ee'+location.pathname+location.search+location.hash);
+var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
+b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
+b.setAttribute('aria-expanded',String(!m.hidden));});
+document.addEventListener('click',function(e){if(!m.hidden&&!m.contains(e.target))m.hidden=true;});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')m.hidden=true;});
+</script>
+</body>
+</html>

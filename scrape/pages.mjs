@@ -132,8 +132,8 @@ ${o.jsonld ? `<script type="application/ld+json">${o.jsonld}</script>` : ''}
 </div>
 <div class="menu" id="menu" hidden>
 <a href="/arhiiv/">Arhiiv</a>
-<a href="/advertise.html">Reklaam</a>
-<a href="/about.html">Kontakt</a>
+<a href="/reklaam/">Reklaam</a>
+<a href="/kontakt/">Kontakt</a>
 <a href="mailto:info@losttimes.ee?subject=V%C3%B5istlus%20puudu">Võistlus puudu?</a>
 </div>
 </div>
@@ -195,9 +195,7 @@ function eventPage(e, siblings) {
     body: `<h1>${esc(tidyName(e.name))}</h1>
 <p class="meta">${esc(when)}${esc(where)}${e.sport ? ' · ' + esc(e.sport) : ''}</p>
 ${action}${extras.join('')}
-<p class="note">${res
-      ? 'Tulemusi hoiab ajavõtja — link viib otse ametlikku allikasse.'
-      : 'Selle võistluse tulemuste asukoht ei ole meil teada. Kui sa selle leiad, kirjuta ja lisan.'}</p>
+${res ? '' : '<p class="note">Selle võistluse tulemuste asukoht ei ole meil teada. Kui sa selle leiad, kirjuta ja lisame.</p>'}
 ${others}
 <p class="note"><a href="/arhiiv/${year}/">Kõik ${year}. aasta võistlused →</a></p>`,
   });
@@ -351,7 +349,7 @@ export async function buildPages(events, years) {
   // 7. Sitemap ja robots
   const urls = [
     `${SITE}/`, `${SITE}/upcoming/`, `${SITE}/arhiiv/`,
-    `${SITE}/about.html`, `${SITE}/advertise.html`,
+    `${SITE}/kontakt/`, `${SITE}/reklaam/`,
     ...[...byYear.keys()].map((y) => `${SITE}/arhiiv/${y}/`),
     ...[...series.entries()].filter(([h, r]) => r.length >= 2 && !used.has(h)).map(([h]) => `${SITE}/race/${h}`),
     ...events.map((e) => `${SITE}/race/${e.slug}`),
