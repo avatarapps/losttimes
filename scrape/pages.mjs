@@ -386,7 +386,12 @@ function ssrRows(rows) {
       const d = new Date(e.date + 'T12:00:00');
       const mon = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()];
       const res = resultsLink(e);
-      return `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div></div>` +
+      // Sama reegel mis kliendipoolses renderis: aastaarv ainult siis, kui
+      // voistlus ei ole jooksvast aastast. Muidu naeks crawler ja esimene
+      // pilguheit eri asja kui see, mis JS-i jarel ekraanile jaab.
+      const yr = e.date.slice(0, 4);
+      const yrHtml = yr === String(new Date().getFullYear()) ? '' : `<div class="yr">${yr}</div>`;
+      return `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div>${yrHtml}</div>` +
         `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(tidyName(e.name))}</a></h2>` +
         `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}" ` +
         `aria-label="Results — ${esc(tidyName(e.name))} tulemused">Results <span class="arr">↗</span></a></div></div></article>`;

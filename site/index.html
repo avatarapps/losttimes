@@ -188,6 +188,14 @@
   .row{display:flex;gap:0;padding-top:13px}
   .row .date{width:52px;flex:none;padding-top:1px}
   .row .day{font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  /* Aastaarv ilmub AINULT siis, kui võistlus ei ole jooksvast aastast.
+     Otsing käib üle kogu arhiivi ja ilma selleta ei erista "19 DEC"
+     mullust tänavusest. Jooksva aasta ridadel jääb see ära, sest seal ei
+     ole midagi selgitada.
+     Mobiilis EI kasva rida sellest ühegi piksli võrra: kõrguse määrab
+     sisuplokk (61px) ja kuupäevaplokk mahub sinna alla ka aastaga (60px). */
+  .row .yr{margin-top:3px;font-size:11.5px;font-weight:500;
+    letter-spacing:.06em;color:var(--slate)}
   .row .mon{margin-top:3px;font-size:11.5px;font-weight:450;letter-spacing:.1em;
     text-transform:uppercase;color:var(--slate)}
   .row .body{min-width:0;flex:1;padding-bottom:13px;border-bottom:1px solid var(--line-soft)}
@@ -236,7 +244,10 @@
     .row{padding-top:18px}
     .row .body{padding-bottom:18px}
 
-    .row .date{width:64px}
+    /* Desktopis läheb kuupäev ühele reale — 19 DEC 2019 — nii et
+       aastarida ei tee rida kõrgemaks. Sama info, teisiti pakitud. */
+    .row .date{width:104px;display:flex;align-items:baseline;gap:6px}
+    .row .mon,.row .yr{margin-top:0}
     .row .body{display:flex;align-items:baseline;gap:28px}
 
     /* min-width:0 lubab pikal nimel kahaneda ja vajadusel murduda.
@@ -546,7 +557,10 @@ async function loadAllYears(){
 // "Upcoming" punaselt ajal, mil ekraanil on 2012. aasta võistlused — ja
 // kasutaja otsib süüdlast enda seest, mitte liidesest.
 function syncTabs(){
-  const active = state.year ? null : state.tab;
+  // Otsing käib ULE KOIGE — nii tulemuste kui tulevaste, kõigi aastate.
+  // Kui sakk jääks otsides põlema, lubaks liides midagi, mida ta ei tee:
+  // kasutaja loeks "TULEMUSED" ja arvaks, et näeb ainult toimunud võistlusi.
+  const active = (state.year || state.q.trim()) ? null : state.tab;
   document.getElementById('tab-past').setAttribute('aria-selected', String(active === 'past'));
   document.getElementById('tab-next').setAttribute('aria-selected', String(active === 'next'));
 }
@@ -581,12 +595,16 @@ function render(){
     return;
   }
 
+  const thisYear = String(new Date().getFullYear());
+
   list.innerHTML = rows.slice(0, 300).map(e => {
     const d = new Date(e.date + 'T12:00:00');
+    const yr = e.date.slice(0, 4);
     return `<article class="row">
       <div class="date">
         <div class="day">${String(d.getDate()).padStart(2,'0')}</div>
         <div class="mon">${MONTHS[d.getMonth()]}</div>
+        ${yr === thisYear ? '' : `<div class="yr">${yr}</div>`}
       </div>
       <div class="body">
         <h2>${nameHtml(e)}</h2>
