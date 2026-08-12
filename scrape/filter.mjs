@@ -31,6 +31,8 @@ const DROP_NAME = new RegExp(
     // mida keegi hiljem otsiks.
     'treening', '\\btrenn', 'koolitus', '\\blaager', '\\blaagri', 'õpituba',
     'workshop', 'tutvustus', 'proovitund',
+    // Matkad ja elamusretked ei ole voistlused — seal ei ole aegu ega kohti.
+    'elamusretk', '\\bmatka', '\\bmatk\\b', 'rahvamatk', 'seiklusretk',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',
     'petank', 'mälumäng', 'motokross', 'kardi', 'rally', 'ralli\\b',
   ].join('|'),

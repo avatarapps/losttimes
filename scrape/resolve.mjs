@@ -25,6 +25,11 @@ const TIMER_DOMAINS = /racetecresults\.com|championchip\.ee|sportos\.eu|estolopp
 const RESULT_WORD = /tulemus|result|protokoll/i;
 const DATE_TOKEN = /\b(\d{1,2})\.(\d{1,2})(?:\.(\d{4}))?\b/g;
 
+// "Pühajärve" -> "puhajarve". Ilma selleta ei klapiks eestikeelsed nimed
+// kunagi lehtedel, kus tapitahed on teisiti kodeeritud.
+const fold = (s) =>
+  String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
 // Link peab ka VALJA NAGEMA tulemuste lingina. Ilma selleta nopib resolver
 // ules suvalise ajavotja alamdomeeni (nt organizer.sportos.eu) ja paneb selle
 // "Results" nupu taha.
@@ -32,13 +37,18 @@ const RESULT_URL = /results?|tulemus|protokoll|RId=/i;
 
 // Registreerimis- ja korraldajakeskkonnad EI OLE tulemused.
 const NOT_RESULTS = /organizer\.|iseteenindus\.|registreeru|registration|\/shop/i;
-const TIMEOUT = 8000;   // aeglane korraldaja leht ei tohi kogu tood kinni panna
+// 20 s, mitte 8. spordisarjad.ee vastab vahel aeglaselt ja lyhem kannatus
+// tahendas, et terve korraldaja — koos koigi oma sarjadega — jai vahele.
+const TIMEOUT = 20000;
 const DELAY = 500;
 
 // Tosta seda numbrit, kui findResultLink() loogika muutub.
-// v2: sarjade eristamine nime jargi + noue, et link naeks valja tulemuste
-//     lingina (varem votis suvalise ajavotja alamdomeeni).
-const RESOLVER_VERSION = 2;
+// v2: sarjade eristamine nime jargi + noue, et link naeks valja tulemuste lingina
+// v3: pikem timeout + kordusparing + sarja tuvastus lahima pealkirja jargi
+// v4: PARANDUS — fold() oli kasutusel, aga defineerimata. Iga findResultLink()
+//     kutse viskas ReferenceErrori, mille try/catch vaikselt alla neelas.
+//     Seetottu leidis resolver alates v2-st peaaegu mitte midagi.
+const RESOLVER_VERSION = 4;
 
 /** "2026-08-13" -> "13.08" */
 function dateKey(iso) {
@@ -117,6 +127,25 @@ function stagePage($, box, pageUrl) {
 }
 
 /**
+ * Millise SARJA all see link seisab.
+ *
+ * Varem votsin lihtsalt kuue taseme jagu umbritsevat teksti — aga
+ * spordisarjad.ee hoiab kuut sarja uhel lehel ja lai tekst laks naabersarja
+ * peale ule. Nuud otsime lahima EELNEVA pealkirja dokumendi jarjekorras:
+ * see on tapselt see sari, mille alla link kuulub.
+ */
+function nearestHeading($, el) {
+  let node = el;
+  for (let up = 0; up < 8; up++) {
+    const h = node.prevAll('h1,h2,h3,h4,h5').first();
+    if (h && h.length) return fold(clean(h.text()));
+    node = node.parent();
+    if (!node || !node.length || node.is('body')) break;
+  }
+  return '';
+}
+
+/**
  * Otsib lehelt tulemuste lingi. Votab ainult siis, kui on KINDEL:
  * kas kuupaev klapib, voi lehel on tapselt uks ajavotja link.
  */
@@ -136,18 +165,12 @@ function findResultLink(html, pageUrl, event) {
 
     const ctx = anchorDate($, el);
 
-    // Laiem umbrus, et teada saada, MILLISE SARJA all see link on.
-    // spordisarjad.ee/tulemused hoiab kuut sarja uhel lehel ja kahel sarjal
-    // voib olla etapp samal kuupaeval — ainult kuupaevast ei piisa.
-    let wide = el;
-    for (let i = 0; i < 6 && wide.parent().length; i++) wide = wide.parent();
-
     timerLinks.push({
       url: href,
       text: clean(el.text()),
       date: ctx.date,
       stage: stagePage($, ctx.box, pageUrl),
-      context: fold(wide.text()),
+      context: nearestHeading($, el),
     });
   });
 
@@ -246,7 +269,13 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
       for (const url of pages) {
         let html = cache.get(url);
         if (html === undefined) {
+          // Uks kordusparing: aeglane server ei tohi tahendada, et terve
+          // korraldaja koos koigi oma sarjadega jaab vahele.
           html = await fetchHtml(url, null, { timeoutMs: TIMEOUT }).catch(() => null);
+          if (html === null) {
+            await sleep(1500);
+            html = await fetchHtml(url, null, { timeoutMs: TIMEOUT }).catch(() => null);
+          }
           cache.set(url, html);
           await sleep(DELAY);
         }
@@ -274,8 +303,13 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
           distanceCount: 1,
         });
       }
-    } catch {
-      // vaikselt edasi — see samm on boonus, mitte kohustus
+    } catch (err) {
+      // Vaikne allaneelamine peitis pikalt paris vea (fold defineerimata).
+      // Nuud kaib teade valja — uks kord, et logi ule ei ujutaks.
+      if (!resolveMissing._warned) {
+        console.warn(`  [resolve] VIGA: ${err.message}`);
+        resolveMissing._warned = true;
+      }
     }
 
     if ((i + 1) % 100 === 0) {
