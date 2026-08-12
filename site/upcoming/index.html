@@ -229,6 +229,13 @@
   @media (min-width:900px){
     .wrap{max-width:1000px}
 
+    /* Rida laks uherealiseks ja kaotas ~25px korgust. Vaike polstri
+       lisandus toob rutmi tagasi, ilma et rida mobiilist korgemaks
+       laheks: 13 -> 18px teeb rea 49px asemel 59px, mobiilis on 74px.
+       Molemad pooled peavad koos liikuma, muidu istub tekst viltu. */
+    .row{padding-top:18px}
+    .row .body{padding-bottom:18px}
+
     .row .date{width:64px}
     .row .body{display:flex;align-items:baseline;gap:28px}
 
