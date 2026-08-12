@@ -29,8 +29,12 @@ const DROP_NAME = new RegExp(
     'spordipäev', 'suvemängud', 'talimängud', 'külamängud',
     // Treening, laager voi koolitus ei ole voistlus — seal ei ole tulemusi,
     // mida keegi hiljem otsiks.
-    'treening', '\\btrenn', 'koolitus', '\\blaager', '\\blaagri', 'õpituba',
-    'workshop', 'tutvustus', 'proovitund',
+    // "laager" ilma sonapiirita, sest kirjas on "kevadlaager", "suvelaager".
+    'treening', '\\btrenn', 'koolitus', 'laager', 'laagri', 'õpituba',
+    'workshop', 'tutvustus', 'proovitund', 'kontsert', 'näidis',
+    // Kergejoustik ja koolispordi sarjad ei ole kestvusalad.
+    'kergejõustik', 'olümpiastarti', 'koolinoorte', 'võimlemis', 'võimlejate',
+    'hüppevõistlus', 'teatevõistlus',
     // Matkad ja elamusretked ei ole voistlused — seal ei ole aegu ega kohti.
     'elamusretk', '\\bmatka', '\\bmatk\\b', 'rahvamatk', 'seiklusretk',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',

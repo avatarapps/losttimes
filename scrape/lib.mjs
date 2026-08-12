@@ -12,14 +12,34 @@ const UA =
  * Laeb lehe alla. --save-fixtures lipuga salvestab toorHTML-i fixtures/ kausta,
  * et saaks parserit ilma vorguta silmata.
  */
-export async function fetchHtml(url, fixtureName, { timeoutMs = 20000 } = {}) {
-  const res = await fetch(url, {
-    headers: { 'User-Agent': UA, 'Accept-Language': 'et' },
-    signal: AbortSignal.timeout(timeoutMs),
-    redirect: 'follow',
-  });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} :: ${url}`);
-  const html = await res.text();
+/**
+ * Laeb lehe alla, KOLME katsega.
+ *
+ * Uks aeglane hetk ei tohi tahendada, et terve allikas kaob. Just nii juhtus
+ * timing.ee-ga: server jai magama, paring aegus ja 124 voistlust jaid tulemata.
+ * Ootame katsete vahel jarjest kauem, sest koormatud server vajab hingamisruumi.
+ */
+export async function fetchHtml(url, fixtureName, { timeoutMs = 30000, tries = 3 } = {}) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= tries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { 'User-Agent': UA, 'Accept-Language': 'et' },
+        signal: AbortSignal.timeout(timeoutMs),
+        redirect: 'follow',
+      });
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      var html = await res.text();
+      lastError = null;
+      break;
+    } catch (err) {
+      lastError = err;
+      if (attempt < tries) await sleep(attempt * 2000);
+    }
+  }
+
+  if (lastError) throw new Error(`${lastError.message} :: ${url}`);
 
   if (SAVE_FIXTURES && fixtureName) {
     const file = path.join('fixtures', `${fixtureName}.html`);

@@ -37,9 +37,12 @@ const RESULT_URL = /results?|tulemus|protokoll|RId=/i;
 
 // Registreerimis- ja korraldajakeskkonnad EI OLE tulemused.
 const NOT_RESULTS = /organizer\.|iseteenindus\.|registreeru|registration|\/shop/i;
-// 20 s, mitte 8. spordisarjad.ee vastab vahel aeglaselt ja lyhem kannatus
-// tahendas, et terve korraldaja — koos koigi oma sarjadega — jai vahele.
-const TIMEOUT = 20000;
+// Korraldaja leht on BOONUS, mitte allikas. Siin on ebaonnestumine tavaline —
+// pooled lingid on surnud kodulehed voi Facebooki grupid. Kolm katset x 30 s
+// tahendaks, et uks surnud leht sooks poolteist minutit; sadade kaupa laheks
+// see tundideks. Allikatele jaab korduskatse alles, siia mitte.
+const TIMEOUT = 12000;
+const TRIES = 1;
 const DELAY = 500;
 
 // Tosta seda numbrit, kui findResultLink() loogika muutub.
@@ -269,13 +272,8 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
       for (const url of pages) {
         let html = cache.get(url);
         if (html === undefined) {
-          // Uks kordusparing: aeglane server ei tohi tahendada, et terve
-          // korraldaja koos koigi oma sarjadega jaab vahele.
-          html = await fetchHtml(url, null, { timeoutMs: TIMEOUT }).catch(() => null);
-          if (html === null) {
-            await sleep(1500);
-            html = await fetchHtml(url, null, { timeoutMs: TIMEOUT }).catch(() => null);
-          }
+          html = await fetchHtml(url, null, { timeoutMs: TIMEOUT, tries: TRIES })
+            .catch(() => null);
           cache.set(url, html);
           await sleep(DELAY);
         }
