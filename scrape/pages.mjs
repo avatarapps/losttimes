@@ -326,7 +326,11 @@ function eventPage(e, siblings) {
 ${action}${extras.join('')}
 ${res ? '' : '<p class="note">Selle võistluse tulemuste asukoht ei ole meil teada. Kui sa selle leiad, kirjuta ja lisame.</p>'}
 ${others}
-<p class="note"><a href="/arhiiv/${year}/">Kõik ${year}. aasta võistlused →</a></p>`,
+${year > String(new Date().getFullYear())
+  // Tuleviku aastal ei ole arhiivilehte — need voistlused ei ole toimunud.
+  // Saadame /upcoming peale, mis on nende paris kodu.
+  ? '<p class="note"><a href="/upcoming/">Kõik tulemas olevad võistlused →</a></p>'
+  : `<p class="note"><a href="/arhiiv/${year}/">Kõik ${year}. aasta võistlused →</a></p>`}`,
   });
 }
 
@@ -469,7 +473,11 @@ export async function buildPages(events, years) {
     if (!byYear.has(y)) byYear.set(y, []);
     byYear.get(y).push(e);
   }
+  const nowYear = String(new Date().getFullYear());
   for (const [year, rows] of byYear) {
+    // Tuleviku aasta ei ole arhiiv. Ilma selleta jai /arhiiv/2027/ alles ka
+    // siis, kui me ta esilehelt ara votsime — kaust lihtsalt kirjutati uuesti.
+    if (year > nowYear) continue;
     await mkdir(`site/arhiiv/${year}`, { recursive: true });
     await writeFile(`site/arhiiv/${year}/index.html`, yearPage(year, rows));
   }
@@ -517,7 +525,7 @@ export async function buildPages(events, years) {
     // soovitus "indekseeri need", noindex on kask "ara indekseeri";
     // koos saadaksime Google'ile vasturaakiva signaali.
     `${SITE}/`, `${SITE}/upcoming/`, `${SITE}/arhiiv/`, `${SITE}/kontakt/`,
-    ...[...byYear.keys()].map((y) => `${SITE}/arhiiv/${y}/`),
+    ...[...byYear.keys()].filter((y) => y <= nowYear).map((y) => `${SITE}/arhiiv/${y}/`),
     // Sitemapis on AINULT need, mida me tahame indeksis naha. Sama reegel,
     // mis maarab noindex'i — muidu utleks sitemap "indekseeri" ja lehe enda
     // margend "ara indekseeri", ja me saadaksime vasturaakiva signaali.

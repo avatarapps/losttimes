@@ -82,6 +82,30 @@ font-size:13.5px;font-weight:600;text-decoration:none}
 footer{margin-top:40px;padding:20px 0 44px;border-top:1px solid var(--line);
 color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
 footer strong{color:var(--ink);font-weight:600}
+
+/* Otsing arhiivilehel. Otsingumootorit siin EI dubleerita — vorm saadab
+   parisu avalehele (/?q=...), kus kogu loogika juba on. Uks mootor, mitte
+   kaks, mis aja jooksul lahku kasvavad.
+   Kirjasuurus 16px on tahtlik: alla selle suumib iOS Safari valjale
+   klikkides lehe sisse ja kasutaja peab kaega tagasi suumima. */
+form.find{margin:20px 0 0;display:flex;gap:10px;align-items:center}
+form.find input{flex:1;min-width:0;padding:11px 0;font-family:var(--sans);
+font-size:16px;font-weight:500;color:var(--ink);background:none;border:0;
+border-bottom:2px solid var(--ink);outline:none}
+form.find input::placeholder{color:var(--slate);font-weight:500}
+form.find button{border:0;background:none;font-family:var(--sans);font-size:15px;
+font-weight:600;color:var(--red);cursor:pointer;padding:8px 2px}
+
+/* ---------- desktop ----------
+   Sama polumotte, mis avalehel: ainult paigutus, koik @media sees.
+   .wrap laieneb ka siin, et pais ja logo ei hupaks avalehelt voistluse
+   lehele minnes kohta. Tekstiloikude enda max-width (32em / 30em) hoiab
+   lugemispikkuse ikka lyhikesena — laiem konteiner ei tee ridu pikemaks. */
+@media (min-width:900px){
+  .wrap{max-width:1000px}
+  ul.list li{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 24px}
+  ul.list .d{display:block;margin-top:0;margin-left:auto}
+}
 </style>
 
 </head>
@@ -103,6 +127,9 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 <h1>2023. aasta võistlused</h1>
 <p class="meta">1265 võistlust</p>
+<form class="find" action="/" method="get" role="search">
+<input name="q" type="search" placeholder="Otsi võistlust" aria-label="Otsi võistlust">
+<button type="submit">Otsi</button></form>
 <ul class="list"><li><a class="n" href="/race/sportos-test-2023-2-2023">Sportos TEST 2023 2</a>
 <span class="d">30. detsember 2023 · Eesti</span></li>
 <li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2023">Tallinna kiiruisuklubi karikasarja 1. etapp</a>
@@ -1266,7 +1293,7 @@ footer strong{color:var(--ink);font-weight:600}
 <li><a class="n" href="/race/triathlon-estonia-2023">Triathlon Estonia</a>
 <span class="d">26. august 2023</span></li>
 <li><a class="n" href="/race/sillamae-ultra-2023">Sillamäe Ultra</a>
-<span class="d">25. august 2023 · Sillamäe terviserada</span></li>
+<span class="d">25. august 2023</span></li>
 <li><a class="n" href="/race/leisi-heinarulli-orienteerumisneljapaevak-2023">Leisi heinarulli orienteerumisneljapäevak</a>
 <span class="d">24. august 2023 · Leisi aleviku ja Veske küla piirimail</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-7">RMK Pärnumaa orienteerumisneljapäevak</a>
