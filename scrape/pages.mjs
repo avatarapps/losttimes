@@ -429,8 +429,10 @@ export async function buildPages(events, years) {
 
   // 7. Sitemap ja robots
   const urls = [
-    `${SITE}/`, `${SITE}/upcoming/`, `${SITE}/arhiiv/`,
-    `${SITE}/kontakt/`, `${SITE}/reklaam/`,
+    // /reklaam on meelega valjas — ta kannab noindex'it. Sitemap on
+    // soovitus "indekseeri need", noindex on kask "ara indekseeri";
+    // koos saadaksime Google'ile vasturaakiva signaali.
+    `${SITE}/`, `${SITE}/upcoming/`, `${SITE}/arhiiv/`, `${SITE}/kontakt/`,
     ...[...byYear.keys()].map((y) => `${SITE}/arhiiv/${y}/`),
     ...[...series.entries()].filter(([h, r]) => r.length >= 2 && !used.has(h)).map(([h]) => `${SITE}/race/${h}`),
     ...events.map((e) => `${SITE}/race/${e.slug}`),
