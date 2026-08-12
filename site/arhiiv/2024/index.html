@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2024. aasta võistluste tulemused | LostTimes</title>
-<meta name="description" content="Kõik 2024. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1149 võistlust.">
+<meta name="description" content="Kõik 2024. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1146 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2024/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2024/">
+<meta property="og:title" content="2024. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2024. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1146 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -77,7 +102,7 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>2024. aasta võistlused</h1>
-<p class="meta">1149 võistlust</p>
+<p class="meta">1146 võistlust</p>
 <ul class="list"><li><a class="n" href="/race/kuulitouke-talvine-seeriavoistlus-i-etapp-2024">Kuulitõuke talvine seeriavõistlus - I etapp</a>
 <span class="d">29. detsember 2024 · Audentese Spordiklubi</span></li>
 <li><a class="n" href="/race/perede-spordihommik-paliveres-2024">Perede Spordihommik Paliveres</a>
@@ -104,7 +129,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. detsember 2024 · Audentese Spordiklubi</span></li>
 <li><a class="n" href="/race/sk-fortis-jouluvoistlus-2024">SK Fortis jõuluvõistlus</a>
 <span class="d">15. detsember 2024 · Lasnamäe Kergejõustikuhall</span></li>
-<li><a class="n" href="/race/xxxviii-johvi-huppajate-paev-2024">Xxxviii Jõhvi Hüppajate Päev</a>
+<li><a class="n" href="/race/xxxviii-johvi-huppajate-paev-2024">XXXVIII Jõhvi Hüppajate päev</a>
 <span class="d">14. detsember 2024 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/christmas-cup-2024">Christmas cup</a>
 <span class="d">13. detsember 2024 · Kalevi spordihall</span></li>
@@ -178,11 +203,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. november 2024</span></li>
 <li><a class="n" href="/race/polva-iii-o-puhapaevak-2024">Põlva III o-pühapäevak</a>
 <span class="d">3. november 2024 · Tilsi orienteerumiskaart</span></li>
-<li><a class="n" href="/race/reinpauli-xxii-maastikujooks-2024">Reinpauli Xxii Maastikujooks</a>
+<li><a class="n" href="/race/reinpauli-xxii-maastikujooks-2024">Reinpauli XXII maastikujooks</a>
 <span class="d">3. november 2024</span></li>
 <li><a class="n" href="/race/15-haanja-ultra100-2024">15. Haanja Ultra100</a>
 <span class="d">2. november 2024</span></li>
-<li><a class="n" href="/race/2-puhali-maraton-2024">2. Pühali Maraton</a>
+<li><a class="n" href="/race/2-puhali-maraton-2024">2. Pühali maraton</a>
 <span class="d">2. november 2024</span></li>
 <li><a class="n" href="/race/3-sakala-tee-juurika-mtb-2024">3. Sakala tee juurika MTB</a>
 <span class="d">2. november 2024 · Põhja-Sakala vald</span></li>
@@ -214,7 +239,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. oktoober 2024 · Märjamaa ujula</span></li>
 <li><a class="n" href="/race/51-saaremaa-kolme-paeva-jooks-2024">51. Saaremaa Kolme Päeva Jooks</a>
 <span class="d">20. oktoober 2024 · Kuressaare, Asa Spa hotell</span></li>
-<li><a class="n" href="/race/estonia-elamuspark-viimase-naise-mehe-soit-2024">Estonia Elamuspark Viimase Naise/Mehe Sõit</a>
+<li><a class="n" href="/race/estonia-elamuspark-viimase-naise-mehe-soit-2024">Estonia Elamuspark Viimase Naise/Mehe sõit</a>
 <span class="d">20. oktoober 2024 · Väike-Pungerja</span></li>
 <li><a class="n" href="/race/polva-i-o-puhapaevak-2024">Põlva I o-pühapäevak</a>
 <span class="d">20. oktoober 2024 · Vastse-Kuuste</span></li>
@@ -228,7 +253,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. oktoober 2024 · Pärnu Spordihall</span></li>
 <li><a class="n" href="/race/ambla-sk-suusatajate-seeriajooksu-kepikond-3-etapp-2024">Ambla SK suusatajate seeriajooksu +kepikõnd 3.etapp</a>
 <span class="d">17. oktoober 2024 · Kangrumäe</span></li>
-<li><a class="n" href="/race/xxx-jurka-jooks-2024">Xxx Jürka Jooks</a>
+<li><a class="n" href="/race/xxx-jurka-jooks-2024">XXX Jürka jooks</a>
 <span class="d">17. oktoober 2024 · Anne kanal</span></li>
 <li><a class="n" href="/race/31-albu-sugisjooks-ja-19-terviseliikumispaev-2024">31. Albu Sügisjooks ja 19. Terviseliikumispäev</a>
 <span class="d">13. oktoober 2024 · Mägede</span></li>
@@ -238,9 +263,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. oktoober 2024 · Viljandi, Tasuja plats</span></li>
 <li><a class="n" href="/race/ok-west-av-ja-parnumaa-mv-2024">OK West AV ja Pärnumaa MV</a>
 <span class="d">13. oktoober 2024 · Soometsa orienteerumiskaart</span></li>
-<li><a class="n" href="/race/raikkula-moisa-jooks-2024">Raikküla Mõisa Jooks</a>
+<li><a class="n" href="/race/raikkula-moisa-jooks-2024">Raikküla mõisa jooks</a>
 <span class="d">13. oktoober 2024</span></li>
-<li><a class="n" href="/race/2-tabivere-rahvajooks-2024">2. Tabivere Rahvajooks</a>
+<li><a class="n" href="/race/2-tabivere-rahvajooks-2024">2. Tabivere rahvajooks</a>
 <span class="d">12. oktoober 2024</span></li>
 <li><a class="n" href="/race/5-lembitu-jooks-2024">5. Lembitu jooks</a>
 <span class="d">12. oktoober 2024 · Suure-Jaani Kooli staadion ja kunstmurukattega jalgpalliväljak</span></li>
@@ -268,7 +293,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. oktoober 2024 · Elva</span></li>
 <li><a class="n" href="/race/gravel-beach-race-2024">Gravel Beach race</a>
 <span class="d">5. oktoober 2024 · Narva-Jõesuu</span></li>
-<li><a class="n" href="/race/lokuta-eidapere-xx-suurjooks-2024">Lokuta-Eidapere Xx Suurjooks</a>
+<li><a class="n" href="/race/lokuta-eidapere-xx-suurjooks-2024">Lokuta-Eidapere XX suurjooks</a>
 <span class="d">5. oktoober 2024</span></li>
 <li><a class="n" href="/race/friday-night-run-2024">Friday Night Run</a>
 <span class="d">4. oktoober 2024 · Tartu, Raekoja plats</span></li>
@@ -286,7 +311,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. oktoober 2024</span></li>
 <li><a class="n" href="/race/sugisjooksukross-2024">Sügisjooksukross</a>
 <span class="d">3. oktoober 2024 · Elva linnastaadion</span></li>
-<li><a class="n" href="/race/kiili-rattakross-2024">Kiili Rattakross</a>
+<li><a class="n" href="/race/kiili-rattakross-2024">Kiili rattakross</a>
 <span class="d">2. oktoober 2024</span></li>
 <li><a class="n" href="/race/parnu-niidupargi-heitevoistlused-2024-2">Pärnu Niidupargi heitevõistlused</a>
 <span class="d">2. oktoober 2024 · Niidupargi staadion</span></li>
@@ -320,7 +345,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. september 2024 · Kuressaare Linnastaadion</span></li>
 <li><a class="n" href="/race/41-rakvere-rahvajooks-laane-virumaa-jooksusari-2024">41. Rakvere Rahvajooks (Lääne-Virumaa Jooksusari)</a>
 <span class="d">29. september 2024 · Rakvere linnastaadion</span></li>
-<li><a class="n" href="/race/kuusiku-moisa-jooks-2024">Kuusiku Mõisa Jooks</a>
+<li><a class="n" href="/race/kuusiku-moisa-jooks-2024">Kuusiku mõisa jooks</a>
 <span class="d">29. september 2024</span></li>
 <li><a class="n" href="/race/liigume-koos-2024">Liigume koos!</a>
 <span class="d">29. september 2024 · Vana-Vigala</span></li>
@@ -350,7 +375,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. september 2024 · Võhma Kool</span></li>
 <li><a class="n" href="/race/bikefanatics-hepa-rapla-cx-24-2024">BikeFanatics HEPA Rapla CX &#39;24</a>
 <span class="d">28. september 2024 · Rapla Vesiroosi terviserada</span></li>
-<li><a class="n" href="/race/fixus-padise-rattamaraton-2024">Fixus Padise Rattamaraton</a>
+<li><a class="n" href="/race/fixus-padise-rattamaraton-2024">Fixus Padise rattamaraton</a>
 <span class="d">28. september 2024</span></li>
 <li><a class="n" href="/race/iii-magazini-mangud-2024">III Magazini mängud</a>
 <span class="d">28. september 2024 · Koigera orienteerumiskaart</span></li>
@@ -362,7 +387,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. september 2024 · Kuressaare</span></li>
 <li><a class="n" href="/race/viimsi-rattakross-jaab-ara-2024">Viimsi Rattakross - JÄÄB ÄRA!</a>
 <span class="d">28. september 2024 · Randvere kool</span></li>
-<li><a class="n" href="/race/xiv-kolme-koolimaja-jooks-2024">Xiv Kolme Koolimaja Jooks</a>
+<li><a class="n" href="/race/xiv-kolme-koolimaja-jooks-2024">XIV Kolme Koolimaja jooks</a>
 <span class="d">28. september 2024</span></li>
 <li><a class="n" href="/race/11-direktor-rein-harmoja-nimeline-karikajooks-2024">11. Direktor Rein Härmoja nimeline karikajooks</a>
 <span class="d">27. september 2024 · Vana-Kuuste</span></li>
@@ -416,7 +441,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. september 2024 · Kääpa kool</span></li>
 <li><a class="n" href="/race/kadaka-sugisjooks-2024-2024">Kadaka sügisjooks 2024</a>
 <span class="d">26. september 2024 · Akadeemia tee 66</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2024">Keila Seeriajooksu 8. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2024">Keila seeriajooksu 8. etapp</a>
 <span class="d">26. september 2024</span></li>
 <li><a class="n" href="/race/kepikonni-abc-2024">Kepikõnni ABC</a>
 <span class="d">26. september 2024 · Mustvee jalgpalliväljak</span></li>
@@ -554,7 +579,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. september 2024 · Aardla 138</span></li>
 <li><a class="n" href="/race/kaljuronimine-2024">Kaljuronimine</a>
 <span class="d">24. september 2024 · Rakvere Spordikeskus</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2024">Keila Seeriajooksu 7. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2024">Keila seeriajooksu 7. etapp</a>
 <span class="d">24. september 2024</span></li>
 <li><a class="n" href="/race/kogu-kool-spordib-2024">Kogu Kool Spordib!</a>
 <span class="d">24. september 2024 · Surju Kooli staadion</span></li>
@@ -572,7 +597,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. september 2024 · Sõnajala Lasteaed</span></li>
 <li><a class="n" href="/race/madisepaeva-teatejooks-2024">Madisepäeva teatejooks</a>
 <span class="d">24. september 2024 · Türi tehisjärve rand</span></li>
-<li><a class="n" href="/race/manni-rattaralli-2024">Männi Rattaralli</a>
+<li><a class="n" href="/race/manni-rattaralli-2024">Männi rattaralli</a>
 <span class="d">24. september 2024 · Kohila Lasteaed Männi</span></li>
 <li><a class="n" href="/race/martna-palivere-pohikooli-spordinadal-2024-2024">Martna - Palivere Põhikooli Spordinädal 2024</a>
 <span class="d">24. september 2024 · Palivere Põhikooli spordiväljak</span></li>
@@ -586,7 +611,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. september 2024 · Kopra tee 4</span></li>
 <li><a class="n" href="/race/orienteerumispaev-uuesalu-filiaalis-2024">Orienteerumispäev Uuesalu filiaalis</a>
 <span class="d">24. september 2024 · Kopra tee 4</span></li>
-<li><a class="n" href="/race/padise-lasteaia-jooksupaev-2024">Padise Lasteaia Jooksupäev</a>
+<li><a class="n" href="/race/padise-lasteaia-jooksupaev-2024">Padise Lasteaia jooksupäev</a>
 <span class="d">24. september 2024 · Padise</span></li>
 <li><a class="n" href="/race/poltsamaa-valla-meistrivoistlused-orienteerumises-2024-2024">Põltsamaa valla meistrivõistlused orienteerumises 2024</a>
 <span class="d">24. september 2024 · Põltsamaa</span></li>
@@ -746,7 +771,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2024 · Mustamäe Riigigümnaasium</span></li>
 <li><a class="n" href="/race/naerulindude-rattaretk-tartu-linnas-2024">Naerulindude rattaretk Tartu linnas</a>
 <span class="d">23. september 2024 · Tartu linn</span></li>
-<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2024-2024">Näpi Kooli Spordinädal (23.-30.09.2024)</a>
+<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2024-2024">Näpi kooli spordinädal (23.-30.09.2024)</a>
 <span class="d">23. september 2024 · Näpi Kooli võimla</span></li>
 <li><a class="n" href="/race/narva-kesklinna-kooli-spordinadal-2024">Narva Kesklinna Kooli Spordinädal</a>
 <span class="d">23. september 2024 · Narva Kesklinna Gümnaasium</span></li>
@@ -762,7 +787,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2024 · Nissi Põhikooli staadion ja palliplatsid</span></li>
 <li><a class="n" href="/race/noo-pohikooli-spordinadal-2024">Nõo Põhikooli spordinädal</a>
 <span class="d">23. september 2024 · Nõo Põhikool</span></li>
-<li><a class="n" href="/race/oru-pohikooli-spordinadal-2024">Oru Põhikooli Spordinädal</a>
+<li><a class="n" href="/race/oru-pohikooli-spordinadal-2024">Oru Põhikooli spordinädal</a>
 <span class="d">23. september 2024 · Oru Põhikool</span></li>
 <li><a class="n" href="/race/ounajooks-2024">Õunajooks</a>
 <span class="d">23. september 2024 · Tallinna Lasteaed Mooniõied</span></li>
@@ -776,7 +801,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2024 · Niidupargi 12</span></li>
 <li><a class="n" href="/race/polvamaa-koolide-heategevuslik-teatejooks-2024">Põlvamaa koolide HEATEGEVUSLIK TEATEJOOKS</a>
 <span class="d">23. september 2024 · Põlva</span></li>
-<li><a class="n" href="/race/poska-liigub-2024">Poska Liigub</a>
+<li><a class="n" href="/race/poska-liigub-2024">Poska liigub</a>
 <span class="d">23. september 2024 · Vanemuise 35</span></li>
 <li><a class="n" href="/race/pug-spordinadal-2024">PÜG spordinädal</a>
 <span class="d">23. september 2024 · Veski 5</span></li>
@@ -830,7 +855,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2024 · Sindi Lasteaed</span></li>
 <li><a class="n" href="/race/spordinadal-vastseliina-lasteaias-2024">Spordinädal Vastseliina lasteaias</a>
 <span class="d">23. september 2024 · Vastseliina</span></li>
-<li><a class="n" href="/race/sugisene-spordinadal-tallinna-loitsu-lasteaias-2024">Sügisene Spordinädal Tallinna Loitsu Lasteaias</a>
+<li><a class="n" href="/race/sugisene-spordinadal-tallinna-loitsu-lasteaias-2024">Sügisene spordinädal Tallinna Loitsu Lasteaias</a>
 <span class="d">23. september 2024 · Tallinna Loitsu lasteaed</span></li>
 <li><a class="n" href="/race/suitsupaasupesa-lasteaia-spordinadal-2024">Suitsupääsupesa lasteaia spordinädal</a>
 <span class="d">23. september 2024 · Tallinna Suitsupääsupesa Lasteaed</span></li>
@@ -856,7 +881,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2024 · Haapsalu Staadion</span></li>
 <li><a class="n" href="/race/tervisenadal-2024">Tervisenädal</a>
 <span class="d">23. september 2024 · Kohtla-Järve Kesklinna Põhikool</span></li>
-<li><a class="n" href="/race/tibutare-lasteaia-spordinadal-2024-2024">Tibutare Lasteaia Spordinädal 2024</a>
+<li><a class="n" href="/race/tibutare-lasteaia-spordinadal-2024-2024">Tibutare Lasteaia spordinädal 2024</a>
 <span class="d">23. september 2024 · Lasteaia 7</span></li>
 <li><a class="n" href="/race/tilsi-orienteerumine-2024">Tilsi orienteerumine</a>
 <span class="d">23. september 2024 · Tilsi Põhikool</span></li>
@@ -906,7 +931,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. september 2024 · Jõulumäe Tervisespordikeskuse asfaltkattega liikumisrada</span></li>
 <li><a class="n" href="/race/varska-jarve-jooks-2024">Värska järve jooks</a>
 <span class="d">22. september 2024 · Värska staadion</span></li>
-<li><a class="n" href="/race/vi-palivere-suusaraja-jooks-2024">VI Palivere Suusaraja Jooks</a>
+<li><a class="n" href="/race/vi-palivere-suusaraja-jooks-2024">VI Palivere Suusaraja jooks</a>
 <span class="d">22. september 2024</span></li>
 <li><a class="n" href="/race/vi-parnumaa-rattaorienteerumine-2024">VI Pärnumaa Rattaorienteerumine</a>
 <span class="d">22. september 2024 · Pärnu Vallikäär</span></li>
@@ -924,7 +949,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. september 2024</span></li>
 <li><a class="n" href="/race/sillamae-ultra-100-km-jooks-2024">Sillamäe ultra: 100 km jooks</a>
 <span class="d">21. september 2024 · Sillamäe terviserada ja jõulinnakud</span></li>
-<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2024">Tupiku Igamehe Maastikumaraton</a>
+<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2024">Tupiku Igamehe maastikumaraton</a>
 <span class="d">21. september 2024</span></li>
 <li><a class="n" href="/race/ida-virumaa-heitefestival-2024">Ida-Virumaa Heitefestival</a>
 <span class="d">20. september 2024 · Vitsiku</span></li>
@@ -948,21 +973,21 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. september 2024 · Eistvere järv</span></li>
 <li><a class="n" href="/race/ida-virumaa-kuldliiga-ii-etapp-kivioli-2024">Ida-Virumaa Kuldliiga II etapp - Kiviõli</a>
 <span class="d">19. september 2024 · Kiviõli Linna Spordiklubi</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2024">Keila Seeriajooksu 6. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2024">Keila seeriajooksu 6. etapp</a>
 <span class="d">19. september 2024</span></li>
-<li><a class="n" href="/race/saku-lastesarja-4-etapp-2024">Saku Lastesarja 4. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-4-etapp-2024">Saku lastesarja 4. etapp</a>
 <span class="d">19. september 2024</span></li>
-<li><a class="n" href="/race/sisekaitseakadeemia-ja-vanglateenistuse-meistrivoistlused-kr-2024">Sisekaitseakadeemia Ja Vanglateenistuse Meistrivõistlused Krossijooksus</a>
+<li><a class="n" href="/race/sisekaitseakadeemia-ja-vanglateenistuse-meistrivoistlused-kr-2024">Sisekaitseakadeemia ja Vanglateenistuse meistrivõistlused Krossijooksus</a>
 <span class="d">19. september 2024</span></li>
 <li><a class="n" href="/race/toukerattasoidu-a-ja-o-2024-2">Tõukerattasõidu A ja O</a>
 <span class="d">19. september 2024 · Räpina</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-uuemoisa-2024">Läänemaa Orienteerumiskolmapäevakud Uuemõisa</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-uuemoisa-2024">Läänemaa orienteerumiskolmapäevakud Uuemõisa</a>
 <span class="d">18. september 2024 · Uuemõisa mõisapark</span></li>
 <li><a class="n" href="/race/sparta-sugiskross-2024-18-09-2024-2024">Sparta Sügiskross 2024 18.09.2024</a>
 <span class="d">18. september 2024 · Järve Terviserada</span></li>
 <li><a class="n" href="/race/ambla-sk-seerivoistlus-sugis-2024-umber-jarve-jooks-karavete-2024">Ambla SK seerivõistlus sügis 2024 ümber järve jooks Käravete</a>
 <span class="d">17. september 2024 · Rava järv</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2024">Keila Seeriajooksu 5. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2024">Keila seeriajooksu 5. etapp</a>
 <span class="d">17. september 2024</span></li>
 <li><a class="n" href="/race/polva-o-teisipaevakud-xxiv-etapp-2024">Põlva o-teisipäevakud, XXIV etapp</a>
 <span class="d">17. september 2024 · Mooste-Sulbi orienteerumiskaart</span></li>
@@ -970,7 +995,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. september 2024 · Tallinna Liikuri Lasteaed</span></li>
 <li><a class="n" href="/race/toukerattasoidu-a-ja-o-2024-3">Tõukerattasõidu A ja O</a>
 <span class="d">17. september 2024 · Kanepi</span></li>
-<li><a class="n" href="/race/turi-metsajooks-2024">Türi Metsajooks</a>
+<li><a class="n" href="/race/turi-metsajooks-2024">Türi metsajooks</a>
 <span class="d">17. september 2024 · Türi</span></li>
 <li><a class="n" href="/race/heategevuslik-virtuaaljooks-unistuste-jooks-2024">Heategevuslik virtuaaljooks &quot;Unistuste jooks&quot;</a>
 <span class="d">16. september 2024 · Eesti</span></li>
@@ -1008,9 +1033,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. september 2024 · Põhja-Tallinna linnaosa</span></li>
 <li><a class="n" href="/race/ii-joksi-jarve-jooks-kond-2024">II JÕKSI järve jooks/kõnd</a>
 <span class="d">14. september 2024 · Kanepi</span></li>
-<li><a class="n" href="/race/kiili-valla-pargijooksu-3-etapp-paekna-umber-jarve-jooks-2024">Kiili Valla Pargijooksu 3. Etapp, Paekna Ümber Järve Jooks</a>
+<li><a class="n" href="/race/kiili-valla-pargijooksu-3-etapp-paekna-umber-jarve-jooks-2024">Kiili valla Pargijooksu 3. etapp, Paekna ümber järve jooks</a>
 <span class="d">14. september 2024</span></li>
-<li><a class="n" href="/race/kose-maastikujooksu-voistlus-vale-ja-visa-2024">Kose Maastikujooksu Võistlus „Väle Ja Visa”</a>
+<li><a class="n" href="/race/kose-maastikujooksu-voistlus-vale-ja-visa-2024">Kose Maastikujooksu võistlus „Väle ja Visa”</a>
 <span class="d">14. september 2024</span></li>
 <li><a class="n" href="/race/marjamaa-41-alevijooks-2024">Märjamaa 41. Alevijooks</a>
 <span class="d">14. september 2024 · Märjamaa Valla Spordikeskus</span></li>
@@ -1026,13 +1051,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. september 2024 · Türi Ujula</span></li>
 <li><a class="n" href="/race/valga-valka-xxvii-rahvajooks-2024">Valga-Valka XXVII rahvajooks</a>
 <span class="d">13. september 2024 · Pedeli puhkeala</span></li>
-<li><a class="n" href="/race/xviii-saue-ohtujooks-2024">Xviii Saue Õhtujooks</a>
+<li><a class="n" href="/race/xviii-saue-ohtujooks-2024">XVIII Saue õhtujooks</a>
 <span class="d">13. september 2024 · Saue Gümnaasiumi staadion</span></li>
 <li><a class="n" href="/race/ambla-sk-seerivoistlus-sugis-2024-umber-jarve-jooks-preediku-2024">Ambla SK seerivõistlus sügis 2024 ümber järve jooks Preediku</a>
 <span class="d">12. september 2024 · Rava järv</span></li>
 <li><a class="n" href="/race/vandra-lasteaia-duatlon-2024">Vändra Lasteaia DUATLON</a>
 <span class="d">12. september 2024 · Vändra Staadion</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-risti-2024">Läänemaa Orienteerumiskolmapäevakud Risti</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-risti-2024">Läänemaa orienteerumiskolmapäevakud Risti</a>
 <span class="d">11. september 2024 · Risti</span></li>
 <li><a class="n" href="/race/tartu-descartes-i-kooli-orienteerumispaev-2024">Tartu Descartes&#39;i Kooli orienteerumispäev</a>
 <span class="d">11. september 2024 · Tähtvere Spordipark</span></li>
@@ -1058,17 +1083,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. september 2024 · Vasta</span></li>
 <li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-v-etapp-2024-joulum-2024">Husqvarna Eesti Olümpiakrossi Karikasari V etapp 2024 - Jõulumäe XCO</a>
 <span class="d">8. september 2024 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/linnamae-rattasoit-2024">Linnamäe Rattasõit</a>
+<li><a class="n" href="/race/linnamae-rattasoit-2024">Linnamäe rattasõit</a>
 <span class="d">8. september 2024</span></li>
 <li><a class="n" href="/race/swedbanki-tallinna-maraton-42-2-km-2024">Swedbanki Tallinna Maraton - 42,2 km</a>
 <span class="d">8. september 2024 · Vabaduse väljak</span></li>
 <li><a class="n" href="/race/swedbanki-tallinna-maraton-teatemaraton-42-2-km-2024">Swedbanki Tallinna Maraton - Teatemaraton 42,2 km</a>
 <span class="d">8. september 2024 · Vabaduse väljak</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2024">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2024">Tallinna maraton</a>
 <span class="d">8. september 2024 · Tallinn - Falgi tee</span></li>
 <li><a class="n" href="/race/25-tallinna-sugisjooks-2024">25. Tallinna Sügisjooks</a>
 <span class="d">7. september 2024 · Tallinn - Falgi tee</span></li>
-<li><a class="n" href="/race/alansi-motopaev-murutraktorite-liiga-6-etapp-2024">Alansi Motopäev – Murutraktorite Liiga 6. Etapp</a>
+<li><a class="n" href="/race/alansi-motopaev-murutraktorite-liiga-6-etapp-2024">Alansi Motopäev – Murutraktorite Liiga 6. etapp</a>
 <span class="d">7. september 2024</span></li>
 <li><a class="n" href="/race/ii-kepikonni-karikavoistlus-jaab-ara-2024">II Kepikõnni Karikavõistlus - JÄÄB ÄRA!</a>
 <span class="d">7. september 2024 · Randvere külaplatsi spordiväljakud</span></li>
@@ -1096,7 +1121,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. september 2024 · Rakvere linnastaadion</span></li>
 <li><a class="n" href="/race/magede-jarve-jooks-6-jarvamaa-jarvede-jooksud-8-etapp-2024">Mägede järve jooks, &quot; 6. Järvamaa Järvede jooksud &quot;8. etapp</a>
 <span class="d">5. september 2024 · Mägede liivakarjäär</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-roosta-2024">Läänemaa Orienteerumiskolmapäevakud Roosta</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-roosta-2024">Läänemaa orienteerumiskolmapäevakud Roosta</a>
 <span class="d">4. september 2024 · Roosta puhkeküla</span></li>
 <li><a class="n" href="/race/mammaste-rattasoit-2024">Mammaste RATTASÕIT</a>
 <span class="d">4. september 2024 · Mammaste Tervisespordikeskus</span></li>
@@ -1112,13 +1137,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. september 2024 · Türi vallavalitsus</span></li>
 <li><a class="n" href="/race/12-noarootsi-elamusmaraton-2024">12. Noarootsi Elamusmaraton</a>
 <span class="d">1. september 2024 · Peraküla</span></li>
-<li><a class="n" href="/race/7-silda-ujumismatk-2024">7 Silda Ujumismatk</a>
+<li><a class="n" href="/race/7-silda-ujumismatk-2024">7 silda ujumismatk</a>
 <span class="d">1. september 2024 · Liiva 3</span></li>
 <li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2024">Jüri Jaansoni Kahe Silla jooks</a>
 <span class="d">1. september 2024 · Pärnu - Vaasa park ja Keskväljak</span></li>
-<li><a class="n" href="/race/maxima-rahvajooks-3-etapp-2024">Maxima Rahvajooks-3. Etapp</a>
+<li><a class="n" href="/race/maxima-rahvajooks-3-etapp-2024">Maxima rahvajooks-3. etapp</a>
 <span class="d">1. september 2024 · Kadaka Staadion</span></li>
-<li><a class="n" href="/race/maxima-rahvajooksu-3-etapp-2024">Maxima Rahvajooksu 3. Etapp</a>
+<li><a class="n" href="/race/maxima-rahvajooksu-3-etapp-2024">Maxima Rahvajooksu 3. etapp</a>
 <span class="d">1. september 2024</span></li>
 <li><a class="n" href="/race/narva-rattasoit-2024-2024">Narva Rattasõit 2024</a>
 <span class="d">1. september 2024 · Äkkeküla spordikeskus</span></li>
@@ -1130,13 +1155,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. september 2024 · Vabaduse väljak</span></li>
 <li><a class="n" href="/race/27-tallinna-rattamaraton-2024">27. Tallinna Rattamaraton</a>
 <span class="d">31. august 2024 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/7-kristiine-rahvajooks-2024">7. Kristiine Rahvajooks</a>
+<li><a class="n" href="/race/7-kristiine-rahvajooks-2024">7. Kristiine rahvajooks</a>
 <span class="d">31. august 2024 · Kristiine, Löwenruhe park</span></li>
 <li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-ja-ratastoolisoit-2024">Jüri Jaansoni Kahe Silla jooks ja ratastoolisõit</a>
 <span class="d">31. august 2024 · Endla Teater</span></li>
-<li><a class="n" href="/race/parnu-ohtujooks-2024">Pärnu Õhtujooks</a>
+<li><a class="n" href="/race/parnu-ohtujooks-2024">Pärnu õhtujooks</a>
 <span class="d">31. august 2024 · Pärnu - Vaasa park ja Keskväljak</span></li>
-<li><a class="n" href="/race/seli-moisa-jooks-2024">Seli Mõisa Jooks</a>
+<li><a class="n" href="/race/seli-moisa-jooks-2024">Seli mõisa jooks</a>
 <span class="d">31. august 2024</span></li>
 <li><a class="n" href="/race/eeesti-kaitsevae-krossijooks-mitteavalik-2024">EEESTI KAITSEVÄE KROSSIJOOKS (mitteavalik)</a>
 <span class="d">29. august 2024</span></li>
@@ -1144,7 +1169,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. august 2024</span></li>
 <li><a class="n" href="/race/eesti-kaitsevae-500-m-voistkondlik-takistusjooks-mitteavalik-2024">EESTI KAITSEVÄE 500 m VÕISTKONDLIK TAKISTUSJOOKS (mitteavalik)</a>
 <span class="d">29. august 2024</span></li>
-<li><a class="n" href="/race/saku-lastesarja-3-etapp-2024">Saku Lastesarja 3. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-3-etapp-2024">Saku lastesarja 3. etapp</a>
 <span class="d">29. august 2024</span></li>
 <li><a class="n" href="/race/eesti-kaitsevae-500-m-takistusriba-labimine-eraldistardist-m-2024">Eesti Kaitseväe 500 M Takistusriba Läbimine Eraldistardist (Mitteavalik)</a>
 <span class="d">28. august 2024</span></li>
@@ -1168,13 +1193,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. august 2024</span></li>
 <li><a class="n" href="/race/e-piim-21-kullamaa-rattasoit-2024">E-Piim 21. Kullamaa rattasõit</a>
 <span class="d">24. august 2024 · Kullamaa</span></li>
-<li><a class="n" href="/race/e-piim-kullamaa-21-rattasoit-2024">E-Piim Kullamaa 21. Rattasõit</a>
+<li><a class="n" href="/race/e-piim-kullamaa-21-rattasoit-2024">E-Piim Kullamaa 21. rattasõit</a>
 <span class="d">24. august 2024</span></li>
 <li><a class="n" href="/race/ironman-tallinn-2024">IRONMAN Tallinn</a>
 <span class="d">24. august 2024 · Tallinn</span></li>
 <li><a class="n" href="/race/juri-ratase-xviii-jalgrattavoistlus-2024">Jüri Ratase XVIII Jalgrattavõistlus</a>
 <span class="d">24. august 2024 · Tallinn, Pirita Spordikeskus</span></li>
-<li><a class="n" href="/race/kihnu-mannakaba-10-juubeli-maraton-2024">Kihnu Männäkäbä 10. Juubeli Maraton</a>
+<li><a class="n" href="/race/kihnu-mannakaba-10-juubeli-maraton-2024">Kihnu Männäkäbä 10. Juubeli maraton</a>
 <span class="d">24. august 2024</span></li>
 <li><a class="n" href="/race/ekv-rattatest-mitteavalik-2024-2">EKV RATTATEST (mitteavalik)</a>
 <span class="d">23. august 2024</span></li>
@@ -1188,7 +1213,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. august 2024 · Võru linna keskväljak</span></li>
 <li><a class="n" href="/race/balti-keti-velotuur-2024-baltic-chain-tour-2024-voistlus-jaa-2024">Balti Keti Velotuur 2024/ Baltic Chain Tour 2024 - võistlus jääb ära</a>
 <span class="d">22. august 2024 · Harjumaa; Tartumaa; Valgamaa</span></li>
-<li><a class="n" href="/race/rulluisu-sprindisarja-3-etapp-2024">Rulluisu Sprindisarja 3. Etapp</a>
+<li><a class="n" href="/race/rulluisu-sprindisarja-3-etapp-2024">Rulluisu sprindisarja 3. etapp</a>
 <span class="d">22. august 2024</span></li>
 <li><a class="n" href="/race/jussi-karikas-2024">Jussi Karikas</a>
 <span class="d">21. august 2024 · Peraaru sporditalu</span></li>
@@ -1208,7 +1233,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. august 2024 · Pärnu Raeküla staadion</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2024">Pärnu Aastajooksud</a>
 <span class="d">19. august 2024 · Reiu-Raeküla terviserada</span></li>
-<li><a class="n" href="/race/horeda-moisa-jooks-2024">Hõreda Mõisa Jooks</a>
+<li><a class="n" href="/race/horeda-moisa-jooks-2024">Hõreda mõisa jooks</a>
 <span class="d">18. august 2024</span></li>
 <li><a class="n" href="/race/rulluisutamise-emv-temposoidus-keila-2024">Rulluisutamise EMV Temposõidus, Keila</a>
 <span class="d">18. august 2024</span></li>
@@ -1224,7 +1249,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. august 2024</span></li>
 <li><a class="n" href="/race/kose-7-jarve-rattamaraton-2024-eesti-mv-2024">Kose 7 Järve rattamaraton 2024 - EESTI MV</a>
 <span class="d">17. august 2024 · Paunküla Heaolukeskus</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-4-etapp-paldiski-2024">Lääne-Harju Liikumissarja 4. Etapp, Paldiski</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-4-etapp-paldiski-2024">Lääne-Harju Liikumissarja 4. etapp, Paldiski</a>
 <span class="d">17. august 2024</span></li>
 <li><a class="n" href="/race/paavo-nurmi-marathon-2024">Paavo Nurmi Marathon</a>
 <span class="d">17. august 2024 · Turku, Finland</span></li>
@@ -1240,7 +1265,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. august 2024 · Ramsi orienteerumiskaart</span></li>
 <li><a class="n" href="/race/polva-o-teisipaevak-xix-etapp-2024">Põlva o-teisipäevak, XIX etapp</a>
 <span class="d">13. august 2024 · Kooraste</span></li>
-<li><a class="n" href="/race/tervisekassa-triatlon-2024">Tervisekassa Triatlon</a>
+<li><a class="n" href="/race/tervisekassa-triatlon-2024">Tervisekassa triatlon</a>
 <span class="d">13. august 2024</span></li>
 <li><a class="n" href="/race/16-lahemaa-elamusmaraton-2024">16. Lahemaa Elamusmaraton</a>
 <span class="d">11. august 2024 · Kolgaküla Spordiklubi Rada</span></li>
@@ -1248,7 +1273,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. august 2024 · Tallinn</span></li>
 <li><a class="n" href="/race/filter-rullituur-tallinnas-4-etapp-2024">Filter Rullituur Tallinnas (4. etapp)</a>
 <span class="d">11. august 2024 · Täpsustumisel</span></li>
-<li><a class="n" href="/race/oismae-raba-terviseraja-jooks-2024">Õismäe Raba Terviseraja Jooks</a>
+<li><a class="n" href="/race/oismae-raba-terviseraja-jooks-2024">Õismäe Raba Terviseraja jooks</a>
 <span class="d">11. august 2024</span></li>
 <li><a class="n" href="/race/35-lauritsapaevajooks-2024">35. Lauritsapäevajooks</a>
 <span class="d">10. august 2024 · Kuusalu, Lauritsa palliplats</span></li>
@@ -1256,11 +1281,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. august 2024 · Kolgaküla Spordiklubi Rada</span></li>
 <li><a class="n" href="/race/fixus-palivere-jalgrattakross-laanemaa-meistrivoistlused-2024">FIXUS Palivere Jalgrattakross (Läänemaa meistrivõistlused)</a>
 <span class="d">10. august 2024 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/fixus-palivere-xvii-rattamaraton-2024">Fixus Palivere Xvii Rattamaraton</a>
+<li><a class="n" href="/race/fixus-palivere-xvii-rattamaraton-2024">Fixus Palivere XVII rattamaraton</a>
 <span class="d">10. august 2024</span></li>
 <li><a class="n" href="/race/heavy-metal-ultra-2024">Heavy Metal Ultra</a>
 <span class="d">10. august 2024</span></li>
-<li><a class="n" href="/race/jarvakandi-xiii-igamehe-maraton-2024-2024">Järvakandi Xiii Igamehe Maraton 2024</a>
+<li><a class="n" href="/race/jarvakandi-xiii-igamehe-maraton-2024-2024">Järvakandi XIII Igamehe maraton 2024</a>
 <span class="d">10. august 2024</span></li>
 <li><a class="n" href="/race/lehtse-romuring-2024">Lehtse Romuring</a>
 <span class="d">10. august 2024</span></li>
@@ -1280,7 +1305,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. august 2024 · Türi vallavalitsus</span></li>
 <li><a class="n" href="/race/18-haapsalu-triatlon-2024">18. Haapsalu Triatlon</a>
 <span class="d">4. august 2024 · Haapsalu, Väike viik</span></li>
-<li><a class="n" href="/race/alu-moisa-jooks-2024">Alu Mõisa Jooks</a>
+<li><a class="n" href="/race/alu-moisa-jooks-2024">Alu mõisa jooks</a>
 <span class="d">4. august 2024</span></li>
 <li><a class="n" href="/race/baltic-cup-6-etapp-2024">Baltic Cup 6. etapp</a>
 <span class="d">4. august 2024 · Otepää</span></li>
@@ -1290,11 +1315,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. august 2024 · Tallinn</span></li>
 <li><a class="n" href="/race/sko-motorsi-24-rakke-rattamaraton-2024">SKO MOTORSI 24. Rakke Rattamaraton</a>
 <span class="d">4. august 2024 · Rakke Linnamäe staadion</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-emv-ja-balti-liiga-etapp-2024">Vägilase Jooksusarja 3. Etapp – Lähte, EMV Ja Balti Liiga Etapp</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-emv-ja-balti-liiga-etapp-2024">Vägilase jooksusarja 3. etapp – Lähte, EMV ja Balti Liiga etapp</a>
 <span class="d">4. august 2024</span></li>
 <li><a class="n" href="/race/estonian-ultra-trail-race-eutr-7-th-edition-2024">ESTONIAN ULTRA-TRAIL RACE EUTR 7´th edition</a>
 <span class="d">3. august 2024</span></li>
-<li><a class="n" href="/race/karitsa-superliiga-triatlon-2024">Karitsa Superliiga Triatlon</a>
+<li><a class="n" href="/race/karitsa-superliiga-triatlon-2024">Karitsa Superliiga triatlon</a>
 <span class="d">3. august 2024</span></li>
 <li><a class="n" href="/race/mehikoorma-veepidu-2024-2024">Mehikoorma VEEPIDU 2024</a>
 <span class="d">3. august 2024 · Mehikoorma tuletorn</span></li>
@@ -1314,11 +1339,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. august 2024 · Äkkeküla tee</span></li>
 <li><a class="n" href="/race/polva-jarve-jooks-2024">Põlva järve jooks</a>
 <span class="d">2. august 2024 · Põlva ranna spordiväljak</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2024">Tallinna Kiiruisuklubi Ühe Tunni Sõit</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2024">Tallinna kiiruisuklubi Ühe Tunni sõit</a>
 <span class="d">1. august 2024</span></li>
 <li><a class="n" href="/race/virtual-endurance-race-2024">Virtual endurance race</a>
 <span class="d">1. august 2024 · Eesti</span></li>
-<li><a class="n" href="/race/eesti-kaitsevae-voistkondlik-viievoistlus-takistusjooks-ja-t-2024">Eesti Kaitseväe Võistkondlik Viievõistlus – Takistusjooks Ja Takistusujumine</a>
+<li><a class="n" href="/race/eesti-kaitsevae-voistkondlik-viievoistlus-takistusjooks-ja-t-2024">Eesti Kaitseväe Võistkondlik Viievõistlus – Takistusjooks ja Takistusujumine</a>
 <span class="d">31. juuli 2024</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2024-viii-etapp-1500m-2024">Kohila pikamaajooksude sari 2024 VIII etapp 1500m</a>
 <span class="d">31. juuli 2024 · Kohila Spordikeskuse staadion</span></li>
@@ -1326,7 +1351,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. juuli 2024 · Vorbuse</span></li>
 <li><a class="n" href="/race/polva-o-teisipaevak-xvii-etapp-2024">Põlva o-teisipäevak, XVII etapp</a>
 <span class="d">30. juuli 2024 · Koigera-Mesipuu orienteerumiskaart</span></li>
-<li><a class="n" href="/race/22-kilingi-nomme-triatlon-2024">22. Kilingi-Nõmme Triatlon</a>
+<li><a class="n" href="/race/22-kilingi-nomme-triatlon-2024">22. Kilingi-Nõmme triatlon</a>
 <span class="d">28. juuli 2024</span></li>
 <li><a class="n" href="/race/36-koprakarikas-tavarada-2024">36. KOPRAKARIKAS, tavarada</a>
 <span class="d">28. juuli 2024 · Krootuse</span></li>
@@ -1342,7 +1367,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. juuli 2024 · Krootuse</span></li>
 <li><a class="n" href="/race/ikskile-mtb-bike-ride-2024-2024">Ikškile MTB Bike Ride 2024</a>
 <span class="d">27. juuli 2024 · Ogre - Latvia</span></li>
-<li><a class="n" href="/race/luunja-triatlon-2024">Luunja Triatlon</a>
+<li><a class="n" href="/race/luunja-triatlon-2024">Luunja triatlon</a>
 <span class="d">27. juuli 2024</span></li>
 <li><a class="n" href="/race/otepaa-triatlon-2024">Otepää triatlon</a>
 <span class="d">27. juuli 2024 · Otepää Aedlinna jalgpallistaadion</span></li>
@@ -1372,15 +1397,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. juuli 2024 · Ebavere Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/parnumaa-lahtised-mv-soudmised-2024">Pärnumaa lahtised MV sõudmised</a>
 <span class="d">21. juuli 2024 · Pärnu Sõudeklubi</span></li>
-<li><a class="n" href="/race/e-bike-cup-iii-etapp-2024">E-Bike Cup III Etapp</a>
+<li><a class="n" href="/race/e-bike-cup-iii-etapp-2024">E-Bike Cup III etapp</a>
 <span class="d">20. juuli 2024</span></li>
 <li><a class="n" href="/race/iigaste-jooks-2024">Iigaste jooks</a>
 <span class="d">20. juuli 2024 · Iigaste</span></li>
-<li><a class="n" href="/race/marjamaa-valla-mv-triatlonis-2024">Märjamaa Valla MV Triatlonis</a>
+<li><a class="n" href="/race/marjamaa-valla-mv-triatlonis-2024">Märjamaa valla MV triatlonis</a>
 <span class="d">20. juuli 2024</span></li>
 <li><a class="n" href="/race/mihkel-leppiku-souderegatt-2024">Mihkel Leppiku sõuderegatt</a>
 <span class="d">20. juuli 2024 · Pärnu Sõudeklubi</span></li>
-<li><a class="n" href="/race/turi-maraton-2024">Türi Maraton</a>
+<li><a class="n" href="/race/turi-maraton-2024">Türi maraton</a>
 <span class="d">20. juuli 2024 · Veskisilla hotell</span></li>
 <li><a class="n" href="/race/viking-window-eesti-meistrivoistlused-olumpiakrossis-xco-2024">Viking Window Eesti meistrivõistlused olümpiakrossis (XCO)</a>
 <span class="d">20. juuli 2024 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
@@ -1412,11 +1437,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. juuli 2024 · Pühajärve Puhkekeskuse park</span></li>
 <li><a class="n" href="/race/a-nurmekivi-jarva-jaani-jarve-jooks-6-jarvamaa-jarvede-jooks-2024">A. Nurmekivi/Järva-Jaani järve jooks, &quot; 6. Järvamaa Järvede jooksud &quot;6. etapp</a>
 <span class="d">13. juuli 2024 · Järva-Jaani järv</span></li>
-<li><a class="n" href="/race/noo-veskijarve-iii-triatlon-2024">Nõo Veskijärve III Triatlon</a>
+<li><a class="n" href="/race/noo-veskijarve-iii-triatlon-2024">Nõo Veskijärve III triatlon</a>
 <span class="d">13. juuli 2024</span></li>
 <li><a class="n" href="/race/sportland-tallinn-open-water-2024-2024">SPORTLAND Tallinn Open Water 2024</a>
 <span class="d">13. juuli 2024 · Tallinn</span></li>
-<li><a class="n" href="/race/virtsu-merepaeva-jooks-2024">Virtsu Merepäeva Jooks</a>
+<li><a class="n" href="/race/virtsu-merepaeva-jooks-2024">Virtsu Merepäeva jooks</a>
 <span class="d">13. juuli 2024</span></li>
 <li><a class="n" href="/race/balti-voistkondlikud-meistrivoistlused-u18-2024-2024">Balti võistkondlikud meistrivõistlused (U18) 2024</a>
 <span class="d">11. juuli 2024 · Tartu Tamme staadion</span></li>
@@ -1436,9 +1461,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. juuli 2024 · Tori</span></li>
 <li><a class="n" href="/race/viljandi-triatlon-2024">Viljandi triatlon</a>
 <span class="d">7. juuli 2024 · Viljandi järv</span></li>
-<li><a class="n" href="/race/estonian-enduro-super-series-2024-iii-etapp-2024">Estonian Enduro Super Series 2024 III Etapp</a>
+<li><a class="n" href="/race/estonian-enduro-super-series-2024-iii-etapp-2024">Estonian Enduro Super Series 2024 III etapp</a>
 <span class="d">6. juuli 2024</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-3-etapp-vasalemma-2024">Lääne-Harju Liikumissarja 3. Etapp, Vasalemma</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-3-etapp-vasalemma-2024">Lääne-Harju Liikumissarja 3. etapp, Vasalemma</a>
 <span class="d">6. juuli 2024</span></li>
 <li><a class="n" href="/race/vasalemma-liigub-2024">Vasalemma liigub</a>
 <span class="d">6. juuli 2024 · Vasalemma</span></li>
@@ -1456,7 +1481,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. juuli 2024 · Mõujärv</span></li>
 <li><a class="n" href="/race/turi-rattaralli-virtuaalsoidud-2024-iii-etapp-2024">Türi Rattaralli Virtuaalsõidud 2024 III etapp</a>
 <span class="d">1. juuli 2024 · Türi vallavalitsus</span></li>
-<li><a class="n" href="/race/kehtna-moisa-jooks-2024">Kehtna Mõisa Jooks</a>
+<li><a class="n" href="/race/kehtna-moisa-jooks-2024">Kehtna mõisa jooks</a>
 <span class="d">30. juuni 2024</span></li>
 <li><a class="n" href="/race/kehtna-moiste-jooksud-2024-finaalvoistlus-2024">Kehtna mõiste jooksud 2024 finaalvõistlus</a>
 <span class="d">30. juuni 2024 · Kehtna mõisa park</span></li>
@@ -1488,7 +1513,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. juuni 2024 · Lasnamäe Linnaosa Valitsus</span></li>
 <li><a class="n" href="/race/47-jaanijooks-umber-karksi-nuia-paisjarve-2024">47.Jaanijooks ümber Karksi-Nuia paisjärve</a>
 <span class="d">23. juuni 2024 · Karksi ordulinnuse varemed</span></li>
-<li><a class="n" href="/race/eidapere-moisa-jooks-2024">Eidapere Mõisa Jooks</a>
+<li><a class="n" href="/race/eidapere-moisa-jooks-2024">Eidapere mõisa jooks</a>
 <span class="d">23. juuni 2024</span></li>
 <li><a class="n" href="/race/170-pooripaevajooks-jooks-suvesse-2024">170. Pööripäevajooks - jooks suvesse</a>
 <span class="d">22. juuni 2024 · Kuressaare, Loode tammik</span></li>
@@ -1506,7 +1531,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. juuni 2024</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-2">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">20. juuni 2024 · Rannametsa orienteerumiskaart</span></li>
-<li><a class="n" href="/race/rulluisusarja-sprindisarja-1-etapp-2024">Rulluisusarja Sprindisarja 1. Etapp</a>
+<li><a class="n" href="/race/rulluisusarja-sprindisarja-1-etapp-2024">Rulluisusarja sprindisarja 1. etapp</a>
 <span class="d">20. juuni 2024</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u14-taiskasvanud-2024">Tartu linna MV U14-täiskasvanud</a>
 <span class="d">20. juuni 2024 · Tartu Tamme staadion</span></li>
@@ -1526,37 +1551,37 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuni 2024 · Pelguranna / Stroomi ranna parkla</span></li>
 <li><a class="n" href="/race/10-rouge-maastikujooks-2024">10. Rõuge maastikujooks</a>
 <span class="d">16. juuni 2024 · Rõuge Ööbikuoru vaatetorn Pesapuu</span></li>
-<li><a class="n" href="/race/aidu-hard-enduro-2-paev-pohisoidud-ja-finaalsoit-2024">Aidu Hard Enduro – 2. Päev Põhisõidud Ja Finaalsõit</a>
+<li><a class="n" href="/race/aidu-hard-enduro-2-paev-pohisoidud-ja-finaalsoit-2024">Aidu Hard Enduro – 2. päev Põhisõidud ja Finaalsõit</a>
 <span class="d">16. juuni 2024</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-maestlaskumises-2024">Eesti meistrivõistlused mäestlaskumises</a>
 <span class="d">16. juuni 2024 · Kiviõli Seikluskeskus</span></li>
 <li><a class="n" href="/race/epiim-rattapaev-jarva-jaanis-2024-2024">Epiim Rattapäev Järva-Jaanis 2024</a>
 <span class="d">16. juuni 2024 · Võllaste suusa- ja jooksurada</span></li>
-<li><a class="n" href="/race/koveri-triatlon-2024">Kõveri Triatlon</a>
+<li><a class="n" href="/race/koveri-triatlon-2024">Kõveri triatlon</a>
 <span class="d">16. juuni 2024</span></li>
 <li><a class="n" href="/race/suurupi-jooks-2024">Suurupi jooks</a>
 <span class="d">16. juuni 2024 · Suurupi spordiplats</span></li>
 <li><a class="n" href="/race/valga-triatlon-2024">Valga triatlon</a>
 <span class="d">16. juuni 2024 · Pedeli paisjärv</span></li>
-<li><a class="n" href="/race/aidu-hard-enduro-1-paev-duellid-ja-pika-ringi-soit-2024">Aidu Hard Enduro – 1. Päev – Duellid Ja Pika Ringi Sõit</a>
+<li><a class="n" href="/race/aidu-hard-enduro-1-paev-duellid-ja-pika-ringi-soit-2024">Aidu Hard Enduro – 1. päev – Duellid ja Pika Ringi sõit</a>
 <span class="d">15. juuni 2024</span></li>
-<li><a class="n" href="/race/maxima-rahvajooks-2-etapp-2024">Maxima Rahvajooks-2. Etapp</a>
+<li><a class="n" href="/race/maxima-rahvajooks-2-etapp-2024">Maxima rahvajooks-2. etapp</a>
 <span class="d">15. juuni 2024 · Kadaka Staadion</span></li>
-<li><a class="n" href="/race/maxima-rahvajooksu-2-etapp-2024">Maxima Rahvajooksu 2. Etapp</a>
+<li><a class="n" href="/race/maxima-rahvajooksu-2-etapp-2024">Maxima Rahvajooksu 2. etapp</a>
 <span class="d">15. juuni 2024</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-3-etapp-2024">Murutraktorite Liiga 3. Etapp</a>
+<li><a class="n" href="/race/murutraktorite-liiga-3-etapp-2024">Murutraktorite Liiga 3. etapp</a>
 <span class="d">15. juuni 2024</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2024-tartumaa-liigub-etapp-2024">Elva Südaööjooks 2024 Tartumaa Liigub Etapp</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2024-tartumaa-liigub-etapp-2024">Elva südaööjooks 2024 Tartumaa liigub etapp</a>
 <span class="d">14. juuni 2024 · Elva Kultuurikeskus</span></li>
 <li><a class="n" href="/race/mall-kalve-memorial-cup-2024-agg-summer-princess-rg-paikeses-2024">Mall Kalve Memorial Cup 2024 (AGG), Summer Princess (RG), Päikesesära turniir (EST B-grupid)</a>
 <span class="d">14. juuni 2024 · Kalevi Spordihall</span></li>
-<li><a class="n" href="/race/kiili-valla-pargijooksu-2-etapp-vaela-2024">Kiili Valla Pargijooksu 2. Etapp, Vaela</a>
+<li><a class="n" href="/race/kiili-valla-pargijooksu-2-etapp-vaela-2024">Kiili valla Pargijooksu 2. etapp, Vaela</a>
 <span class="d">13. juuni 2024</span></li>
 <li><a class="n" href="/race/paide-tehisjarve-jooks-6-jarvamaa-jarvede-jooksud-5-etapp-2024">Paide tehisjärve jooks, &quot; 6. Järvamaa Järvede jooksud &quot;5. etapp</a>
 <span class="d">13. juuni 2024 · Paide tehisjärve rand</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-3">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">13. juuni 2024 · Võidu orienteerumiskaart</span></li>
-<li><a class="n" href="/race/turi-temposoit-2024-2024">Türi Temposõit 2024</a>
+<li><a class="n" href="/race/turi-temposoit-2024-2024">Türi temposõit 2024</a>
 <span class="d">13. juuni 2024 · Parasi-Põikva-Rassi</span></li>
 <li><a class="n" href="/race/filter-temposari-viimsis-4-etapp-2024">Filter Temposari Viimsis (4. etapp)</a>
 <span class="d">12. juuni 2024 · Viimsi</span></li>
@@ -1570,13 +1595,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. juuni 2024 · Tallinn</span></li>
 <li><a class="n" href="/race/e-lux-peetri-jooks-2024">E-Lux Peetri Jooks</a>
 <span class="d">9. juuni 2024 · Peetri</span></li>
-<li><a class="n" href="/race/ingliste-moisa-jooks-2024">Ingliste Mõisa Jooks</a>
+<li><a class="n" href="/race/ingliste-moisa-jooks-2024">Ingliste mõisa jooks</a>
 <span class="d">9. juuni 2024</span></li>
 <li><a class="n" href="/race/jalgrattal-on-sunnipaev-2024">Jalgrattal on sünnipäev</a>
 <span class="d">9. juuni 2024 · Väätsa</span></li>
 <li><a class="n" href="/race/kevadine-tallinna-svk-voistlus-veteranidele-2024">Kevadine Tallinna SVK võistlus veteranidele</a>
 <span class="d">9. juuni 2024 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2024">Vägilase Jooksusarja 2. Etapp – Rummu</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2024">Vägilase jooksusarja 2. etapp – Rummu</a>
 <span class="d">9. juuni 2024</span></li>
 <li><a class="n" href="/race/2-jooks-umber-paunkula-veehoidla-2024">2. jooks ümber Paunküla veehoidla</a>
 <span class="d">8. juuni 2024 · Paunküla Heaolukeskus</span></li>
@@ -1588,7 +1613,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. juuni 2024 · OMAsaal</span></li>
 <li><a class="n" href="/race/lovo-broloppet-xi-siltajuoksu-2024">Lövö Broloppet – XI Siltajuoksu</a>
 <span class="d">8. juuni 2024</span></li>
-<li><a class="n" href="/race/rulluisusprindi-emv-ja-sprindisarja-2-etapp-2024">Rulluisusprindi EMV Ja Sprindisarja 2. Etapp</a>
+<li><a class="n" href="/race/rulluisusprindi-emv-ja-sprindisarja-2-etapp-2024">Rulluisusprindi EMV ja sprindisarja 2. etapp</a>
 <span class="d">8. juuni 2024</span></li>
 <li><a class="n" href="/race/solar-wheel-2-valga-valka-rattamaraton-estonian-cup-2024">Solar Wheel 2. Valga/Valka Rattamaraton (Estonian Cup)</a>
 <span class="d">8. juuni 2024 · Jaanikese motokompleks</span></li>
@@ -1608,7 +1633,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. juuni 2024 · Kose-Risti</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2024-iv-etapp-2000m-2024">Kohila pikamaajooksude sari 2024 IV etapp 2000m</a>
 <span class="d">5. juuni 2024 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-linnamae-2024">Läänemaa Orienteerumiskolmapäevakud Linnamäe</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-linnamae-2024">Läänemaa orienteerumiskolmapäevakud Linnamäe</a>
 <span class="d">5. juuni 2024 · Linnamäe staadion</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-5-etapp-2024">Viljandimaa orienteerumispäevakud 5. etapp</a>
 <span class="d">5. juuni 2024 · Lasa järve orienteerumiskaart</span></li>
@@ -1632,21 +1657,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. juuni 2024 · Järva-Jaani järv</span></li>
 <li><a class="n" href="/race/jarvamaa-mv-orienteerumise-luhirajal-2024">Järvamaa MV orienteerumise lühirajal</a>
 <span class="d">2. juuni 2024 · Kõrvemaa orienteerumiskaart</span></li>
-<li><a class="n" href="/race/maxima-rahvajooks-1-etapp-2024">Maxima Rahvajooks-1. Etapp</a>
+<li><a class="n" href="/race/maxima-rahvajooks-1-etapp-2024">Maxima rahvajooks-1. etapp</a>
 <span class="d">2. juuni 2024 · Kadaka Staadion</span></li>
-<li><a class="n" href="/race/mustamae-maxima-i-rahvajooks-2024">Mustamäe Maxima I Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-maxima-i-rahvajooks-2024">Mustamäe Maxima I rahvajooks</a>
 <span class="d">2. juuni 2024</span></li>
 <li><a class="n" href="/race/polvamaa-lahtised-orienteerumisjooksu-meistrivoistlused-teat-2024">Põlvamaa lahtised orienteerumisjooksu meistrivõistlused, teatejooks</a>
 <span class="d">2. juuni 2024 · Lajavangu</span></li>
-<li><a class="n" href="/race/saue-valla-rattaretk-2024-2024">Saue Valla Rattaretk 2024</a>
+<li><a class="n" href="/race/saue-valla-rattaretk-2024-2024">Saue valla Rattaretk 2024</a>
 <span class="d">2. juuni 2024 · Vabaõhukeskuse tee 20, Saue vald, Harjumaa</span></li>
 <li><a class="n" href="/race/10-alutaguse-rattamaraton-2024">10. Alutaguse Rattamaraton</a>
 <span class="d">1. juuni 2024 · Alutaguse Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/12-narva-linna-jooks-2024">12. Narva Linna Jooks</a>
-<span class="d">1. juuni 2024 · Narva</span></li>
 <li><a class="n" href="/race/eesti-oojooks-rakvere-2024-2024">Eesti Ööjooks - Rakvere 2024</a>
 <span class="d">1. juuni 2024 · Rakvere linn</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissari-padise-liigub-2024">Lääne-Harju Liikumissari – Padise Liigub</a>
+<li><a class="n" href="/race/laane-harju-liikumissari-padise-liigub-2024">Lääne-Harju Liikumissari – Padise liigub</a>
 <span class="d">1. juuni 2024</span></li>
 <li><a class="n" href="/race/padise-liigub-2024">Padise liigub</a>
 <span class="d">1. juuni 2024 · Lääne-Harju Kultuurikeskus Padise rahvamaja</span></li>
@@ -1654,7 +1677,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. juuni 2024 · Lajavangu</span></li>
 <li><a class="n" href="/race/veepaev-polva-jarvel-2024">Veepäev Põlva järvel</a>
 <span class="d">1. juuni 2024 · Põlva rand</span></li>
-<li><a class="n" href="/race/12-narva-linna-jooks-2024-2">12. Narva Linna Jooks</a>
+<li><a class="n" href="/race/12-narva-linna-jooks-2024">12. Narva linna jooks</a>
 <span class="d">31. mai 2024 · Joaoru Puhkeala, Narva</span></li>
 <li><a class="n" href="/race/47-rosma-jooks-kond-2024">47. ROSMA jooks/kõnd</a>
 <span class="d">31. mai 2024 · Rosma</span></li>
@@ -1662,7 +1685,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. mai 2024 · Tartu</span></li>
 <li><a class="n" href="/race/laane-virumaa-laste-koolilopuvoistlus-2024">Lääne-Virumaa laste koolilõpuvõistlus</a>
 <span class="d">31. mai 2024 · Kastani puiestee 12</span></li>
-<li><a class="n" href="/race/6-vaatsa-jarve-jooks-2024">6. Väätsa Järve Jooks</a>
+<li><a class="n" href="/race/6-vaatsa-jarve-jooks-2024">6. Väätsa järve jooks</a>
 <span class="d">30. mai 2024</span></li>
 <li><a class="n" href="/race/citi-para-swimming-world-series-berlin-2024">Citi Para Swimming World Series Berlin</a>
 <span class="d">30. mai 2024 · Berliin</span></li>
@@ -1672,11 +1695,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. mai 2024 · Roosna-Alliku Põhikooli staadion</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-5">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">30. mai 2024 · Kilingi-Nõmme orienteerumiskaart</span></li>
-<li><a class="n" href="/race/saku-lastesarja-2-etapp-2024">Saku Lastesarja 2. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-2-etapp-2024">Saku lastesarja 2. etapp</a>
 <span class="d">30. mai 2024</span></li>
 <li><a class="n" href="/race/kavastu-tt3-transtar-temposari-iii-etapp-2024">Kavastu TT3 - Transtar Temposari III etapp</a>
 <span class="d">29. mai 2024 · Kavastu</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-dirhami-2024">Läänemaa Orienteerumiskolmapäevakud Dirhami</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-dirhami-2024">Läänemaa orienteerumiskolmapäevakud Dirhami</a>
 <span class="d">29. mai 2024 · Dirhami sadam</span></li>
 <li><a class="n" href="/race/parnu-laste-jalgrattasari-2024">Pärnu laste jalgrattasari</a>
 <span class="d">29. mai 2024 · Jaansoni Terviserada</span></li>
@@ -1692,7 +1715,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. mai 2024 · Pärnu Sõudeklubi</span></li>
 <li><a class="n" href="/race/jarvamaa-mv-ujumises-2024">Järvamaa MV ujumises</a>
 <span class="d">26. mai 2024 · Paide linna ujula</span></li>
-<li><a class="n" href="/race/keava-moisa-jooks-2024">Keava Mõisa Jooks</a>
+<li><a class="n" href="/race/keava-moisa-jooks-2024">Keava mõisa jooks</a>
 <span class="d">26. mai 2024</span></li>
 <li><a class="n" href="/race/laste-rattaralli-2024-2">Laste RATTARALLI</a>
 <span class="d">26. mai 2024 · Mammaste Tervisespordikeskus</span></li>
@@ -1704,8 +1727,6 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. mai 2024 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/vi-kahe-silla-jooks-spordiportaal-sekundomer-auhindadele-2024">VI Kahe silla jooks spordiportaal Sekundomer auhindadele</a>
 <span class="d">26. mai 2024 · Toila</span></li>
-<li><a class="n" href="/race/17-icebug-kova-mehe-jooks-2024">17. ICEBUG Kõva Mehe jooks</a>
-<span class="d">25. mai 2024 · Saunapunkt, Saue vald</span></li>
 <li><a class="n" href="/race/eesti-karikavoistlused-soudmises-parnu-joe-soudestaadionil-2024">Eesti karikavõistlused sõudmises Pärnu jõe sõudestaadionil</a>
 <span class="d">25. mai 2024 · Pärnu Sõudeklubi</span></li>
 <li><a class="n" href="/race/fenster-12-rapla-selveri-suurjooks-2024">FENSTER 12. Rapla Selveri Suurjooks</a>
@@ -1716,7 +1737,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. mai 2024 · Sillamäe Spordiklubi Kalev</span></li>
 <li><a class="n" href="/race/xii-fenster-rapla-selveri-suurjooks-2024">XII Fenster Rapla Selveri Suurjooks</a>
 <span class="d">25. mai 2024 · Rapla Selveri parkla / Lastejooksud - Sadolin Spordihoone</span></li>
-<li><a class="n" href="/race/2024-icebug-kova-mehe-jooks-2024">2024 Icebug Kõva Mehe Jooks</a>
+<li><a class="n" href="/race/2024-icebug-kova-mehe-jooks-2024">2024 Icebug Kõva Mehe jooks</a>
 <span class="d">24. mai 2024 · Saunapunkt</span></li>
 <li><a class="n" href="/race/4-icebug-kova-tiimi-jooks-2024">4. ICEBUG Kõva Tiimi jooks</a>
 <span class="d">24. mai 2024 · Saunapunkt, Saue vald</span></li>
@@ -1730,7 +1751,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. mai 2024 · Võru linn</span></li>
 <li><a class="n" href="/race/haapsalu-tarekese-lasteaed-oravate-ruhma-rattapaev-2024">Haapsalu Tarekese lasteaed Oravate rühma rattapäev</a>
 <span class="d">23. mai 2024 · Haapsalu linn</span></li>
-<li><a class="n" href="/race/pae-pargi-viii-rahvajooks-2024">Pae Pargi VIII Rahvajooks</a>
+<li><a class="n" href="/race/pae-pargi-viii-rahvajooks-2024">Pae Pargi VIII rahvajooks</a>
 <span class="d">23. mai 2024</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-6">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">23. mai 2024 · Jõulumäe Tervisespordikeskus</span></li>
@@ -1754,7 +1775,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2024 · Tartu Tamme staadion</span></li>
 <li><a class="n" href="/race/ulemaailmne-orienteerumispaev-2024-2024">Ülemaailmne orienteerumispäev 2024</a>
 <span class="d">21. mai 2024 · Türi Kultuurikeskus</span></li>
-<li><a class="n" href="/race/xxv-korghoone-kuninga-jooks-2024">Xxv Kõrghoone Kuninga Jooks</a>
+<li><a class="n" href="/race/xxv-korghoone-kuninga-jooks-2024">XXV Kõrghoone Kuninga jooks</a>
 <span class="d">21. mai 2024</span></li>
 <li><a class="n" href="/race/26-rouge-rattamaraton-2024">26. Rõuge Rattamaraton</a>
 <span class="d">19. mai 2024 · Rõuge Ööbikuoru vaatetorn Pesapuu</span></li>
@@ -1762,7 +1783,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. mai 2024 · Elva</span></li>
 <li><a class="n" href="/race/filter-rullituur-elvas-2-etapp-2024">Filter Rullituur Elvas (2. etapp)</a>
 <span class="d">19. mai 2024 · Elva</span></li>
-<li><a class="n" href="/race/lelle-moisa-jooks-2024">Lelle Mõisa Jooks</a>
+<li><a class="n" href="/race/lelle-moisa-jooks-2024">Lelle mõisa jooks</a>
 <span class="d">19. mai 2024</span></li>
 <li><a class="n" href="/race/linnamae-jooks-2024">Linnamäe jooks</a>
 <span class="d">19. mai 2024 · Linnamäe</span></li>
@@ -1774,7 +1795,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. mai 2024 · Tartu linn</span></li>
 <li><a class="n" href="/race/35-kullamaa-maijooks-2024">35. Kullamaa maijooks</a>
 <span class="d">18. mai 2024 · Kullamaa Keskkooli staadion</span></li>
-<li><a class="n" href="/race/37-lhv-maijooks-2024">37. LHV Maijooks</a>
+<li><a class="n" href="/race/37-lhv-maijooks-2024">37. LHV maijooks</a>
 <span class="d">18. mai 2024 · Tallinna lauluväljak</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-kriteeriumis-maxilla-66-elva-tanavas-2024">Eesti Meistrivõistlused Kriteeriumis / MAXILLA 66. Elva Tänavasõit</a>
 <span class="d">18. mai 2024 · Tartu mnt 12</span></li>
@@ -1788,7 +1809,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. mai 2024</span></li>
 <li><a class="n" href="/race/kohtla-jarve-linna-lahtised-meistrivoistlused-2024">Kohtla-Järve linna lahtised meistrivõistlused</a>
 <span class="d">18. mai 2024 · Jõhvi Kesklinna Kooli staadion</span></li>
-<li><a class="n" href="/race/kullamaa-35-maijooks-2024">Kullamaa 35. Maijooks</a>
+<li><a class="n" href="/race/kullamaa-35-maijooks-2024">Kullamaa 35. maijooks</a>
 <span class="d">18. mai 2024</span></li>
 <li><a class="n" href="/race/noorus-cup-2024">Noorus Cup</a>
 <span class="d">18. mai 2024 · Kalevi Spordihall</span></li>
@@ -1796,7 +1817,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. mai 2024 · Haapsalu</span></li>
 <li><a class="n" href="/race/jogevamaa-noorte-kevadjooksukrossi-mv-2024">Jõgevamaa noorte kevadjooksukrossi MV</a>
 <span class="d">16. mai 2024 · Kuremaa tervise- ja suusarajad</span></li>
-<li><a class="n" href="/race/kiili-valla-pargijooksu-1-etapp-2024">Kiili Valla Pargijooksu 1. Etapp</a>
+<li><a class="n" href="/race/kiili-valla-pargijooksu-1-etapp-2024">Kiili valla Pargijooksu 1. etapp</a>
 <span class="d">16. mai 2024</span></li>
 <li><a class="n" href="/race/parnu-kurtide-spordiselts-eero-gp-kiirjooks-2024">Pärnu Kurtide Spordiselts Eero GP ` kiirjooks</a>
 <span class="d">16. mai 2024 · Lubja 48a</span></li>
@@ -1804,7 +1825,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. mai 2024 · Preediku järv</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-7">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">16. mai 2024 · Rebasefarmi orienteerumiskaart</span></li>
-<li><a class="n" href="/race/saku-lastesarja-1-etapp-2024">Saku Lastesarja 1. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-1-etapp-2024">Saku lastesarja 1. etapp</a>
 <span class="d">16. mai 2024</span></li>
 <li><a class="n" href="/race/tule-oue-voimlema-2024">Tule õue võimlema!</a>
 <span class="d">16. mai 2024 · Haapsalu promenaadi mänguväljak</span></li>
@@ -1812,11 +1833,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. mai 2024 · Tamme staadion</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2024-ii-etapp-800m-2024">Kohila pikamaajooksude sari 2024 II etapp 800m</a>
 <span class="d">15. mai 2024 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-kastani-2024">Läänemaa Orienteerumiskolmapäevakud Kastani</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-kastani-2024">Läänemaa orienteerumiskolmapäevakud Kastani</a>
 <span class="d">15. mai 2024 · Männi 53</span></li>
 <li><a class="n" href="/race/parnu-laste-jalgrattasari-2024-3">Pärnu laste jalgrattasari</a>
 <span class="d">15. mai 2024 · Jaansoni Terviserada</span></li>
-<li><a class="n" href="/race/soeru-kevadjooks-2024">Sõeru Kevadjooks</a>
+<li><a class="n" href="/race/soeru-kevadjooks-2024">Sõeru kevadjooks</a>
 <span class="d">15. mai 2024</span></li>
 <li><a class="n" href="/race/48-jarvamaa-orienteerumispaevakud-iii-etapp-2024">48. Järvamaa orienteerumispäevakud III etapp</a>
 <span class="d">14. mai 2024 · Eidapere orienteerumiskaart</span></li>
@@ -1830,7 +1851,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. mai 2024 · Palojärve orienteerumiskaart</span></li>
 <li><a class="n" href="/race/haapsalu-paasupesa-lasteaia-orienteerumine-2024">Haapsalu Pääsupesa lasteaia orienteerumine</a>
 <span class="d">13. mai 2024 · Haapsalu</span></li>
-<li><a class="n" href="/race/42-tartu-maastikumaraton-2024">42. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/42-tartu-maastikumaraton-2024">42. Tartu maastikumaraton</a>
 <span class="d">12. mai 2024 · Tartumaa Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/42-tartu-maastikumaratoni-elva-lastejooks-2024">42. Tartu Maastikumaratoni Elva lastejooks</a>
 <span class="d">12. mai 2024 · Tartumaa Tervisespordikeskus</span></li>
@@ -1854,7 +1875,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. mai 2024 · Sauga Avatud Noortekeskus/ Sauga Must Maja</span></li>
 <li><a class="n" href="/race/shining-star-2024-2024">Shining Star 2024</a>
 <span class="d">11. mai 2024 · Tallinna Lilleküla Gümnaasium</span></li>
-<li><a class="n" href="/race/team-gym-eesti-meistrivoistlused-2024-2024">Team Gym Eesti Meistrivõistlused 2024</a>
+<li><a class="n" href="/race/team-gym-eesti-meistrivoistlused-2024-2024">Team Gym Eesti meistrivõistlused 2024</a>
 <span class="d">11. mai 2024 · &quot;Netsport&quot; spordihall; padel, beach volley</span></li>
 <li><a class="n" href="/race/veloplus-22-raplamaa-rattamaraton-estonian-cup-2024">VELOPLUS 22. Raplamaa Rattamaraton (Estonian Cup)</a>
 <span class="d">11. mai 2024 · Keava suveaed</span></li>
@@ -1876,7 +1897,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. mai 2024 · Eesti</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2024-i-etapp-3000m-2024">Kohila pikamaajooksude sari 2024 I etapp 3000m</a>
 <span class="d">8. mai 2024 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-panga-2024">Läänemaa Orienteerumiskolmapäevakud Panga</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-panga-2024">Läänemaa orienteerumiskolmapäevakud Panga</a>
 <span class="d">8. mai 2024 · Krossiraja parkla, Panga küla, Haapsalu linn</span></li>
 <li><a class="n" href="/race/parnu-laste-jalgrattasari-2024-4">Pärnu laste jalgrattasari</a>
 <span class="d">8. mai 2024 · Jaansoni Terviserada</span></li>
@@ -1920,7 +1941,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. mai 2024 · Heimtali</span></li>
 <li><a class="n" href="/race/kehtna-moisa-jooks-2024-2024">Kehtna mõisa jooks 2024</a>
 <span class="d">4. mai 2024 · Kehtna mõis</span></li>
-<li><a class="n" href="/race/keila-joa-liigub-2024">Keila-Joa Liigub</a>
+<li><a class="n" href="/race/keila-joa-liigub-2024">Keila-Joa liigub</a>
 <span class="d">4. mai 2024</span></li>
 <li><a class="n" href="/race/naisten-aika-ajo-2024">Naisten Aika Ajo</a>
 <span class="d">4. mai 2024</span></li>
@@ -1954,7 +1975,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. aprill 2024 · Liiva orienteerumiskaart</span></li>
 <li><a class="n" href="/race/turi-rattaralli-virtuaalsoidud-2024-i-etapp-2024">Türi Rattaralli Virtuaalsõidud 2024 I etapp</a>
 <span class="d">29. aprill 2024 · Türi vallavalitsus</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-kivioli-2024">Vägilase Jooksusarja 1. Etapp – Kiviõli</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-kivioli-2024">Vägilase jooksusarja 1. etapp – Kiviõli</a>
 <span class="d">29. aprill 2024</span></li>
 <li><a class="n" href="/race/liigume-vapramaele-tartumaa-liigub-iv-etapp-2024">&quot;Liigume Vapramäele&quot;- Tartumaa Liigub IV etapp</a>
 <span class="d">28. aprill 2024 · Vapramäe Loodusmaja</span></li>
@@ -1970,13 +1991,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. aprill 2024 · Tehvandi Spordikeskus</span></li>
 <li><a class="n" href="/race/tabasalu-jooks-2024">Tabasalu jooks</a>
 <span class="d">27. aprill 2024 · Rannamõisa Lasteaed</span></li>
-<li><a class="n" href="/race/tabasalu-xxx-jooks-2024">Tabasalu Xxx Jooks</a>
+<li><a class="n" href="/race/tabasalu-xxx-jooks-2024">Tabasalu XXX jooks</a>
 <span class="d">27. aprill 2024</span></li>
 <li><a class="n" href="/race/jk-sarma-seeriajooks-10-000-m-2024">JK Sarma seeriajooks 10 000 m</a>
 <span class="d">26. aprill 2024 · Kuressaare linnastaadion</span></li>
 <li><a class="n" href="/race/viljandimaa-murdmaajooksu-mv-2024">Viljandimaa murdmaajooksu MV</a>
 <span class="d">26. aprill 2024 · Viiratsi</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2024">Keila Seeriajooksu 4. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2024">Keila seeriajooksu 4. etapp</a>
 <span class="d">25. aprill 2024</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-10">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">25. aprill 2024 · Audru orienteerumiskaart</span></li>
@@ -1990,7 +2011,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. aprill 2024 · Surju</span></li>
 <li><a class="n" href="/race/jurioo-teatejooks-umber-surju-jarve-2024">Jüriöö teatejooks ümber Surju järve</a>
 <span class="d">23. aprill 2024 · Surju järv</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2024">Keila Seeriajooksu 3. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2024">Keila seeriajooksu 3. etapp</a>
 <span class="d">23. aprill 2024</span></li>
 <li><a class="n" href="/race/kernu-jurioojooks-2024">Kernu Jüriööjooks</a>
 <span class="d">23. aprill 2024</span></li>
@@ -1998,7 +2019,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. aprill 2024 · Taevaskoja</span></li>
 <li><a class="n" href="/race/ridala-28-jurioo-jooks-2024">Ridala 28. Jüriöö jooks</a>
 <span class="d">23. aprill 2024 · Haapsalu Panga Spordihoone</span></li>
-<li><a class="n" href="/race/2024-a-eesti-meistrivoistlused-sportaeroobikas-2024">2024. A. Eesti Meistrivõistlused Sportaeroobikas</a>
+<li><a class="n" href="/race/2024-a-eesti-meistrivoistlused-sportaeroobikas-2024">2024. A. Eesti meistrivõistlused Sportaeroobikas</a>
 <span class="d">21. aprill 2024 · Wiru Spordikeskus</span></li>
 <li><a class="n" href="/race/99-rabajooks-2024">99. Rabajooks</a>
 <span class="d">21. aprill 2024 · Harku terviseraja idaparkla</span></li>
@@ -2038,23 +2059,23 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. aprill 2024 · Tervise- ja suusarada ümber Viljandi järve</span></li>
 <li><a class="n" href="/race/jurioojooks-lihula-moisamael-2024">Jüriööjooks Lihula Mõisamäel</a>
 <span class="d">18. aprill 2024 · Lihula mõis</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2024">Keila Seeriajooksu 2. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2024">Keila seeriajooksu 2. etapp</a>
 <span class="d">18. aprill 2024</span></li>
 <li><a class="n" href="/race/kullamaa-55-jurioo-jooks-2024">Kullamaa 55. jüriöö jooks</a>
 <span class="d">18. aprill 2024 · Kullamaa Keskkool</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2024-11">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">18. aprill 2024 · Sindi orienteerumiskaart</span></li>
-<li><a class="n" href="/race/saue-linna-jalgrattakross-2024">Saue Linna Jalgrattakross</a>
+<li><a class="n" href="/race/saue-linna-jalgrattakross-2024">Saue linna Jalgrattakross</a>
 <span class="d">18. aprill 2024</span></li>
 <li><a class="n" href="/race/kohila-3-ii-etapp-kohila-oojooks-jurioo-ring-2024">Kohila 3 II etapp Kohila ööjooks JÜRIÖÖ RING</a>
 <span class="d">17. aprill 2024 · Kohila keskväljak</span></li>
-<li><a class="n" href="/race/kohila-oojooks-jurioo-ring-2024">Kohila Ööjooks Jüriöö Ring</a>
+<li><a class="n" href="/race/kohila-oojooks-jurioo-ring-2024">Kohila ööjooks Jüriöö Ring</a>
 <span class="d">17. aprill 2024</span></li>
 <li><a class="n" href="/race/punktipeitus-6-siseorienteerumine-2024">Punktipeitus 6 (siseorienteerumine)</a>
 <span class="d">17. aprill 2024 · Lääne maakond</span></li>
 <li><a class="n" href="/race/toravere-tt1-transtar-temposari-i-etapp-2024">Tõravere TT1 - Transtar Temposari I etapp</a>
 <span class="d">17. aprill 2024 · Tõravere</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2024">Keila Seeriajooksu 1. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2024">Keila seeriajooksu 1. etapp</a>
 <span class="d">16. aprill 2024</span></li>
 <li><a class="n" href="/race/oine-orienteerumine-ookulli-lend-2024">Öine orienteerumine &quot;Öökulli lend&quot;</a>
 <span class="d">16. aprill 2024 · Särevere</span></li>
@@ -2124,7 +2145,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. märts 2024 · Tallinna Lilleküla Gümnaasium</span></li>
 <li><a class="n" href="/race/jarva-valla-suusaseeria-6-etapp-jaab-ara-2024">Järva valla suusaseeria 6.etapp - JÄÄB ÄRA</a>
 <span class="d">28. märts 2024 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
-<li><a class="n" href="/race/kaitsevae-2024-aasta-meistrivoistlused-scoutsrannakus-2024">Kaitseväe 2024. Aasta Meistrivõistlused Scoutsrännakus</a>
+<li><a class="n" href="/race/kaitsevae-2024-aasta-meistrivoistlused-scoutsrannakus-2024">Kaitseväe 2024. Aasta meistrivõistlused Scoutsrännakus</a>
 <span class="d">28. märts 2024</span></li>
 <li><a class="n" href="/race/viljandimaa-murdmaasusaamise-mv-2024">Viljandimaa murdmaasusaamise MV</a>
 <span class="d">24. märts 2024 · Holstre-Polli Spordikeskuse tervise- ja suusarajad</span></li>
@@ -2164,9 +2185,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. märts 2024 · Kuningamäe tervise- ja suusarajad</span></li>
 <li><a class="n" href="/race/tartu-kevek-katsevoistlused-2024">Tartu KEVEK katsevõistlused</a>
 <span class="d">10. märts 2024 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-8-etapp-2024">Triathlon Estonia Keila Suusasarja 2024 8. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-8-etapp-2024">Triathlon Estonia Keila suusasarja 2024 8. etapp</a>
 <span class="d">10. märts 2024</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-8-etapp-1-km-valjala-2024">Triathlon Estonia Keila Suusasarja 2024 8. Etapp - 1 Km Väljalangemisega Duellid</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-8-etapp-1-km-valjala-2024">Triathlon Estonia Keila suusasarja 2024 8. etapp - 1 km Väljalangemisega Duellid</a>
 <span class="d">10. märts 2024 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/47-haanja-maraton-2024">47. Haanja Maraton</a>
 <span class="d">9. märts 2024 · Haanja Puhke- ja Suusakeskus</span></li>
@@ -2194,9 +2215,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. veebruar 2024 · Kõrvemaa Matka ja Suusakeskus</span></li>
 <li><a class="n" href="/race/tartu-kevek-katsevoistlused-2024-2">Tartu KEVEK katsevõistlused</a>
 <span class="d">25. veebruar 2024 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-7-etapp-2024">Triathlon Estonia Keila Suusasarja 2024 7. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-7-etapp-2024">Triathlon Estonia Keila suusasarja 2024 7. etapp</a>
 <span class="d">25. veebruar 2024</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-7-etapp-vigursoit-2024">Triathlon Estonia Keila Suusasarja 2024 7. Etapp - Vigursõit</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-7-etapp-vigursoit-2024">Triathlon Estonia Keila suusasarja 2024 7. etapp - Vigursõit</a>
 <span class="d">25. veebruar 2024 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/jarva-valla-suusaseeria-5-etapp-madisepaeva-suusasoit-2024">Järva valla suusaseeria 5.etapp(Madisepäeva suusasõit)</a>
 <span class="d">24. veebruar 2024 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
@@ -2204,13 +2225,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. veebruar 2024 · Äkkeküla spordikeskus</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2024-iii-etapp-2024">Palivere Suusasari 2024 III etapp</a>
 <span class="d">24. veebruar 2024 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2024">Palivere Suusasarja 3. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2024">Palivere suusasarja 3. etapp</a>
 <span class="d">24. veebruar 2024</span></li>
 <li><a class="n" href="/race/viljandimaa-suusatamise-mv-2024">Viljandimaa suusatamise MV</a>
 <span class="d">24. veebruar 2024 · Holstre-Polli Spordikeskuse tervise- ja suusarajad</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-6-etapp-2024">Triathlon Estonia Keila Suusasarja 2024 6. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-6-etapp-2024">Triathlon Estonia Keila suusasarja 2024 6. etapp</a>
 <span class="d">23. veebruar 2024</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-6-etapp-pikk-soit-2024">Triathlon Estonia Keila Suusasarja 2024 6. Etapp - Pikk Sõit</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-6-etapp-pikk-soit-2024">Triathlon Estonia Keila suusasarja 2024 6. etapp - Pikk sõit</a>
 <span class="d">23. veebruar 2024 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/joulumae-karikavoistlused-murdmaasuusatamises-parnu-avatud-m-2024-2">Jõulumäe karikavõistlused murdmaasuusatamises - Pärnu avatud MV</a>
 <span class="d">21. veebruar 2024 · Jõulumäe Tervisespordikeskus</span></li>
@@ -2226,7 +2247,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. veebruar 2024 · Elva</span></li>
 <li><a class="n" href="/race/anna-hoogu-ujumisvoistlused-puuetega-inimestele-2024">ANNA HOOGU ujumisvõistlused puuetega inimestele</a>
 <span class="d">17. veebruar 2024 · Aura Veekeskus</span></li>
-<li><a class="n" href="/race/laanemaa-koolide-suusapaev-2024">Läänemaa Koolide Suusapäev</a>
+<li><a class="n" href="/race/laanemaa-koolide-suusapaev-2024">Läänemaa koolide Suusapäev</a>
 <span class="d">16. veebruar 2024</span></li>
 <li><a class="n" href="/race/jarva-valla-suusaseeria-4-etapp-2024">Järva valla suusaseeria 4.etapp</a>
 <span class="d">15. veebruar 2024 · Järva-Jaani</span></li>
@@ -2236,7 +2257,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. veebruar 2024 · Mammaste Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2024-4-etapp-2024">Türi suusatamise SV &quot; Türi suusatalv 2024&quot; 4. etapp</a>
 <span class="d">13. veebruar 2024 · Türi Tolli mets</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2024">Tallinna Kiiruisuklubi Karikasarja 3. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2024">Tallinna kiiruisuklubi karikasarja 3. etapp</a>
 <span class="d">11. veebruar 2024</span></li>
 <li><a class="n" href="/race/veskiloppet-suusamaraton-2024-2024">Veskiloppet Suusamaraton 2024</a>
 <span class="d">11. veebruar 2024 · Laagri Kooli Möldre maja</span></li>
@@ -2248,7 +2269,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. veebruar 2024 · Leevi</span></li>
 <li><a class="n" href="/race/otepaa-mv-2024-2024">Otepää MV 2024</a>
 <span class="d">10. veebruar 2024 · Otepää Spordihoone</span></li>
-<li><a class="n" href="/race/saue-valla-mv-suusatamises-2024">Saue Valla MV Suusatamises</a>
+<li><a class="n" href="/race/saue-valla-mv-suusatamises-2024">Saue valla MV suusatamises</a>
 <span class="d">10. veebruar 2024</span></li>
 <li><a class="n" href="/race/tallinna-lahtised-mv-2024-2024">Tallinna Lahtised MV 2024</a>
 <span class="d">10. veebruar 2024 · Tallinna Lilleküla Gümnaasiumi spordisaal</span></li>
@@ -2276,21 +2297,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. veebruar 2024 · Kalevi Spordihall</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-u-10-vanuseklassi-talvised-voistlused-2024">Lääne-Virumaa noorte U 10 vanuseklassi talvised võistlused</a>
 <span class="d">1. veebruar 2024 · Kastani puiestee 12</span></li>
-<li><a class="n" href="/race/tallinna-2024-a-u14-u16-u18-ja-u20-talvised-mv-2024">Tallinna 2024. A U14 U16 U18 Ja U20 Talvised MV</a>
+<li><a class="n" href="/race/tallinna-2024-a-u14-u16-u18-ja-u20-talvised-mv-2024">Tallinna 2024. A U14 U16 U18 ja U20 Talvised MV</a>
 <span class="d">1. veebruar 2024 · Tallinna Spordihall</span></li>
 <li><a class="n" href="/race/polvamaa-suusasari-2024-i-etapp-2024">Põlvamaa SUUSASARI 2024, I etapp</a>
 <span class="d">30. jaanuar 2024 · Mammaste Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-suusamaraton-2024">Sportland Kõrvemaa Suusamaraton</a>
 <span class="d">28. jaanuar 2024 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2024">Tallinna Kiiruisuklubi Karikasarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2024">Tallinna kiiruisuklubi karikasarja 2. etapp</a>
 <span class="d">28. jaanuar 2024</span></li>
-<li><a class="n" href="/race/10-tondiraba-sisemaraton-2024">10. Tondiraba Sisemaraton</a>
-<span class="d">27. jaanuar 2024 · Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/38-viru-maraton-2024">38. Viru Maraton</a>
 <span class="d">27. jaanuar 2024 · Mõedaku spordibaas</span></li>
 <li><a class="n" href="/race/lootuste-kv-i-etapp-ja-talvesara-2024-2024">Lootuste KV I etapp ja Talvesära 2024</a>
 <span class="d">27. jaanuar 2024 · Ihaste tee 7</span></li>
-<li><a class="n" href="/race/10-tondiraba-sisemaraton-2024-2">10. Tondiraba Sisemaraton</a>
+<li><a class="n" href="/race/10-tondiraba-sisemaraton-2024">10. Tondiraba Sisemaraton</a>
 <span class="d">26. jaanuar 2024 · Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/3-tondiraba-sisekumme-2024">3. Tondiraba Sisekümme</a>
 <span class="d">26. jaanuar 2024 · Tondiraba Jäähall</span></li>
@@ -2308,7 +2327,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. jaanuar 2024 · Palivere Turismi- ja Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2024-ii-etapp-ja-laanemaa-meistrivoistlus-2024">Palivere Suusasari 2024 II etapp ja Läänemaa meistrivõistlused murdmaasuusatamises</a>
 <span class="d">21. jaanuar 2024 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2024">Palivere Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2024">Palivere suusasarja 2. etapp</a>
 <span class="d">21. jaanuar 2024</span></li>
 <li><a class="n" href="/race/13-mulgi-uisumaraton-2024">13. Mulgi Uisumaraton</a>
 <span class="d">20. jaanuar 2024 · Viljandi järv</span></li>
@@ -2316,9 +2335,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. jaanuar 2024 · Tallinna Kergejõustikuhall</span></li>
 <li><a class="n" href="/race/tartu-kevek-rahvusvahelised-sisevoistlused-veteranidele-2024-2024">Tartu KEVEK rahvusvahelised sisevõistlused veteranidele 2024</a>
 <span class="d">20. jaanuar 2024 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-5-etapp-2024">Triathlon Estonia Keila Suusasarja 2024 5. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-5-etapp-2024">Triathlon Estonia Keila suusasarja 2024 5. etapp</a>
 <span class="d">20. jaanuar 2024</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-5-etapp-2x100-m-spri-2024">Triathlon Estonia Keila Suusasarja 2024 5. Etapp - 2x100 M Sprindid Edasipääsudega</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-5-etapp-2x100-m-spri-2024">Triathlon Estonia Keila suusasarja 2024 5. etapp - 2x100 M Sprindid Edasipääsudega</a>
 <span class="d">20. jaanuar 2024 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/vk-janika-tallinn-rahvuvaheline-talveturniir-2024-internatio-2024">VK Janika Tallinn rahvuvaheline Talveturniir 2024 (International Winter Tournament 2024</a>
 <span class="d">20. jaanuar 2024 · Kalevi spordihall</span></li>
@@ -2332,7 +2351,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. jaanuar 2024 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-u14-ja-u16-vanuseklassi-talvised-mv-2024">Lääne-Virumaa noorte U14 ja U16 vanuseklassi talvised MV</a>
 <span class="d">17. jaanuar 2024 · Kastani puiestee 12</span></li>
-<li><a class="n" href="/race/harjumaa-meistrivoistlused-suusatamises-2024">Harjumaa Meistrivõistlused Suusatamises</a>
+<li><a class="n" href="/race/harjumaa-meistrivoistlused-suusatamises-2024">Harjumaa meistrivõistlused suusatamises</a>
 <span class="d">16. jaanuar 2024</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u14-u16-vanuseklassile-2024">Tartu linna MV U14-U16 vanuseklassile</a>
 <span class="d">16. jaanuar 2024 · Tartu Ülikooli Spordihoone</span></li>
@@ -2340,17 +2359,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. jaanuar 2024 · Palivere Turismi- ja Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2024-i-etapp-ja-laanemaa-meistrivoistluse-2024">Palivere Suusasari 2024 I etapp ja Läänemaa Meistrivõistlused</a>
 <span class="d">14. jaanuar 2024 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2024">Palivere Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2024">Palivere suusasarja 1. etapp</a>
 <span class="d">14. jaanuar 2024</span></li>
 <li><a class="n" href="/race/26-gymnafest-finaal-2024">26. GYMNAFEST finaal</a>
 <span class="d">13. jaanuar 2024 · Tartu Ülikooli Spordihoone</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-4-etapp-2024">Triathlon Estonia Keila Suusasarja 2024 4. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-4-etapp-2024">Triathlon Estonia Keila suusasarja 2024 4. etapp</a>
 <span class="d">12. jaanuar 2024</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-4-etapp-eraldistardi-2024">Triathlon Estonia Keila Suusasarja 2024 4. Etapp - Eraldistardid</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-4-etapp-eraldistardi-2024">Triathlon Estonia Keila suusasarja 2024 4. etapp - Eraldistardid</a>
 <span class="d">12. jaanuar 2024 · Keila Terviserajad</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-3-etapp-2024">Triathlon Estonia Keila Suusasarja 2024 3. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-3-etapp-2024">Triathlon Estonia Keila suusasarja 2024 3. etapp</a>
 <span class="d">10. jaanuar 2024</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-3-etapp-uhisstardid-2024">Triathlon Estonia Keila Suusasarja 2024 3. Etapp - Ühisstardid</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-3-etapp-uhisstardid-2024">Triathlon Estonia Keila suusasarja 2024 3. etapp - Ühisstardid</a>
 <span class="d">10. jaanuar 2024 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2024-ii-etapp-2024">Türi suusatamise SV &quot; Türi suusatalv 2024&quot; II etapp</a>
 <span class="d">9. jaanuar 2024 · Türi Tolli mets</span></li>
@@ -2358,7 +2377,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. jaanuar 2024 · Ujula 4</span></li>
 <li><a class="n" href="/race/viljandi-tv-10-os-ii-etapp-2024">Viljandi TV 10 OS II etapp</a>
 <span class="d">9. jaanuar 2024 · Paalalinna viilhall</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2024-2">Tallinna Kiiruisuklubi Ühe Tunni Sõit</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2024-2">Tallinna kiiruisuklubi Ühe Tunni sõit</a>
 <span class="d">8. jaanuar 2024</span></li>
 <li><a class="n" href="/race/kehtna-suusasari-2024-1-osavoistlus-2024">Kehtna suusasari 2024 1. osavõistlus</a>
 <span class="d">7. jaanuar 2024 · Järvakandi TERVISERADA</span></li>

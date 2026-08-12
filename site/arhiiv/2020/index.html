@@ -6,12 +6,29 @@
 <title>2020. aasta võistluste tulemused | LostTimes</title>
 <meta name="description" content="Kõik 2020. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 858 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2020/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2020/">
+<meta property="og:title" content="2020. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2020. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 858 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -368,7 +393,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. september 2020 · Elva</span></li>
 <li><a class="n" href="/race/kehtna-kaerepere-1-sugisjooks-2020">Kehtna-Kaerepere 1. Sügisjooks</a>
 <span class="d">27. september 2020 · Kehtna</span></li>
-<li><a class="n" href="/race/kohtla-jarve-spordiklubi-kleo-tervisepaev-2020">Kohtla-Järve Spordiklubi Kleo Tervisepäev</a>
+<li><a class="n" href="/race/kohtla-jarve-spordiklubi-kleo-tervisepaev-2020">Kohtla-järve Spordiklubi Kleo Tervisepäev</a>
 <span class="d">27. september 2020 · Alutaguse Puhke- ja Spordikeskus</span></li>
 <li><a class="n" href="/race/lezyne-cx1-bike-fanatics-koidu-cx-2020">Lezyne CX1 - Bike Fanatics Koidu CX</a>
 <span class="d">27. september 2020 · Koidu</span></li>
@@ -680,7 +705,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2020 · Palupera Põhikool</span></li>
 <li><a class="n" href="/race/porgandijooks-2020">Porgandijooks</a>
 <span class="d">23. september 2020 · Lasteaed Aljonuska</span></li>
-<li><a class="n" href="/race/poska-liigub-2020">Poska Liigub</a>
+<li><a class="n" href="/race/poska-liigub-2020">Poska liigub</a>
 <span class="d">23. september 2020 · Vanemuise 35</span></li>
 <li><a class="n" href="/race/raasiku-kooli-spordinadal-2020">Raasiku Kooli Spordinädal</a>
 <span class="d">23. september 2020 · Raasiku Põhikool</span></li>
@@ -872,7 +897,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. september 2020 · Kuressaare Linnastaadion</span></li>
 <li><a class="n" href="/race/torva-valla-meistrivoistlused-heitealades-2020">Tõrva valla meistrivõistlused heitealades</a>
 <span class="d">20. september 2020 · Pokardi heitestaadion</span></li>
-<li><a class="n" href="/race/usin-jooksja-ja-tahtede-jooks-2020-2020">Usin Jooksja Ja Tähtede Jooks 2020</a>
+<li><a class="n" href="/race/usin-jooksja-ja-tahtede-jooks-2020-2020">Usin Jooksja ja Tähtede jooks 2020</a>
 <span class="d">20. september 2020 · Põlva linna staadion</span></li>
 <li><a class="n" href="/race/14-smiltene-valga-lahtine-karikavoistlus-odaviskes-2020-a-ei-2020">14. Smiltene – Valga lahtine karikavõistlus odaviskes 2020.a. - EI TOIMU</a>
 <span class="d">19. september 2020 · Valga Keskstaadion</span></li>
@@ -982,7 +1007,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. september 2020 · Uulu Põhikooli staadion</span></li>
 <li><a class="n" href="/race/jarvamaa-jarvede-jooksud-matsimae-jarve-jooks-2020">&quot;Järvamaa järvede jooksud&quot; Matsimäe järve jooks</a>
 <span class="d">6. september 2020 · Matsimäe järved</span></li>
-<li><a class="n" href="/race/1-tondiraba-maraton-2020">1. Tondiraba Maraton</a>
+<li><a class="n" href="/race/1-tondiraba-maraton-2020">1. Tondiraba maraton</a>
 <span class="d">6. september 2020 · Tondiraba</span></li>
 <li><a class="n" href="/race/16-vuokatin-aateli-race-2-2020">16. Vuokatin Aateli Race / 2</a>
 <span class="d">6. september 2020 · Vuokatti, Kainuu</span></li>
@@ -1014,11 +1039,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. september 2020 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/parnu-36-aastajooks-ix-etapp-2020">Pärnu 36. Aastajooks IX etapp</a>
 <span class="d">1. september 2020 · Raeküla</span></li>
-<li><a class="n" href="/race/parnu-kahe-silla-jooks-2020">Pärnu Kahe Silla Jooks</a>
+<li><a class="n" href="/race/parnu-kahe-silla-jooks-2020">Pärnu Kahe Silla jooks</a>
 <span class="d">1. september 2020 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/rr-kaimiskuu-september-2020">RR käimiskuu - SEPTEMBER</a>
 <span class="d">1. september 2020 · National Library of Estonia</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2020-2">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2020-2">Tallinna maraton</a>
 <span class="d">1. september 2020 · Virtuaaljooksud</span></li>
 <li><a class="n" href="/race/tallinna-maraton-virtuaaljooks-2020">Tallinna Maraton virtuaaljooks</a>
 <span class="d">1. september 2020 · Üle maailma</span></li>
@@ -1026,7 +1051,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. august 2020 · Eesti</span></li>
 <li><a class="n" href="/race/39-kuressaare-linnajooks-2020">39. Kuressaare Linnajooks</a>
 <span class="d">30. august 2020 · Kuressaare Gümnaasium</span></li>
-<li><a class="n" href="/race/7-silda-ujumismatk-2020">7 Silda Ujumismatk</a>
+<li><a class="n" href="/race/7-silda-ujumismatk-2020">7 silda ujumismatk</a>
 <span class="d">30. august 2020 · TARTU LINN, EMAJÕGI</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-teatekrossis-2020">Eesti Meistrivõistlused teatekrossis</a>
 <span class="d">30. august 2020 · Antsla</span></li>
@@ -1080,11 +1105,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. august 2020 · Pärlselja puhkekeskus</span></li>
 <li><a class="n" href="/race/triathlon-estonia-avaveeujumine-2020">Triathlon Estonia Avaveeujumine</a>
 <span class="d">22. august 2020 · Kuremaa</span></li>
-<li><a class="n" href="/race/triathlon-estonia-jooksuklassika-42-2-21-1-10-ja-5-km-2020">Triathlon Estonia Jooksuklassika - 42,2, 21,1, 10 Ja 5 Km</a>
+<li><a class="n" href="/race/triathlon-estonia-jooksuklassika-42-2-21-1-10-ja-5-km-2020">Triathlon Estonia Jooksuklassika - 42,2, 21,1, 10 ja 5 km</a>
 <span class="d">22. august 2020 · Kuremaa</span></li>
 <li><a class="n" href="/race/triathlon-estonia-laste-ja-rahvatriatlon-2020">Triathlon Estonia laste- ja rahvatriatlon</a>
 <span class="d">22. august 2020 · Kuremaa</span></li>
-<li><a class="n" href="/race/triathlon-estonia-maantee-eraldisoit-90-ja-180-km-2020">Triathlon Estonia Maantee Eraldisõit 90 Ja 180 Km</a>
+<li><a class="n" href="/race/triathlon-estonia-maantee-eraldisoit-90-ja-180-km-2020">Triathlon Estonia Maantee Eraldisõit 90 ja 180 km</a>
 <span class="d">22. august 2020 · Lossi 1</span></li>
 <li><a class="n" href="/race/triathlon-estonia-triatloniklassika-taispikk-poolpikk-olumpi-2020">Triathlon Estonia Triatloniklassika - Täispikk, Poolpikk, Olümpia, Sprint</a>
 <span class="d">22. august 2020 · Lossi 1</span></li>
@@ -1292,7 +1317,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. juuli 2020 · Palivere Turismi- ja Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/pandivere-rattasoit-2020">Pandivere Rattasõit</a>
 <span class="d">12. juuli 2020 · Ebavere liikumisrajad</span></li>
-<li><a class="n" href="/race/parnu-joe-kross-triatlon-eesti-mv-2020">Pärnu Jõe Kross-Triatlon - Eesti MV</a>
+<li><a class="n" href="/race/parnu-joe-kross-triatlon-eesti-mv-2020">Pärnu Jõe kross-triatlon - Eesti MV</a>
 <span class="d">12. juuli 2020 · Niidu</span></li>
 <li><a class="n" href="/race/tori-porgu-triatlon-10-2020">Tori Põrgu Triatlon 10</a>
 <span class="d">12. juuli 2020 · Tori</span></li>
@@ -1364,11 +1389,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. juuli 2020 · Kohila Spordikompleks</span></li>
 <li><a class="n" href="/race/45-polva-o-teisipaevakud-6-etapp-2020">45. Põlva o-teisipäevakud, 6.etapp</a>
 <span class="d">30. juuni 2020 · Hullumäe</span></li>
-<li><a class="n" href="/race/hea-lootuse-mangud-iv-etapp-valga-2020">Hea Lootuse Mängud IV Etapp–valga</a>
+<li><a class="n" href="/race/hea-lootuse-mangud-iv-etapp-valga-2020">Hea Lootuse Mängud IV etapp–valga</a>
 <span class="d">30. juuni 2020 · Valga</span></li>
 <li><a class="n" href="/race/18-tradehouse-tervisejooks-ja-kond-9-etapp-kadrioru-park-2020">18. Tradehouse tervisejooks ja - kõnd 9. etapp Kadrioru park</a>
 <span class="d">29. juuni 2020 · Kadrioru park</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2020">Elva Südaööjooks</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2020">Elva südaööjooks</a>
 <span class="d">28. juuni 2020 · Elva Kultuurikeskus</span></li>
 <li><a class="n" href="/race/filter-temposarja-finaaletapp-viimsis-2020">Filter Temposarja finaaletapp Viimsis</a>
 <span class="d">28. juuni 2020 · Viimsi</span></li>
@@ -1416,7 +1441,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. juuni 2020 · Rosma orienteerumiskaart</span></li>
 <li><a class="n" href="/race/turi-1926-aastapaeva-voistlus-2020">&quot;Türi&quot; 1926&quot;aastapäeva võistlus</a>
 <span class="d">18. juuni 2020 · Türi linna staadion</span></li>
-<li><a class="n" href="/race/hea-lootuse-mangud-iii-etapp-kuusalu-2020">Hea Lootuse Mängud III Etapp–kuusalu</a>
+<li><a class="n" href="/race/hea-lootuse-mangud-iii-etapp-kuusalu-2020">Hea Lootuse Mängud III etapp–kuusalu</a>
 <span class="d">18. juuni 2020 · Kuusalu</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2020-16">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">18. juuni 2020 · Audru vald</span></li>
@@ -1450,7 +1475,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. juuni 2020 · Tamme staadion</span></li>
 <li><a class="n" href="/race/viljandi-teivashuppe-seeriavoistluse-i-etapp-2020">Viljandi teivashüppe seeriavõistluse I etapp</a>
 <span class="d">13. juuni 2020 · Viljandi linnastaadion</span></li>
-<li><a class="n" href="/race/hea-lootuse-mangud-ii-etapp-karksi-nuia-2020">Hea Lootuse Mängud II Etapp– Karksi-Nuia</a>
+<li><a class="n" href="/race/hea-lootuse-mangud-ii-etapp-karksi-nuia-2020">Hea Lootuse Mängud II etapp– Karksi-Nuia</a>
 <span class="d">12. juuni 2020 · Karksi-Nuia</span></li>
 <li><a class="n" href="/race/ix-tantsumae-magede-jooks-virtuaaljooks-2020">IX Tantsumäe Mägede Jooks - Virtuaaljooks</a>
 <span class="d">12. juuni 2020 · Tõrva Tantsumäel</span></li>
@@ -1484,7 +1509,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. juuni 2020 · Tartu Sanatooriumi parkmets</span></li>
 <li><a class="n" href="/race/tallinna-meistrivoistlused-kriteeriumis-2020">Tallinna Meistrivõistlused kriteeriumis</a>
 <span class="d">6. juuni 2020 · Tallinn Tondiraba kergliiklustee</span></li>
-<li><a class="n" href="/race/hea-lootuse-mangud-i-etapp-kose-2020">Hea Lootuse Mängud I Etapp–kose</a>
+<li><a class="n" href="/race/hea-lootuse-mangud-i-etapp-kose-2020">Hea Lootuse Mängud I etapp–kose</a>
 <span class="d">4. juuni 2020 · Kose</span></li>
 <li><a class="n" href="/race/jarvamaa-liigub-2-preediku-jarve-jooks-2020">Järvamaa liigub - 2. Preediku järve jooks</a>
 <span class="d">4. juuni 2020 · Preediku järv</span></li>
@@ -1556,7 +1581,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2020 · Käravete</span></li>
 <li><a class="n" href="/race/jrs-i-etapp-jarva-jaani-rattakross-2020">JRS I etapp - Järva-Jaani rattakross</a>
 <span class="d">21. mai 2020 · Võllaste suusa- ja jooksurada</span></li>
-<li><a class="n" href="/race/tallink-maijooks-2020">Tallink Maijooks</a>
+<li><a class="n" href="/race/tallink-maijooks-2020">Tallink maijooks</a>
 <span class="d">21. mai 2020 · Tallinna lauluväljak</span></li>
 <li><a class="n" href="/race/are-pargijooksud-1-etapp-virtuaalne-2020">Are Pargijooksud (1. etapp) VIRTUAALNE!</a>
 <span class="d">20. mai 2020 · Are Mõisapargi discgolfi park</span></li>
@@ -1588,11 +1613,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. mai 2020 · August Kitzbergi nimelise Gümnaasiumi ujula</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevaku-2-etapp-2020">Viljandimaa orienteerumispäevaku 2. etapp</a>
 <span class="d">13. mai 2020 · Karksi-Nuia</span></li>
-<li><a class="n" href="/race/38-tartu-maastikumaraton-2020">38. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/38-tartu-maastikumaraton-2020">38. Tartu maastikumaraton</a>
 <span class="d">10. mai 2020 · Otepää - Elva</span></li>
 <li><a class="n" href="/race/pohja-tallinna-mv-kriteeriumisoidus-2020">Põhja Tallinna MV kriteeriumisõidus</a>
 <span class="d">10. mai 2020 · Tallinn</span></li>
-<li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-ii-etapp-valgehobus-2020">Husqvarna Eesti Olümpiakrossi Karikasari II Etapp - Valgehobusemäe XCO</a>
+<li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-ii-etapp-valgehobus-2020">Husqvarna Eesti Olümpiakrossi karikasari II etapp - Valgehobusemäe XCO</a>
 <span class="d">9. mai 2020 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
 <li><a class="n" href="/race/heateo-jooks-2020">Heateo Jooks</a>
 <span class="d">8. mai 2020 · Tartu Tähtvere Spordipark</span></li>
@@ -1604,7 +1629,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. mai 2020 · Alutaguse vald</span></li>
 <li><a class="n" href="/race/paide-mv-batuudihupetes-2020">Paide MV batuudihüpetes</a>
 <span class="d">3. mai 2020 · Paide Hillar Hanssoo põhikool</span></li>
-<li><a class="n" href="/race/soeru-kevadjooks-2020-2020">Sõeru Kevadjooks 2020</a>
+<li><a class="n" href="/race/soeru-kevadjooks-2020-2020">Sõeru kevadjooks 2020</a>
 <span class="d">3. mai 2020 · Vanamõisa vabaõhukeskus, Vabaõhukeskuse tee 20 Saue vald Harjumaa</span></li>
 <li><a class="n" href="/race/eesti-mv-batuudihupetes-2020">Eesti MV batuudihüpetes</a>
 <span class="d">2. mai 2020 · Paide Hillar Hanssoo Põhikooli võimla</span></li>
@@ -1684,7 +1709,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. aprill 2020 · Niidupargi staadion</span></li>
 <li><a class="n" href="/race/polva-i-o-teisipaevak-2020">Põlva I o-teisipäevak</a>
 <span class="d">7. aprill 2020 · Koorvere</span></li>
-<li><a class="n" href="/race/noortesari-uju-ja-jookse-2020">Noortesari - Uju Ja Jookse</a>
+<li><a class="n" href="/race/noortesari-uju-ja-jookse-2020">Noortesari - Uju ja Jookse</a>
 <span class="d">5. aprill 2020 · Keila tervisekeskus</span></li>
 <li><a class="n" href="/race/sinilillejooks-parnu-2020-2020">Sinilillejooks PÄRNU 2020</a>
 <span class="d">4. aprill 2020 · Endla Teater</span></li>
@@ -1726,7 +1751,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. märts 2020 · Haapsalu Veekeskus</span></li>
 <li><a class="n" href="/race/laanemaa-meistrivoistlused-ujumises-lastele-ja-noortele-2020">Läänemaa meistrivõistlused ujumises lastele ja noortele</a>
 <span class="d">1. märts 2020 · Haapsalu Veekeskus</span></li>
-<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-6-etapp-lume-puudu-2020">Triathlon Estonia Suusa(Jooksu)sarja 2020 6. Etapp – Lume Puudumisel Asendatakse Jooksuga</a>
+<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-6-etapp-lume-puudu-2020">Triathlon Estonia Suusa(jooksu)sarja 2020 6. etapp – Lume Puudumisel Asendatakse Jooksuga</a>
 <span class="d">1. märts 2020 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/ida-virumaa-u10-ja-u12-meistrivoistlused-2020">Ida-Virumaa U10 ja U12 meistrivõistlused</a>
 <span class="d">29. veebruar 2020 · Ahtme Spordihall</span></li>
@@ -1764,17 +1789,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. veebruar 2020 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-talvised-mv-u18-ja-u20-2020">Lääne-Virumaa noorte talvised MV (U18 ja U20)</a>
 <span class="d">6. veebruar 2020 · Rakvere</span></li>
-<li><a class="n" href="/race/triathlon-estonia-suusasarja-2020-4-etapp-lume-puudumisel-as-2020">Triathlon Estonia Suusasarja 2020 4. Etapp – Lume Puudumisel Asendatakse Jooksuga</a>
+<li><a class="n" href="/race/triathlon-estonia-suusasarja-2020-4-etapp-lume-puudumisel-as-2020">Triathlon Estonia suusasarja 2020 4. etapp – Lume Puudumisel Asendatakse Jooksuga</a>
 <span class="d">5. veebruar 2020 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/22-tamsalu-neeruti-maraton-2020">22. Tamsalu-Neeruti Maraton</a>
 <span class="d">1. veebruar 2020 · Tamsalu Suusastaadion</span></li>
 <li><a class="n" href="/race/priit-ailt-kuidas-saada-kiire-ma-ks-ujujaks-2020">Priit Ailt: Kuidas saada kiire(ma)ks ujujaks?</a>
 <span class="d">31. jaanuar 2020 · Pärnu Rannastaadion</span></li>
-<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-3-etapp-lume-puudu-2020">Triathlon Estonia Suusa(Jooksu)sarja 2020 3. Etapp – Lume Puudumisel Asendatakse Jooksuga</a>
+<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-3-etapp-lume-puudu-2020">Triathlon Estonia Suusa(jooksu)sarja 2020 3. etapp – Lume Puudumisel Asendatakse Jooksuga</a>
 <span class="d">30. jaanuar 2020 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/tahelepanu-start-jarvamaa-alagrupp-2020">Tähelepanu Start Järvamaa alagrupp</a>
 <span class="d">29. jaanuar 2020 · Türi Ühisgümnaasiumi spordisaalid</span></li>
-<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-2-etapp-lume-puudu-2020">Triathlon Estonia Suusa(Jooksu)sarja 2020 2. Etapp – Lume Puudumisel Asendatakse Jooksuga</a>
+<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-2-etapp-lume-puudu-2020">Triathlon Estonia Suusa(jooksu)sarja 2020 2. etapp – Lume Puudumisel Asendatakse Jooksuga</a>
 <span class="d">28. jaanuar 2020 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/pipedrive-paarisjooks-2020">Pipedrive Paarisjooks</a>
 <span class="d">27. jaanuar 2020 · Pipedrive, Mustamäe tee 3a</span></li>
@@ -1784,11 +1809,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. jaanuar 2020 · Paide linna ujula</span></li>
 <li><a class="n" href="/race/mulgi-valla-lahtised-ujumisvoistlused-i-etapp-2020">Mulgi Valla lahtised ujumisvõistlused I etapp</a>
 <span class="d">22. jaanuar 2020 · August Kitzbergi nimelise Gümnaasiumi ujula</span></li>
-<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-1-etapp-lume-puudu-2020">Triathlon Estonia Suusa(Jooksu)sarja 2020 1. Etapp – Lume Puudumisel Asendatakse Jooksuga</a>
+<li><a class="n" href="/race/triathlon-estonia-suusa-jooksu-sarja-2020-1-etapp-lume-puudu-2020">Triathlon Estonia Suusa(jooksu)sarja 2020 1. etapp – Lume Puudumisel Asendatakse Jooksuga</a>
 <span class="d">22. jaanuar 2020 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/11-mulgi-uisumaraton-2020">11. Mulgi Uisumaraton</a>
 <span class="d">19. jaanuar 2020 · Viljandi järv</span></li>
-<li><a class="n" href="/race/6-tondiraba-sisemaraton-2020">6. Tondiraba Sisemaraton</a>
+<li><a class="n" href="/race/6-tondiraba-sisemaraton-2020">6. Tondiraba sisemaraton</a>
 <span class="d">19. jaanuar 2020 · Tallinn, Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/tv-10-os-jarvamaa-ii-etapp-2020">TV 10-OS Järvamaa II etapp</a>
 <span class="d">17. jaanuar 2020 · Järvamaa Kutsehariduskeskuse Särevere õppekoha kaarhall</span></li>

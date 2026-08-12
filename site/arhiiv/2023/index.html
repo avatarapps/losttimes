@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2023. aasta võistluste tulemused | LostTimes</title>
-<meta name="description" content="Kõik 2023. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1269 võistlust.">
+<meta name="description" content="Kõik 2023. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1265 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2023/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2023/">
+<meta property="og:title" content="2023. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2023. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1265 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -77,16 +102,16 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>2023. aasta võistlused</h1>
-<p class="meta">1269 võistlust</p>
+<p class="meta">1265 võistlust</p>
 <ul class="list"><li><a class="n" href="/race/sportos-test-2023-2-2023">Sportos TEST 2023 2</a>
 <span class="d">30. detsember 2023 · Eesti</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2023">Tallinna Kiiruisuklubi Karikasarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2023">Tallinna kiiruisuklubi karikasarja 1. etapp</a>
 <span class="d">30. detsember 2023</span></li>
 <li><a class="n" href="/race/15-karel-leetsari-malestusvoistlus-2023">15. Karel Leetsari mälestusvõistlus</a>
 <span class="d">29. detsember 2023 · Pärnu kergejõustikuhall</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-2-etapp-2023">Triathlon Estonia Keila Suusasarja 2024 2. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-2-etapp-2023">Triathlon Estonia Keila suusasarja 2024 2. etapp</a>
 <span class="d">29. detsember 2023</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-2-etapp-uhisstart-2023">Triathlon Estonia Keila Suusasarja 2024 2. Etapp - Ühisstart</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-2-etapp-uhisstart-2023">Triathlon Estonia Keila suusasarja 2024 2. etapp - Ühisstart</a>
 <span class="d">29. detsember 2023 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/pooripaevajooks-jooks-talve-2023">Pööripäevajooks Jooks talve</a>
 <span class="d">23. detsember 2023 · Kuressaare</span></li>
@@ -94,9 +119,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. detsember 2023 · Kangrumäe</span></li>
 <li><a class="n" href="/race/audentese-spordiklubi-jouluvoistlus-2023">Audentese Spordiklubi Jõuluvõistlus</a>
 <span class="d">20. detsember 2023 · Audentese spordikeskus</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-1-etapp-2023">Triathlon Estonia Keila Suusasarja 2024 1. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-1-etapp-2023">Triathlon Estonia Keila suusasarja 2024 1. etapp</a>
 <span class="d">20. detsember 2023</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-1-etapp-eraldistart-2023">Triathlon Estonia Keila Suusasarja 2024 1. Etapp - Eraldistart</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2024-1-etapp-eraldistart-2023">Triathlon Estonia Keila suusasarja 2024 1. etapp - Eraldistart</a>
 <span class="d">20. detsember 2023 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2024-i-etapp-2023">Türi suusatamise SV &quot; Türi suusatalv 2024&quot; I etapp</a>
 <span class="d">19. detsember 2023 · Türi Tolli mets</span></li>
@@ -110,7 +135,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. detsember 2023 · Tartu Ülikooli Spordihoone</span></li>
 <li><a class="n" href="/race/palivere-lumeinglid-2023">Palivere Lumeinglid</a>
 <span class="d">16. detsember 2023</span></li>
-<li><a class="n" href="/race/xxxvii-johvi-huppajate-paev-2023">Xxxvii Jõhvi Hüppajate Päev</a>
+<li><a class="n" href="/race/xxxvii-johvi-huppajate-paev-2023">XXXVII Jõhvi Hüppajate päev</a>
 <span class="d">16. detsember 2023 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/slonny-cup-2023-2023">Slonny Cup 2023</a>
 <span class="d">15. detsember 2023 · Ihaste tee 7</span></li>
@@ -166,7 +191,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. november 2023 · Mustamäe Riigigümnaasium</span></li>
 <li><a class="n" href="/race/tv-10-os-tartu-ja-tartumaa-i-etapp-2023">TV 10 OS Tartu ja Tartumaa I etapp</a>
 <span class="d">23. november 2023 · Tartu Ülikooli Spordihoone</span></li>
-<li><a class="n" href="/race/eesti-paralumpiakomitee-meistrivoistlused-ujumises-2023-2023">Eesti Paralümpiakomitee Meistrivõistlused Ujumises 2023</a>
+<li><a class="n" href="/race/eesti-paralumpiakomitee-meistrivoistlused-ujumises-2023-2023">Eesti Paralümpiakomitee meistrivõistlused ujumises 2023</a>
 <span class="d">19. november 2023 · Aura Keskus</span></li>
 <li><a class="n" href="/race/polva-4-o-puhapaevak-2023">Põlva 4. o-pühapäevak</a>
 <span class="d">19. november 2023 · Krootuse</span></li>
@@ -200,9 +225,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. november 2023 · Audru vald</span></li>
 <li><a class="n" href="/race/polva-2-o-puhapaevak-2023">Põlva 2. o-pühapäevak</a>
 <span class="d">5. november 2023 · Põlgaste</span></li>
-<li><a class="n" href="/race/reinpauli-xxi-maastikujooks-2023">Reinpauli Xxi Maastikujooks</a>
+<li><a class="n" href="/race/reinpauli-xxi-maastikujooks-2023">Reinpauli XXI maastikujooks</a>
 <span class="d">5. november 2023</span></li>
-<li><a class="n" href="/race/puhali-maraton-2023">Pühali Maraton</a>
+<li><a class="n" href="/race/puhali-maraton-2023">Pühali maraton</a>
 <span class="d">1. november 2023</span></li>
 <li><a class="n" href="/race/parnu-rannajooks-2023-2023">Pärnu Rannajooks 2023</a>
 <span class="d">29. oktoober 2023 · Pärnu Rannastaadion</span></li>
@@ -210,13 +235,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. oktoober 2023 · Põlva</span></li>
 <li><a class="n" href="/race/baltic-xc-team-championships-2023">Baltic XC Team Championships</a>
 <span class="d">28. oktoober 2023 · Järvakandi terviserada</span></li>
-<li><a class="n" href="/race/bikefanatics-rakke-cx-2023">Bikefanatics Rakke Cx</a>
+<li><a class="n" href="/race/bikefanatics-rakke-cx-2023">Bikefanatics Rakke CX</a>
 <span class="d">28. oktoober 2023 · Rakke Linnamäe staadion</span></li>
 <li><a class="n" href="/race/erivajadustega-inimeste-kepikonni-lounatund-2023">Erivajadustega inimeste kepikõnni lõunatund</a>
 <span class="d">28. oktoober 2023 · Sillapää loss</span></li>
 <li><a class="n" href="/race/siseorienteerumine-2023">Siseorienteerumine</a>
 <span class="d">27. oktoober 2023 · Põlva</span></li>
-<li><a class="n" href="/race/xv-rahvusvahelised-sportaeroobika-voistlused-kohtla-jarve-op-2023">Xv Rahvusvahelised Sportaeroobika Võistlused Kohtla-Järve Open Cup 2023</a>
+<li><a class="n" href="/race/xv-rahvusvahelised-sportaeroobika-voistlused-kohtla-jarve-op-2023">XV Rahvusvahelised Sportaeroobika võistlused Kohtla-järve Open Cup 2023</a>
 <span class="d">27. oktoober 2023 · Kohtla-Järve Spordikeskuse spordihoone</span></li>
 <li><a class="n" href="/race/ambla-sk-suusatajate-seeriajooksu-kepikond-4-etapp-2023">Ambla SK suusatajate seeriajooksu +kepikõnd 4.etapp</a>
 <span class="d">26. oktoober 2023 · Kangrumäe</span></li>
@@ -234,7 +259,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. oktoober 2023 · Kangrumäe</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumisteisipaevad-2023-2">Tervise-ja liikumisteisipäevad</a>
 <span class="d">17. oktoober 2023 · Pärnu Rand</span></li>
-<li><a class="n" href="/race/2023-a-eesti-karikavoistlused-sportaeroobikas-2023">2023.A. Eesti Karikavõistlused Sportaeroobikas</a>
+<li><a class="n" href="/race/2023-a-eesti-karikavoistlused-sportaeroobikas-2023">2023.A. Eesti karikavõistlused Sportaeroobikas</a>
 <span class="d">15. oktoober 2023 · Kohtla-Järve Spordikeskus</span></li>
 <li><a class="n" href="/race/98-rabajooks-2023">98. Rabajooks</a>
 <span class="d">15. oktoober 2023 · Harku terviseraja idaparkla</span></li>
@@ -242,11 +267,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. oktoober 2023 · Kääriku Spordikeskuse suusarajad</span></li>
 <li><a class="n" href="/race/vii-kopra-sugisrogain-2023">VII KOPRA sügisrogain</a>
 <span class="d">15. oktoober 2023 · Mammaste Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/1-tabivere-rahvajooks-2023">1. Tabivere Rahvajooks</a>
+<li><a class="n" href="/race/1-tabivere-rahvajooks-2023">1. Tabivere rahvajooks</a>
 <span class="d">14. oktoober 2023</span></li>
 <li><a class="n" href="/race/39-munamae-voru-maastikujooks-2023">39. Munamäe - Võru maastikujooks</a>
 <span class="d">14. oktoober 2023 · SA Võru Spordikeskuse suusabaas Kubijal</span></li>
-<li><a class="n" href="/race/alari-100-maraton-2023">Alari 100. Maraton</a>
+<li><a class="n" href="/race/alari-100-maraton-2023">Alari 100. maraton</a>
 <span class="d">14. oktoober 2023</span></li>
 <li><a class="n" href="/race/eesti-murdmaajooksu-karikavoistlused-2023-2023">Eesti murdmaajooksu karikavõistlused 2023</a>
 <span class="d">14. oktoober 2023 · Järvakandi terviserada</span></li>
@@ -300,7 +325,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. oktoober 2023 · Risti</span></li>
 <li><a class="n" href="/race/saku-sugiskross-2023">Saku Sügiskross</a>
 <span class="d">4. oktoober 2023 · Saku valgustatud suusarada</span></li>
-<li><a class="n" href="/race/lokuta-eidapere-xix-suurjooks-2023">Lokuta-Eidapere Xix Suurjooks</a>
+<li><a class="n" href="/race/lokuta-eidapere-xix-suurjooks-2023">Lokuta-Eidapere XIX suurjooks</a>
 <span class="d">3. oktoober 2023</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumisteisipaevad-2023-4">Tervise-ja liikumisteisipäevad</a>
 <span class="d">3. oktoober 2023 · Pärnu Rand</span></li>
@@ -348,13 +373,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. september 2023 · Paluküla terviserada</span></li>
 <li><a class="n" href="/race/sportos-testib-2023">Sportos Testib</a>
 <span class="d">30. september 2023 · 13414 Tallinn</span></li>
-<li><a class="n" href="/race/v-palivere-suusaraja-jooks-2023">V Palivere Suusaraja Jooks</a>
+<li><a class="n" href="/race/v-palivere-suusaraja-jooks-2023">V Palivere Suusaraja jooks</a>
 <span class="d">30. september 2023</span></li>
 <li><a class="n" href="/race/vennad-ehituse-kumnevoistlus-2023">Vennad Ehituse kümnevõistlus</a>
 <span class="d">30. september 2023 · Kääriku Spordikeskuse staadion</span></li>
 <li><a class="n" href="/race/viimsi-rattakross-2023">Viimsi Rattakross</a>
 <span class="d">30. september 2023 · Randvere kool</span></li>
-<li><a class="n" href="/race/xiii-kolme-koolimaja-jooks-2023">Xiii Kolme Koolimaja Jooks</a>
+<li><a class="n" href="/race/xiii-kolme-koolimaja-jooks-2023">XIII Kolme Koolimaja jooks</a>
 <span class="d">30. september 2023</span></li>
 <li><a class="n" href="/race/10-direktor-rein-harmoja-nimeline-karikajooks-2023">10. Direktor Rein Härmoja nimeline karikajooks</a>
 <span class="d">29. september 2023 · Vana-Kuuste</span></li>
@@ -422,7 +447,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. september 2023 · Hirvepark</span></li>
 <li><a class="n" href="/race/kahesilla-jooks-2023">Kahesilla jooks</a>
 <span class="d">28. september 2023 · Kohila</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2023">Keila Seeriajooksu 8. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2023">Keila seeriajooksu 8. etapp</a>
 <span class="d">28. september 2023</span></li>
 <li><a class="n" href="/race/koik-rublikud-liikuma-2023">Kõik rüblikud liikuma!</a>
 <span class="d">28. september 2023 · Ropka park</span></li>
@@ -586,7 +611,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. september 2023 · Taime 27</span></li>
 <li><a class="n" href="/race/kadaka-valejalg-2023-2023">Kadaka Välejalg 2023</a>
 <span class="d">26. september 2023 · Kadaka Staadion</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2023">Keila Seeriajooksu 7. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2023">Keila seeriajooksu 7. etapp</a>
 <span class="d">26. september 2023</span></li>
 <li><a class="n" href="/race/kes-on-kiirem-2023">Kes on kiirem?</a>
 <span class="d">26. september 2023 · Energia 11</span></li>
@@ -764,7 +789,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. september 2023 · Lasteaed Sipsik</span></li>
 <li><a class="n" href="/race/sipsiku-maraton-2023">Sipsiku maraton</a>
 <span class="d">25. september 2023 · Tallinna Lasteaed Sipsik</span></li>
-<li><a class="n" href="/race/sipsiku-spordinadal-2023">Sipsiku Spordinädal</a>
+<li><a class="n" href="/race/sipsiku-spordinadal-2023">Sipsiku spordinädal</a>
 <span class="d">25. september 2023 · Paldiski Lasteaed Sipsik</span></li>
 <li><a class="n" href="/race/spordi-ja-liikumisnadal-spordilaps-on-roomus-laps-2023">Spordi ja liikumisnädal ,,Spordilaps on rõõmus laps,,</a>
 <span class="d">25. september 2023 · Põltsamaa Valla Lasteaed</span></li>
@@ -816,7 +841,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. september 2023 · Upa</span></li>
 <li><a class="n" href="/race/terves-kehas-terve-vaim-2023">Terves kehas terve vaim</a>
 <span class="d">25. september 2023 · Püssi</span></li>
-<li><a class="n" href="/race/tibutare-lasteaia-spordinadal-2023-2023">Tibutare Lasteaia Spordinädal 2023</a>
+<li><a class="n" href="/race/tibutare-lasteaia-spordinadal-2023-2023">Tibutare Lasteaia spordinädal 2023</a>
 <span class="d">25. september 2023 · Tibutare</span></li>
 <li><a class="n" href="/race/torva-kooli-lasteaedade-meistrivoistlused-2023">Tõrva Kooli lasteaedade meistrivõistlused</a>
 <span class="d">25. september 2023 · Tõrva Gümnaasiumi staadion ja palliväljak</span></li>
@@ -866,7 +891,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2023 · 24-7fitness Laki</span></li>
 <li><a class="n" href="/race/be-active-night-kehra-2023">Be Active Night Kehra</a>
 <span class="d">23. september 2023 · Kehra spordihoone</span></li>
-<li><a class="n" href="/race/e-piim-20-kullamaa-rattasoit-2023">E-Piim 20. Kullamaa Rattasõit</a>
+<li><a class="n" href="/race/e-piim-20-kullamaa-rattasoit-2023">E-Piim 20. Kullamaa rattasõit</a>
 <span class="d">23. september 2023</span></li>
 <li><a class="n" href="/race/eidapere-kooli-spordinadal-2023">Eidapere Kooli spordinädal</a>
 <span class="d">23. september 2023 · Eidapere Kool</span></li>
@@ -890,7 +915,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2023 · Nõmme ujula</span></li>
 <li><a class="n" href="/race/muuseumiorienteerumine-2023">Muuseumiorienteerumine</a>
 <span class="d">23. september 2023 · Eesti Spordi- ja Olümpiamuuseum</span></li>
-<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2023-2023">Näpi Kooli Spordinädal (23.-30.09.2023)</a>
+<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2023-2023">Näpi kooli spordinädal (23.-30.09.2023)</a>
 <span class="d">23. september 2023 · Sõmeru</span></li>
 <li><a class="n" href="/race/narva-joesuu-kooli-spordinadal-2023">Narva-Jõesuu kooli spordinädal</a>
 <span class="d">23. september 2023 · Narva-Jõesuu</span></li>
@@ -906,7 +931,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2023 · Põlva Lasteaed Pihlapuu</span></li>
 <li><a class="n" href="/race/piila-retk-2023-2023">Piila Retk 2023</a>
 <span class="d">23. september 2023 · Eikla palliväljakud</span></li>
-<li><a class="n" href="/race/poska-liigub-2023">Poska Liigub</a>
+<li><a class="n" href="/race/poska-liigub-2023">Poska liigub</a>
 <span class="d">23. september 2023 · Vanemuise 35</span></li>
 <li><a class="n" href="/race/puhja-kooli-spordinadal-2023">Puhja Kooli spordinädal</a>
 <span class="d">23. september 2023 · Puhja Kool</span></li>
@@ -932,7 +957,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2023 · Valgeranna</span></li>
 <li><a class="n" href="/race/torma-pohikooli-spordinadal-2023-2023">Torma Põhikooli spordinädal 2023</a>
 <span class="d">23. september 2023 · Carl Robert Jakobsoni nim Torma Põhikool</span></li>
-<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2023">Tupiku Igamehe Maastikumaraton</a>
+<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2023">Tupiku Igamehe maastikumaraton</a>
 <span class="d">23. september 2023</span></li>
 <li><a class="n" href="/race/viljandi-haigla-spordinadal-2023">Viljandi haigla spordinädal</a>
 <span class="d">23. september 2023 · Viljandi Haigla</span></li>
@@ -988,7 +1013,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. september 2023 · Väike-Maarja</span></li>
 <li><a class="n" href="/race/eistvere-jarve-jooks-5-jarvamaa-jarvede-jooksud-13-etapp-2023">Eistvere järve jooks, 5. Järvamaa Järvede jooksud 13. etapp</a>
 <span class="d">21. september 2023 · Eistvere järv</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2023">Keila Seeriajooksu 6. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2023">Keila seeriajooksu 6. etapp</a>
 <span class="d">21. september 2023</span></li>
 <li><a class="n" href="/race/liikumispaev-lasteaias-2023">Liikumispäev lasteaias</a>
 <span class="d">21. september 2023 · Tarbja</span></li>
@@ -996,7 +1021,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. september 2023 · Põlva staadion</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-3">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">21. september 2023 · Uulu</span></li>
-<li><a class="n" href="/race/saku-lastesarja-4-etapp-2023">Saku Lastesarja 4. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-4-etapp-2023">Saku lastesarja 4. etapp</a>
 <span class="d">21. september 2023</span></li>
 <li><a class="n" href="/race/tallinna-teeninduskooli-spordinadal-2023-2023">Tallinna Teeninduskooli spordinädal 2023</a>
 <span class="d">21. september 2023 · Tallinna Teeninduskool</span></li>
@@ -1018,7 +1043,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. september 2023 · Palomõtsa orienteerumiskaart</span></li>
 <li><a class="n" href="/race/ringlev-sugis-1-etapp-2023">Ringlev Sügis 1. etapp</a>
 <span class="d">20. september 2023 · Kärdla laululava</span></li>
-<li><a class="n" href="/race/sisekaitseakadeemia-ja-vanglateenistuse-krossijooksu-meistri-2023">Sisekaitseakadeemia Ja Vanglateenistuse Krossijooksu Meistrivõistlused</a>
+<li><a class="n" href="/race/sisekaitseakadeemia-ja-vanglateenistuse-krossijooksu-meistri-2023">Sisekaitseakadeemia ja Vanglateenistuse Krossijooksu meistrivõistlused</a>
 <span class="d">20. september 2023</span></li>
 <li><a class="n" href="/race/sparta-sugiskross-2023-2023">Sparta Sügiskross 2023</a>
 <span class="d">20. september 2023 · Järve Terviserada</span></li>
@@ -1032,7 +1057,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. september 2023 · Elva Spordipark</span></li>
 <li><a class="n" href="/race/eriolumpia-eesti-uhenduse-jooksukross-2023">Eriolümpia Eesti Ühenduse jooksukross</a>
 <span class="d">19. september 2023 · Tartumaa Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2023">Keila Seeriajooksu 5. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2023">Keila seeriajooksu 5. etapp</a>
 <span class="d">19. september 2023</span></li>
 <li><a class="n" href="/race/polva-25-o-teisipaevak-2023">Põlva 25. o-teisipäevak</a>
 <span class="d">19. september 2023 · Taevaskoja Salamaa Camping</span></li>
@@ -1058,7 +1083,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. september 2023 · Otepää - Palu - Elva</span></li>
 <li><a class="n" href="/race/hawaii-expressi-26-tartu-rattamaraton-2023">Hawaii Expressi 26. Tartu Rattamaraton</a>
 <span class="d">17. september 2023 · Otepää - Elva</span></li>
-<li><a class="n" href="/race/kose-maastikujooksu-voistlus-vale-ja-visa-2023">Kose Maastikujooksu Võistlus „Väle Ja Visa”</a>
+<li><a class="n" href="/race/kose-maastikujooksu-voistlus-vale-ja-visa-2023">Kose Maastikujooksu võistlus „Väle ja Visa”</a>
 <span class="d">17. september 2023</span></li>
 <li><a class="n" href="/race/liikumisretked-laanemaal-purksi-2023">Liikumisretked Läänemaal - Pürksi</a>
 <span class="d">17. september 2023 · Pürksi</span></li>
@@ -1082,17 +1107,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. september 2023 · Kalevi Keskstaadion</span></li>
 <li><a class="n" href="/race/teivashuppe-seeriavoistlus-iv-etapp-2023">Teivashüppe seeriavõistlus, IV etapp</a>
 <span class="d">16. september 2023 · Viljandi linnastaadion</span></li>
-<li><a class="n" href="/race/1-jalavaebrigaadi-maastiku-teatejooksu-voistlus-2023">1. Jalaväebrigaadi Maastiku Teatejooksu Võistlus</a>
+<li><a class="n" href="/race/1-jalavaebrigaadi-maastiku-teatejooksu-voistlus-2023">1. Jalaväebrigaadi Maastiku Teatejooksu võistlus</a>
 <span class="d">15. september 2023</span></li>
 <li><a class="n" href="/race/viljandi-kesklinna-kooli-spordinadal-2023">Viljandi Kesklinna Kooli spordinädal</a>
 <span class="d">15. september 2023 · Viljandi Kesklinna Kool (algklassid)</span></li>
-<li><a class="n" href="/race/xvii-saue-ohtujooks-2023">Xvii Saue Õhtujooks</a>
+<li><a class="n" href="/race/xvii-saue-ohtujooks-2023">XVII Saue õhtujooks</a>
 <span class="d">15. september 2023 · Saue Gümnaasiumi staadion</span></li>
 <li><a class="n" href="/race/ambla-sk-seeriavoistlus-kevad-2023-umber-jarve-jooks-8-etapp-2023">Ambla SK seeriavõistlus kevad 2023 ümber järve jooks 8.etapp</a>
 <span class="d">14. september 2023 · Käravete järv</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-4">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">14. september 2023 · Valgeranna</span></li>
-<li><a class="n" href="/race/saare-jarve-40-jooks-2023">Saare Järve 40. Jooks</a>
+<li><a class="n" href="/race/saare-jarve-40-jooks-2023">Saare järve 40. jooks</a>
 <span class="d">14. september 2023</span></li>
 <li><a class="n" href="/race/tartu-tunnijooks-2023">Tartu Tunnijooks</a>
 <span class="d">14. september 2023 · TARTU TAMME STAADION</span></li>
@@ -1124,19 +1149,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. september 2023 · Vasta</span></li>
 <li><a class="n" href="/race/erivajadustega-inimeste-kepikonni-lounatund-2023-3">Erivajadustega inimeste kepikõnni lõunatund</a>
 <span class="d">10. september 2023 · Sillapää loss</span></li>
-<li><a class="n" href="/race/fixus-palivere-xvi-rattamaraton-2023">Fixus Palivere Xvi Rattamaraton</a>
+<li><a class="n" href="/race/fixus-palivere-xvi-rattamaraton-2023">Fixus Palivere XVI rattamaraton</a>
 <span class="d">10. september 2023</span></li>
 <li><a class="n" href="/race/liikumisretked-laanemaal-vonnu-2023">Liikumisretked Läänemaal - Võnnu</a>
 <span class="d">10. september 2023 · Võnnu</span></li>
-<li><a class="n" href="/race/mustamae-iv-rahvajooks-2023">Mustamäe IV Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-iv-rahvajooks-2023">Mustamäe IV rahvajooks</a>
 <span class="d">10. september 2023</span></li>
 <li><a class="n" href="/race/palivere-xvi-rattamaraton-2023">Palivere XVI rattamaraton</a>
 <span class="d">10. september 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2023">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2023">Tallinna maraton</a>
 <span class="d">10. september 2023 · Tallinn - Falgi tee</span></li>
 <li><a class="n" href="/race/hawaii-express-estonian-cup-ramuddden-9-valgehobusemae-ratta-2023">Hawaii Express Estonian Cup - Ramuddden 9. Valgehobusemäe Rattamaraton</a>
 <span class="d">9. september 2023 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
-<li><a class="n" href="/race/kiili-valla-pargijooksu-4-etapp-paekna-2023">Kiili Valla Pargijooksu 4. Etapp, Paekna</a>
+<li><a class="n" href="/race/kiili-valla-pargijooksu-4-etapp-paekna-2023">Kiili valla Pargijooksu 4. etapp, Paekna</a>
 <span class="d">9. september 2023</span></li>
 <li><a class="n" href="/race/polvamaa-toukerattasoidu-meistrivoistlused-2023">Põlvamaa tõukerattasõidu meistrivõistlused</a>
 <span class="d">9. september 2023 · Põlva Intsikurmu spordirajad</span></li>
@@ -1180,11 +1205,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. september 2023 · Peraküla</span></li>
 <li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-v-etapp-joulumae-xc-2023">Husqvarna Eesti olümpiakrossi karikasari V etapp - Jõulumäe XCO</a>
 <span class="d">3. september 2023 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2023">Jüri Jaansoni Kahe Silla jooks</a>
-<span class="d">3. september 2023 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/liikumisretked-laanemaal-taebla-2023">Liikumisretked Läänemaal - Taebla</a>
 <span class="d">3. september 2023 · Taebla</span></li>
-<li><a class="n" href="/race/linnamae-rattasoit-2023">Linnamäe Rattasõit</a>
+<li><a class="n" href="/race/linnamae-rattasoit-2023">Linnamäe rattasõit</a>
 <span class="d">3. september 2023</span></li>
 <li><a class="n" href="/race/matsimae-jarve-jooks-5-jarvamaa-jarvede-jooksud-10-etapp-2023">Matsimäe järve jooks, 5. Järvamaa Järvede jooksud 10. etapp</a>
 <span class="d">3. september 2023 · Matsimäe Pühajärv</span></li>
@@ -1192,19 +1215,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. september 2023 · Laagri Kooli Möldre maja</span></li>
 <li><a class="n" href="/race/26-tallinna-rattamaraton-2023">26. Tallinna Rattamaraton</a>
 <span class="d">2. september 2023 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/6-kristiine-rahvajooks-2023">6. Kristiine Rahvajooks</a>
+<li><a class="n" href="/race/6-kristiine-rahvajooks-2023">6. Kristiine rahvajooks</a>
 <span class="d">2. september 2023 · Kristiine, Löwenruhe park</span></li>
-<li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2023-2">Jüri Jaansoni Kahe Silla jooks</a>
+<li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2023">Jüri Jaansoni Kahe Silla jooks</a>
 <span class="d">2. september 2023 · Endla Teater</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-iv-kunda-etapp-eesti-mv-soome-mv-baltic-2023">Murutraktorite Liiga IV (Kunda) Etapp (Eesti MV, Soome MV, Baltic Cup)</a>
+<li><a class="n" href="/race/murutraktorite-liiga-iv-kunda-etapp-eesti-mv-soome-mv-baltic-2023">Murutraktorite Liiga IV (Kunda) etapp (Eesti MV, Soome MV, Baltic Cup)</a>
 <span class="d">2. september 2023</span></li>
-<li><a class="n" href="/race/parnu-ohtujooks-2023">Pärnu Õhtujooks</a>
+<li><a class="n" href="/race/parnu-ohtujooks-2023">Pärnu õhtujooks</a>
 <span class="d">2. september 2023 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/pane-kondimootor-toole-kampaania-2023">&quot;Pane kondimootor tööle!&quot; kampaania</a>
 <span class="d">1. september 2023 · Eesti</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-6">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">31. august 2023 · Kolga-Veski</span></li>
-<li><a class="n" href="/race/tervisekassa-triatlon-2023">Tervisekassa Triatlon</a>
+<li><a class="n" href="/race/tervisekassa-triatlon-2023">Tervisekassa triatlon</a>
 <span class="d">30. august 2023</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-7-etapp-2023">Viljandimaa orienteerumispäevakud 7. etapp</a>
 <span class="d">30. august 2023 · Päri tervise- ja suusarajad</span></li>
@@ -1212,9 +1235,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. august 2023 · Porgandi veski orienteerumiskaart</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumisteisipaevad-2023-9">Tervise-ja liikumisteisipäevad</a>
 <span class="d">29. august 2023 · Pärnu Rand</span></li>
-<li><a class="n" href="/race/7-silda-ujumismatk-2023">7 Silda Ujumismatk</a>
+<li><a class="n" href="/race/7-silda-ujumismatk-2023">7 silda ujumismatk</a>
 <span class="d">27. august 2023 · TARTU LINN, EMAJÕGI</span></li>
-<li><a class="n" href="/race/eesti-meistrivoistlused-teatekrossis-joulumae-teatekross-2023">Eesti Meistrivõistlused Teatekrossis/ Jõulumäe Teatekross</a>
+<li><a class="n" href="/race/eesti-meistrivoistlused-teatekrossis-joulumae-teatekross-2023">Eesti meistrivõistlused Teatekrossis/ Jõulumäe Teatekross</a>
 <span class="d">27. august 2023 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/erivajadustega-inimeste-kepikonni-lounatund-2023-4">Erivajadustega inimeste kepikõnni lõunatund</a>
 <span class="d">27. august 2023 · Sillapää loss</span></li>
@@ -1236,29 +1259,27 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. august 2023 · Karitsa järv</span></li>
 <li><a class="n" href="/race/hawaii-express-estonian-cup-segafredo-24-joulumae-rattamarat-2023">Hawaii Express Estonian Cup - Segafredo 24. Jõulumäe Rattamaraton</a>
 <span class="d">26. august 2023 · Jõulumäe Tervisespordikeskuse suusastaadion ja liikumisrajad</span></li>
-<li><a class="n" href="/race/kihnu-mannakaba-maraton-poolmaraton-kepikond-kihnu10-2023">Kihnu Männäkäbä Maraton &amp; Poolmaraton &amp; Kepikõnd. Kihnu10</a>
+<li><a class="n" href="/race/kihnu-mannakaba-maraton-poolmaraton-kepikond-kihnu10-2023">Kihnu Männäkäbä maraton &amp; poolmaraton &amp; Kepikõnd. Kihnu10</a>
 <span class="d">26. august 2023</span></li>
 <li><a class="n" href="/race/laste-rattaralli-2023">Laste RATTARALLI</a>
 <span class="d">26. august 2023 · Mammaste tervisespordikeskus</span></li>
-<li><a class="n" href="/race/sillamae-ultra-2023">Sillamäe Ultra</a>
-<span class="d">26. august 2023 · Sillamäe terviserada</span></li>
 <li><a class="n" href="/race/triathlon-estonia-2023">Triathlon Estonia</a>
 <span class="d">26. august 2023</span></li>
-<li><a class="n" href="/race/sillamae-ultra-2023-2">Sillamäe Ultra</a>
-<span class="d">25. august 2023</span></li>
+<li><a class="n" href="/race/sillamae-ultra-2023">Sillamäe Ultra</a>
+<span class="d">25. august 2023 · Sillamäe terviserada</span></li>
 <li><a class="n" href="/race/leisi-heinarulli-orienteerumisneljapaevak-2023">Leisi heinarulli orienteerumisneljapäevak</a>
 <span class="d">24. august 2023 · Leisi aleviku ja Veske küla piirimail</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-7">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">24. august 2023 · Allika orienteerumiskaart</span></li>
 <li><a class="n" href="/race/roosna-alliku-jarve-jooks-5-jarvamaa-jarvede-jooksud-9-etapp-2023">Roosna -Alliku järve jooks, 5. Järvamaa Järvede jooksud 9. etapp,</a>
 <span class="d">24. august 2023 · Roosna-Alliku</span></li>
-<li><a class="n" href="/race/saku-lastesarja-3-etapp-2023">Saku Lastesarja 3. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-3-etapp-2023">Saku lastesarja 3. etapp</a>
 <span class="d">24. august 2023</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumissari-elu-terve-elu-2023-3">Tervise-ja liikumissari &quot;Elu Terve Elu&quot;</a>
 <span class="d">24. august 2023 · Lihula spordihoone</span></li>
 <li><a class="n" href="/race/kevek-ja-tartu-kalev-2023-a-staadionijooksu-viii-etapp-2023">KEVEK ja Tartu KALEV 2023.a. STAADIONIJOOKSU VIII etapp</a>
 <span class="d">23. august 2023 · Tamme staadion</span></li>
-<li><a class="n" href="/race/kiili-valla-pargijooksu-3-etapp-kangru-terviserada-2023">Kiili Valla Pargijooksu 3. Etapp, Kangru Terviserada</a>
+<li><a class="n" href="/race/kiili-valla-pargijooksu-3-etapp-kangru-terviserada-2023">Kiili valla Pargijooksu 3. etapp, Kangru Terviserada</a>
 <span class="d">23. august 2023</span></li>
 <li><a class="n" href="/race/47-jarvamaa-orienteerumispaevakud-7-etapp-2023">47. Järvamaa orienteerumispäevakud 7. etapp</a>
 <span class="d">22. august 2023 · Keava</span></li>
@@ -1290,7 +1311,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. august 2023 · Paldiski Spordikeskus</span></li>
 <li><a class="n" href="/race/skechers-suvejooks-2023-2023">SKECHERS Suvejooks 2023</a>
 <span class="d">19. august 2023 · Tartu, A. Le Coq Spordimaja</span></li>
-<li><a class="n" href="/race/1-jalavaebrigaadi-maastikurattakrossi-lahtised-meistrivoistl-2023">1. Jalaväebrigaadi Maastikurattakrossi Lahtised Meistrivõistlused</a>
+<li><a class="n" href="/race/1-jalavaebrigaadi-maastikurattakrossi-lahtised-meistrivoistl-2023">1. Jalaväebrigaadi Maastikurattakrossi Lahtised meistrivõistlused</a>
 <span class="d">18. august 2023</span></li>
 <li><a class="n" href="/race/7-ummamuudu-liina-uujuusk-2023">7. Ummamuudu liina üüjuusk</a>
 <span class="d">18. august 2023 · Võru linna keskväljak</span></li>
@@ -1368,11 +1389,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. august 2023 · 13414 Tallinn</span></li>
 <li><a class="n" href="/race/vagilase-jooks-lahte-2023">Vägilase jooks Lähte</a>
 <span class="d">6. august 2023 · Lähte</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-2023">Vägilase Jooksusarja 3. Etapp, Lähte</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-2023">Vägilase jooksusarja 3. etapp, Lähte</a>
 <span class="d">6. august 2023</span></li>
 <li><a class="n" href="/race/35-koprakarikas-luhirada-2023">35. KOPRAKARIKAS, lühirada</a>
 <span class="d">5. august 2023 · Poka orienteerumiskaart</span></li>
-<li><a class="n" href="/race/e-bike-i-2-etapp-rakvere-2023">E-Bike-I 2. Etapp, Rakvere</a>
+<li><a class="n" href="/race/e-bike-i-2-etapp-rakvere-2023">E-Bike-I 2. etapp, Rakvere</a>
 <span class="d">5. august 2023</span></li>
 <li><a class="n" href="/race/estonia-ultra-trail-race-eutr-6-th-edition-2023">Estonia Ultra-Trail Race Eutr 6´th Edition</a>
 <span class="d">5. august 2023</span></li>
@@ -1382,7 +1403,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. august 2023 · Peraaru sporditalu</span></li>
 <li><a class="n" href="/race/kepikonni-karikavoistlus-2023">Kepikõnni Karikavõistlus</a>
 <span class="d">5. august 2023 · Randvere mets</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-saaremaa-etapp-2023">Murutraktorite Liiga Saaremaa Etapp</a>
+<li><a class="n" href="/race/murutraktorite-liiga-saaremaa-etapp-2023">Murutraktorite Liiga Saaremaa etapp</a>
 <span class="d">5. august 2023</span></li>
 <li><a class="n" href="/race/salamaa-ix-toukerattakross-2023">Salamaa IX tõukerattakross</a>
 <span class="d">5. august 2023 · Taevaskoja Salamaa Camping</span></li>
@@ -1418,9 +1439,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. juuli 2023 · Kuressaare linnastaadion</span></li>
 <li><a class="n" href="/race/paraujumise-maailmameistrivoistlused-2023-2023">Paraujumise maailmameistrivõistlused 2023</a>
 <span class="d">31. juuli 2023 · Manchester</span></li>
-<li><a class="n" href="/race/21-kilingi-nomme-triatlon-2023">21. Kilingi-Nõmme Triatlon</a>
+<li><a class="n" href="/race/21-kilingi-nomme-triatlon-2023">21. Kilingi-Nõmme triatlon</a>
 <span class="d">30. juuli 2023</span></li>
-<li><a class="n" href="/race/luunja-triatlon-2023">Luunja Triatlon</a>
+<li><a class="n" href="/race/luunja-triatlon-2023">Luunja triatlon</a>
 <span class="d">30. juuli 2023</span></li>
 <li><a class="n" href="/race/revin-grupp-sudasuve-challenge-vosu-2023-2023">REVIN GRUPP Südasuve Challenge - Võsu 2023</a>
 <span class="d">30. juuli 2023 · Võsu</span></li>
@@ -1508,7 +1529,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. juuli 2023 · Haapsalu</span></li>
 <li><a class="n" href="/race/ida-virumaa-jooksusari-2023-maetaguse-kahe-moisa-jooks-2023">Ida-Virumaa jooksusari 2023 - Mäetaguse Kahe Mõisa jooks</a>
 <span class="d">15. juuli 2023 · Mäetaguse mõis</span></li>
-<li><a class="n" href="/race/imavere-morin-2023-4-etapp-2023">Imavere Mörin 2023 – 4. Etapp</a>
+<li><a class="n" href="/race/imavere-morin-2023-4-etapp-2023">Imavere Mörin 2023 – 4. etapp</a>
 <span class="d">15. juuli 2023</span></li>
 <li><a class="n" href="/race/lauri-ausi-20-malestusvoistlus-2023">Lauri Ausi 20. mälestusvõistlus</a>
 <span class="d">15. juuli 2023 · Pirita Velodroom</span></li>
@@ -1556,7 +1577,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. juuli 2023</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-triatlon-2023">Sportland Kõrvemaa Triatlon</a>
 <span class="d">8. juuli 2023 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/virtsu-merepaeva-jooks-2023">Virtsu Merepäeva Jooks</a>
+<li><a class="n" href="/race/virtsu-merepaeva-jooks-2023">Virtsu Merepäeva jooks</a>
 <span class="d">8. juuli 2023</span></li>
 <li><a class="n" href="/race/xix-karala-odagala-2023">XIX Karala Odagala</a>
 <span class="d">8. juuli 2023 · Karala</span></li>
@@ -1586,7 +1607,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. juuli 2023 · Lääne-Harju Kultuurikeskus Klooga maja</span></li>
 <li><a class="n" href="/race/laane-harju-liikumissari-2023-klooga-2023">Lääne-Harju Liikumissari 2023 – Klooga</a>
 <span class="d">1. juuli 2023</span></li>
-<li><a class="n" href="/race/noo-veskijarve-ii-triatlon-2023">Nõo Veskijärve II Triatlon</a>
+<li><a class="n" href="/race/noo-veskijarve-ii-triatlon-2023">Nõo Veskijärve II triatlon</a>
 <span class="d">1. juuli 2023 · Nõo - Veskijärv</span></li>
 <li><a class="n" href="/race/sangaste-valgete-teede-rattaralli-2023-2023">Sangaste Valgete Teede Rattaralli 2023</a>
 <span class="d">1. juuli 2023 · Sangaste Lossiküla</span></li>
@@ -1644,9 +1665,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. juuni 2023 · Viljandi</span></li>
 <li><a class="n" href="/race/mulgi-valla-laste-kolmevoistluse-seeriavoistlus-ii-etapp-2023">Mulgi valla laste kolmevõistluse seeriavõistlus II etapp</a>
 <span class="d">19. juuni 2023 · Karksi-Nuia</span></li>
-<li><a class="n" href="/race/10-koveri-triatlon-2023">10. Kõveri Triatlon</a>
+<li><a class="n" href="/race/10-koveri-triatlon-2023">10. Kõveri triatlon</a>
 <span class="d">18. juuni 2023</span></li>
-<li><a class="n" href="/race/aidu-hard-enduro-eesti-hard-enduro-meistri-ja-karikavoistlus-2023">Aidu Hard Enduro Eesti Hard Enduro Meistri- Ja Karikavõistluste 2. Etapp – Põhisõit</a>
+<li><a class="n" href="/race/aidu-hard-enduro-eesti-hard-enduro-meistri-ja-karikavoistlus-2023">Aidu Hard Enduro Eesti Hard Enduro Meistri- Ja Karikavõistluste 2. etapp – Põhisõit</a>
 <span class="d">18. juuni 2023</span></li>
 <li><a class="n" href="/race/epiim-rattapaev-jarva-jaanis-2023">Epiim Rattapäev Järva-Jaanis</a>
 <span class="d">18. juuni 2023</span></li>
@@ -1662,7 +1683,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuni 2023 · Naissaar</span></li>
 <li><a class="n" href="/race/33-juri-lossmanni-malestusjooks-2023">33.Jüri Lossmanni mälestusjooks</a>
 <span class="d">17. juuni 2023 · Viljandi linn</span></li>
-<li><a class="n" href="/race/aidu-hard-enduro-eesti-hard-enduro-meistri-ja-karikavoistlus-2023-2">Aidu Hard Enduro Eesti Hard Enduro Meistri- Ja Karikavõistluste 2. Etapp – Proloog Ja Duellid</a>
+<li><a class="n" href="/race/aidu-hard-enduro-eesti-hard-enduro-meistri-ja-karikavoistlus-2023-2">Aidu Hard Enduro Eesti Hard Enduro Meistri- Ja Karikavõistluste 2. etapp – Proloog ja Duellid</a>
 <span class="d">17. juuni 2023</span></li>
 <li><a class="n" href="/race/lovo-broloppet-x-siltajuoksu-2023">Lövö Broloppet – X Siltajuoksu</a>
 <span class="d">17. juuni 2023</span></li>
@@ -1674,9 +1695,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuni 2023 · Viljandi linnastaadion</span></li>
 <li><a class="n" href="/race/v-kahe-silla-jooks-2023">V Kahe Silla jooks</a>
 <span class="d">17. juuni 2023 · Kukruse Polaarmõis</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2023">Vägilase Jooksusarja 2. Etapp – Rummu</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2023">Vägilase jooksusarja 2. etapp – Rummu</a>
 <span class="d">17. juuni 2023</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2023-tartumaa-liigub-5-etapp-2023">Elva Südaööjooks 2023, Tartumaa Liigub 5. Etapp</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2023-tartumaa-liigub-5-etapp-2023">Elva südaööjooks 2023, Tartumaa liigub 5. etapp</a>
 <span class="d">16. juuni 2023 · Elva Kultuurikeskus</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-17">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">15. juuni 2023 · Häädemeeste orienteerumiskaart</span></li>
@@ -1712,12 +1733,10 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. juuni 2023 · Jõgeva</span></li>
 <li><a class="n" href="/race/filter-rullituur-jogeval-3-etapp-2023">Filter Rullituur Jõgeval (3. etapp)</a>
 <span class="d">11. juuni 2023 · Jõgeva</span></li>
-<li><a class="n" href="/race/iii-mustamae-rahvajooks-2023">III Mustamäe Rahvajooks</a>
+<li><a class="n" href="/race/iii-mustamae-rahvajooks-2023">III Mustamäe rahvajooks</a>
 <span class="d">11. juuni 2023</span></li>
 <li><a class="n" href="/race/polvamaa-lahtised-orienteerumisjooksu-meistrivoistlused-tead-2023">Põlvamaa lahtised orienteerumisjooksu meistrivõistlused, teade</a>
 <span class="d">11. juuni 2023 · Jõgehara</span></li>
-<li><a class="n" href="/race/11-narva-linna-jooks-2023">11. Narva Linna Jooks</a>
-<span class="d">10. juuni 2023 · Narva</span></li>
 <li><a class="n" href="/race/hawaii-express-estonian-cup-21-raplamaa-rattamaraton-2023">Hawaii Express Estonian Cup - 21. Raplamaa Rattamaraton</a>
 <span class="d">10. juuni 2023 · Laukataguse Puhkeküla</span></li>
 <li><a class="n" href="/race/maribel-trophy-2023-2023">Maribel Trophy 2023</a>
@@ -1726,13 +1745,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. juuni 2023 · Kihnu</span></li>
 <li><a class="n" href="/race/polvamaa-lahtised-orienteerumisjooksu-meistrivoistlused-tava-2023">Põlvamaa lahtised orienteerumisjooksu meistrivõistlused, tavarada</a>
 <span class="d">10. juuni 2023 · Jõgehara</span></li>
-<li><a class="n" href="/race/11-narva-linna-jooks-2023-2">11. Narva Linna Jooks</a>
+<li><a class="n" href="/race/11-narva-linna-jooks-2023">11. Narva linna jooks</a>
 <span class="d">9. juuni 2023 · Narva</span></li>
 <li><a class="n" href="/race/45-rosma-metsajooks-2023">45. ROSMA metsajooks</a>
 <span class="d">9. juuni 2023 · Rosma</span></li>
 <li><a class="n" href="/race/5-jarvamaa-jarvede-jooksud-5-etapp-vainjarve-jooks-2023">5. Järvamaa Järvede jooksud 5. etapp, Väinjärve jooks</a>
 <span class="d">8. juuni 2023 · Väinjärv</span></li>
-<li><a class="n" href="/race/kiili-krossijooksu-meistrivoistlused-2-etapp-vaela-2023">Kiili Krossijooksu Meistrivõistlused – 2. Etapp, Vaela</a>
+<li><a class="n" href="/race/kiili-krossijooksu-meistrivoistlused-2-etapp-vaela-2023">Kiili Krossijooksu meistrivõistlused – 2. etapp, Vaela</a>
 <span class="d">8. juuni 2023</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-18">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">8. juuni 2023 · Raeküla orienteerumiskaart</span></li>
@@ -1754,8 +1773,6 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. juuni 2023 · Pärnu Rand</span></li>
 <li><a class="n" href="/race/tv10-os-jarvamaa-finaal-2023">TV10 OS Järvamaa finaal</a>
 <span class="d">6. juuni 2023 · Türi linna staadion</span></li>
-<li><a class="n" href="/race/16-icebug-kova-mehe-jooks-2023">16. ICEBUG Kõva Mehe jooks</a>
-<span class="d">4. juuni 2023 · Saunapunkt, Saue vald</span></li>
 <li><a class="n" href="/race/eesti-mv-takistusjooksus-2023">Eesti MV Takistusjooksus</a>
 <span class="d">4. juuni 2023 · Saunapunkt, Saue vald</span></li>
 <li><a class="n" href="/race/erivajadustega-inimeste-kepikonni-lounatund-2023-9">Erivajadustega inimeste kepikõnni lõunatund</a>
@@ -1766,7 +1783,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. juuni 2023 · Kiviõli Seikluskeskus</span></li>
 <li><a class="n" href="/race/rapina-laste-rattapaev-2023">Räpina LASTE RATTAPÄEV</a>
 <span class="d">4. juuni 2023 · Räpina</span></li>
-<li><a class="n" href="/race/2023-icebug-kova-mehe-jooks-2023">2023 Icebug Kõva Mehe Jooks</a>
+<li><a class="n" href="/race/2023-icebug-kova-mehe-jooks-2023">2023 Icebug Kõva Mehe jooks</a>
 <span class="d">3. juuni 2023 · Saunapunkt</span></li>
 <li><a class="n" href="/race/3-icebug-kova-tiimi-jooks-2023">3. ICEBUG Kõva Tiimi jooks</a>
 <span class="d">3. juuni 2023 · Saunapunkt, Saue vald</span></li>
@@ -1778,7 +1795,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. juuni 2023</span></li>
 <li><a class="n" href="/race/padise-liigub-2023">Padise liigub</a>
 <span class="d">3. juuni 2023 · Lääne-Harju Kultuurikeskus Padise rahvamaja</span></li>
-<li><a class="n" href="/race/saue-valla-rattaretk-2023">Saue Valla Rattaretk</a>
+<li><a class="n" href="/race/saue-valla-rattaretk-2023">Saue valla Rattaretk</a>
 <span class="d">3. juuni 2023 · Vabaõhukeskuse tee 20, Saue vald, Harjumaa</span></li>
 <li><a class="n" href="/race/turi-triatlon-2023">Türi triatlon</a>
 <span class="d">3. juuni 2023 · Türi järv</span></li>
@@ -1796,7 +1813,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. juuni 2023 · Kilingi-Nõmme orienteerumiskaart</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumissari-elu-terve-elu-2023-7">Tervise-ja liikumissari &quot;Elu Terve Elu&quot;</a>
 <span class="d">1. juuni 2023 · Kilingi-Nõmme Spordihoone</span></li>
-<li><a class="n" href="/race/turi-temposoit-2023-2023">Türi Temposõit 2023</a>
+<li><a class="n" href="/race/turi-temposoit-2023-2023">Türi temposõit 2023</a>
 <span class="d">1. juuni 2023 · Parasi-Põikva-Rassi</span></li>
 <li><a class="n" href="/race/kavastu-tt3-transtar-temposari-iii-etapp-2023">Kavastu TT3 - Transtar Temposari III etapp</a>
 <span class="d">31. mai 2023 · Kavastu</span></li>
@@ -1804,7 +1821,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. mai 2023 · Tamme staadion</span></li>
 <li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevak-linnamael-2023">Läänemaa Orienteerumiskolmapäevak Linnamäel</a>
 <span class="d">31. mai 2023 · Linnamäe küla orienteerumiskaart</span></li>
-<li><a class="n" href="/race/saku-lastesarja-2-etapp-2023">Saku Lastesarja 2. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-2-etapp-2023">Saku lastesarja 2. etapp</a>
 <span class="d">31. mai 2023</span></li>
 <li><a class="n" href="/race/touksikolmapaevak-2023-4">Tõuksikolmapäevak</a>
 <span class="d">31. mai 2023 · Põlva</span></li>
@@ -1828,13 +1845,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. mai 2023 · Kohtla-Nõmme Kooli staadion</span></li>
 <li><a class="n" href="/race/fenster-11-rapla-selveri-suurjooks-2023">FENSTER 11. Rapla Selveri Suurjooks</a>
 <span class="d">27. mai 2023 · Rapla, SELVER&#39;i parkla</span></li>
-<li><a class="n" href="/race/imavere-morin-2023-3-etapp-2023">Imavere Mörin 2023 – 3. Etapp</a>
+<li><a class="n" href="/race/imavere-morin-2023-3-etapp-2023">Imavere Mörin 2023 – 3. etapp</a>
 <span class="d">27. mai 2023</span></li>
 <li><a class="n" href="/race/kevadturniir-2023">Kevadturniir</a>
 <span class="d">27. mai 2023 · Sillamäe Spordiklubi Kalev</span></li>
 <li><a class="n" href="/race/ladies-tour-of-estonia-2023-2023">Ladies Tour of Estonia 2023</a>
 <span class="d">27. mai 2023 · Tartu linn</span></li>
-<li><a class="n" href="/race/vabaduse-valvuri-jooks-2023-2023">Vabaduse Valvuri Jooks 2023</a>
+<li><a class="n" href="/race/vabaduse-valvuri-jooks-2023-2023">Vabaduse Valvuri jooks 2023</a>
 <span class="d">27. mai 2023</span></li>
 <li><a class="n" href="/race/vabadusevalvuri-jooks-2023">Vabadusevalvuri jooks</a>
 <span class="d">27. mai 2023 · Jõhvi</span></li>
@@ -1852,11 +1869,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. mai 2023 · Väätsa Wakepark</span></li>
 <li><a class="n" href="/race/laane-virumaa-algklasside-oppeaasta-lopuvoistlus-2023">Lääne-Virumaa algklasside õppeaasta lõpuvõistlus</a>
 <span class="d">25. mai 2023 · Rakvere staadion</span></li>
-<li><a class="n" href="/race/pae-pargi-vii-rahvajooks-2023">Pae Pargi VII Rahvajooks</a>
+<li><a class="n" href="/race/pae-pargi-vii-rahvajooks-2023">Pae Pargi VII rahvajooks</a>
 <span class="d">25. mai 2023</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-20">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">25. mai 2023 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/xxiv-korghoone-kuninga-jooks-2023">Xxiv Kõrghoone Kuninga Jooks</a>
+<li><a class="n" href="/race/xxiv-korghoone-kuninga-jooks-2023">XXIV Kõrghoone Kuninga jooks</a>
 <span class="d">25. mai 2023</span></li>
 <li><a class="n" href="/race/47-jarvamaa-orienteerumispaevakud-iii-etapp-2023">47. Järvamaa orienteerumispäevakud III etapp</a>
 <span class="d">24. mai 2023 · Saarepeedi</span></li>
@@ -1866,7 +1883,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. mai 2023 · Pürksi küla orienteerumiskaart</span></li>
 <li><a class="n" href="/race/rae-spordikooli-suvine-voistlus-2023-2023">Rae Spordikooli suvine võistlus 2023</a>
 <span class="d">24. mai 2023 · Peetri staadion</span></li>
-<li><a class="n" href="/race/soeru-kevadjooks-2023">Sõeru Kevadjooks</a>
+<li><a class="n" href="/race/soeru-kevadjooks-2023">Sõeru kevadjooks</a>
 <span class="d">24. mai 2023</span></li>
 <li><a class="n" href="/race/turi-maraton-2023-iii-etapp-2023">Türi Maraton 2023 III etapp</a>
 <span class="d">24. mai 2023 · Veskisilla Kergliiklustee</span></li>
@@ -1880,9 +1897,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. mai 2023 · Pärnu Rand</span></li>
 <li><a class="n" href="/race/52-jooks-umber-harku-jarve-2023">52. jooks ümber Harku järve</a>
 <span class="d">21. mai 2023 · Paldiski maantee 124a</span></li>
-<li><a class="n" href="/race/creo-kevadsarja-3-etapp-ekv-i-etapp-2023">Creo Kevadsarja 3. Etapp - Ekv I Etapp</a>
+<li><a class="n" href="/race/creo-kevadsarja-3-etapp-ekv-i-etapp-2023">Creo Kevadsarja 3. etapp - Ekv I etapp</a>
 <span class="d">21. mai 2023 · Keila Terviserajad</span></li>
-<li><a class="n" href="/race/creo-kevadsarja-3-etapp-duatlon-alexela-eesti-triatloni-kari-2023">Creo Kevadsarja 3. Etapp – Duatlon, Alexela Eesti Triatloni Karikasarja 1. Etapp – Kevadduatlon</a>
+<li><a class="n" href="/race/creo-kevadsarja-3-etapp-duatlon-alexela-eesti-triatloni-kari-2023">Creo Kevadsarja 3. etapp – Duatlon, Alexela Eesti Triatloni karikasarja 1. etapp – Kevadduatlon</a>
 <span class="d">21. mai 2023</span></li>
 <li><a class="n" href="/race/filter-maanteekarikasari-elvas-2-etapp-2023">Filter Maanteekarikasari Elvas (2. etapp)</a>
 <span class="d">21. mai 2023 · Elva</span></li>
@@ -1906,9 +1923,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2023 · Vana-Vastseliina</span></li>
 <li><a class="n" href="/race/25-rouge-rattamaraton-2023">25. Rõuge Rattamaraton</a>
 <span class="d">20. mai 2023 · Rõuge Ööbikuoru vaatetorn Pesapuu</span></li>
-<li><a class="n" href="/race/36-lhv-maijooks-2023">36. LHV Maijooks</a>
+<li><a class="n" href="/race/36-lhv-maijooks-2023">36. LHV maijooks</a>
 <span class="d">20. mai 2023 · Tallinna lauluväljak</span></li>
-<li><a class="n" href="/race/creo-kevadsarja-2-etapp-basseinitriatlon-2023">Creo Kevadsarja 2. Etapp – Basseinitriatlon</a>
+<li><a class="n" href="/race/creo-kevadsarja-2-etapp-basseinitriatlon-2023">Creo Kevadsarja 2. etapp – Basseinitriatlon</a>
 <span class="d">20. mai 2023</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-kriteeriumis-maxilla-65-elva-tanavas-2023">Eesti Meistrivõistlused Kriteeriumis / MAXILLA 65. Elva Tänavasõit</a>
 <span class="d">20. mai 2023 · Puiestee 2</span></li>
@@ -1920,9 +1937,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. mai 2023 · Kalevi Spordihall</span></li>
 <li><a class="n" href="/race/veskiloppet-orienteerumine-2023-2023">Veskiloppet Orienteerumine 2023</a>
 <span class="d">20. mai 2023 · Laagri Kooli Möldre maja</span></li>
-<li><a class="n" href="/race/creo-kevadsarja-1-etapp-2023">Creo Kevadsarja 1. Etapp</a>
+<li><a class="n" href="/race/creo-kevadsarja-1-etapp-2023">Creo Kevadsarja 1. etapp</a>
 <span class="d">19. mai 2023 · Keila Terviserajad</span></li>
-<li><a class="n" href="/race/creo-kevadsarja-1-etapp-proloog-2023">Creo Kevadsarja 1. Etapp – Proloog</a>
+<li><a class="n" href="/race/creo-kevadsarja-1-etapp-proloog-2023">Creo Kevadsarja 1. etapp – Proloog</a>
 <span class="d">19. mai 2023</span></li>
 <li><a class="n" href="/race/jarvamaa-koolide-algklasside-murdmaa-teatejooksu-kv-2023">Järvamaa koolide algklasside murdmaa teatejooksu KV</a>
 <span class="d">19. mai 2023 · Roosna-Alliku Põhikooli staadion</span></li>
@@ -1930,11 +1947,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. mai 2023 · Tarbja Tehisjärv</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-21">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">18. mai 2023 · Koonga</span></li>
-<li><a class="n" href="/race/saku-lastesarja-1-etapp-2023">Saku Lastesarja 1. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-1-etapp-2023">Saku lastesarja 1. etapp</a>
 <span class="d">18. mai 2023</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumissari-elu-terve-elu-2023-8">Tervise-ja liikumissari &quot;Elu Terve Elu&quot;</a>
 <span class="d">18. mai 2023 · Tahku Tare</span></li>
-<li><a class="n" href="/race/hiiu-kevadjooks-2023">Hiiu Kevadjooks</a>
+<li><a class="n" href="/race/hiiu-kevadjooks-2023">Hiiu kevadjooks</a>
 <span class="d">17. mai 2023</span></li>
 <li><a class="n" href="/race/xvi-sakala-mangud-jalgrattavoistlus-2023">XVI Sakala Mängud jalgrattavõistlus</a>
 <span class="d">17. mai 2023 · Uueveski puhkekeskuse majutus</span></li>
@@ -1946,7 +1963,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. mai 2023 · Pärnu Rand</span></li>
 <li><a class="n" href="/race/tv10-os-iii-etapp-jarvama-2023">TV10 OS III etapp Järvama</a>
 <span class="d">16. mai 2023 · Türi linna staadion</span></li>
-<li><a class="n" href="/race/41-tartu-maastikumaraton-2023">41. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/41-tartu-maastikumaraton-2023">41. Tartu maastikumaraton</a>
 <span class="d">14. mai 2023 · Tartumaa Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/41-tartu-maastikumaratoni-elva-lastejooks-2023">41. Tartu Maastikumaratoni Elva lastejooks</a>
 <span class="d">14. mai 2023 · Tartumaa Tervisespordikeskus</span></li>
@@ -1974,7 +1991,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. mai 2023 · Turu 8</span></li>
 <li><a class="n" href="/race/xvi-sakala-mangud-2023">XVI Sakala Mängud</a>
 <span class="d">13. mai 2023 · Viljandi maakond</span></li>
-<li><a class="n" href="/race/xviii-palivere-miil-2023">Xviii Palivere Miil</a>
+<li><a class="n" href="/race/xviii-palivere-miil-2023">XVIII Palivere Miil</a>
 <span class="d">13. mai 2023</span></li>
 <li><a class="n" href="/race/heateo-jooks-2023">Heateo jooks</a>
 <span class="d">12. mai 2023 · SA Tähtvere Puhkepark</span></li>
@@ -1986,7 +2003,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. mai 2023 · Berliin</span></li>
 <li><a class="n" href="/race/idla-eesti-selts-kutsub-tule-oue-voimlema-2023">Idla Eesti Selts Kutsub: Tule Õue Võimlema!</a>
 <span class="d">11. mai 2023 · Haapsalu Tantsupaviljon</span></li>
-<li><a class="n" href="/race/kiili-krossijooksu-meistrivoistlused-1-etapp-kiili-2023">Kiili Krossijooksu Meistrivõistlused – 1. Etapp, Kiili</a>
+<li><a class="n" href="/race/kiili-krossijooksu-meistrivoistlused-1-etapp-kiili-2023">Kiili Krossijooksu meistrivõistlused – 1. etapp, Kiili</a>
 <span class="d">11. mai 2023</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-4-voistlus-2023">Lääne-Virumaa noorte 4-võistlus</a>
 <span class="d">11. mai 2023 · Rakvere staadion</span></li>
@@ -2012,7 +2029,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. mai 2023 · Kanepi-Erastvere orienteerumiskaart</span></li>
 <li><a class="n" href="/race/tervise-ja-liikumisteisipaevad-2023-25">Tervise-ja liikumisteisipäevad</a>
 <span class="d">9. mai 2023 · Pärnu Rand</span></li>
-<li><a class="n" href="/race/kullamaa-34-maijooks-2023">Kullamaa 34. Maijooks</a>
+<li><a class="n" href="/race/kullamaa-34-maijooks-2023">Kullamaa 34. maijooks</a>
 <span class="d">7. mai 2023</span></li>
 <li><a class="n" href="/race/kullamaa-maijooks-2023">Kullamaa Maijooks</a>
 <span class="d">7. mai 2023 · Kullamaa</span></li>
@@ -2030,7 +2047,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. mai 2023 · Tallinn Tondiraba</span></li>
 <li><a class="n" href="/race/vagilase-jooks-narva-2023">Vägilase jooks Narva</a>
 <span class="d">7. mai 2023 · Joaoru Puhkeala/Joaoru Jõusaal</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-narva-2023">Vägilase Jooksusarja 1. Etapp – Narva</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-narva-2023">Vägilase jooksusarja 1. etapp – Narva</a>
 <span class="d">7. mai 2023</span></li>
 <li><a class="n" href="/race/wings-for-life-world-run-2023-2023">Wings for Life World Run 2023</a>
 <span class="d">7. mai 2023 · Kalevi Keskstaadion</span></li>
@@ -2048,7 +2065,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. mai 2023 · Viljandi</span></li>
 <li><a class="n" href="/race/kevadakro-2023-2023">KevadAkro 2023</a>
 <span class="d">6. mai 2023 · OMAsaal</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissari-2023-1-etapp-laulasmaa-2023">Lääne-Harju Liikumissari 2023, 1. Etapp – Laulasmaa</a>
+<li><a class="n" href="/race/laane-harju-liikumissari-2023-1-etapp-laulasmaa-2023">Lääne-Harju Liikumissari 2023, 1. etapp – Laulasmaa</a>
 <span class="d">6. mai 2023</span></li>
 <li><a class="n" href="/race/laulasmaa-liigub-2023">Laulasmaa liigub</a>
 <span class="d">6. mai 2023 · Laulasmaa spordiväljak</span></li>
@@ -2066,7 +2083,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. mai 2023 · Tamula rand</span></li>
 <li><a class="n" href="/race/ambla-sk-seeriavoistlus-kevad-2023-umber-jarve-jooks-ii-etap-2023">Ambla SK seeriavõistlus kevad 2023 ümber järve jooks II etapp</a>
 <span class="d">4. mai 2023 · Mägede</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2023">Keila Seeriajooksu 4. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2023">Keila seeriajooksu 4. etapp</a>
 <span class="d">4. mai 2023</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-23">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">4. mai 2023 · Lodja orienteerumiskaart</span></li>
@@ -2084,7 +2101,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. mai 2023 · Sütiste tee parkmets</span></li>
 <li><a class="n" href="/race/47-jarvamaa-orienteerumispaevakud-i-etapp-2023">47. Järvamaa orienteerumispäevakud I etapp</a>
 <span class="d">2. mai 2023 · Mustla-Nõmme orienteerumiskaart</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2023">Keila Seeriajooksu 3. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2023">Keila seeriajooksu 3. etapp</a>
 <span class="d">2. mai 2023</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2023-9">Pärnu Aastajooksud</a>
 <span class="d">2. mai 2023 · Pärnu</span></li>
@@ -2104,7 +2121,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. aprill 2023 · Vapramäe orienteerumiskaart</span></li>
 <li><a class="n" href="/race/liikumisretked-laanemaal-kiideva-2023">Liikumisretked Läänemaal - Kiideva</a>
 <span class="d">30. aprill 2023 · Kiideva</span></li>
-<li><a class="n" href="/race/tabasalu-xxix-jooks-2023">Tabasalu Xxix Jooks</a>
+<li><a class="n" href="/race/tabasalu-xxix-jooks-2023">Tabasalu XXIX jooks</a>
 <span class="d">30. aprill 2023</span></li>
 <li><a class="n" href="/race/triatloniakadeemia-konverents-2023">Triatloniakadeemia konverents</a>
 <span class="d">30. aprill 2023 · 13414 Tallinn</span></li>
@@ -2112,7 +2129,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. aprill 2023 · Otepää</span></li>
 <li><a class="n" href="/race/vanemaealiste-liikumisnadal-votame-sudamega-liikumisretked-k-2023">VANEMAEALISTE LIIKUMISNÄDAL &quot;VÕTAME SÜDAMEGA&quot; - Liikumisretked Kiidevas</a>
 <span class="d">30. aprill 2023 · Kiideva</span></li>
-<li><a class="n" href="/race/kernu-terasmees-ja-terasnaine-2023">Kernu Terasmees Ja Terasnaine</a>
+<li><a class="n" href="/race/kernu-terasmees-ja-terasnaine-2023">Kernu Terasmees ja Terasnaine</a>
 <span class="d">29. aprill 2023</span></li>
 <li><a class="n" href="/race/vanemaealiste-liikumisnadal-votame-sudamega-qr-koodi-mang-ka-2023">VANEMAEALISTE LIIKUMISNÄDAL &quot;VÕTAME SÜDAMEGA&quot; - QR-koodi mäng Kastani pargis</a>
 <span class="d">29. aprill 2023 · Haapsalu</span></li>
@@ -2122,7 +2139,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. aprill 2023 · Variku Spordikeskus</span></li>
 <li><a class="n" href="/race/tuask-i-avavoistlused-heitealades-u16-taiskasvanud-vanusekla-2023">TÜASK-i avavõistlused heitealades U16-täiskasvanud vanuseklassile</a>
 <span class="d">28. aprill 2023 · Tartu Ülikooli Staadion</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2023">Keila Seeriajooksu 2. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2023">Keila seeriajooksu 2. etapp</a>
 <span class="d">27. aprill 2023</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2023-24">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">27. aprill 2023 · Sindi orienteerumiskaart</span></li>
@@ -2140,7 +2157,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. aprill 2023 · Haapsalu Mäemõisa terviserada</span></li>
 <li><a class="n" href="/race/viljandimaa-orineteerumispaevikud-2-etapp-2023">Viljandimaa orineteerumispäevikud 2.etapp</a>
 <span class="d">26. aprill 2023 · Loodi ehk Paistu Põrguorg</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2023">Keila Seeriajooksu 1. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2023">Keila seeriajooksu 1. etapp</a>
 <span class="d">25. aprill 2023</span></li>
 <li><a class="n" href="/race/kepikonni-ekspress-polvamaal-2023">Kepikõnni EKSPRESS Põlvamaal</a>
 <span class="d">25. aprill 2023 · Põlva</span></li>
@@ -2166,7 +2183,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. aprill 2023 · Padise klooster</span></li>
 <li><a class="n" href="/race/kepikond-harku-valla-metsaradadel-vaana-joesuu-metsarajad-2023">Kepikõnd Harku valla metsaradadel - Vääna-Jõesuu metsarajad</a>
 <span class="d">23. aprill 2023 · Rannasüdame tee</span></li>
-<li><a class="n" href="/race/kernu-jurioo-jooks-2023">Kernu Jüriöö Jooks</a>
+<li><a class="n" href="/race/kernu-jurioo-jooks-2023">Kernu Jüriöö jooks</a>
 <span class="d">23. aprill 2023</span></li>
 <li><a class="n" href="/race/liikumisretked-laanemaal-2023">Liikumisretked Läänemaal</a>
 <span class="d">23. aprill 2023 · Linnamäe</span></li>
@@ -2188,7 +2205,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. aprill 2023 · Tori</span></li>
 <li><a class="n" href="/race/paunkula-metsajooks-2023">Paunküla metsajooks</a>
 <span class="d">22. aprill 2023 · Paunküla Heaolukeskus</span></li>
-<li><a class="n" href="/race/team-gym-ja-trio-eesti-meistrivoistlused-2023-2023">Team Gym Ja Trio Eesti Meistrivõistlused 2023</a>
+<li><a class="n" href="/race/team-gym-ja-trio-eesti-meistrivoistlused-2023-2023">Team Gym ja Trio Eesti meistrivõistlused 2023</a>
 <span class="d">22. aprill 2023 · Akadeemia tee 30</span></li>
 <li><a class="n" href="/race/v-eesti-lati-jooks-2023">V Eesti - Läti jooks</a>
 <span class="d">22. aprill 2023 · Valga</span></li>
@@ -2232,7 +2249,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. aprill 2023 · Pärnu Rand</span></li>
 <li><a class="n" href="/race/jooksmise-oppepaev-turil-2023-vol1-2023">Jooksmise õppepäev Türil 2023 vol1</a>
 <span class="d">17. aprill 2023 · Türi Tolli mets</span></li>
-<li><a class="n" href="/race/2023-a-eesti-meistrivoistlused-sportaeroobikas-2023">2023. A. Eesti Meistrivõistlused Sportaeroobikas</a>
+<li><a class="n" href="/race/2023-a-eesti-meistrivoistlused-sportaeroobikas-2023">2023. A. Eesti meistrivõistlused Sportaeroobikas</a>
 <span class="d">16. aprill 2023 · Wiru Spordikeskus</span></li>
 <li><a class="n" href="/race/erra-moisast-pussi-moisa-2023">Erra mõisast Püssi mõisa</a>
 <span class="d">16. aprill 2023 · Erra</span></li>
@@ -2276,7 +2293,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. aprill 2023 · Valga linna keskväljak</span></li>
 <li><a class="n" href="/race/viljandimaa-maanteejooks-2023-2023">Viljandimaa maanteejooks 2023</a>
 <span class="d">9. aprill 2023 · Valga–Uulu</span></li>
-<li><a class="n" href="/race/imavere-morin-2023-2-etapp-2023">Imavere Mörin 2023 – 2. Etapp</a>
+<li><a class="n" href="/race/imavere-morin-2023-2-etapp-2023">Imavere Mörin 2023 – 2. etapp</a>
 <span class="d">8. aprill 2023</span></li>
 <li><a class="n" href="/race/parkmetsa-jooks-2023-2023">Parkmetsa jooks 2023</a>
 <span class="d">8. aprill 2023 · Raja tn park (Riia 167A), Tartu</span></li>
@@ -2374,7 +2391,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. märts 2023</span></li>
 <li><a class="n" href="/race/palivere-xi-suusamaraton-2023">Palivere XI Suusamaraton</a>
 <span class="d">11. märts 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/raasiku-valla-suusapaev-2023">Raasiku Valla Suusapäev</a>
+<li><a class="n" href="/race/raasiku-valla-suusapaev-2023">Raasiku valla Suusapäev</a>
 <span class="d">11. märts 2023</span></li>
 <li><a class="n" href="/race/citi-para-swimming-world-series-lignano-sabbiadoro-2023">Citi Para Swimming World Series Lignano Sabbiadoro</a>
 <span class="d">9. märts 2023 · Lignano Sabbiadoro</span></li>
@@ -2388,7 +2405,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. märts 2023 · Eesti Energia</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2023-v-etapp-2023">Palivere Suusasari 2023 V etapp</a>
 <span class="d">5. märts 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-5-etapp-2023">Palivere Suusasarja 5. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-5-etapp-2023">Palivere suusasarja 5. etapp</a>
 <span class="d">5. märts 2023</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-suusamaraton-2023">Sportland Kõrvemaa Suusamaraton</a>
 <span class="d">5. märts 2023 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -2398,7 +2415,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. märts 2023 · Elva</span></li>
 <li><a class="n" href="/race/polvamaa-lahtised-suusaorienteerumise-meistrivoistlused-2023">Põlvamaa lahtised suusaorienteerumise meistrivõistlused</a>
 <span class="d">4. märts 2023 · Jõgehara</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-7-etapp-2023">Triathlon Estonia Keila Suusasarja 7. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-7-etapp-2023">Triathlon Estonia Keila suusasarja 7. etapp</a>
 <span class="d">4. märts 2023</span></li>
 <li><a class="n" href="/race/jarva-valla-suusatamise-sv-5-etapp-es-suusakross-2023">Järva valla suusatamise SV 5.etapp, ES, suusakross</a>
 <span class="d">28. veebruar 2023 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
@@ -2406,7 +2423,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. veebruar 2023 · Mammaste tervisespordikeskus</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2023-i-etapp-2023">Türi suusatamise SV &quot; Türi suusatalv 2023&quot; I etapp</a>
 <span class="d">28. veebruar 2023 · Türi Tolli mets</span></li>
-<li><a class="n" href="/race/lahtised-eesti-meistrivoistlused-2022-kiiruisutamises-2-paev-2023">Lahtised Eesti Meistrivõistlused 2022 Kiiruisutamises – 2. Päev</a>
+<li><a class="n" href="/race/lahtised-eesti-meistrivoistlused-2022-kiiruisutamises-2-paev-2023">Lahtised Eesti meistrivõistlused 2022 Kiiruisutamises – 2. päev</a>
 <span class="d">26. veebruar 2023</span></li>
 <li><a class="n" href="/race/25-tallinna-suusamaraton-2023">25. Tallinna Suusamaraton</a>
 <span class="d">25. veebruar 2023 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -2414,9 +2431,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. veebruar 2023 · Elva</span></li>
 <li><a class="n" href="/race/9-vorumaa-suusasarja-3-etapp-2023">9. Võrumaa Suusasarja 3. etapp</a>
 <span class="d">25. veebruar 2023 · Haanja Puhke- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/lahtised-eesti-meistrivoistlused-2022-kiiruisutamises-1-paev-2023">Lahtised Eesti Meistrivõistlused 2022 Kiiruisutamises – 1. Päev</a>
+<li><a class="n" href="/race/lahtised-eesti-meistrivoistlused-2022-kiiruisutamises-1-paev-2023">Lahtised Eesti meistrivõistlused 2022 Kiiruisutamises – 1. päev</a>
 <span class="d">25. veebruar 2023</span></li>
-<li><a class="n" href="/race/saue-valla-meistrivoistlused-suusatamises-2023">Saue Valla Meistrivõistlused Suusatamises</a>
+<li><a class="n" href="/race/saue-valla-meistrivoistlused-suusatamises-2023">Saue valla meistrivõistlused suusatamises</a>
 <span class="d">25. veebruar 2023</span></li>
 <li><a class="n" href="/race/aastapaeva-suusamatk-2023">Aastapäeva Suusamatk</a>
 <span class="d">24. veebruar 2023 · Kilingi-Nõmme</span></li>
@@ -2424,7 +2441,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. veebruar 2023 · Järva-Jaani</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2023-iv-etapp-ja-laanemaa-meistrivoistlus-2023">Palivere Suusasari 2023 IV etapp ja Läänemaa Meistrivõistlused Suusatamises 2023</a>
 <span class="d">24. veebruar 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-4-etapp-2023">Palivere Suusasarja 4. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-4-etapp-2023">Palivere suusasarja 4. etapp</a>
 <span class="d">24. veebruar 2023</span></li>
 <li><a class="n" href="/race/miss-valentine-2023-2023">Miss Valentine 2023</a>
 <span class="d">23. veebruar 2023 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
@@ -2432,7 +2449,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. veebruar 2023 · Tallinn TV Tower</span></li>
 <li><a class="n" href="/race/viljandimaa-suusasarja-5-etapp-2023">Viljandimaa Suusasarja 5. etapp</a>
 <span class="d">22. veebruar 2023 · Holstre-Polli Vabaajakeskuse tervise- ja suusarajad</span></li>
-<li><a class="n" href="/race/laane-maakonna-koolide-suusapaev-2023">Lääne Maakonna Koolide Suusapäev</a>
+<li><a class="n" href="/race/laane-maakonna-koolide-suusapaev-2023">Lääne Maakonna koolide Suusapäev</a>
 <span class="d">21. veebruar 2023</span></li>
 <li><a class="n" href="/race/parnu-jaagupi-vastlapaev-2023">Pärnu-Jaagupi vastlapäev</a>
 <span class="d">21. veebruar 2023 · Pärnu-Jaagupi Spordikeskus</span></li>
@@ -2452,7 +2469,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. veebruar 2023 · Rakvere staadioni staadionihoone</span></li>
 <li><a class="n" href="/race/parnumaa-2023-aasta-meistrivoistlused-murdmaasuusatamises-2023">Pärnumaa 2023. aasta meistrivõistlused murdmaasuusatamises</a>
 <span class="d">15. veebruar 2023 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-6-etapp-2023">Triathlon Estonia Keila Suusasarja 6. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-6-etapp-2023">Triathlon Estonia Keila suusasarja 6. etapp</a>
 <span class="d">14. veebruar 2023</span></li>
 <li><a class="n" href="/race/telia-paarisjooks-2023">Telia paarisjooks</a>
 <span class="d">13. veebruar 2023 · Telia</span></li>
@@ -2470,7 +2487,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. veebruar 2023 · Viljandi Jakobsoni Kooli ujula</span></li>
 <li><a class="n" href="/race/otepaa-mv-2023-2023">Otepää MV 2023</a>
 <span class="d">11. veebruar 2023 · Otepää Spordihoone</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2023">Tallinna Kiiruisuklubi Karikasarja 3. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2023">Tallinna kiiruisuklubi karikasarja 3. etapp</a>
 <span class="d">11. veebruar 2023</span></li>
 <li><a class="n" href="/race/45-alutaguse-maraton-2023">45. Alutaguse Maraton</a>
 <span class="d">10. veebruar 2023 · Alutaguse Puhke- ja Spordikeskus</span></li>
@@ -2478,7 +2495,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. veebruar 2023 · Narva Spordikeskus</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2023-iii-etapp-ja-laanemaa-meistrivoistlu-2023">Palivere Suusasari 2023 III etapp ja Läänemaa Meistrivõistlused Suusatamises 2023</a>
 <span class="d">8. veebruar 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2023">Palivere Suusasarja 3. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2023">Palivere suusasarja 3. etapp</a>
 <span class="d">8. veebruar 2023</span></li>
 <li><a class="n" href="/race/viljandimaa-suusasarja-4-etapp-2023">Viljandimaa Suusasarja 4. etapp</a>
 <span class="d">8. veebruar 2023 · Huntaugu</span></li>
@@ -2490,9 +2507,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. veebruar 2023 · Türi Tolli mets</span></li>
 <li><a class="n" href="/race/haapsalu-linna-algkooli-palivere-talvematkad-2023">Haapsalu Linna Algkooli Palivere talvematkad</a>
 <span class="d">6. veebruar 2023 · Põhja-Läänemaa Turismi- ja Spordiobjektide Halduskeskus</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-5-etapp-2023">Triathlon Estonia Keila Suusasarja 5. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-5-etapp-2023">Triathlon Estonia Keila suusasarja 5. etapp</a>
 <span class="d">5. veebruar 2023</span></li>
-<li><a class="n" href="/race/imavere-morin-2023-1-etapp-2023">Imavere Mörin 2023 – 1. Etapp</a>
+<li><a class="n" href="/race/imavere-morin-2023-1-etapp-2023">Imavere Mörin 2023 – 1. etapp</a>
 <span class="d">4. veebruar 2023</span></li>
 <li><a class="n" href="/race/kondimootor-30-50-alatskivi-tuiskajad-2023">Kondimootor 30/50: Alatskivi Tuiskajad</a>
 <span class="d">4. veebruar 2023 · Alatskivi loss / Alatskivi Castle</span></li>
@@ -2502,11 +2519,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. veebruar 2023 · Pärnu kergejõustikuhall</span></li>
 <li><a class="n" href="/race/laane-virumaa-u10-vanuseklassi-talvised-voistlused-2023">Lääne-Virumaa U10 vanuseklassi talvised võistlused</a>
 <span class="d">2. veebruar 2023 · Rakvere staadioni staadionihoone</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-4-etapp-2023">Triathlon Estonia Keila Suusasarja 4. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-4-etapp-2023">Triathlon Estonia Keila suusasarja 4. etapp</a>
 <span class="d">2. veebruar 2023</span></li>
 <li><a class="n" href="/race/talvine-valjakutse-2023">Talvine väljakutse</a>
 <span class="d">1. veebruar 2023 · Pärnu</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-3-etapp-2023">Triathlon Estonia Keila Suusasarja 3. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-3-etapp-2023">Triathlon Estonia Keila suusasarja 3. etapp</a>
 <span class="d">31. jaanuar 2023</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2023-ii-etapp-2023">Türi suusatamise SV &quot; Türi suusatalv 2023&quot; II.etapp</a>
 <span class="d">31. jaanuar 2023 · Türi Tolli mets</span></li>
@@ -2524,7 +2541,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. jaanuar 2023 · Kalevi spordihall</span></li>
 <li><a class="n" href="/race/37-viru-maraton-2023">37. Viru Maraton</a>
 <span class="d">28. jaanuar 2023 · Mõedaku spordibaas</span></li>
-<li><a class="n" href="/race/9-tondiraba-sisemaraton-2023">9. Tondiraba Sisemaraton</a>
+<li><a class="n" href="/race/9-tondiraba-sisemaraton-2023">9. Tondiraba sisemaraton</a>
 <span class="d">28. jaanuar 2023 · Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/eesti-seeniorite-mv-sise-viievoistluses-2023">Eesti Seeniorite MV sise viievõistluses</a>
 <span class="d">28. jaanuar 2023 · Tartu Ülikooli Spordihoone</span></li>
@@ -2534,7 +2551,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. jaanuar 2023 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2023-ii-etapp-2023">Palivere Suusasari 2023 II etapp</a>
 <span class="d">25. jaanuar 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2023">Palivere Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2023">Palivere suusasarja 2. etapp</a>
 <span class="d">25. jaanuar 2023</span></li>
 <li><a class="n" href="/race/parnumaa-mv-murdmaasuusatamises-2023">Pärnumaa MV murdmaasuusatamises</a>
 <span class="d">25. jaanuar 2023 · Jõulumäe Tervisespordikeskus</span></li>
@@ -2542,7 +2559,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. jaanuar 2023 · Mammaste tervisespordikeskus</span></li>
 <li><a class="n" href="/race/viljandimaa-suusasarja-3-etapp-2023">Viljandimaa Suusasarja 3. etapp</a>
 <span class="d">25. jaanuar 2023 · Tääksi Suusakeskuse suusarajad</span></li>
-<li><a class="n" href="/race/nomme-kjk-lahtised-meistrivoistlused-2023-2023">Nõmme Kjk Lahtised Meistrivõistlused 2023</a>
+<li><a class="n" href="/race/nomme-kjk-lahtised-meistrivoistlused-2023-2023">Nõmme Kjk Lahtised meistrivõistlused 2023</a>
 <span class="d">24. jaanuar 2023 · Lasnamäe Kergejõustikuhall</span></li>
 <li><a class="n" href="/race/polvamaa-suusasari-2023-i-etapp-2023">Põlvamaa SUUSASARI 2023, I etapp</a>
 <span class="d">24. jaanuar 2023 · Mammaste tervisespordikeskus</span></li>
@@ -2554,7 +2571,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. jaanuar 2023 · Mammaste tervisespordikeskus</span></li>
 <li><a class="n" href="/race/tallinna-kiiruisumaraton-2023">Tallinna Kiiruisumaraton</a>
 <span class="d">22. jaanuar 2023</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2023">Tallinna Kiiruisuklubi Karikasarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2023">Tallinna kiiruisuklubi karikasarja 2. etapp</a>
 <span class="d">21. jaanuar 2023</span></li>
 <li><a class="n" href="/race/tahelepanu-start-jarvamaa-alagrupp-2023">&quot;Tähelepanu Start&quot; Järvamaa alagrupp</a>
 <span class="d">19. jaanuar 2023 · Konesko Türi Spordihoone</span></li>
@@ -2562,13 +2579,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. jaanuar 2023 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
 <li><a class="n" href="/race/pajulahti-games-2023-2023">Pajulahti Games 2023</a>
 <span class="d">19. jaanuar 2023 · Pajulahti</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2-etapp-2023">Triathlon Estonia Keila Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2-etapp-2023">Triathlon Estonia Keila suusasarja 2. etapp</a>
 <span class="d">19. jaanuar 2023</span></li>
 <li><a class="n" href="/race/laane-virumaa-u14-ja-u16-talvised-voistlused-2023">Lääne-Virumaa U14 ja U16 talvised võistlused</a>
 <span class="d">18. jaanuar 2023 · Rakvere staadioni staadionihoone</span></li>
 <li><a class="n" href="/race/suusakool-2023-4">Suusakool</a>
 <span class="d">17. jaanuar 2023 · Mammaste tervisespordikeskus</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-1-etapp-2023">Triathlon Estonia Keila Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-1-etapp-2023">Triathlon Estonia Keila suusasarja 1. etapp</a>
 <span class="d">17. jaanuar 2023</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2023-i-etapp-2023-2">Türi suusatamise SV &quot; Türi suusatalv 2023&quot; I.etapp</a>
 <span class="d">17. jaanuar 2023 · Türi Tolli mets</span></li>
@@ -2584,11 +2601,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. jaanuar 2023 · Mammaste tervisespordikeskus</span></li>
 <li><a class="n" href="/race/jarva-valla-suusatamise-sv-2-etapp-es-suusakross-2023">Järva valla suusatamise SV 2.etapp, ES, suusakross</a>
 <span class="d">12. jaanuar 2023 · Aravete Terviserada</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2023">Tallinna Kiiruisuklubi Ühe Tunni Sõit</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2023">Tallinna kiiruisuklubi Ühe Tunni sõit</a>
 <span class="d">12. jaanuar 2023</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2023-i-etapp-2023">Palivere Suusasari 2023 I etapp</a>
 <span class="d">11. jaanuar 2023 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2023">Palivere Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2023">Palivere suusasarja 1. etapp</a>
 <span class="d">11. jaanuar 2023</span></li>
 <li><a class="n" href="/race/viljandimaa-suusasarja-2-etapp-2023">Viljandimaa Suusasarja 2. etapp</a>
 <span class="d">11. jaanuar 2023 · Saarepeedi</span></li>
@@ -2602,7 +2619,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. jaanuar 2023 · Falgi park</span></li>
 <li><a class="n" href="/race/mammaste-suusasoit-2023">Mammaste Suusasõit</a>
 <span class="d">8. jaanuar 2023 · Mammaste Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2023-2">Tallinna Kiiruisuklubi Karikasarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2023-2">Tallinna kiiruisuklubi karikasarja 1. etapp</a>
 <span class="d">8. jaanuar 2023</span></li>
 <li><a class="n" href="/race/aleksander-tsikini-auhinnavoistlus-2023-2023">Aleksander Tšikini Auhinnavõistlus 2023</a>
 <span class="d">7. jaanuar 2023 · Lasnamäe Kergejõustikuhall</span></li>

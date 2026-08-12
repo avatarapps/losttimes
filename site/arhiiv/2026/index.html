@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026. aasta võistluste tulemused | LostTimes</title>
-<meta name="description" content="Kõik 2026. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 584 võistlust.">
+<meta name="description" content="Kõik 2026. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 582 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2026/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2026/">
+<meta property="og:title" content="2026. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2026. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 582 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -77,8 +102,8 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>2026. aasta võistlused</h1>
-<p class="meta">584 võistlust</p>
-<ul class="list"><li><a class="n" href="/race/audi-heategevuslik-jooksupaev-2026">Audi heategevuslik jooksupäev</a>
+<p class="meta">582 võistlust</p>
+<ul class="list"><li><a class="n" href="/race/audi-vana-aasta-jooks-2026">Audi Vana-aasta jooks</a>
 <span class="d">19. detsember 2026 · Tallinn</span></li>
 <li><a class="n" href="/race/53-saaremaa-kolme-paeva-jooks-2026">53. Saaremaa Kolme Päeva Jooks</a>
 <span class="d">16. oktoober 2026 · Kuressaare - Nooruse tn 1</span></li>
@@ -90,7 +115,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. oktoober 2026 · Tartu, Raekoja plats</span></li>
 <li><a class="n" href="/race/179-pooripaevajooks-jooks-sugisesse-2026">179. Pööripäevajooks - jooks sügisesse</a>
 <span class="d">19. september 2026 · Kuressaare, Loode tammik</span></li>
-<li><a class="n" href="/race/29-tartu-rattamaraton-2026">29. Tartu Rattamaraton</a>
+<li><a class="n" href="/race/29-tartu-rattamaraton-2026">29. Tartu rattamaraton</a>
 <span class="d">19. september 2026 · Otepää - Palu - Elva</span></li>
 <li><a class="n" href="/race/tallinna-maraton-42km-2026">Tallinna Maraton 42km</a>
 <span class="d">13. september 2026 · Tallinn</span></li>
@@ -100,11 +125,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. september 2026 · Tallinn - Falgi tee</span></li>
 <li><a class="n" href="/race/tallinna-sugisjooks-10km-2026">Tallinna Sügisjooks 10km</a>
 <span class="d">12. september 2026 · Tallinn - Falgi tee</span></li>
-<li><a class="n" href="/race/26-juri-jaansoni-kahe-silla-jooks-2026">26. Jüri Jaansoni Kahe Silla Jooks</a>
+<li><a class="n" href="/race/26-juri-jaansoni-kahe-silla-jooks-2026">26. Jüri Jaansoni Kahe Silla jooks</a>
 <span class="d">6. september 2026 · Pärnu - Vaasa park ja Keskväljak</span></li>
-<li><a class="n" href="/race/parnu-ohtujooks-2026">Pärnu Õhtujooks</a>
+<li><a class="n" href="/race/parnu-ohtujooks-2026">Pärnu õhtujooks</a>
 <span class="d">5. september 2026 · Pärnu - Vaasa park ja Keskväljak</span></li>
-<li><a class="n" href="/race/xx-saue-ohtujooks-2026">Xx Saue Õhtujooks</a>
+<li><a class="n" href="/race/xx-saue-ohtujooks-2026">XX Saue õhtujooks</a>
 <span class="d">4. september 2026 · Saue Gümnaasiumi staadion</span></li>
 <li><a class="n" href="/race/tallinna-vee-54-jooks-umber-ulemiste-jarve-2026">Tallinna Vee 54. jooks ümber Ülemiste järve</a>
 <span class="d">29. august 2026 · Tallinna Vesi</span></li>
@@ -156,7 +181,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. august 2026 · Tervise- ja suusarada ümber Viljandi järve</span></li>
 <li><a class="n" href="/race/filter-temposari-6-etapp-2026">Filter Temposari (6. etapp)</a>
 <span class="d">12. august 2026 · Tallinn</span></li>
-<li><a class="n" href="/race/kiili-kuubiku-5-etapp-paekna-umber-jarve-jooks-2026">Kiili Kuubiku 5. Etapp – Paekna Ümber Järve Jooks</a>
+<li><a class="n" href="/race/kiili-kuubiku-5-etapp-paekna-umber-jarve-jooks-2026">Kiili Kuubiku 5. etapp – Paekna ümber järve jooks</a>
 <span class="d">12. august 2026</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2026-x-etapp-5000m-2026">Kohila pikamaajooksude sari 2026 X etapp 5000m</a>
 <span class="d">12. august 2026 · Kohila Spordikeskuse staadion</span></li>
@@ -194,17 +219,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. august 2026 · Ülenurme staadion</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2026-ix-etapp-1-miil-2026">Kohila pikamaajooksude sari 2026 IX etapp 1 miil</a>
 <span class="d">5. august 2026 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-3-etapp-paldiski-2026">Lääne-Harju Liikumissarja 3. Etapp, Paldiski</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-3-etapp-paldiski-2026">Lääne-Harju Liikumissarja 3. etapp, Paldiski</a>
 <span class="d">5. august 2026</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2026-2">Pärnu Aastajooksud</a>
 <span class="d">4. august 2026 · Reiu-Raeküla terviserada</span></li>
-<li><a class="n" href="/race/noo-veskijarve-v-triatlon-2026">Nõo Veskijärve V Triatlon</a>
+<li><a class="n" href="/race/noo-veskijarve-v-triatlon-2026">Nõo Veskijärve V triatlon</a>
 <span class="d">2. august 2026 · Nõo - Veskijärv</span></li>
 <li><a class="n" href="/race/sko-motorsi-26-rakke-rattamaraton-2026">SKO MOTORSI 26. Rakke Rattamaraton</a>
 <span class="d">2. august 2026 · Rakke Linnamäe staadion</span></li>
 <li><a class="n" href="/race/vaana-joesuu-jooks-2026">Vääna-Jõesuu jooks</a>
 <span class="d">2. august 2026 · Vääna-Jõesuu Kooli staadion ja spordiväljakud</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-2026">Vägilase Jooksusarja 3. Etapp</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-2026">Vägilase jooksusarja 3. etapp</a>
 <span class="d">2. august 2026</span></li>
 <li><a class="n" href="/race/28-holstre-paistu-maanteejooks-hanno-priksi-malestuseks-2026">28. Holstre-Paistu maanteejooks Hanno Priksi mälestuseks</a>
 <span class="d">1. august 2026 · Paistu</span></li>
@@ -214,15 +239,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. august 2026 · Järva-Jaani</span></li>
 <li><a class="n" href="/race/mapri-ehitus-x-oovagilane-2026">Mapri Ehitus x Öövägilane</a>
 <span class="d">1. august 2026 · Lähte terviserajad ja jõulinnak</span></li>
-<li><a class="n" href="/race/mapri-ehitus-x-vagilase-jooks-lahte-eliit-2026">Mapri Ehitus X Vägilase Jooks – Lähte: Eliit</a>
+<li><a class="n" href="/race/mapri-ehitus-x-vagilase-jooks-lahte-eliit-2026">Mapri Ehitus X Vägilase jooks – Lähte: Eliit</a>
 <span class="d">1. august 2026</span></li>
 <li><a class="n" href="/race/mapri-ehitus-x-vagilase-jooks-lahte-2026">Mapri Ehitus x Vägilase jooks Lähte</a>
 <span class="d">1. august 2026 · Lähte terviserajad ja jõulinnak</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-moisakula-etapp-baltic-cup-finaal-laste-2026">Murutraktorite Liiga Mõisaküla Etapp, Baltic Cup Finaal, Laste ATV Hobikross</a>
+<li><a class="n" href="/race/murutraktorite-liiga-moisakula-etapp-baltic-cup-finaal-laste-2026">Murutraktorite Liiga Mõisaküla etapp, Baltic Cup finaal, Laste ATV Hobikross</a>
 <span class="d">1. august 2026</span></li>
-<li><a class="n" href="/race/oovagilase-jooks-2026">Öövägilase Jooks</a>
+<li><a class="n" href="/race/oovagilase-jooks-2026">Öövägilase jooks</a>
 <span class="d">1. august 2026</span></li>
-<li><a class="n" href="/race/vaatsa-3-rahvatriatlon-2026">Väätsa 3. Rahvatriatlon</a>
+<li><a class="n" href="/race/vaatsa-3-rahvatriatlon-2026">Väätsa 3. rahvatriatlon</a>
 <span class="d">1. august 2026</span></li>
 <li><a class="n" href="/race/gravely-fest-2026-2026">Grävely Fest 2026</a>
 <span class="d">31. juuli 2026 · Majoraadi park</span></li>
@@ -230,7 +255,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. juuli 2026 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/vorbuse-tt4-transtar-temposari-iv-etapp-2026">Vorbuse TT4 - Transtar Temposari IV etapp</a>
 <span class="d">29. juuli 2026 · Vorbuse</span></li>
-<li><a class="n" href="/race/24-kilingi-nomme-triatlon-2026">24. Kilingi-Nõmme Triatlon</a>
+<li><a class="n" href="/race/24-kilingi-nomme-triatlon-2026">24. Kilingi-Nõmme triatlon</a>
 <span class="d">26. juuli 2026</span></li>
 <li><a class="n" href="/race/kambja-kruus-26-jaab-ara-2026">Kambja Kruus &#39;26 JÄÄB ÄRA</a>
 <span class="d">26. juuli 2026 · Kambja</span></li>
@@ -276,7 +301,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. juuli 2026 · Jõgeva staadion</span></li>
 <li><a class="n" href="/race/laane-virumaa-jooksusari-2026-9-rakvere-valla-suvejooks-2026">Lääne-Virumaa jooksusari 2026 - 9. Rakvere valla Suvejooks</a>
 <span class="d">18. juuli 2026 · Kooli 4</span></li>
-<li><a class="n" href="/race/marjamaa-rahvatriatlon-2026">Märjamaa Rahvatriatlon</a>
+<li><a class="n" href="/race/marjamaa-rahvatriatlon-2026">Märjamaa rahvatriatlon</a>
 <span class="d">18. juuli 2026 · Märjamaa</span></li>
 <li><a class="n" href="/race/ule-vainjarve-ujumine-2026">Üle Väinjärve ujumine</a>
 <span class="d">18. juuli 2026 · Väinjärve väliujula</span></li>
@@ -290,7 +315,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuli 2026</span></li>
 <li><a class="n" href="/race/remy-ja-teedu-ohtuvoistlus-karksi-nuias-2026">Remy ja Teedu õhtuvõistlus Karksi-Nuias</a>
 <span class="d">17. juuli 2026 · August Kitzbergi nimeline Gümnaasium</span></li>
-<li><a class="n" href="/race/kiili-kuubiku-4-etapp-kiili-valla-rahvatriatlon-paekna-2026">Kiili Kuubiku 4. Etapp – Kiili Valla Rahvatriatlon, Paekna</a>
+<li><a class="n" href="/race/kiili-kuubiku-4-etapp-kiili-valla-rahvatriatlon-paekna-2026">Kiili Kuubiku 4. etapp – Kiili valla rahvatriatlon, Paekna</a>
 <span class="d">15. juuli 2026</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2026-vii-etapp-800m-2026">Kohila pikamaajooksude sari 2026 VII etapp 800m</a>
 <span class="d">15. juuli 2026 · Kohila Spordikeskuse staadion</span></li>
@@ -300,7 +325,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. juuli 2026 · Aruküla terviserada</span></li>
 <li><a class="n" href="/race/24-rakvere-rattamaraton-2026">24. Rakvere Rattamaraton</a>
 <span class="d">12. juuli 2026 · Rakvere Spordikeskus</span></li>
-<li><a class="n" href="/race/kohila-superliiga-triatlon-2026">Kohila Superliiga Triatlon</a>
+<li><a class="n" href="/race/kohila-superliiga-triatlon-2026">Kohila Superliiga triatlon</a>
 <span class="d">12. juuli 2026</span></li>
 <li><a class="n" href="/race/kohila-triatlon-2026-2026">Kohila triatlon 2026</a>
 <span class="d">12. juuli 2026 · Kohila supluskoht</span></li>
@@ -318,7 +343,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. juuli 2026</span></li>
 <li><a class="n" href="/race/moisa-jooks-2026">Mõisa jooks</a>
 <span class="d">11. juuli 2026 · Mäetaguse mõis</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-norava-etapp-emv-3-etapp-2026">Murutraktorite Liiga Nõrava Etapp (EMV 3. Etapp)</a>
+<li><a class="n" href="/race/murutraktorite-liiga-norava-etapp-emv-3-etapp-2026">Murutraktorite Liiga Nõrava etapp (EMV 3. etapp)</a>
 <span class="d">11. juuli 2026</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-triatlon-2026-2026">Sportland Kõrvemaa Triatlon 2026</a>
 <span class="d">11. juuli 2026 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -340,7 +365,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. juuli 2026 · Pärnu rand - Surf Center</span></li>
 <li><a class="n" href="/race/6-navi-jooksu-konnitiir-2026">6. Navi jooksu-kõnnitiir</a>
 <span class="d">5. juuli 2026 · Navi Külaselts</span></li>
-<li><a class="n" href="/race/nuki-voistlused-avaveeujumises-2026">Nuki Võistlused Avaveeujumises</a>
+<li><a class="n" href="/race/nuki-voistlused-avaveeujumises-2026">Nuki võistlused Avaveeujumises</a>
 <span class="d">5. juuli 2026</span></li>
 <li><a class="n" href="/race/palms-sudasuve-challenge-vosu-2026-2026">PALMS Südasuve Challenge - Võsu 2026</a>
 <span class="d">5. juuli 2026 · Võsu</span></li>
@@ -350,9 +375,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. juuli 2026 · Emumäe vaatetorn</span></li>
 <li><a class="n" href="/race/maardu-triatlon-2026">Maardu triatlon</a>
 <span class="d">4. juuli 2026 · Maardu järv</span></li>
-<li><a class="n" href="/race/mustamae-ja-haabersti-ii-rahvatriatlon-2026">Mustamäe Ja Haabersti II Rahvatriatlon</a>
+<li><a class="n" href="/race/mustamae-ja-haabersti-ii-rahvatriatlon-2026">Mustamäe ja Haabersti II rahvatriatlon</a>
 <span class="d">4. juuli 2026 · Harku järve rand</span></li>
-<li><a class="n" href="/race/mustamae-haabersti-ii-rahvatriatlon-2026">Mustamäe-Haabersti II Rahvatriatlon</a>
+<li><a class="n" href="/race/mustamae-haabersti-ii-rahvatriatlon-2026">Mustamäe-Haabersti II rahvatriatlon</a>
 <span class="d">4. juuli 2026</span></li>
 <li><a class="n" href="/race/palms-open-water-estonia-kasmu-2026-2026">PALMS Open Water Estonia - Käsmu 2026</a>
 <span class="d">4. juuli 2026 · Käsmu</span></li>
@@ -368,7 +393,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. juuni 2026 · Aegviidu</span></li>
 <li><a class="n" href="/race/nuuksio-backyard-ultra-2023-2026">Nuuksio Backyard Ultra 2023</a>
 <span class="d">30. juuni 2026</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-3-etapp-2026">Tallinna Kiiruisuklubi Sprindisarja 3. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-3-etapp-2026">Tallinna kiiruisuklubi sprindisarja 3. etapp</a>
 <span class="d">29. juuni 2026</span></li>
 <li><a class="n" href="/race/muraste-jooks-2026">Muraste jooks</a>
 <span class="d">28. juuni 2026 · Muraste Kooli staadion ja spordiväljakud</span></li>
@@ -376,19 +401,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. juuni 2026</span></li>
 <li><a class="n" href="/race/estonian-ultra-trail-race-eutr-9-th-white-night-edition-2026">Estonian Ultra-Trail Race (Eutr) 9´th White Night Edition</a>
 <span class="d">27. juuni 2026</span></li>
-<li><a class="n" href="/race/karitsa-superliiga-triatlon-2026">Karitsa Superliiga Triatlon</a>
+<li><a class="n" href="/race/karitsa-superliiga-triatlon-2026">Karitsa Superliiga triatlon</a>
 <span class="d">27. juuni 2026</span></li>
 <li><a class="n" href="/race/karitsa-superliigatriatlon-2026-2026">Karitsa Superliigatriatlon 2026</a>
 <span class="d">27. juuni 2026 · Karitsa järv</span></li>
 <li><a class="n" href="/race/sillamae-promenaadijooks-2026">Sillamäe promenaadijooks</a>
 <span class="d">27. juuni 2026 · Sillamäe Kultuurikeskus</span></li>
-<li><a class="n" href="/race/vaela-kula-jooks-2026">Vaela Küla Jooks</a>
+<li><a class="n" href="/race/vaela-kula-jooks-2026">Vaela Küla jooks</a>
 <span class="d">27. juuni 2026</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2026-5">Pärnu Aastajooksud</a>
 <span class="d">25. juuni 2026 · Pärnu rand - Surf Center</span></li>
 <li><a class="n" href="/race/12-rouge-maastikujooks-kond-2026">12. Rõuge maastikujooks-kõnd</a>
 <span class="d">24. juuni 2026 · Rõuge Ööbikuorg</span></li>
-<li><a class="n" href="/race/kiili-kuubiku-3-etapp-vaela-rattakross-2026">Kiili Kuubiku 3. Etapp – Vaela Rattakross</a>
+<li><a class="n" href="/race/kiili-kuubiku-3-etapp-vaela-rattakross-2026">Kiili Kuubiku 3. etapp – Vaela rattakross</a>
 <span class="d">24. juuni 2026</span></li>
 <li><a class="n" href="/race/178-pooripaevajooks-jooks-suvesse-2026">178. Pööripäevajooks - jooks suvesse</a>
 <span class="d">23. juuni 2026 · Kuressaare, Loode tammik</span></li>
@@ -400,7 +425,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. juuni 2026 · Pariisi puhkeküla</span></li>
 <li><a class="n" href="/race/mapri-ehitus-x-vagilase-jooks-rummu-2026">Mapri Ehitus x Vägilase jooks Rummu</a>
 <span class="d">21. juuni 2026 · Rummu karjäär</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2026">Vägilase Jooksusarja 2. Etapp – Rummu</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2026">Vägilase jooksusarja 2. etapp – Rummu</a>
 <span class="d">21. juuni 2026</span></li>
 <li><a class="n" href="/race/valga-triatlon-2026">Valga triatlon</a>
 <span class="d">21. juuni 2026 · Pedeli paisjärv</span></li>
@@ -432,7 +457,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. juuni 2026 · Kohila</span></li>
 <li><a class="n" href="/race/lauri-ausi-23-malestusvoistlus-2026">Lauri Ausi 23. mälestusvõistlus</a>
 <span class="d">14. juuni 2026 · Merivälja tee 20</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2026-tartumaa-liigub-etapp-2026">Elva Südaööjooks 2026 Tartumaa Liigub Etapp</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2026-tartumaa-liigub-etapp-2026">Elva südaööjooks 2026 Tartumaa liigub etapp</a>
 <span class="d">13. juuni 2026 · Elva Kultuurikeskus</span></li>
 <li><a class="n" href="/race/hawaii-express-poorirando-2026">Hawaii Express PÖÖRIRANDO</a>
 <span class="d">13. juuni 2026 · Valgehobusemäe spordikeskus</span></li>
@@ -442,9 +467,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. juuni 2026</span></li>
 <li><a class="n" href="/race/jarva-jaani-rattapaev-2026-2026">Järva-Jaani Rattapäev 2026</a>
 <span class="d">13. juuni 2026 · Võllaste suusa- ja jooksurada</span></li>
-<li><a class="n" href="/race/kopli-liinide-jooks-2026">Kopli Liinide Jooks</a>
+<li><a class="n" href="/race/kopli-liinide-jooks-2026">Kopli Liinide jooks</a>
 <span class="d">13. juuni 2026</span></li>
-<li><a class="n" href="/race/lovo-broloppet-xiii-siltajuoksu-2026">Lövö Broloppet – Xiii Siltajuoksu</a>
+<li><a class="n" href="/race/lovo-broloppet-xiii-siltajuoksu-2026">Lövö Broloppet – XIII Siltajuoksu</a>
 <span class="d">13. juuni 2026</span></li>
 <li><a class="n" href="/race/vanglateenistuse-jooks-2026">Vanglateenistuse jooks</a>
 <span class="d">13. juuni 2026 · Jõhvi Muusikaväljak</span></li>
@@ -470,7 +495,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. juuni 2026 · Kadrioru Staadion</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2026-6">Pärnu Aastajooksud</a>
 <span class="d">9. juuni 2026 · Pärnu rand - Surf Center</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-2-etapp-2026">Tallinna Kiiruisuklubi Sprindisarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-2-etapp-2026">Tallinna kiiruisuklubi sprindisarja 2. etapp</a>
 <span class="d">8. juuni 2026</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u20-taiskasvanud-2026">Tartu linna MV U20 &amp; täiskasvanud</a>
 <span class="d">8. juuni 2026 · Tartu Tamme staadion</span></li>
@@ -496,7 +521,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. juuni 2026 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/ii-jaanikese-jooksukross-2026">II Jaanikese jooksukross</a>
 <span class="d">6. juuni 2026 · Jaanikese Moto- ja Vabaajakeskus</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissari-padise-liigub-2026">Lääne-Harju Liikumissari – Padise Liigub</a>
+<li><a class="n" href="/race/laane-harju-liikumissari-padise-liigub-2026">Lääne-Harju Liikumissari – Padise liigub</a>
 <span class="d">6. juuni 2026</span></li>
 <li><a class="n" href="/race/ladies-tour-of-estonia-2026-2026">Ladies Tour of Estonia 2026</a>
 <span class="d">6. juuni 2026 · Tartu linn</span></li>
@@ -506,15 +531,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. juuni 2026 · Lääne-Harju Kultuurikeskus Padise rahvamaja</span></li>
 <li><a class="n" href="/race/pirgu-2x2-nelikurituse-maastikujooks-2026">Pirgu 2x2 nelikürituse maastikujooks</a>
 <span class="d">6. juuni 2026 · Pirgu terviserada</span></li>
-<li><a class="n" href="/race/saue-valla-rattaretk-2026-2026">Saue Valla Rattaretk 2026</a>
+<li><a class="n" href="/race/saue-valla-rattaretk-2026-2026">Saue valla Rattaretk 2026</a>
 <span class="d">6. juuni 2026 · Saue vald</span></li>
-<li><a class="n" href="/race/14-narva-linna-jooks-2026">14. Narva Linna Jooks</a>
+<li><a class="n" href="/race/14-narva-linna-jooks-2026">14. Narva linna jooks</a>
 <span class="d">5. juuni 2026 · Narva</span></li>
 <li><a class="n" href="/race/narva-linna-jooks-miilijooks-2026">Narva Linna Jooks - Miilijooks</a>
 <span class="d">5. juuni 2026 · Narva raekoda</span></li>
-<li><a class="n" href="/race/ruila-kooli-rattapaev-2026">Ruila Kooli Rattapäev</a>
+<li><a class="n" href="/race/ruila-kooli-rattapaev-2026">Ruila kooli Rattapäev</a>
 <span class="d">4. juuni 2026</span></li>
-<li><a class="n" href="/race/saku-lastesarja-2-etapp-2026">Saku Lastesarja 2. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-2-etapp-2026">Saku lastesarja 2. etapp</a>
 <span class="d">4. juuni 2026</span></li>
 <li><a class="n" href="/race/tour-of-estonia-2026-2026">Tour of Estonia 2026</a>
 <span class="d">4. juuni 2026 · Mercure Tallinn</span></li>
@@ -532,7 +557,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. juuni 2026 · Paala järv</span></li>
 <li><a class="n" href="/race/meie-oma-maijooks-2026-2026">Meie oma maijooks 2026</a>
 <span class="d">1. juuni 2026 · Kolga-Jaani kooli staadion ja spordiväljakud</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-1-etapp-2026">Tallinna Kiiruisuklubi Sprindisarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-1-etapp-2026">Tallinna kiiruisuklubi sprindisarja 1. etapp</a>
 <span class="d">1. juuni 2026</span></li>
 <li><a class="n" href="/race/6-aarne-puistama-malestusjooks-2026">6. Aarne Puistama mälestusjooks</a>
 <span class="d">31. mai 2026 · Kose, Kehra mnt 6</span></li>
@@ -570,7 +595,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. mai 2026 · Kastani</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2026-iii-etapp-2000m-2026">Kohila pikamaajooksude sari 2026 III etapp 2000m</a>
 <span class="d">27. mai 2026 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/saku-lastesarja-1-etapp-2026">Saku Lastesarja 1. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-1-etapp-2026">Saku lastesarja 1. etapp</a>
 <span class="d">27. mai 2026</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2026-voerdla-2026">Škoda MTB Kolmapäevakud 2026 - Võerdla</a>
 <span class="d">27. mai 2026 · Võerdla</span></li>
@@ -586,7 +611,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. mai 2026 · Türi Ujula</span></li>
 <li><a class="n" href="/race/kullamaa-sork-4-2026">Kullamaa sörk #4</a>
 <span class="d">24. mai 2026 · Kullamaa</span></li>
-<li><a class="n" href="/race/lasnamae-x-rahvajooks-2026">Lasnamäe X Rahvajooks</a>
+<li><a class="n" href="/race/lasnamae-x-rahvajooks-2026">Lasnamäe X rahvajooks</a>
 <span class="d">24. mai 2026</span></li>
 <li><a class="n" href="/race/parnumaa-kogu-pere-liikumispaev-tule-liigu-varskes-ohus-2026-2026">Pärnumaa kogu pere liikumispäev „TULE LIIGU VÄRSKES ÕHUS!“ 2026</a>
 <span class="d">24. mai 2026 · Valgeranna tervise- ja suusarajad</span></li>
@@ -604,7 +629,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. mai 2026 · Rapla, SELVER&#39;i parkla</span></li>
 <li><a class="n" href="/race/laane-virumaa-jooksusari-2026-35-kunda-linnajooks-2026">Lääne-Virumaa jooksusari 2026 - 35. Kunda linnajooks</a>
 <span class="d">23. mai 2026 · Kunda linnastaadion</span></li>
-<li><a class="n" href="/race/mustamae-viii-rahvajooks-2026">Mustamäe VIII Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-viii-rahvajooks-2026">Mustamäe VIII rahvajooks</a>
 <span class="d">23. mai 2026</span></li>
 <li><a class="n" href="/race/rapla-selveri-suurjooks-2026">Rapla Selveri Suurjooks</a>
 <span class="d">23. mai 2026 · Selver</span></li>
@@ -616,7 +641,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. mai 2026 · Võllaste terviserajad</span></li>
 <li><a class="n" href="/race/vormsi-sork-3-2026">Vormsi sörk #3</a>
 <span class="d">23. mai 2026 · Vormsi Lasteaed-Põhikool</span></li>
-<li><a class="n" href="/race/2026-kova-mehe-tiimi-jooksud-2026">2026 Kõva Mehe / Tiimi Jooksud</a>
+<li><a class="n" href="/race/2026-kova-mehe-tiimi-jooksud-2026">2026 Kõva Mehe / Tiimi jooksud</a>
 <span class="d">22. mai 2026 · Saunapunkt</span></li>
 <li><a class="n" href="/race/6-icebug-kova-tiimi-jooks-2026">6. ICEBUG Kõva Tiimi jooks</a>
 <span class="d">22. mai 2026 · Saunapunkt, Saue vald</span></li>
@@ -646,7 +671,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. mai 2026 · Kohila Spordikeskuse staadion</span></li>
 <li><a class="n" href="/race/palivere-orienteerumiskolmapaevak-2026">Palivere orienteerumiskolmapäevak</a>
 <span class="d">20. mai 2026 · Palivere</span></li>
-<li><a class="n" href="/race/pelgulinna-riigigumnaasiumi-kevadjooks-2026">Pelgulinna Riigigümnaasiumi Kevadjooks</a>
+<li><a class="n" href="/race/pelgulinna-riigigumnaasiumi-kevadjooks-2026">Pelgulinna Riigigümnaasiumi kevadjooks</a>
 <span class="d">20. mai 2026</span></li>
 <li><a class="n" href="/race/50-jarvamaa-orienteerumispaevakud-iii-etapp-2026">50. Järvamaa orienteerumispäevakud III etapp</a>
 <span class="d">19. mai 2026 · Keava mäed orienteerumiskaart</span></li>
@@ -688,11 +713,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. mai 2026</span></li>
 <li><a class="n" href="/race/18-kevatpolkaisu-2026">18. Kevätpolkaisu</a>
 <span class="d">16. mai 2026</span></li>
-<li><a class="n" href="/race/39-lhv-maijooks-2026">39. LHV Maijooks</a>
+<li><a class="n" href="/race/39-lhv-maijooks-2026">39. LHV maijooks</a>
 <span class="d">16. mai 2026 · Tallinna Lauluväljak</span></li>
 <li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-i-etapp-tehvandi-xc-2026">Husqvarna Eesti Olümpiakrossi Karikasari I etapp - Tehvandi XCO</a>
 <span class="d">16. mai 2026 · Tehvandi Spordikeskus</span></li>
-<li><a class="n" href="/race/keila-ocr-challange-luhiraja-emv-ja-voistkondade-emv-2026">Keila Ocr Challange – Lühiraja EMV Ja Võistkondade EMV</a>
+<li><a class="n" href="/race/keila-ocr-challange-luhiraja-emv-ja-voistkondade-emv-2026">Keila Ocr Challange – Lühiraja EMV ja Võistkondade EMV</a>
 <span class="d">16. mai 2026</span></li>
 <li><a class="n" href="/race/lhv-maijooks-7-km-2026">LHV Maijooks - 7 km</a>
 <span class="d">16. mai 2026 · Tallinna Lauluväljak</span></li>
@@ -730,7 +755,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. mai 2026 · Roosta Puhkeküla orienteerumiskaart</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2026-rohuneeme-2026">Škoda MTB Kolmapäevakud 2026 - Rohuneeme</a>
 <span class="d">13. mai 2026 · Rohuneeme</span></li>
-<li><a class="n" href="/race/soeru-kevadjooks-2026-2026">Sõeru Kevadjooks 2026</a>
+<li><a class="n" href="/race/soeru-kevadjooks-2026-2026">Sõeru kevadjooks 2026</a>
 <span class="d">13. mai 2026 · Vanamõisa vabaõhukeskus</span></li>
 <li><a class="n" href="/race/vormsi-sork-1-2026">Vormsi sörk #1</a>
 <span class="d">13. mai 2026 · Vormsi Lasteaed-Põhikool</span></li>
@@ -752,7 +777,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. mai 2026 · Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/31-palivere-miilijooks-2026">31. Palivere Miilijooks</a>
 <span class="d">9. mai 2026</span></li>
-<li><a class="n" href="/race/44-tartu-maastikumaraton-2026">44. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/44-tartu-maastikumaraton-2026">44. Tartu maastikumaraton</a>
 <span class="d">9. mai 2026 · Tartumaa Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/44-tartu-maastikumaratoni-elva-lastejooks-2026">44. Tartu Maastikumaratoni Elva lastejooks</a>
 <span class="d">9. mai 2026 · Tartumaa Tervisespordikeskus</span></li>
@@ -786,11 +811,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. mai 2026 · Dirhami</span></li>
 <li><a class="n" href="/race/filter-temposari-1-etapp-2026">Filter Temposari (1. etapp)</a>
 <span class="d">6. mai 2026 · Tallinn</span></li>
-<li><a class="n" href="/race/kernu-terasmees-ja-terasnainesaue-jalgrattakross-2026">Kernu Terasmees Ja Terasnainesaue Jalgrattakross</a>
+<li><a class="n" href="/race/kernu-terasmees-ja-terasnainesaue-jalgrattakross-2026">Kernu Terasmees ja Terasnainesaue Jalgrattakross</a>
 <span class="d">6. mai 2026</span></li>
 <li><a class="n" href="/race/kevek-ja-tartu-kalev-2026-a-staadionijooksu-i-etapp-2026">KEVEK ja Tartu KALEV 2026.a. STAADIONIJOOKSU I etapp</a>
 <span class="d">6. mai 2026 · Tamme staadion</span></li>
-<li><a class="n" href="/race/kiili-kuubiku-2-etapp-kangru-jooks-2026">Kiili Kuubiku 2. Etapp – Kangru Jooks</a>
+<li><a class="n" href="/race/kiili-kuubiku-2-etapp-kangru-jooks-2026">Kiili Kuubiku 2. etapp – Kangru jooks</a>
 <span class="d">6. mai 2026</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-3-etapp-2026">Viljandimaa orienteerumispäevakud 3. etapp</a>
 <span class="d">6. mai 2026 · Huntaugu tänav</span></li>
@@ -810,7 +835,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. mai 2026 · Tallinna Hipodroom</span></li>
 <li><a class="n" href="/race/rapla-duatlon-2026">Rapla duatlon</a>
 <span class="d">3. mai 2026 · Rapla jalgpallihall</span></li>
-<li><a class="n" href="/race/rapla-duatlon-duatloni-karikasarja-1-etapp-2026">Rapla Duatlon – Duatloni Karikasarja 1. Etapp</a>
+<li><a class="n" href="/race/rapla-duatlon-duatloni-karikasarja-1-etapp-2026">Rapla Duatlon – Duatloni karikasarja 1. etapp</a>
 <span class="d">3. mai 2026</span></li>
 <li><a class="n" href="/race/reaalprojekt-26-mulgi-rattamaraton-2026">REAALPROJEKT 26. Mulgi Rattamaraton</a>
 <span class="d">3. mai 2026 · Viljandi</span></li>
@@ -818,7 +843,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. mai 2026 · Rannamõisa Lasteaed</span></li>
 <li><a class="n" href="/race/turi-linn-100-xv-turi-paide-rahvatriatlon-2026">Türi linn 100. XV Türi-Paide rahvatriatlon</a>
 <span class="d">3. mai 2026 · Türi Ujula</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-tallinn-2026">Vägilase Jooksusarja 1. Etapp – Tallinn</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-tallinn-2026">Vägilase jooksusarja 1. etapp – Tallinn</a>
 <span class="d">3. mai 2026</span></li>
 <li><a class="n" href="/race/37-kullamaa-maijooks-2026">37. Kullamaa Maijooks</a>
 <span class="d">2. mai 2026 · Kullamaa-Risti Keskkooli Kullamaa õppekoha staadion</span></li>
@@ -826,9 +851,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. mai 2026 · Hummuli terviserajad</span></li>
 <li><a class="n" href="/race/jarva-jaani-kettagolfi-maraton-jarva-jaani-100-2026">Järva-Jaani kettagolfi maraton &quot;Järva-Jaani 100&quot;</a>
 <span class="d">2. mai 2026 · Järva-Jaani</span></li>
-<li><a class="n" href="/race/kullamaa-37-maijooks-2026">Kullamaa 37. Maijooks</a>
+<li><a class="n" href="/race/kullamaa-37-maijooks-2026">Kullamaa 37. maijooks</a>
 <span class="d">2. mai 2026</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-1-etapp-lohusalu-2026">Lääne-Harju Liikumissarja 1. Etapp, Lohusalu</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-1-etapp-lohusalu-2026">Lääne-Harju Liikumissarja 1. etapp, Lohusalu</a>
 <span class="d">2. mai 2026</span></li>
 <li><a class="n" href="/race/lohusalu-liigub-2026">Lohusalu Liigub</a>
 <span class="d">2. mai 2026 · Lohusalu</span></li>
@@ -846,7 +871,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. mai 2026 · Muhu spordihalli spordiväljakud</span></li>
 <li><a class="n" href="/race/45-voru-vaimela-maanteejooks-kond-2026">45. Võru - Väimela maanteejooks-kõnd</a>
 <span class="d">30. aprill 2026 · Võru linna keskväljak</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2026">Keila Seeriajooksu 4. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2026">Keila seeriajooksu 4. etapp</a>
 <span class="d">30. aprill 2026</span></li>
 <li><a class="n" href="/race/motiveeritud-ja-enesekindel-laps-2026">Motiveeritud ja enesekindel laps</a>
 <span class="d">30. aprill 2026 · Kalevi spordihall</span></li>
@@ -864,7 +889,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. aprill 2026 · Uuemõisa</span></li>
 <li><a class="n" href="/race/jarvamaa-mv-valikorienteerumises-2026">Järvamaa MV valikorienteerumises</a>
 <span class="d">28. aprill 2026 · Türi vibustaadion</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2026">Keila Seeriajooksu 3. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2026">Keila seeriajooksu 3. etapp</a>
 <span class="d">28. aprill 2026</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2026-9">Pärnu Aastajooksud</a>
 <span class="d">28. aprill 2026 · Pärnu</span></li>
@@ -902,13 +927,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. aprill 2026 · Viljandi</span></li>
 <li><a class="n" href="/race/jurioo-teatejooks-umber-surju-paisjarve-2026">Jüriöö teatejooks ümber Surju paisjärve</a>
 <span class="d">23. aprill 2026 · Surju järv</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2026">Keila Seeriajooksu 2. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2026">Keila seeriajooksu 2. etapp</a>
 <span class="d">23. aprill 2026</span></li>
 <li><a class="n" href="/race/kernu-jurioojooks-2026">Kernu Jüriööjooks</a>
 <span class="d">23. aprill 2026</span></li>
 <li><a class="n" href="/race/kohila-3-2026-i-etapp-kohila-oojooks-jurioo-ring-2026">Kohila 3 2026 I etapp Kohila ööjooks JÜRIÖÖ RING</a>
 <span class="d">23. aprill 2026 · Vabaduse tn</span></li>
-<li><a class="n" href="/race/kohila-oojooks-jurioo-ring-2026">Kohila Ööjooks “jüriöö Ring”</a>
+<li><a class="n" href="/race/kohila-oojooks-jurioo-ring-2026">Kohila ööjooks “jüriöö Ring”</a>
 <span class="d">23. aprill 2026</span></li>
 <li><a class="n" href="/race/kullamaa-57-jurioo-jooks-2026">Kullamaa 57. jüriöö jooks</a>
 <span class="d">23. aprill 2026 · Kullamaa Keskkool</span></li>
@@ -936,7 +961,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. aprill 2026 · Tõravere</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-2-etapp-2026">Viljandimaa orienteerumispäevakud 2. etapp</a>
 <span class="d">22. aprill 2026 · Raassilla orienteerumiskaart</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2026">Keila Seeriajooksu 1. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2026">Keila seeriajooksu 1. etapp</a>
 <span class="d">21. aprill 2026</span></li>
 <li><a class="n" href="/race/paide-jurioo-jooks-ja-kond-2026">Paide Jüriöö jooks ja kõnd</a>
 <span class="d">21. aprill 2026 · Paide vallimägi</span></li>
@@ -1000,7 +1025,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. aprill 2026 · Tondiraba</span></li>
 <li><a class="n" href="/race/xvi-turi-tori-kiirlaskumine-2026">XVI Türi-Tori kiirlaskumine</a>
 <span class="d">4. aprill 2026 · Pärnu jõgi</span></li>
-<li><a class="n" href="/race/kaitsevae-2026-aasta-meistrivoistlused-scoutsrannakus-2026">Kaitseväe 2026. Aasta Meistrivõistlused Scoutsrännakus</a>
+<li><a class="n" href="/race/kaitsevae-2026-aasta-meistrivoistlused-scoutsrannakus-2026">Kaitseväe 2026. Aasta meistrivõistlused Scoutsrännakus</a>
 <span class="d">2. aprill 2026</span></li>
 <li><a class="n" href="/race/turi-sork-2026-11">Türi Sörk</a>
 <span class="d">2. aprill 2026 · Konesko Türi Spordihoone staadion ja korvpalliväljak</span></li>
@@ -1026,7 +1051,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. märts 2026 · Haapsalu linn</span></li>
 <li><a class="n" href="/race/b-run-ch-beat-vol3-2026">B(run)ch&amp;beat vol3</a>
 <span class="d">21. märts 2026 · Haapsalu</span></li>
-<li><a class="n" href="/race/1-jalavaebrigaadi-kiirrannaku-voistlus-2026">1. Jalaväebrigaadi Kiirrännaku Võistlus</a>
+<li><a class="n" href="/race/1-jalavaebrigaadi-kiirrannaku-voistlus-2026">1. Jalaväebrigaadi Kiirrännaku võistlus</a>
 <span class="d">20. märts 2026</span></li>
 <li><a class="n" href="/race/turi-sork-2026-13">Türi Sörk</a>
 <span class="d">19. märts 2026 · Konesko Türi Spordihoone staadion ja korvpalliväljak</span></li>
@@ -1044,15 +1069,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. märts 2026 · Lihula Gümnaasium</span></li>
 <li><a class="n" href="/race/paide-sork-2026">Paide Sörk</a>
 <span class="d">10. märts 2026 · Paide E-Piim Spordihall</span></li>
-<li><a class="n" href="/race/48-haanja-maraton-2026">48. Haanja Maraton</a>
-<span class="d">8. märts 2026</span></li>
 <li><a class="n" href="/race/haapsalu-sork-15-2026">Haapsalu Sörk #15</a>
 <span class="d">8. märts 2026 · Haapsalu</span></li>
-<li><a class="n" href="/race/kiiruisu-sprindi-emv-2-paev-2026">Kiiruisu Sprindi EMV – 2. Päev</a>
+<li><a class="n" href="/race/kiiruisu-sprindi-emv-2-paev-2026">Kiiruisu Sprindi EMV – 2. päev</a>
 <span class="d">8. märts 2026</span></li>
-<li><a class="n" href="/race/48-haanja-maraton-2026-2">48. Haanja Maraton</a>
+<li><a class="n" href="/race/48-haanja-maraton-2026">48. Haanja Maraton</a>
 <span class="d">7. märts 2026</span></li>
-<li><a class="n" href="/race/kiiruisu-sprindi-emv-1-paev-2026">Kiiruisu Sprindi EMV – 1. Päev</a>
+<li><a class="n" href="/race/kiiruisu-sprindi-emv-1-paev-2026">Kiiruisu Sprindi EMV – 1. päev</a>
 <span class="d">7. märts 2026</span></li>
 <li><a class="n" href="/race/viljandmaa-suusatamise-meistrivoistlused-vabatehnika-2026">Viljandmaa suusatamise meistrivõistlused (vabatehnika)</a>
 <span class="d">6. märts 2026 · Holstre-Polli Spordikeskuse tervise- ja suusarajad</span></li>
@@ -1070,17 +1093,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. märts 2026 · Pangamäe adventure park</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2026-iii-etapp-2026">Palivere Suusasari 2026 III etapp</a>
 <span class="d">1. märts 2026 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-3-etapp-vigursoit-2026">Palivere Suusasarja 3. Etapp – Vigursõit</a>
+<li><a class="n" href="/race/palivere-suusasarja-3-etapp-vigursoit-2026">Palivere suusasarja 3. etapp – Vigursõit</a>
 <span class="d">1. märts 2026</span></li>
 <li><a class="n" href="/race/b-run-ch-beat-vol2-2026">B(run)ch&amp;beat vol2</a>
 <span class="d">28. veebruar 2026 · Haapsalu</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2026">Tallinna Kiiruisuklubi Karikasarja 3. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2026">Tallinna kiiruisuklubi karikasarja 3. etapp</a>
 <span class="d">28. veebruar 2026</span></li>
 <li><a class="n" href="/race/punktipeitus-2-siseorienteerumine-2026">Punktipeitus 2 (siseorienteerumine)</a>
 <span class="d">25. veebruar 2026 · Haapsalu Põhikool</span></li>
 <li><a class="n" href="/race/34-vak-staier-talvejooks-2026">34. VAK Staier Talvejooks</a>
 <span class="d">24. veebruar 2026 · Päri</span></li>
-<li><a class="n" href="/race/eesti-liigub-suuskadel-parnumaa-kogu-pere-suusaoppepaev-2026">Eesti Liigub Suuskadel! Pärnumaa Kogu Pere Suusaõppepäev</a>
+<li><a class="n" href="/race/eesti-liigub-suuskadel-parnumaa-kogu-pere-suusaoppepaev-2026">Eesti liigub suuskadel! Pärnumaa Kogu Pere Suusaõppepäev</a>
 <span class="d">24. veebruar 2026 · Jõulumäe Tervisespordikeskuse suusastaadion ja liikumisrajad</span></li>
 <li><a class="n" href="/race/jarva-valla-seeriavoistlus-suusatamises-4-etapp-madisepaeva--2026">Järva valla seeriavõistlus suusatamises 4. etapp,Madisepäeva suusasõit</a>
 <span class="d">24. veebruar 2026 · Aravete terviserada</span></li>
@@ -1090,7 +1113,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. veebruar 2026 · Viljandi</span></li>
 <li><a class="n" href="/race/anna-hoogu-2026-2026">Anna Hoogu 2026</a>
 <span class="d">22. veebruar 2026 · Aura Veekeskus</span></li>
-<li><a class="n" href="/race/kiili-vallarahva-xix-sportmangud-voistkondlik-laskesuusatami-2026">Kiili Vallarahva Xix Sportmängud – Võistkondlik Laskesuusatamine</a>
+<li><a class="n" href="/race/kiili-vallarahva-xix-sportmangud-voistkondlik-laskesuusatami-2026">Kiili Vallarahva XIX Sportmängud – Võistkondlik Laskesuusatamine</a>
 <span class="d">22. veebruar 2026</span></li>
 <li><a class="n" href="/race/28-tallinna-suusamaraton-2026">28. Tallinna Suusamaraton</a>
 <span class="d">20. veebruar 2026 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -1100,11 +1123,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. veebruar 2026 · Aravete terviserada</span></li>
 <li><a class="n" href="/race/tv-10-os-tartu-ja-tartumaa-ii-etapp-2026">TV 10 OS Tartu ja Tartumaa II etapp</a>
 <span class="d">19. veebruar 2026 · Ujula 4</span></li>
-<li><a class="n" href="/race/kiili-kuubiku-1-etapp-vaela-suusasoit-2026">Kiili Kuubiku 1. Etapp – Vaela Suusasõit</a>
+<li><a class="n" href="/race/kiili-kuubiku-1-etapp-vaela-suusasoit-2026">Kiili Kuubiku 1. etapp – Vaela suusasõit</a>
 <span class="d">18. veebruar 2026</span></li>
 <li><a class="n" href="/race/kohtla-jarve-linna-meistrivoistlused-2026-2">Kohtla-Järve linna meistrivõistlused</a>
 <span class="d">18. veebruar 2026 · Ahtme Spordihall</span></li>
-<li><a class="n" href="/race/laanemaa-koolide-mv-suusatamises-2026">Läänemaa Koolide MV Suusatamises</a>
+<li><a class="n" href="/race/laanemaa-koolide-mv-suusatamises-2026">Läänemaa koolide MV suusatamises</a>
 <span class="d">18. veebruar 2026</span></li>
 <li><a class="n" href="/race/raplamaa-tv-10-os-ii-etapp-2026">Raplamaa TV 10 OS II etapp</a>
 <span class="d">18. veebruar 2026 · Kohila Spordikeskuse staadion</span></li>
@@ -1120,7 +1143,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. veebruar 2026 · Tartu Ülikooli Spordihoone</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2026-ii-etapp-2026">Palivere Suusasari 2026 II etapp</a>
 <span class="d">12. veebruar 2026 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2026">Palivere Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2026">Palivere suusasarja 2. etapp</a>
 <span class="d">12. veebruar 2026</span></li>
 <li><a class="n" href="/race/viljandimaa-suusatamise-meistrivoistlused-klassika-2026">Viljandimaa suusatamise meistrivõistlused (klassika)</a>
 <span class="d">12. veebruar 2026 · Holstre-Polli Vabaajakeskus SA</span></li>
@@ -1128,13 +1151,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. veebruar 2026 · Tallinna Kergejõustikuhall</span></li>
 <li><a class="n" href="/race/ohtuvoistlus-2026">Õhtuvõistlus</a>
 <span class="d">9. veebruar 2026 · Paalalinna viilhall</span></li>
-<li><a class="n" href="/race/48-alutaguse-maraton-2026">48. Alutaguse Maraton</a>
-<span class="d">8. veebruar 2026</span></li>
 <li><a class="n" href="/race/test-rogain-voistlus-2-2026">Test rogain võistlus 2</a>
 <span class="d">8. veebruar 2026 · 10144 Tallinn</span></li>
 <li><a class="n" href="/race/24-albu-suusasoit-jaak-mae-karikatele-2026">24. Albu Suusasõit Jaak Mae karikatele</a>
 <span class="d">7. veebruar 2026 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
-<li><a class="n" href="/race/48-alutaguse-maraton-2026-2">48. Alutaguse Maraton</a>
+<li><a class="n" href="/race/48-alutaguse-maraton-2026">48. Alutaguse Maraton</a>
 <span class="d">7. veebruar 2026</span></li>
 <li><a class="n" href="/race/53-elva-talikross-i-etapp-2026">53. Elva Talikross I etapp</a>
 <span class="d">7. veebruar 2026 · Elva</span></li>
@@ -1154,11 +1175,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. veebruar 2026 · Türi</span></li>
 <li><a class="n" href="/race/26-neeruti-maraton-2026">26. Neeruti Maraton</a>
 <span class="d">31. jaanuar 2026</span></li>
-<li><a class="n" href="/race/saue-valla-mv-suusatamises-2026">Saue Valla MV Suusatamises</a>
+<li><a class="n" href="/race/saue-valla-mv-suusatamises-2026">Saue valla MV suusatamises</a>
 <span class="d">31. jaanuar 2026</span></li>
 <li><a class="n" href="/race/jogevamaa-noorte-talvised-u16-u18-u20-mv-2026">Jõgevamaa noorte talvised U16, U18, U20 MV</a>
 <span class="d">29. jaanuar 2026 · Jõgeva Spordihoone</span></li>
-<li><a class="n" href="/race/viimsi-3-oomaraton-2026">Viimsi 3. Öömaraton</a>
+<li><a class="n" href="/race/viimsi-3-oomaraton-2026">Viimsi 3. öömaraton</a>
 <span class="d">29. jaanuar 2026</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u18-u20-ja-taiskasvanud-2026">Tartu linna MV U18, U20 ja täiskasvanud</a>
 <span class="d">28. jaanuar 2026 · Tartu Ülikooli Spordihoone</span></li>
@@ -1174,7 +1195,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. jaanuar 2026 · Kõrvemaa Matka- ja Suusakeskus</span></li>
 <li><a class="n" href="/race/14-mulgi-uisumaraton-2026">14. Mulgi Uisumaraton</a>
 <span class="d">24. jaanuar 2026 · Viljandi järv</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2026">Tallinna Kiiruisuklubi Karikasarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2026">Tallinna kiiruisuklubi karikasarja 2. etapp</a>
 <span class="d">24. jaanuar 2026</span></li>
 <li><a class="n" href="/race/suusakross-lastele-2026">Suusakross lastele</a>
 <span class="d">23. jaanuar 2026 · Türi Tolli mets</span></li>
@@ -1182,7 +1203,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. jaanuar 2026 · Türi Tolli mets</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2026-i-etapp-2026">Palivere Suusasari 2026 I etapp</a>
 <span class="d">21. jaanuar 2026 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2026">Palivere Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2026">Palivere suusasarja 1. etapp</a>
 <span class="d">21. jaanuar 2026</span></li>
 <li><a class="n" href="/race/pohja-sakaa-suusasari-2026-ii-etapp-2026">Põhja-Sakaa Suusasari 2026 II etapp</a>
 <span class="d">20. jaanuar 2026 · Tääksi Suusakeskuse suusarajad</span></li>
@@ -1196,7 +1217,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. jaanuar 2026 · Haapsalu</span></li>
 <li><a class="n" href="/race/tartu-talv-2026">Tartu Talv</a>
 <span class="d">18. jaanuar 2026 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
-<li><a class="n" href="/race/12-tondiraba-sisemaraton-2026">12. Tondiraba Sisemaraton</a>
+<li><a class="n" href="/race/12-tondiraba-sisemaraton-2026">12. Tondiraba sisemaraton</a>
 <span class="d">17. jaanuar 2026 · Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/40-viru-maraton-2026">40. Viru Maraton</a>
 <span class="d">17. jaanuar 2026</span></li>
@@ -1212,7 +1233,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. jaanuar 2026 · Koeru terviserada</span></li>
 <li><a class="n" href="/race/joulumae-murdmaasuusasari-parnumaa-mv-2026">Jõulumäe murdmaasuusasari - Pärnumaa MV</a>
 <span class="d">14. jaanuar 2026 · Jõulumäe Tervisespordikeskuse suusastaadion ja liikumisrajad</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2026">Tallinna Kiiruisuklubi Ühe Tunni Sõit</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2026">Tallinna kiiruisuklubi Ühe Tunni sõit</a>
 <span class="d">14. jaanuar 2026</span></li>
 <li><a class="n" href="/race/pohja-sakaa-suusasari-2026-i-etapp-2026">Põhja-Sakaa Suusasari 2026 I etapp</a>
 <span class="d">13. jaanuar 2026 · Suure-Jaani staadion</span></li>
@@ -1224,7 +1245,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. jaanuar 2026 · Rapla Vesiroosi terviserada</span></li>
 <li><a class="n" href="/race/taliharja-vanakuri-2026">Taliharja Vanakuri</a>
 <span class="d">10. jaanuar 2026</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2026">Tallinna Kiiruisuklubi Karikasarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2026">Tallinna kiiruisuklubi karikasarja 1. etapp</a>
 <span class="d">10. jaanuar 2026</span></li>
 <li><a class="n" href="/race/jarva-valla-seeriavoistlus-suusatamises-i-etapp-2026">Järva valla seeriavõistlus suusatamises I etapp</a>
 <span class="d">8. jaanuar 2026 · Võllaste terviserajad</span></li>

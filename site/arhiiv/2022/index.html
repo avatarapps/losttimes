@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2022. aasta võistluste tulemused | LostTimes</title>
-<meta name="description" content="Kõik 2022. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1040 võistlust.">
+<meta name="description" content="Kõik 2022. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1036 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2022/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2022/">
+<meta property="og:title" content="2022. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2022. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1036 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -77,7 +102,7 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>2022. aasta võistlused</h1>
-<p class="meta">1040 võistlust</p>
+<p class="meta">1036 võistlust</p>
 <ul class="list"><li><a class="n" href="/race/14-karel-leetsari-malestusvoistlused-2022">14. Karel Leetsari mälestusvõistlused</a>
 <span class="d">26. detsember 2022 · Pärnu kergejõustikuhall</span></li>
 <li><a class="n" href="/race/pooripaevajooks-jooks-talve-2022">Pööripäevajooks Jooks talve</a>
@@ -98,7 +123,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. detsember 2022 · Narva</span></li>
 <li><a class="n" href="/race/tuask-i-heategevuslik-jouluvoistlus-2022">TÜASK-i heategevuslik jõuluvõistlus</a>
 <span class="d">17. detsember 2022 · Tartu Ülikooli Spordihoone</span></li>
-<li><a class="n" href="/race/xxxvi-johvi-huppajate-paev-2022">Xxxvi Jõhvi Hüppajate Päev</a>
+<li><a class="n" href="/race/xxxvi-johvi-huppajate-paev-2022">XXXVI Jõhvi Hüppajate päev</a>
 <span class="d">17. detsember 2022 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/parnu-spordikooli-jouluvoistlus-2022">Pärnu Spordikooli jõuluvõistlus</a>
 <span class="d">13. detsember 2022 · Pärnu kergejõustikuhall</span></li>
@@ -106,7 +131,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. detsember 2022</span></li>
 <li><a class="n" href="/race/jaak-uudmae-auhinnavoistlus-kolmikhuppes-2022">Jaak Uudmäe auhinnavõistlus kolmikhüppes</a>
 <span class="d">10. detsember 2022 · Tartu Ülikooli Spordihoone</span></li>
-<li><a class="n" href="/race/joulusprint-ujumises-2022">Jõulusprint Ujumises</a>
+<li><a class="n" href="/race/joulusprint-ujumises-2022">Jõulusprint ujumises</a>
 <span class="d">7. detsember 2022 · August Kitzbergi nimelise Gümnaasiumi ujula</span></li>
 <li><a class="n" href="/race/rae-spordikooli-jouluvoistlus-2022-2022">Rae Spordikooli Jõuluvõistlus 2022</a>
 <span class="d">4. detsember 2022 · Lasnamäe Kergejõustikuhall</span></li>
@@ -124,7 +149,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. november 2022 · Wiru Spordikeskus</span></li>
 <li><a class="n" href="/race/joulumae-metsajooks-ja-parnumaa-mv-krossijooksus-2022">Jõulumäe metsajooks ja Pärnumaa MV krossijooksus</a>
 <span class="d">13. november 2022 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/heategev-paaskula-20-raba-maraton-2022">Heategev Pääsküla 20. Raba Maraton</a>
+<li><a class="n" href="/race/heategev-paaskula-20-raba-maraton-2022">Heategev Pääsküla 20. Raba maraton</a>
 <span class="d">12. november 2022</span></li>
 <li><a class="n" href="/race/sk-saarde-kiirusliku-vastupidavuse-tsempionaat-3-etapp-2022">SK Saarde kiirusliku vastupidavuse tšempionaat - 3. etapp</a>
 <span class="d">11. november 2022 · Pärnu maakond</span></li>
@@ -134,15 +159,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. november 2022 · Audru vald</span></li>
 <li><a class="n" href="/race/nicole-i-26-sunnipaevajooks-2022">Nicole´i 26. Sünnipäevajooks</a>
 <span class="d">6. november 2022</span></li>
-<li><a class="n" href="/race/reinpauli-xx-maastikujooks-2022">Reinpauli Xx Maastikujooks</a>
+<li><a class="n" href="/race/reinpauli-xx-maastikujooks-2022">Reinpauli XX maastikujooks</a>
 <span class="d">6. november 2022</span></li>
 <li><a class="n" href="/race/otepaa-cx-2022-2022">Otepää CX 2022</a>
 <span class="d">5. november 2022 · Kääriku Spordikeskuse suusarajad</span></li>
-<li><a class="n" href="/race/2023-noortesarja-uju-ja-jookse-1-etapp-2022">2023 Noortesarja – Uju Ja Jookse 1. Etapp</a>
+<li><a class="n" href="/race/2023-noortesarja-uju-ja-jookse-1-etapp-2022">2023 Noortesarja – Uju ja Jookse 1. etapp</a>
 <span class="d">30. oktoober 2022</span></li>
 <li><a class="n" href="/race/noortesari-uju-ja-jookse-mehed-naised-valjaspool-arvestust-2022">NOORTESARI - UJU JA JOOKSE (MEHED, NAISED väljaspool arvestust)</a>
 <span class="d">30. oktoober 2022 · Keila tervisekeskus</span></li>
-<li><a class="n" href="/race/rakke-cx-2022">Rakke Cx</a>
+<li><a class="n" href="/race/rakke-cx-2022">Rakke CX</a>
 <span class="d">29. oktoober 2022 · Rakke Linnamäe staadion</span></li>
 <li><a class="n" href="/race/ambla-sk-suusatajate-seeriajooksu-4-etapp-2022">Ambla SK suusatajate seeriajooksu 4.etapp</a>
 <span class="d">27. oktoober 2022 · Kangrumäe</span></li>
@@ -170,7 +195,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. oktoober 2022 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/parnu-rannajooks-virtuaaljooks-2022">Pärnu Rannajooks, virtuaaljooks</a>
 <span class="d">15. oktoober 2022 · Pärnu maakond</span></li>
-<li><a class="n" href="/race/varena-aiad-varavad-rapla-cx-2022">Varena Aiad &amp; Väravad Rapla Cx</a>
+<li><a class="n" href="/race/varena-aiad-varavad-rapla-cx-2022">Varena Aiad &amp; Väravad Rapla CX</a>
 <span class="d">15. oktoober 2022 · Rapla Vesiroosi terviserada</span></li>
 <li><a class="n" href="/race/xxxix-tostamaa-jooks-2022">XXXIX Tõstamaa Jooks</a>
 <span class="d">15. oktoober 2022 · Tõstamaa Keskkool</span></li>
@@ -196,11 +221,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. oktoober 2022 · Hiiumaa</span></li>
 <li><a class="n" href="/race/iv-palivere-suursaja-jooks-2022">IV Palivere Suursaja jooks</a>
 <span class="d">8. oktoober 2022 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/iv-palivere-suusaraja-jooks-2022">IV Palivere Suusaraja Jooks</a>
+<li><a class="n" href="/race/iv-palivere-suusaraja-jooks-2022">IV Palivere Suusaraja jooks</a>
 <span class="d">8. oktoober 2022</span></li>
 <li><a class="n" href="/race/ok-west-av-ja-parnumaa-mv-2022">OK West AV ja Pärnumaa MV</a>
 <span class="d">8. oktoober 2022 · Metsaküla</span></li>
-<li><a class="n" href="/race/roosa-lindi-jooks-2022">Roosa Lindi Jooks</a>
+<li><a class="n" href="/race/roosa-lindi-jooks-2022">Roosa Lindi jooks</a>
 <span class="d">8. oktoober 2022 · Kadriorg</span></li>
 <li><a class="n" href="/race/ambla-sk-suusatajate-seeriajooksu-1-etapp-2022">Ambla SK suusatajate seeriajooksu 1.etapp</a>
 <span class="d">6. oktoober 2022 · Kangrumäe</span></li>
@@ -214,7 +239,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. oktoober 2022 · Valgeranna tervise- ja suusarajad</span></li>
 <li><a class="n" href="/race/sugiskond-stroomi-pargis-2022">Sügiskõnd Stroomi Pargis</a>
 <span class="d">2. oktoober 2022</span></li>
-<li><a class="n" href="/race/tamme-karjaari-6-rattakross-2022">Tamme Karjääri 6. Rattakross</a>
+<li><a class="n" href="/race/tamme-karjaari-6-rattakross-2022">Tamme Karjääri 6. rattakross</a>
 <span class="d">2. oktoober 2022</span></li>
 <li><a class="n" href="/race/xi-pirita-sugisjooks-2022">XI Pirita Sügisjooks</a>
 <span class="d">2. oktoober 2022 · Tallinn, Pirita Kloostrimets</span></li>
@@ -224,7 +249,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. oktoober 2022 · SA Tähtvere Puhkepark</span></li>
 <li><a class="n" href="/race/elva-cx-2022-ii-etapp-54-elva-sugiskross-2022">Elva CX 2022 II etapp / 54. Elva Sügiskross</a>
 <span class="d">1. oktoober 2022 · Elva</span></li>
-<li><a class="n" href="/race/imavere-morin-4-etapp-2022">Imavere Mõrin – 4. Etapp</a>
+<li><a class="n" href="/race/imavere-morin-4-etapp-2022">Imavere Mõrin – 4. etapp</a>
 <span class="d">1. oktoober 2022</span></li>
 <li><a class="n" href="/race/keila-rullsuusamaraton-2022">Keila Rullsuusamaraton</a>
 <span class="d">1. oktoober 2022 · Keila Terviserajad</span></li>
@@ -294,7 +319,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. september 2022 · Mustamäe tee 187</span></li>
 <li><a class="n" href="/race/liikumispaev-2022">Liikumispäev</a>
 <span class="d">29. september 2022 · Kaerepere</span></li>
-<li><a class="n" href="/race/lokuta-eidapere-xviii-suurjooks-2022">Lokuta-Eidapere Xviii Suurjooks</a>
+<li><a class="n" href="/race/lokuta-eidapere-xviii-suurjooks-2022">Lokuta-Eidapere XVIII suurjooks</a>
 <span class="d">29. september 2022</span></li>
 <li><a class="n" href="/race/maastikujooks-2022">Maastikujooks</a>
 <span class="d">29. september 2022 · Kambja terviserajad</span></li>
@@ -356,7 +381,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. september 2022 · Meremäe Kool</span></li>
 <li><a class="n" href="/race/huppaja-paev-2022">Hüppaja päev</a>
 <span class="d">28. september 2022 · Narva Lasteaed Tareke</span></li>
-<li><a class="n" href="/race/ix-oma-riigi-rahvajooks-2022-2022">IX Oma Riigi Rahvajooks 2022</a>
+<li><a class="n" href="/race/ix-oma-riigi-rahvajooks-2022-2022">IX Oma Riigi rahvajooks 2022</a>
 <span class="d">28. september 2022 · Pärnu-Jaagupi kultuuri- ja spordipark</span></li>
 <li><a class="n" href="/race/karaski-krootuse-jooks-2022">Karaski-Krootuse jooks</a>
 <span class="d">28. september 2022 · Krootuse Põhikooli staadion</span></li>
@@ -644,13 +669,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. september 2022 · Viljandi</span></li>
 <li><a class="n" href="/race/vonnu-mihklijooks-2022">Võnnu Mihklijooks</a>
 <span class="d">25. september 2022</span></li>
-<li><a class="n" href="/race/12-kolme-koolimaja-jooks-2022">12. Kolme Koolimaja Jooks</a>
+<li><a class="n" href="/race/12-kolme-koolimaja-jooks-2022">12. Kolme Koolimaja jooks</a>
 <span class="d">24. september 2022</span></li>
 <li><a class="n" href="/race/163-pooripaevajooks-jooks-sugisesse-2022">163. Pööripäevajooks - jooks sügisesse</a>
 <span class="d">24. september 2022 · Kuressaare, Loode tammik</span></li>
 <li><a class="n" href="/race/2-lahte-maastikujooks-2022">2. Lähte maastikujooks</a>
 <span class="d">24. september 2022 · Lähte terviserajad ja jõulinnak</span></li>
-<li><a class="n" href="/race/20-umber-vohma-linna-jooks-2022">20. Ümber Võhma Linna Jooks</a>
+<li><a class="n" href="/race/20-umber-vohma-linna-jooks-2022">20. ümber Võhma linna jooks</a>
 <span class="d">24. september 2022 · Võhma Kooli staadion</span></li>
 <li><a class="n" href="/race/27-saaremaa-duatlon-2022">27. Saaremaa Duatlon</a>
 <span class="d">24. september 2022 · Kuressaare Linnastaadion</span></li>
@@ -670,7 +695,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. september 2022 · Narva Äkkeküla pumptrack rada</span></li>
 <li><a class="n" href="/race/tootsi-duatlon-raudmees-30-2022">Tootsi duatlon, Raudmees – 30!</a>
 <span class="d">24. september 2022 · Tootsi terviserada</span></li>
-<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2022">Tupiku Igamehe Maastikumaraton</a>
+<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2022">Tupiku Igamehe maastikumaraton</a>
 <span class="d">24. september 2022</span></li>
 <li><a class="n" href="/race/17-heategevuslik-teatejooks-viimsis-2022">17. heategevuslik Teatejooks Viimsis</a>
 <span class="d">23. september 2022 · Viimsi staadion</span></li>
@@ -794,7 +819,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2022 · Energia 11</span></li>
 <li><a class="n" href="/race/muuseumiorienteerumine-2022">Muuseumiorienteerumine</a>
 <span class="d">23. september 2022 · Eesti Spordi- ja Olümpiamuuseum</span></li>
-<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2022-2022">Näpi Kooli Spordinädal (23.-30.09.2022)</a>
+<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2022-2022">Näpi kooli spordinädal (23.-30.09.2022)</a>
 <span class="d">23. september 2022 · Sõmeru</span></li>
 <li><a class="n" href="/race/narva-teatejooks-2022-2022">Narva Teatejooks 2022</a>
 <span class="d">23. september 2022 · Narva Muuseum</span></li>
@@ -826,7 +851,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2022 · Paide</span></li>
 <li><a class="n" href="/race/pala-kooli-spordinadal-2022">Pala Kooli spordinädal</a>
 <span class="d">23. september 2022 · Anna Haava nimeline Pala Kool</span></li>
-<li><a class="n" href="/race/poska-liigub-2022">Poska Liigub</a>
+<li><a class="n" href="/race/poska-liigub-2022">Poska liigub</a>
 <span class="d">23. september 2022 · Vanemuise 35</span></li>
 <li><a class="n" href="/race/rakvere-vabaduse-kooli-spordinadal-2022">Rakvere Vabaduse Kooli spordinädal</a>
 <span class="d">23. september 2022 · Rakvere Palermo terviserajad</span></li>
@@ -942,7 +967,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. september 2022 · E. Vilde tee 64</span></li>
 <li><a class="n" href="/race/vorumaa-orienteerumise-kolmapaevakud-2022-2">Võrumaa orienteerumise kolmapäevakud</a>
 <span class="d">21. september 2022 · Paidra orienteerumiskaart</span></li>
-<li><a class="n" href="/race/40-turi-metsajooks-2022">40.Türi Metsajooks</a>
+<li><a class="n" href="/race/40-turi-metsajooks-2022">40.Türi metsajooks</a>
 <span class="d">20. september 2022 · Türi Ühisgümnaasium</span></li>
 <li><a class="n" href="/race/4aastaste-sugismatk-2022">4aastaste sügismatk</a>
 <span class="d">20. september 2022 · Paide linn</span></li>
@@ -984,7 +1009,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. september 2022 · Otepää-Elva</span></li>
 <li><a class="n" href="/race/iv-parnumaa-rattaorienteerumine-2022">IV Pärnumaa Rattaorienteerumine</a>
 <span class="d">18. september 2022 · Pärnu Rannastaadion</span></li>
-<li><a class="n" href="/race/kose-maastikujooksu-voistlus-vale-ja-visa-2022">Kose Maastikujooksu Võistlus „Väle Ja Visa”</a>
+<li><a class="n" href="/race/kose-maastikujooksu-voistlus-vale-ja-visa-2022">Kose Maastikujooksu võistlus „Väle ja Visa”</a>
 <span class="d">18. september 2022</span></li>
 <li><a class="n" href="/race/rakvere-rahvajooks-2022">Rakvere Rahvajooks</a>
 <span class="d">18. september 2022 · Rakvere linnastaadion</span></li>
@@ -1004,17 +1029,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. september 2022 · Pärnu Tammsaare multifunktsionaalne palliväljak</span></li>
 <li><a class="n" href="/race/tmrg-teatejooks-2022-3">TMRG teatejooks</a>
 <span class="d">16. september 2022 · E. Vilde tee 64</span></li>
-<li><a class="n" href="/race/xvi-saue-ohtujooks-2022">Xvi Saue Õhtujooks</a>
+<li><a class="n" href="/race/xvi-saue-ohtujooks-2022">XVI Saue õhtujooks</a>
 <span class="d">16. september 2022 · Saue Gümnaasiumi staadion</span></li>
 <li><a class="n" href="/race/6aastaste-jalgrattamatk-2022">6aastaste jalgrattamatk</a>
 <span class="d">15. september 2022 · Paide linn</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2022">Keila Seeriajooksu 8. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2022">Keila seeriajooksu 8. etapp</a>
 <span class="d">15. september 2022</span></li>
 <li><a class="n" href="/race/kogu-kool-spordib-2022">Kogu Kool Spordib!</a>
 <span class="d">15. september 2022 · Surju Kooli staadion</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-3">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">15. september 2022 · Tori vald</span></li>
-<li><a class="n" href="/race/saku-lastesarja-4-etapp-2022">Saku Lastesarja 4. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-4-etapp-2022">Saku lastesarja 4. etapp</a>
 <span class="d">15. september 2022</span></li>
 <li><a class="n" href="/race/umber-jarve-jooksu-sv-8-etapp-karavate-2022">Ümber järve jooksu SV 8.etapp Käravate</a>
 <span class="d">15. september 2022 · Preediku järv</span></li>
@@ -1022,7 +1047,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. september 2022 · Are Mõisapargi discgolfi park</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-8-etapp-2022">Viljandimaa orienteerumispäevakud 8. etapp</a>
 <span class="d">14. september 2022 · Holstre-Polli orienteerumiskaart</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2022">Keila Seeriajooksu 7. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2022">Keila seeriajooksu 7. etapp</a>
 <span class="d">13. september 2022</span></li>
 <li><a class="n" href="/race/rava-jarve-jooks-4-jarvamaa-jarved-jooksud-12-etapp-2022">Rava järve jooks 4. Järvamaa Järved jooksud 12. etapp</a>
 <span class="d">13. september 2022 · Rava</span></li>
@@ -1032,15 +1057,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. september 2022 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/imavere-krossiraja-heategevuslik-perepaev-2022">Imavere Krossiraja Heategevuslik Perepäev</a>
 <span class="d">11. september 2022</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2022">Tallinna Maraton</a>
-<span class="d">11. september 2022 · Tallinn - Falgi tee</span></li>
 <li><a class="n" href="/race/76-laste-paala-jarve-jooks-2022">76. laste Paala järve jooks</a>
 <span class="d">10. september 2022 · Paala järv</span></li>
 <li><a class="n" href="/race/nike-noortejooks-2022-2022">Nike Noortejooks 2022</a>
 <span class="d">10. september 2022 · Tallinn - Falgi tee - Vabaduse väljak</span></li>
 <li><a class="n" href="/race/ramuddden-8-valgehobusemae-rattamaraton-2022">Ramuddden 8. Valgehobusemäe Rattamaraton</a>
 <span class="d">10. september 2022 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2022-2">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2022">Tallinna Maraton</a>
 <span class="d">10. september 2022 · Tallinn</span></li>
 <li><a class="n" href="/race/39-torva-jarvede-jooks-2022">39. Tõrva Järvede Jooks</a>
 <span class="d">9. september 2022 · Kevade 1</span></li>
@@ -1048,13 +1071,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. september 2022 · Pirita Spordikeskuse tervise- ja suusarajad</span></li>
 <li><a class="n" href="/race/27-viljandi-jarvejooksu-6-etapp-2022">27. Viljandi Järvejooksu 6 etapp</a>
 <span class="d">8. september 2022 · Tervise- ja suusarada ümber Viljandi järve</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2022">Keila Seeriajooksu 6. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2022">Keila seeriajooksu 6. etapp</a>
 <span class="d">8. september 2022</span></li>
 <li><a class="n" href="/race/laane-viru-noorte-kv-2022">Lääne-Viru noorte KV</a>
 <span class="d">8. september 2022 · Rakvere staadion</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-4">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">8. september 2022 · Koonga</span></li>
-<li><a class="n" href="/race/saare-jarve-39-jooks-2022">Saare Järve 39. Jooks</a>
+<li><a class="n" href="/race/saare-jarve-39-jooks-2022">Saare järve 39. jooks</a>
 <span class="d">8. september 2022</span></li>
 <li><a class="n" href="/race/umber-jarve-jooksu-sv-6-etapp-preediku-2022">Ümber järve jooksu SV 6.etapp Preediku</a>
 <span class="d">8. september 2022 · Preediku järv</span></li>
@@ -1064,13 +1087,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. september 2022 · Jõgeva Linna Staadion</span></li>
 <li><a class="n" href="/race/47-jarvamaa-orienteerumispaevakud-8-etapp-viimane-2022">47. Järvamaa orienteerumispäevakud 8. etapp (viimane)</a>
 <span class="d">6. september 2022 · Mustla-Nõmme orienteerumiskaart</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2022">Keila Seeriajooksu 5. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2022">Keila seeriajooksu 5. etapp</a>
 <span class="d">6. september 2022</span></li>
 <li><a class="n" href="/race/magede-jarve-jooks-4-jarvamaa-jarved-jooksud-11-etapp-ambla--2022">Mägede järve jooks 4. Järvamaa Järved jooksud 11. etapp, Ambla SK V etapp</a>
 <span class="d">6. september 2022 · Mägede</span></li>
-<li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2022">Jüri Jaansoni Kahe Silla jooks</a>
-<span class="d">4. september 2022 · Pärnu - Vaasa park ja Keskväljak</span></li>
-<li><a class="n" href="/race/linnamae-rattasoit-2022">Linnamäe Rattasõit</a>
+<li><a class="n" href="/race/linnamae-rattasoit-2022">Linnamäe rattasõit</a>
 <span class="d">4. september 2022</span></li>
 <li><a class="n" href="/race/matsimae-jarve-jooks-4-jarvamaa-jarved-jooksud-10-etapp-ja-1-2022">Matsimäe järve jooks, 4. Järvamaa Järved jooksud 10. etapp ja 17. Matsimäe rattaralli</a>
 <span class="d">4. september 2022 · Matsimäe Pühajärv</span></li>
@@ -1078,19 +1099,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. september 2022 · Äkkeküla spordikeskus</span></li>
 <li><a class="n" href="/race/parnumaa-mv-10km-maanteejooksus-2022">Pärnumaa MV 10km maanteejooksus</a>
 <span class="d">4. september 2022 · Pärnu linn</span></li>
-<li><a class="n" href="/race/raasiku-valla-rattapaev-2022">Raasiku Valla Rattapäev</a>
+<li><a class="n" href="/race/raasiku-valla-rattapaev-2022">Raasiku valla Rattapäev</a>
 <span class="d">4. september 2022</span></li>
 <li><a class="n" href="/race/25-tallinna-rattamaraton-2022">25. Tallinna Rattamaraton</a>
 <span class="d">3. september 2022 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/5-kristiine-rahvajooks-2022">5. Kristiine Rahvajooks</a>
+<li><a class="n" href="/race/5-kristiine-rahvajooks-2022">5. Kristiine rahvajooks</a>
 <span class="d">3. september 2022 · Kristiine, Löwenruhe park</span></li>
-<li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2022-2">Jüri Jaansoni Kahe Silla jooks</a>
+<li><a class="n" href="/race/juri-jaansoni-kahe-silla-jooks-2022">Jüri Jaansoni Kahe Silla jooks</a>
 <span class="d">3. september 2022 · Endla Teater</span></li>
 <li><a class="n" href="/race/liikumiskuu-2022">Liikumiskuu</a>
 <span class="d">3. september 2022 · Nõo Reaalgümnaasium</span></li>
-<li><a class="n" href="/race/mustamae-sugisjooks-2022">Mustamäe Sügisjooks</a>
+<li><a class="n" href="/race/mustamae-sugisjooks-2022">Mustamäe sügisjooks</a>
 <span class="d">3. september 2022</span></li>
-<li><a class="n" href="/race/parnu-ohtujooks-2022">Pärnu Õhtujooks</a>
+<li><a class="n" href="/race/parnu-ohtujooks-2022">Pärnu õhtujooks</a>
 <span class="d">3. september 2022 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/kondimootoriga-toole-2022">&quot;Kondimootoriga Tööle!&quot;</a>
 <span class="d">1. september 2022 · Eesti</span></li>
@@ -1110,7 +1131,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. august 2022 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/14-lahemaa-elamusmaraton-2022">14. Lahemaa Elamusmaraton</a>
 <span class="d">28. august 2022 · Kolgaküla Spordiklubi Rada</span></li>
-<li><a class="n" href="/race/7-silda-ujumismatk-2022">7 Silda Ujumismatk</a>
+<li><a class="n" href="/race/7-silda-ujumismatk-2022">7 silda ujumismatk</a>
 <span class="d">28. august 2022 · TARTU LINN, EMAJÕGI</span></li>
 <li><a class="n" href="/race/emv-teatekrossis-2022">EMV Teatekrossis</a>
 <span class="d">28. august 2022 · Jõulumäe Tervisespordikeskus</span></li>
@@ -1130,7 +1151,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. august 2022 · Jõulumäe Tervisespordikeskuse suusastaadion ja liikumisrajad</span></li>
 <li><a class="n" href="/race/50-jooks-umber-ulemiste-jarve-2022">50. jooks ümber Ülemiste järve</a>
 <span class="d">27. august 2022 · Ülemiste Veepuhastusjaam</span></li>
-<li><a class="n" href="/race/kihnu-mannakaba-maraton-poolmaraton-kepikond-kihnu10-2022">Kihnu Männäkäbä Maraton &amp; Poolmaraton &amp; Kepikõnd. Kihnu10</a>
+<li><a class="n" href="/race/kihnu-mannakaba-maraton-poolmaraton-kepikond-kihnu10-2022">Kihnu Männäkäbä maraton &amp; poolmaraton &amp; Kepikõnd. Kihnu10</a>
 <span class="d">27. august 2022</span></li>
 <li><a class="n" href="/race/maailmakarika-etapp-kepikonnis-2022-2022">Maailmakarika etapp kepikõnnis - 2022</a>
 <span class="d">27. august 2022 · Kolgaküla Spordiklubi Rada</span></li>
@@ -1138,11 +1159,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. august 2022</span></li>
 <li><a class="n" href="/race/triathlon-estonia-avaveeujumine-2022">Triathlon Estonia Avaveeujumine</a>
 <span class="d">27. august 2022 · Kuremaa</span></li>
-<li><a class="n" href="/race/triathlon-estonia-jooksuklassika-42-2-21-1-10-ja-5-km-2022">Triathlon Estonia Jooksuklassika - 42,2, 21,1, 10 Ja 5 Km</a>
+<li><a class="n" href="/race/triathlon-estonia-jooksuklassika-42-2-21-1-10-ja-5-km-2022">Triathlon Estonia Jooksuklassika - 42,2, 21,1, 10 ja 5 km</a>
 <span class="d">27. august 2022 · Kuremaa</span></li>
 <li><a class="n" href="/race/triathlon-estonia-laste-ja-rahvatriatlon-2022">Triathlon Estonia laste- ja rahvatriatlon</a>
 <span class="d">27. august 2022 · Kuremaa</span></li>
-<li><a class="n" href="/race/triathlon-estonia-maantee-eraldisoit-90-ja-180-km-2022">Triathlon Estonia Maantee Eraldisõit 90 Ja 180 Km</a>
+<li><a class="n" href="/race/triathlon-estonia-maantee-eraldisoit-90-ja-180-km-2022">Triathlon Estonia Maantee Eraldisõit 90 ja 180 km</a>
 <span class="d">27. august 2022 · Kuremaa ranna palliplatsid</span></li>
 <li><a class="n" href="/race/triathlon-estonia-triatloniklassika-taispikk-poolpikk-olumpi-2022">Triathlon Estonia Triatloniklassika - Täispikk, Poolpikk, Olümpia, Sprint</a>
 <span class="d">27. august 2022 · Kuremaa ranna palliplatsid</span></li>
@@ -1152,7 +1173,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. august 2022 · Uulu orienteerumiskaart</span></li>
 <li><a class="n" href="/race/roosna-alliku-jarve-jooks-4-jarvamaa-jarved-jooksud-9-etapp-2022">Roosna-Alliku järve jooks 4. Järvamaa Järved jooksud 9. etapp</a>
 <span class="d">25. august 2022 · Roosna-Alliku</span></li>
-<li><a class="n" href="/race/saku-lastesarja-3-etapp-2022">Saku Lastesarja 3. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-3-etapp-2022">Saku lastesarja 3. etapp</a>
 <span class="d">25. august 2022</span></li>
 <li><a class="n" href="/race/kevek-ja-tartu-kalev-2022-a-staadionijooksu-viii-etapp-2022">KEVEK ja Tartu KALEV 2022.a. STAADIONIJOOKSU VIII etapp</a>
 <span class="d">24. august 2022 · Tamme staadion</span></li>
@@ -1186,13 +1207,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. august 2022 · Pärnu Raeküla staadion</span></li>
 <li><a class="n" href="/race/balti-keti-velotuur-2022-baltic-chain-tour-2022-2022">Balti Keti Velotuur 2022/ Baltic Chain Tour 2022</a>
 <span class="d">18. august 2022 · Harjumaa ja Tartumaa</span></li>
-<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-3-etapp-2-paev-2022">Kiirrulluisutamise Sprindisarja 3. Etapp – 2. Päev</a>
+<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-3-etapp-2-paev-2022">Kiirrulluisutamise sprindisarja 3. etapp – 2. päev</a>
 <span class="d">18. august 2022</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-7">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">18. august 2022 · Piirumi orienteerumiskaart</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksusari-2022-ix-etapp-600m-2022">Kohila pikamaajooksusari 2022 IX etapp 600m</a>
 <span class="d">17. august 2022 · Kohila Spordikompleksi staadion</span></li>
-<li><a class="n" href="/race/pirita-joekaaru-jooks-2022">Pirita Jõekääru Jooks</a>
+<li><a class="n" href="/race/pirita-joekaaru-jooks-2022">Pirita Jõekääru jooks</a>
 <span class="d">17. august 2022</span></li>
 <li><a class="n" href="/race/scoutspataljoni-maastikurattavoistlus-2022">Scoutspataljoni Maastikurattavõistlus</a>
 <span class="d">17. august 2022</span></li>
@@ -1218,7 +1239,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. august 2022 · Vasikaholmi rand</span></li>
 <li><a class="n" href="/race/heavy-metal-ultra-2022">Heavy Metal Ultra</a>
 <span class="d">13. august 2022</span></li>
-<li><a class="n" href="/race/jarvakandi-xi-igamehe-maraton-2022">Järvakandi XI Igamehe Maraton</a>
+<li><a class="n" href="/race/jarvakandi-xi-igamehe-maraton-2022">Järvakandi XI Igamehe maraton</a>
 <span class="d">13. august 2022</span></li>
 <li><a class="n" href="/race/neptunas-eesti-oojooks-tallinn-ulemiste-2022-2022">NEPTUNAS Eesti Ööjooks - Tallinn (Ülemiste) 2022</a>
 <span class="d">13. august 2022 · Ülemiste keskus</span></li>
@@ -1254,7 +1275,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. august 2022 · Kintsli</span></li>
 <li><a class="n" href="/race/parnumaa-mv-soudmises-2022">Pärnumaa MV sõudmises</a>
 <span class="d">7. august 2022 · Pärnu Sõudeklubi</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-2022">Vägilase Jooksusarja 3. Etapp – Lähte</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-2022">Vägilase jooksusarja 3. etapp – Lähte</a>
 <span class="d">7. august 2022</span></li>
 <li><a class="n" href="/race/e-piim-19-kullamaa-rattamaraton-2022">E-Piim 19. Kullamaa Rattamaraton</a>
 <span class="d">6. august 2022 · Kullamaa Keskkooli staadion</span></li>
@@ -1278,11 +1299,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. august 2022 · Tamme staadion</span></li>
 <li><a class="n" href="/race/vorbuse-tt4-transtar-temposari-iv-etapp-2022">Vorbuse TT4 - Transtar Temposari IV etapp</a>
 <span class="d">3. august 2022 · Vorbuse</span></li>
-<li><a class="n" href="/race/20-kilingi-nomme-triatlon-2022">20. Kilingi-Nõmme Triatlon</a>
+<li><a class="n" href="/race/20-kilingi-nomme-triatlon-2022">20. Kilingi-Nõmme triatlon</a>
 <span class="d">31. juuli 2022</span></li>
 <li><a class="n" href="/race/elva-elamusjooks-2022">Elva Elamusjooks</a>
 <span class="d">31. juuli 2022 · Annikoru Männiku liikumisrajad</span></li>
-<li><a class="n" href="/race/luunja-triatlon-2022">Luunja Triatlon</a>
+<li><a class="n" href="/race/luunja-triatlon-2022">Luunja triatlon</a>
 <span class="d">31. juuli 2022</span></li>
 <li><a class="n" href="/race/21-tartu-velo-tuur-eesti-meistrivoistlused-seenioridele-2022">21. Tartu Velo Tuur Eesti Meistrivõistlused Seenioridele</a>
 <span class="d">30. juuli 2022 · Otepää</span></li>
@@ -1336,7 +1357,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuli 2022</span></li>
 <li><a class="n" href="/race/jarva-6-rattamaraton-2022">Järva 6. Rattamaraton</a>
 <span class="d">17. juuli 2022 · Võllaste suusa- ja jooksurada</span></li>
-<li><a class="n" href="/race/jarva-6-rattamarton-jarva-jaani-9-rattaralli-jarva-jaani-rsk-2022">Järva 6. Rattamarton Järva-Jaani 9. Rattaralli Järva-Jaani Rsk 2. Rattavahetusega Sõit</a>
+<li><a class="n" href="/race/jarva-6-rattamarton-jarva-jaani-9-rattaralli-jarva-jaani-rsk-2022">Järva 6. Rattamarton Järva-Jaani 9. rattaralli Järva-Jaani Rsk 2. Rattavahetusega sõit</a>
 <span class="d">17. juuli 2022</span></li>
 <li><a class="n" href="/race/jarva-jaani-9-rattaralli-2022">Järva-Jaani 9. Rattaralli</a>
 <span class="d">17. juuli 2022 · Võllaste suusa- ja jooksurada</span></li>
@@ -1356,7 +1377,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. juuli 2022</span></li>
 <li><a class="n" href="/race/gravel-grinder-estonia-2022">Gravel Grinder Estonia</a>
 <span class="d">16. juuli 2022 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/noo-veskijarve-i-triatlon-2022">Nõo Veskijärve I Triatlon</a>
+<li><a class="n" href="/race/noo-veskijarve-i-triatlon-2022">Nõo Veskijärve I triatlon</a>
 <span class="d">16. juuli 2022 · Nõo - Veskijärv</span></li>
 <li><a class="n" href="/race/parnumaa-mv-maastikurattasoidus-2022">Pärnumaa MV maastikurattasõidus</a>
 <span class="d">16. juuli 2022 · Jõulumäe Tervisespordikeskus</span></li>
@@ -1404,11 +1425,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. juuli 2022 · Karala</span></li>
 <li><a class="n" href="/race/kilingi-nomme-linnapaevade-tervisetelk-2022">Kilingi-Nõmme Linnapäevade Tervisetelk</a>
 <span class="d">9. juuli 2022 · Kilingi-Nõmme staadion</span></li>
-<li><a class="n" href="/race/klooga-maastikujooks-2022">Klooga Maastikujooks</a>
+<li><a class="n" href="/race/klooga-maastikujooks-2022">Klooga maastikujooks</a>
 <span class="d">9. juuli 2022</span></li>
 <li><a class="n" href="/race/puhajarve-pargijooks-2022">Pühajärve pargijooks</a>
 <span class="d">9. juuli 2022 · Pühajärve Spa &amp; Holiday Resort</span></li>
-<li><a class="n" href="/race/virtsu-merepaeva-jooks-2022">Virtsu Merepäeva Jooks</a>
+<li><a class="n" href="/race/virtsu-merepaeva-jooks-2022">Virtsu Merepäeva jooks</a>
 <span class="d">9. juuli 2022</span></li>
 <li><a class="n" href="/race/27-viljandi-jarvejooksu-4-etapp-2022">27. Viljandi Järvejooksu 4 etapp</a>
 <span class="d">7. juuli 2022 · Tervise- ja suusarada ümber Viljandi järve</span></li>
@@ -1422,7 +1443,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. juuli 2022</span></li>
 <li><a class="n" href="/race/2-naissaare-elamusmaraton-2022">2. Naissaare Elamusmaraton</a>
 <span class="d">2. juuli 2022 · Naissaar</span></li>
-<li><a class="n" href="/race/38-kisko-triatlon-2022">38. Kisko-Triatlon</a>
+<li><a class="n" href="/race/38-kisko-triatlon-2022">38. Kisko-triatlon</a>
 <span class="d">2. juuli 2022 · Kisko - Finland</span></li>
 <li><a class="n" href="/race/elva-xxxv-triatlon-2022">Elva XXXV triatlon</a>
 <span class="d">2. juuli 2022 · Elva</span></li>
@@ -1444,7 +1465,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. juuni 2022 · Pärnu</span></li>
 <li><a class="n" href="/race/kohila-lahtised-voistlused-kaugus-ja-kolmikhuppes-2022">Kohila lahtised võistlused kaugus- ja kolmikhüppes</a>
 <span class="d">26. juuni 2022 · Kohila Spordikompleksi staadion</span></li>
-<li><a class="n" href="/race/9-koveri-triatlon-2022">9. Kõveri Triatlon</a>
+<li><a class="n" href="/race/9-koveri-triatlon-2022">9. Kõveri triatlon</a>
 <span class="d">25. juuni 2022</span></li>
 <li><a class="n" href="/race/columbia-kivi-eesti-meistrivoistlused-grupisoidus-m-n16-m-nj-2022">Columbia-Kivi Eesti Meistrivõistlused grupisõidus (M/N16, M/NJ, eliit, seeniorid)</a>
 <span class="d">25. juuni 2022 · Kuldīga</span></li>
@@ -1488,9 +1509,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. juuni 2022 · Pühajärve rand</span></li>
 <li><a class="n" href="/race/32-juri-lossmanni-malestusjooks-2022">32. Jüri Lossmanni mälestusjooks</a>
 <span class="d">18. juuni 2022 · Viljandi</span></li>
-<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-3-etapp-2022">Kiirrulluisutamise Sprindisarja 3. Etapp</a>
+<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-3-etapp-2022">Kiirrulluisutamise sprindisarja 3. etapp</a>
 <span class="d">18. juuni 2022</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2022-2022">Elva Südaööjooks 2022</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2022-2022">Elva südaööjooks 2022</a>
 <span class="d">17. juuni 2022 · Elva Kultuurikeskus</span></li>
 <li><a class="n" href="/race/nomme-ohtutriatlon-2022">NÕMME Õhtutriatlon</a>
 <span class="d">17. juuni 2022 · Nõmme Spordikeskus</span></li>
@@ -1500,7 +1521,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuni 2022 · 13414 Tallinn</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-16">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">16. juuni 2022 · Häädemeeste</span></li>
-<li><a class="n" href="/race/turi-temposoit-2022-2022">Türi Temposõit 2022</a>
+<li><a class="n" href="/race/turi-temposoit-2022-2022">Türi temposõit 2022</a>
 <span class="d">16. juuni 2022 · Parasi-Põikva-Rassi</span></li>
 <li><a class="n" href="/race/filter-temposari-maardus-5-etapp-2022">Filter Temposari Maardus (5. etapp)</a>
 <span class="d">15. juuni 2022 · Harju maakond</span></li>
@@ -1508,7 +1529,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. juuni 2022 · Kohila Spordikompleksi staadion</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u18-taiskasvanud-vanuseklassile-2022">Tartu linna MV U18-Täiskasvanud vanuseklassile</a>
 <span class="d">15. juuni 2022 · Tartu Tamme staadion</span></li>
-<li><a class="n" href="/race/tervisekassa-triatlon-2022">Tervisekassa Triatlon</a>
+<li><a class="n" href="/race/tervisekassa-triatlon-2022">Tervisekassa triatlon</a>
 <span class="d">15. juuni 2022</span></li>
 <li><a class="n" href="/race/turi-maraton-2022-4-etapp-2022">Türi Maraton 2022 4. etapp</a>
 <span class="d">15. juuni 2022 · Türi linna staadion</span></li>
@@ -1522,9 +1543,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. juuni 2022 · Tallinn</span></li>
 <li><a class="n" href="/race/10-noarootsi-elamusmaratond-2022">10. Noarootsi Elamusmaratond</a>
 <span class="d">12. juuni 2022 · Tuksi Spordi- ja Tervisekeskus</span></li>
-<li><a class="n" href="/race/15-icebug-kova-mehe-jooks-2022">15. ICEBUG Kõva Mehe jooks</a>
-<span class="d">12. juuni 2022 · Saunapunkt, Saue vald</span></li>
-<li><a class="n" href="/race/creo-triatloni-kevadsarja-3-etapp-2022">Creo (Triatloni) Kevadsarja 3. Etapp</a>
+<li><a class="n" href="/race/creo-triatloni-kevadsarja-3-etapp-2022">Creo (Triatloni) Kevadsarja 3. etapp</a>
 <span class="d">12. juuni 2022</span></li>
 <li><a class="n" href="/race/creo-kevadsari-2022">Creo Kevadsari</a>
 <span class="d">12. juuni 2022 · Keila Terviserajad</span></li>
@@ -1534,13 +1553,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. juuni 2022 · Ülemiste City</span></li>
 <li><a class="n" href="/race/paraujumise-maailmameistrivoistlused-2022-2022">Paraujumise maailmameistrivõistlused 2022</a>
 <span class="d">12. juuni 2022 · Madeira</span></li>
-<li><a class="n" href="/race/raasiku-valla-jooksupaev-2022-2022">Raasiku Valla Jooksupäev 2022</a>
+<li><a class="n" href="/race/raasiku-valla-jooksupaev-2022-2022">Raasiku valla jooksupäev 2022</a>
 <span class="d">12. juuni 2022</span></li>
 <li><a class="n" href="/race/10-narva-energiajooks-2022">10. Narva Energiajooks</a>
 <span class="d">11. juuni 2022 · Narva</span></li>
 <li><a class="n" href="/race/2-icebug-kova-tiimi-jooks-2022">2. ICEBUG Kõva Tiimi jooks</a>
 <span class="d">11. juuni 2022 · Saunapunkt, Saue vald</span></li>
-<li><a class="n" href="/race/2022-icebug-kova-mehe-jooks-2022">2022 Icebug Kõva Mehe Jooks</a>
+<li><a class="n" href="/race/2022-icebug-kova-mehe-jooks-2022">2022 Icebug Kõva Mehe jooks</a>
 <span class="d">11. juuni 2022 · Saunapunkt</span></li>
 <li><a class="n" href="/race/8-alutaguse-rattamaraton-2022">8. Alutaguse Rattamaraton</a>
 <span class="d">11. juuni 2022 · Alutaguse Puhke- ja Spordikeskus</span></li>
@@ -1568,11 +1587,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. juuni 2022 · Pärnu rand</span></li>
 <li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-iv-etapp-poleva-kiv-2022">Husqvarna Eesti Olümpiakrossi Karikasari IV etapp - Põleva Kivi XCO</a>
 <span class="d">5. juuni 2022 · Kiviõli Seikluskeskus</span></li>
-<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-2-etapp-2022">Kiirrulluisutamise Sprindisarja 2. Etapp</a>
+<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-2-etapp-2022">Kiirrulluisutamise sprindisarja 2. etapp</a>
 <span class="d">5. juuni 2022</span></li>
 <li><a class="n" href="/race/paide-triatlon-2022">Paide triatlon</a>
 <span class="d">5. juuni 2022 · Paide tehisjärv</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-narva-2022">Vägilase Jooksusarja 2. Etapp – Narva</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-narva-2022">Vägilase jooksusarja 2. etapp – Narva</a>
 <span class="d">5. juuni 2022</span></li>
 <li><a class="n" href="/race/20-raplamaa-rattamaraton-2022">20. Raplamaa Rattamaraton</a>
 <span class="d">4. juuni 2022 · Laukataguse Puhkeküla</span></li>
@@ -1586,7 +1605,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. juuni 2022 · Nõo Veskijärv</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-18">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">2. juuni 2022 · Vallikäär-Rannapargi orienteerumiskaart</span></li>
-<li><a class="n" href="/race/saku-lastesarja-2-etapp-2022">Saku Lastesarja 2. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-2-etapp-2022">Saku lastesarja 2. etapp</a>
 <span class="d">2. juuni 2022</span></li>
 <li><a class="n" href="/race/sudamelinna-jooks-jarvamaa-jarvede-jooksu-5-etapp-2022">Südamelinna jooks, Järvamaa järvede jooksu 5.etapp</a>
 <span class="d">2. juuni 2022 · Paide tehisjärv</span></li>
@@ -1620,7 +1639,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. mai 2022 · Peetri staadion</span></li>
 <li><a class="n" href="/race/viimsi-vi-trepijooks-2022">Viimsi VI Trepijooks</a>
 <span class="d">28. mai 2022</span></li>
-<li><a class="n" href="/race/pae-pargi-vi-rahvajooks-2022">Pae Pargi VI Rahvajooks</a>
+<li><a class="n" href="/race/pae-pargi-vi-rahvajooks-2022">Pae Pargi VI rahvajooks</a>
 <span class="d">26. mai 2022 · Lasnamäe, Pae park</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-19">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">26. mai 2022 · Kilingi-Nõmme orienteerumiskaart</span></li>
@@ -1630,7 +1649,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. mai 2022</span></li>
 <li><a class="n" href="/race/vaatsa-4-jarve-jooks-jarvamaa-jarved-jooksud-4-etapp-2022">Väätsa 4. järve jooks. Järvamaa Järved jooksud 4. etapp</a>
 <span class="d">26. mai 2022 · Väätsa</span></li>
-<li><a class="n" href="/race/vaatsa-jarve-jooks-2022">Väätsa Järve Jooks</a>
+<li><a class="n" href="/race/vaatsa-jarve-jooks-2022">Väätsa järve jooks</a>
 <span class="d">26. mai 2022</span></li>
 <li><a class="n" href="/race/youth-games-for-the-visually-impaired-schoolchildren-2022">Youth Games for the Visually Impaired Schoolchildren</a>
 <span class="d">26. mai 2022 · Vilnius</span></li>
@@ -1662,7 +1681,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. mai 2022 · Paralepa liikumisrajad</span></li>
 <li><a class="n" href="/race/laanemaa-meistrivoistlused-jalgrattakrossis-fixus-paralepa-x-2022">Läänemaa meistrivõistlused jalgrattakrossis, Fixus Paralepa X rattamaraton</a>
 <span class="d">22. mai 2022 · Paralepa liikumisrajad</span></li>
-<li><a class="n" href="/race/mustamae-kevadjooks-2022">Mustamäe Kevadjooks</a>
+<li><a class="n" href="/race/mustamae-kevadjooks-2022">Mustamäe kevadjooks</a>
 <span class="d">22. mai 2022</span></li>
 <li><a class="n" href="/race/parnumaa-kogu-pere-liikumispaev-vol-1-liigu-varskes-ohus-2022">Pärnumaa Kogu Pere Liikumispäev VOL 1 - LIIGU VÄRSKES ÕHUS!</a>
 <span class="d">22. mai 2022 · Jõulumäe Tervisespordikeskus</span></li>
@@ -1670,7 +1689,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2022 · Sillamäe terviserada</span></li>
 <li><a class="n" href="/race/24-rouge-rattamaraton-2022">24. Rõuge Rattamaraton</a>
 <span class="d">21. mai 2022 · Rõuge Ööbikuoru vaatetorn Pesapuu</span></li>
-<li><a class="n" href="/race/35-lhv-maijooks-2022">35. LHV Maijooks</a>
+<li><a class="n" href="/race/35-lhv-maijooks-2022">35. LHV maijooks</a>
 <span class="d">21. mai 2022 · Tallinna lauluväljak</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-kriteeriumis-maxilla-64-elva-tanavas-2022">Eesti Meistrivõistlused Kriteeriumis / MAXILLA 64. Elva Tänavasõit</a>
 <span class="d">21. mai 2022 · Elva</span></li>
@@ -1684,7 +1703,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2022</span></li>
 <li><a class="n" href="/race/kokkola-ultra-run-2022-2022">Kokkola Ultra Run 2022</a>
 <span class="d">21. mai 2022 · 21.-22. toukokuuta - Kokkolan Urheilutalo</span></li>
-<li><a class="n" href="/race/uskumatu-voidusoit-2022-1-etapp-2022">Uskumatu Võidusõit 2022 – 1. Etapp</a>
+<li><a class="n" href="/race/uskumatu-voidusoit-2022-1-etapp-2022">Uskumatu Võidusõit 2022 – 1. etapp</a>
 <span class="d">21. mai 2022</span></li>
 <li><a class="n" href="/race/jarvamaa-koolide-algklasside-murdmaa-teatejooksu-kv-2022">Järvamaa koolide algklasside murdmaa teatejooksu KV</a>
 <span class="d">20. mai 2022 · Koeru Keskkooli staadion</span></li>
@@ -1698,7 +1717,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. mai 2022 · Tartu Tamme staadion</span></li>
 <li><a class="n" href="/race/filter-temposari-arukulas-3-etapp-2022">Filter Temposari Arukülas (3. etapp)</a>
 <span class="d">18. mai 2022 · Harju maakond</span></li>
-<li><a class="n" href="/race/hiiu-kevadjooks-2022">Hiiu Kevadjooks</a>
+<li><a class="n" href="/race/hiiu-kevadjooks-2022">Hiiu kevadjooks</a>
 <span class="d">18. mai 2022 · Hiiu</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksusari-2022-i-etapp-2000m-koos-eesti-staad-2022">Kohila pikamaajooksusari 2022 I etapp 2000m koos Eesti Staadionijooksude sarjaga</a>
 <span class="d">18. mai 2022 · Kohila Spordikompleksi staadion</span></li>
@@ -1712,21 +1731,21 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. mai 2022 · Pärnu</span></li>
 <li><a class="n" href="/race/ulemaailmne-orienteerumispaev-2022-2022">Ülemaailmne orienteerumispäev 2022</a>
 <span class="d">17. mai 2022 · Türi Kultuurikeskus</span></li>
-<li><a class="n" href="/race/34-viimsi-jooks-2022">34. Viimsi Jooks</a>
+<li><a class="n" href="/race/34-viimsi-jooks-2022">34. Viimsi jooks</a>
 <span class="d">15. mai 2022</span></li>
 <li><a class="n" href="/race/40-elaintarha-gp-2022">40 Eläintarha Gp</a>
 <span class="d">15. mai 2022</span></li>
 <li><a class="n" href="/race/bike-fanatics-keila-kriteerium-2022">Bike Fanatics Keila kriteerium</a>
 <span class="d">15. mai 2022 · Keila Terviserajad</span></li>
-<li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasarja-iii-etapp-akke-gp--2022">Husqvarna Eesti Olümpiakrossi Karikasarja III Etapp - Äkke Gp XCO</a>
+<li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasarja-iii-etapp-akke-gp--2022">Husqvarna Eesti Olümpiakrossi karikasarja III etapp - Äkke Gp XCO</a>
 <span class="d">15. mai 2022 · Äkkeküla spordikeskus</span></li>
-<li><a class="n" href="/race/naisten-aika-ajo-8-km-2022">Naisten Aika-Ajo 8 Km</a>
+<li><a class="n" href="/race/naisten-aika-ajo-8-km-2022">Naisten Aika-Ajo 8 km</a>
 <span class="d">15. mai 2022</span></li>
 <li><a class="n" href="/race/parnumaa-mv-kabes-2022">Pärnumaa MV kabes</a>
 <span class="d">15. mai 2022 · Häädemeeste Keskkool</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-manniku-2022">Vägilase Jooksusarja 1. Etapp – Männiku</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-manniku-2022">Vägilase jooksusarja 1. etapp – Männiku</a>
 <span class="d">15. mai 2022</span></li>
-<li><a class="n" href="/race/10-naisten-etappiajot-2022-prologi-2-4-km-2022">10. Naisten Etappiajot 2022 – Prologi 2.4 Km</a>
+<li><a class="n" href="/race/10-naisten-etappiajot-2022-prologi-2-4-km-2022">10. Naisten Etappiajot 2022 – Prologi 2.4 km</a>
 <span class="d">14. mai 2022</span></li>
 <li><a class="n" href="/race/27-palivere-miilijooks-2022">27. Palivere Miilijooks</a>
 <span class="d">14. mai 2022</span></li>
@@ -1774,7 +1793,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. mai 2022 · Rakvere linnastaadion</span></li>
 <li><a class="n" href="/race/jarvamaa-meistrivoistlused-valikorienteerumises-2022">Järvamaa meistrivõistlused valikorienteerumises</a>
 <span class="d">10. mai 2022 · Kõrgessaare kalmistu</span></li>
-<li><a class="n" href="/race/40-tartu-maastikumaraton-2022">40. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/40-tartu-maastikumaraton-2022">40. Tartu maastikumaraton</a>
 <span class="d">8. mai 2022 · Otepää - Elva</span></li>
 <li><a class="n" href="/race/laanemaa-meistrivoistlused-ujumises-lastele-ja-noortele-2022">Läänemaa meistrivõistlused ujumises lastele ja noortele</a>
 <span class="d">8. mai 2022 · Haapsalu Veekeskus</span></li>
@@ -1790,9 +1809,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. mai 2022 · Kuressaare staadion</span></li>
 <li><a class="n" href="/race/elva-xxii-kellatornijooks-2022">Elva XXII kellatornijooks</a>
 <span class="d">7. mai 2022 · Elva vallavalitsus</span></li>
-<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-1-etapp-2022">Kiirrulluisutamise Sprindisarja 1. Etapp</a>
+<li><a class="n" href="/race/kiirrulluisutamise-sprindisarja-1-etapp-2022">Kiirrulluisutamise sprindisarja 1. etapp</a>
 <span class="d">7. mai 2022</span></li>
-<li><a class="n" href="/race/kullamaa-33-maijooks-2022">Kullamaa 33. Maijooks</a>
+<li><a class="n" href="/race/kullamaa-33-maijooks-2022">Kullamaa 33. maijooks</a>
 <span class="d">7. mai 2022</span></li>
 <li><a class="n" href="/race/liikumispaev-viljandimaal-vohma-kirivere-kool-2022">Liikumispäev Viljandimaal-Võhma- Kirivere Kool</a>
 <span class="d">7. mai 2022 · Võhma terviserada</span></li>
@@ -1800,7 +1819,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. mai 2022 · SA Tähtvere Puhkepark</span></li>
 <li><a class="n" href="/race/ambla-sk-seeriavoistlus-kevad-2022-umber-jarve-jooks-ii-etap-2022-2">Ambla SK seeriavõistlus kevad 2022 ümber järve jooks II etapp</a>
 <span class="d">5. mai 2022 · Mägede</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2022">Keila Seeriajooksu 4. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2022">Keila seeriajooksu 4. etapp</a>
 <span class="d">5. mai 2022</span></li>
 <li><a class="n" href="/race/laane-viru-u12-ja-u14-murdmaajooks-2022">Lääne-Viru U12 ja U14 murdmaajooks</a>
 <span class="d">5. mai 2022 · Rakvere tammiku matkarada</span></li>
@@ -1818,7 +1837,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. mai 2022 · Ramsi orienteerumiskaart</span></li>
 <li><a class="n" href="/race/jarvamaa-liigub-4-jarvamaa-jarved-jooksud-i-etapp-2022">&quot;Järvamaa Liigub&quot; 4. Järvamaa Järved jooksud I etapp</a>
 <span class="d">3. mai 2022 · Käravete järv</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2022">Keila Seeriajooksu 3. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2022">Keila seeriajooksu 3. etapp</a>
 <span class="d">3. mai 2022</span></li>
 <li><a class="n" href="/race/parnu-38-aastajooks-2022-9">Pärnu 38. Aastajooks</a>
 <span class="d">3. mai 2022 · Pärnu Vallikäär</span></li>
@@ -1836,27 +1855,27 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. mai 2022 · Üle maailma</span></li>
 <li><a class="n" href="/race/virtuaalne-parnu-rattasoit-2022">Virtuaalne Pärnu Rattasõit</a>
 <span class="d">1. mai 2022 · Pärnu</span></li>
-<li><a class="n" href="/race/xxviii-tabasalu-jooks-2022">Xxviii Tabasalu Jooks</a>
+<li><a class="n" href="/race/xxviii-tabasalu-jooks-2022">XXVIII Tabasalu jooks</a>
 <span class="d">1. mai 2022</span></li>
 <li><a class="n" href="/race/abja-kevad-ujumisvoistlused-ja-sakalamaa-angerjas-iv-etapp-2022">Abja Kevad ujumisvõistlused ja Sakalamaa ANGERJAS IV etapp</a>
 <span class="d">30. aprill 2022 · Abja Spordi- ja Tervisekeskus</span></li>
 <li><a class="n" href="/race/saku-100-2022-2022">Saku 100 2022</a>
 <span class="d">30. aprill 2022</span></li>
-<li><a class="n" href="/race/saku-lastesarja-1-etapp-2022">Saku Lastesarja 1. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-1-etapp-2022">Saku lastesarja 1. etapp</a>
 <span class="d">30. aprill 2022</span></li>
 <li><a class="n" href="/race/jarvamaa-meistrivoistlused-murdmaajooksus-2022">Järvamaa meistrivõistlused murdmaajooksus</a>
 <span class="d">28. aprill 2022 · Türi linna staadion</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2022">Keila Seeriajooksu 2. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2022">Keila seeriajooksu 2. etapp</a>
 <span class="d">28. aprill 2022</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-23">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">28. aprill 2022 · Raeküla orienteerumiskaart</span></li>
-<li><a class="n" href="/race/xxiii-korghoona-kuninga-jooks-2022">Xxiii Kõrghoona Kuninga Jooks</a>
+<li><a class="n" href="/race/xxiii-korghoona-kuninga-jooks-2022">XXIII Kõrghoona Kuninga jooks</a>
 <span class="d">28. aprill 2022</span></li>
 <li><a class="n" href="/race/toravere-tt1-transtar-temposari-i-etapp-2022">Tõravere TT1 - Transtar Temposari I etapp</a>
 <span class="d">27. aprill 2022 · Tõravere</span></li>
 <li><a class="n" href="/race/46-jarvamaa-orienteerumispaevakud-i-etapp-2022">46. Järvamaa orienteerumispäevakud I etapp</a>
 <span class="d">26. aprill 2022 · Kellissaare-Mädara orienteerumiskaart</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2022">Keila Seeriajooksu 1. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2022">Keila seeriajooksu 1. etapp</a>
 <span class="d">26. aprill 2022</span></li>
 <li><a class="n" href="/race/aktiivne-esmaspaev-25-aprillil-2022">Aktiivne esmaspäev 25. aprillil</a>
 <span class="d">25. aprill 2022 · Tallinna Puuetega Inimeste Koda</span></li>
@@ -1916,7 +1935,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. aprill 2022 · Asukoht avalikustatakse võistluspäeva hommikul kell 07.00!</span></li>
 <li><a class="n" href="/race/rannametsa-luitejooks-2022-2022">Rannametsa Luitejooks 2022</a>
 <span class="d">17. aprill 2022 · Rannametsa, Pärnumaa</span></li>
-<li><a class="n" href="/race/3-janeki-maraton-2022">3. Janeki Maraton</a>
+<li><a class="n" href="/race/3-janeki-maraton-2022">3. Janeki maraton</a>
 <span class="d">16. aprill 2022 · Järve terviserada</span></li>
 <li><a class="n" href="/race/team-rattapood-cup-ii-etapp-2022">Team Rattapood cup II etapp</a>
 <span class="d">16. aprill 2022 · Pirita terviserajad</span></li>
@@ -1928,7 +1947,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. aprill 2022 · Vabalt valitud koht</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2022-25">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">14. aprill 2022 · Audru orienteerumiskaart</span></li>
-<li><a class="n" href="/race/creo-triatloni-kevadsarja-2-etapp-2022">Creo (Triatloni) Kevadsarja 2. Etapp</a>
+<li><a class="n" href="/race/creo-triatloni-kevadsarja-2-etapp-2022">Creo (Triatloni) Kevadsarja 2. etapp</a>
 <span class="d">10. aprill 2022</span></li>
 <li><a class="n" href="/race/sinilillejooks-tallinn-2022-2022">Sinilillejooks TALLINN 2022</a>
 <span class="d">10. aprill 2022 · Kadrioru park</span></li>
@@ -1984,13 +2003,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. märts 2022 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-4-etapp-2022-2">Viljandimaa orienteerumispäevakud 4. etapp</a>
 <span class="d">18. märts 2022 · Viljandi lossimäed</span></li>
-<li><a class="n" href="/race/laane-maakonna-koolide-suusapaev-2022">Lääne Maakonna Koolide Suusapäev</a>
+<li><a class="n" href="/race/laane-maakonna-koolide-suusapaev-2022">Lääne Maakonna koolide Suusapäev</a>
 <span class="d">17. märts 2022</span></li>
 <li><a class="n" href="/race/tv-10-os-tartu-ja-tartumaa-iii-etapp-2022">TV 10 OS Tartu ja Tartumaa III etapp</a>
 <span class="d">17. märts 2022 · Ujula 4</span></li>
 <li><a class="n" href="/race/polvamaa-suusasari-2022-2022">Põlvamaa SUUSASARI 2022</a>
 <span class="d">15. märts 2022 · Mammaste tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-5-etapp-2022">Palivere Suusasarja 5. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-5-etapp-2022">Palivere suusasarja 5. etapp</a>
 <span class="d">13. märts 2022</span></li>
 <li><a class="n" href="/race/49-elva-talikross-ii-etapp-2022">49. Elva Talikross II etapp</a>
 <span class="d">12. märts 2022 · Elva</span></li>
@@ -2002,7 +2021,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. märts 2022 · Kiiev</span></li>
 <li><a class="n" href="/race/parnumaa-ja-parnu-linna-mv-murdmaasuusatamises-2022-2">Pärnumaa ja Pärnu linna MV murdmaasuusatamises</a>
 <span class="d">9. märts 2022 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/keila-suusasarja-6-etapp-2022">Keila Suusasarja 6. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-6-etapp-2022">Keila suusasarja 6. etapp</a>
 <span class="d">6. märts 2022</span></li>
 <li><a class="n" href="/race/45-haanja-maraton-2022">45. Haanja Maraton</a>
 <span class="d">5. märts 2022 · Haanja Puhke- ja Suusakeskus</span></li>
@@ -2024,25 +2043,25 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. veebruar 2022 · Aravete suusa- ja terviserajad</span></li>
 <li><a class="n" href="/race/narva-suusasoit-2022-2022">Narva Suusasõit 2022</a>
 <span class="d">24. veebruar 2022 · Äkkeküla spordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-4-etapp-2022">Palivere Suusasarja 4. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-4-etapp-2022">Palivere suusasarja 4. etapp</a>
 <span class="d">24. veebruar 2022</span></li>
 <li><a class="n" href="/race/saku-suusapaev-2022">Saku Suusapäev</a>
 <span class="d">24. veebruar 2022</span></li>
 <li><a class="n" href="/race/48-tartu-maraton-2022">48. Tartu Maraton</a>
 <span class="d">20. veebruar 2022 · Otepää-Elva</span></li>
-<li><a class="n" href="/race/keila-suusasarja-5-etapp-2022">Keila Suusasarja 5. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-5-etapp-2022">Keila suusasarja 5. etapp</a>
 <span class="d">20. veebruar 2022</span></li>
 <li><a class="n" href="/race/viljandimaa-ujumise-mv-ja-sakalamaa-angerjas-ii-etapp-2022">Viljandimaa ujumise MV ja &quot;Sakalamaa angerjas&quot; II etapp</a>
 <span class="d">20. veebruar 2022 · Viljandi Jakobsoni Kooli ujula</span></li>
 <li><a class="n" href="/race/mulgi-raskusheite-ja-kuulitouke-voistlus-2022">Mulgi raskusheite ja kuulitõuke võistlus</a>
 <span class="d">19. veebruar 2022 · Paalalinna viilhall</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-finaaletapp-2022">Tallinna Kiiruisuklubi Karikasarja Finaaletapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-finaaletapp-2022">Tallinna kiiruisuklubi karikasarja Finaaletapp</a>
 <span class="d">19. veebruar 2022</span></li>
 <li><a class="n" href="/race/laane-virumaa-u10-vanuseklassi-talvised-voistlused-2022">Lääne-Virumaa U10 vanuseklassi talvised võistlused</a>
 <span class="d">17. veebruar 2022 · Rakvere staadioni staadionihoone</span></li>
 <li><a class="n" href="/race/parnumaa-mv-murdmaasuusatamises-2022">Pärnumaa MV murdmaasuusatamises</a>
 <span class="d">16. veebruar 2022 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/2022-nomme-kjk-lahtised-meistrivoistlused-2022">2022 Nõmme Kjk Lahtised Meistrivõistlused</a>
+<li><a class="n" href="/race/2022-nomme-kjk-lahtised-meistrivoistlused-2022">2022 Nõmme Kjk Lahtised meistrivõistlused</a>
 <span class="d">15. veebruar 2022 · Tallinna spordihall</span></li>
 <li><a class="n" href="/race/laane-virumaa-u18-ja-u20-talvised-voistlused-2022">Lääne-Virumaa U18 ja U20 talvised võistlused</a>
 <span class="d">15. veebruar 2022 · Rakvere staadioni staadionihoone</span></li>
@@ -2054,7 +2073,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. veebruar 2022 · Otepää-Elva</span></li>
 <li><a class="n" href="/race/8-tartu-teatemaraton-2022">8. Tartu Teatemaraton</a>
 <span class="d">13. veebruar 2022 · Otepää</span></li>
-<li><a class="n" href="/race/raasiku-valla-suusapaev-2022">Raasiku Valla Suusapäev</a>
+<li><a class="n" href="/race/raasiku-valla-suusapaev-2022">Raasiku valla Suusapäev</a>
 <span class="d">13. veebruar 2022</span></li>
 <li><a class="n" href="/race/23-alutaguse-maraton-2022">23. Alutaguse Maraton</a>
 <span class="d">11. veebruar 2022 · Alutaguse Puhke- ja Spordikeskus</span></li>
@@ -2064,9 +2083,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. veebruar 2022 · Lasnamäe Kergejõustikuhall</span></li>
 <li><a class="n" href="/race/martin-kutmani-malestusvoistlus-2022">Martin Kutmani mälestusvõistlus</a>
 <span class="d">10. veebruar 2022 · Tartu Ülikooli Spordihoone</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2022">Palivere Suusasarja 3. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2022">Palivere suusasarja 3. etapp</a>
 <span class="d">10. veebruar 2022</span></li>
-<li><a class="n" href="/race/tadu-oomaraton-viimsi-suusasarja-1-etapp-2022">Tädu Öömaraton / Viimsi Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/tadu-oomaraton-viimsi-suusasarja-1-etapp-2022">Tädu öömaraton / Viimsi suusasarja 1. etapp</a>
 <span class="d">10. veebruar 2022</span></li>
 <li><a class="n" href="/race/laane-virumaa-u12-vanuseklassi-talvised-voistlused-2022">Lääne-Virumaa U12 vanuseklassi talvised võistlused</a>
 <span class="d">9. veebruar 2022 · Rakvere staadioni staadionihoone</span></li>
@@ -2074,7 +2093,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. veebruar 2022 · Rakvere staadioni staadionihoone</span></li>
 <li><a class="n" href="/race/viljandimaa-noorte-ja-taiskasvanute-mv-2022">Viljandimaa noorte ja täiskasvanute MV</a>
 <span class="d">8. veebruar 2022 · Viljandi Männimäe jalgpallihall</span></li>
-<li><a class="n" href="/race/xxiii-kuldne-1500-2022">Xxiii Kuldne 1500</a>
+<li><a class="n" href="/race/xxiii-kuldne-1500-2022">XXIII Kuldne 1500</a>
 <span class="d">6. veebruar 2022</span></li>
 <li><a class="n" href="/race/23-tamsalu-neeruti-maraton-2022">23. Tamsalu-Neeruti Maraton</a>
 <span class="d">5. veebruar 2022 · Tamsalu suusastaadion</span></li>
@@ -2082,7 +2101,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. veebruar 2022 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/mudilaste-karikasarja-2022-i-etapp-2022">Mudilaste Karikasarja 2022 I etapp</a>
 <span class="d">5. veebruar 2022 · Roosna-Alliku</span></li>
-<li><a class="n" href="/race/keila-suusasarja-4-etapp-2022">Keila Suusasarja 4. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-4-etapp-2022">Keila suusasarja 4. etapp</a>
 <span class="d">3. veebruar 2022</span></li>
 <li><a class="n" href="/race/viljandimaa-noorte-ja-taiskasvanute-mv-2022-2">Viljandimaa noorte ja täiskasvanute MV</a>
 <span class="d">2. veebruar 2022 · Paalalinna viilhall</span></li>
@@ -2092,21 +2111,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. veebruar 2022 · Türi Tolli mets</span></li>
 <li><a class="n" href="/race/rapla-maakonna-mv-klassikatehnika-pikk-2022">Rapla maakonna MV klassikatehnika pikk</a>
 <span class="d">30. jaanuar 2022 · Paluküla liikumisrada</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-ovaalimaraton-2022">Tallinna Kiiruisuklubi Ovaalimaraton</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-ovaalimaraton-2022">Tallinna kiiruisuklubi Ovaalimaraton</a>
 <span class="d">30. jaanuar 2022</span></li>
 <li><a class="n" href="/race/36-viru-maraton-2022">36. Viru Maraton</a>
 <span class="d">29. jaanuar 2022 · Mõedaku</span></li>
-<li><a class="n" href="/race/8-tondiraba-sisemaraton-2022">8. Tondiraba Sisemaraton</a>
-<span class="d">29. jaanuar 2022 · Tondiraba Jäähall</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2022">Tallinna Kiiruisuklubi Karikasarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2022">Tallinna kiiruisuklubi karikasarja 2. etapp</a>
 <span class="d">29. jaanuar 2022</span></li>
 <li><a class="n" href="/race/1-tondiraba-sisekumme-2022">1. Tondiraba Sisekümme</a>
 <span class="d">28. jaanuar 2022 · Tondiraba Jäähall</span></li>
-<li><a class="n" href="/race/8-tondiraba-sisemaraton-2022-2">8. Tondiraba Sisemaraton</a>
+<li><a class="n" href="/race/8-tondiraba-sisemaraton-2022">8. Tondiraba Sisemaraton</a>
 <span class="d">28. jaanuar 2022 · Tondiraba Jäähall</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2022">Palivere Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2022">Palivere suusasarja 2. etapp</a>
 <span class="d">27. jaanuar 2022</span></li>
-<li><a class="n" href="/race/keila-suusasarja-3-etapp-2022">Keila Suusasarja 3. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-3-etapp-2022">Keila suusasarja 3. etapp</a>
 <span class="d">25. jaanuar 2022</span></li>
 <li><a class="n" href="/race/polvamaa-suusasari-2022-2022-3">Põlvamaa SUUSASARI 2022</a>
 <span class="d">25. jaanuar 2022 · Mammaste tervisespordikeskus</span></li>
@@ -2116,7 +2133,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. jaanuar 2022 · Tervis ravispaahotell</span></li>
 <li><a class="n" href="/race/11-mulgi-uisumaraton-2022">11. Mulgi Uisumaraton</a>
 <span class="d">23. jaanuar 2022</span></li>
-<li><a class="n" href="/race/keila-suusasarja-2-etapp-2022">Keila Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-2-etapp-2022">Keila suusasarja 2. etapp</a>
 <span class="d">23. jaanuar 2022</span></li>
 <li><a class="n" href="/race/rapla-maakonna-mv-vabatehnika-pikk-2022">Rapla maakonna MV vabatehnika pikk</a>
 <span class="d">23. jaanuar 2022 · Järta tervisespordikeskus</span></li>
@@ -2132,7 +2149,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. jaanuar 2022 · Ujula 4</span></li>
 <li><a class="n" href="/race/parnumaa-mv-murdmaasuusatamises-2022-2">Pärnumaa MV murdmaasuusatamises</a>
 <span class="d">19. jaanuar 2022 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/keila-suusasarja-1-etapp-2022">Keila Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-1-etapp-2022">Keila suusasarja 1. etapp</a>
 <span class="d">18. jaanuar 2022</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u18-taiskasvanud-vanuseklassile-2022-2">Tartu linna MV U18-Täiskasvanud vanuseklassile</a>
 <span class="d">18. jaanuar 2022 · Tartu Ülikooli Spordihoone</span></li>
@@ -2140,15 +2157,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. jaanuar 2022 · Türi Tolli mets</span></li>
 <li><a class="n" href="/race/viljandi-spordikooli-kolmikhuppe-voistlus-2022">Viljandi Spordikooli kolmikhüppe võistlus</a>
 <span class="d">14. jaanuar 2022 · Paalalinna viilhall</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2022">Palivere Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2022">Palivere suusasarja 1. etapp</a>
 <span class="d">13. jaanuar 2022</span></li>
-<li><a class="n" href="/race/tallinna-2022-a-u14-u16-u18-ja-u20-talvised-mv-2022">Tallinna 2022. A. U14 U16 U18 Ja U20 Talvised MV</a>
+<li><a class="n" href="/race/tallinna-2022-a-u14-u16-u18-ja-u20-talvised-mv-2022">Tallinna 2022. A. U14 U16 U18 ja U20 Talvised MV</a>
 <span class="d">13. jaanuar 2022 · Lasnamäe Kergejõustikuhall</span></li>
 <li><a class="n" href="/race/parnu-spordikooli-avavoistlused-2022">Pärnu Spordikooli avavõistlused</a>
 <span class="d">12. jaanuar 2022 · Pärnu kergejõustikuhall</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u14-ja-u16-vanuseklassile-2022">Tartu linna MV U14 ja U16 vanuseklassile</a>
 <span class="d">11. jaanuar 2022 · Tartu Ülikooli Spordihoone</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2022">Tallinna Kiiruisuklubi Karikasarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2022">Tallinna kiiruisuklubi karikasarja 1. etapp</a>
 <span class="d">9. jaanuar 2022</span></li>
 <li><a class="n" href="/race/tasuta-suusatrennid-joulumael-2022">Tasuta suusatrennid Jõulumäel</a>
 <span class="d">9. jaanuar 2022 · Jõulumäe Tervisespordikeskuse suusastaadion ja liikumisrajad</span></li>

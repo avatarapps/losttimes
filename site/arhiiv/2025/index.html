@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2025. aasta võistluste tulemused | LostTimes</title>
-<meta name="description" content="Kõik 2025. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1177 võistlust.">
+<meta name="description" content="Kõik 2025. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1173 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2025/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2025/">
+<meta property="og:title" content="2025. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2025. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 1173 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -77,7 +102,7 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>2025. aasta võistlused</h1>
-<p class="meta">1177 võistlust</p>
+<p class="meta">1173 võistlust</p>
 <ul class="list"><li><a class="n" href="/race/test-rogain-voistlus-3-2025">Test rogain võistlus 3</a>
 <span class="d">31. detsember 2025 · 10144 Tallinn</span></li>
 <li><a class="n" href="/race/aastalopu-voistlus-2025">Aastalõpu võistlus</a>
@@ -110,7 +135,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. detsember 2025 · Variku Spordihoone</span></li>
 <li><a class="n" href="/race/vak-staier-joulujooks-2025">VAK Staier Jõulujooks</a>
 <span class="d">13. detsember 2025 · Viljandi Jakobsoni Kool</span></li>
-<li><a class="n" href="/race/xxxix-johvi-huppajate-paev-2025">Xxxix Jõhvi Hüppajate Päev</a>
+<li><a class="n" href="/race/xxxix-johvi-huppajate-paev-2025">XXXIX Jõhvi Hüppajate päev</a>
 <span class="d">13. detsember 2025 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/parnu-spordikooli-jouluvoistlused-2025">Pärnu Spordikooli Jõuluvõistlused</a>
 <span class="d">11. detsember 2025 · Pärnu kergejõustikuhall</span></li>
@@ -186,7 +211,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. november 2025 · Tamme staadion</span></li>
 <li><a class="n" href="/race/klick-eesti-meistrivoistlused-cyclo-crossis-2025">Klick Eesti meistrivõistlused cyclo-crossis</a>
 <span class="d">2. november 2025 · Saku</span></li>
-<li><a class="n" href="/race/reinpauli-xxiii-maastikujooks-2025">Reinpauli Xxiii Maastikujooks</a>
+<li><a class="n" href="/race/reinpauli-xxiii-maastikujooks-2025">Reinpauli XXIII maastikujooks</a>
 <span class="d">2. november 2025</span></li>
 <li><a class="n" href="/race/xv-audru-sildade-jooks-2025">XV Audru Sildade Jooks</a>
 <span class="d">2. november 2025 · Audru vald</span></li>
@@ -242,7 +267,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. oktoober 2025 · Rapla Vesiroosi terviserada</span></li>
 <li><a class="n" href="/race/eesti-murdmaajooksu-karikavoistlused-2025-2025">Eesti murdmaajooksu karikavõistlused 2025</a>
 <span class="d">11. oktoober 2025 · Jõulumäe tervisespordikeskus</span></li>
-<li><a class="n" href="/race/holstre-polli-rattakross-2025">Holstre-Polli Rattakross</a>
+<li><a class="n" href="/race/holstre-polli-rattakross-2025">Holstre-Polli rattakross</a>
 <span class="d">11. oktoober 2025</span></li>
 <li><a class="n" href="/race/ok-west-av-ja-parnumaa-mv-2025">OK West AV ja Pärnumaa MV</a>
 <span class="d">11. oktoober 2025 · Soometsa orienteerumiskaart</span></li>
@@ -344,7 +369,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. september 2025 · Kohtla-Järve Kesklinna Põhikool</span></li>
 <li><a class="n" href="/race/kohtla-jarve-kesklinna-pohikool-virtuaaljooks-2025-2025">Kohtla-Järve Kesklinna põhikool, Virtuaaljooks 2025</a>
 <span class="d">28. september 2025 · Kohtla-Järve Kesklinna Põhikool</span></li>
-<li><a class="n" href="/race/lokuta-eidapere-xxi-suurjooks-2025">Lokuta-Eidapere Xxi Suurjooks</a>
+<li><a class="n" href="/race/lokuta-eidapere-xxi-suurjooks-2025">Lokuta-Eidapere XXI suurjooks</a>
 <span class="d">28. september 2025</span></li>
 <li><a class="n" href="/race/mihkijooks-2025">Mihkijooks</a>
 <span class="d">28. september 2025 · Võnnu</span></li>
@@ -354,11 +379,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. september 2025 · Varnja</span></li>
 <li><a class="n" href="/race/vii-paliere-suusaraja-jooks-2025">VII Paliere Suusaraja Jooks</a>
 <span class="d">28. september 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/vii-palivere-suusaraja-jooks-2025">VII Palivere Suusaraja Jooks</a>
+<li><a class="n" href="/race/vii-palivere-suusaraja-jooks-2025">VII Palivere Suusaraja jooks</a>
 <span class="d">28. september 2025</span></li>
 <li><a class="n" href="/race/viljandimaa-jalgrattakrossi-meistrivoislused-2025">Viljandimaa jalgrattakrossi meistrivõislused</a>
 <span class="d">28. september 2025 · Uueveski tee</span></li>
-<li><a class="n" href="/race/15-kolme-koolimaja-jooks-2025">15. Kolme Koolimaja Jooks</a>
+<li><a class="n" href="/race/15-kolme-koolimaja-jooks-2025">15. Kolme Koolimaja jooks</a>
 <span class="d">27. september 2025</span></li>
 <li><a class="n" href="/race/22-haanja100-mtb-2025">22. Haanja100 MTB</a>
 <span class="d">27. september 2025 · Kubija hotell-loodusspaa</span></li>
@@ -448,7 +473,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. september 2025 · Heino Lipu staadion</span></li>
 <li><a class="n" href="/race/kaapa-kooli-sugisene-trepijooks-2025">Kääpa Kooli sügisene trepijooks</a>
 <span class="d">25. september 2025 · Kääpa kool</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2025">Keila Seeriajooksu 8. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-8-etapp-2025">Keila seeriajooksu 8. etapp</a>
 <span class="d">25. september 2025</span></li>
 <li><a class="n" href="/race/kepikond-2025">kepikõnd</a>
 <span class="d">25. september 2025 · Võidu Park</span></li>
@@ -544,11 +569,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. september 2025 · Lille tn 2</span></li>
 <li><a class="n" href="/race/jooksupaev-2025">Jooksupäev</a>
 <span class="d">24. september 2025 · Oru Lasteaed Mesimumm</span></li>
-<li><a class="n" href="/race/kangru-ohtujooks-2025">Kangru Õhtujooks</a>
+<li><a class="n" href="/race/kangru-ohtujooks-2025">Kangru õhtujooks</a>
 <span class="d">24. september 2025</span></li>
 <li><a class="n" href="/race/la-tareke-swedbanki-tallinna-maratoni-virtuaalne-lastejooks--2025">LA Tareke, Swedbanki Tallinna Maratoni virtuaalne lastejooks 2025</a>
 <span class="d">24. september 2025 · Ahtme Spordihall</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-panga-2025">Läänemaa Orienteerumiskolmapäevakud Panga</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-panga-2025">Läänemaa orienteerumiskolmapäevakud Panga</a>
 <span class="d">24. september 2025 · Ridala Põhikool</span></li>
 <li><a class="n" href="/race/lasteaedade-liikumispaev-2025">Lasteaedade liikumispäev</a>
 <span class="d">24. september 2025 · Halliste Lasteaed Pääsuke</span></li>
@@ -606,15 +631,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2025 · Muuseumi 3</span></li>
 <li><a class="n" href="/race/24-7fitness-spordiklubi-avatud-uste-nadal-2025">24-7fitness spordiklubi avatud uste nädal</a>
 <span class="d">23. september 2025 · 24-7fitness Laki</span></li>
-<li><a class="n" href="/race/42-turi-metsajooks-2025">42. Türi Metsajooks</a>
+<li><a class="n" href="/race/42-turi-metsajooks-2025">42. Türi metsajooks</a>
 <span class="d">23. september 2025 · Türi jalgpallistaadion</span></li>
 <li><a class="n" href="/race/aktiivsed-sipsikud-osalevad-spordinadalas-2025">Aktiivsed Sipsikud osalevad spordinädalas.</a>
 <span class="d">23. september 2025 · Koolieelne Lasteasutus SIPSIK</span></li>
 <li><a class="n" href="/race/alu-kooli-spordinadal-2025">Alu Kooli spordinädal</a>
 <span class="d">23. september 2025 · Alu jalgpalliväljak</span></li>
-<li><a class="n" href="/race/alutaguse-lasteaed-kurekell-spordinadal-2025">Alutaguse Lasteaed Kurekell Spordinädal</a>
+<li><a class="n" href="/race/alutaguse-lasteaed-kurekell-spordinadal-2025">Alutaguse Lasteaed Kurekell spordinädal</a>
 <span class="d">23. september 2025 · Iisaku</span></li>
-<li><a class="n" href="/race/alutaguse-lasteaed-toruke-spordinadal-2025">Alutaguse Lasteaed Tõruke Spordinädal</a>
+<li><a class="n" href="/race/alutaguse-lasteaed-toruke-spordinadal-2025">Alutaguse Lasteaed Tõruke spordinädal</a>
 <span class="d">23. september 2025 · Mäetaguse</span></li>
 <li><a class="n" href="/race/bert-tippi-2025-2">Bert Tippi</a>
 <span class="d">23. september 2025 · Karulaugu terviserada</span></li>
@@ -664,7 +689,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2025 · Kärla</span></li>
 <li><a class="n" href="/race/kehra-lasteaedade-lastetare-ja-lepatriinu-spordinadal-2025">Kehra lasteaedade Lastetare ja Lepatriinu spordinädal</a>
 <span class="d">23. september 2025 · Kehra</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2025">Keila Seeriajooksu 7. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-7-etapp-2025">Keila seeriajooksu 7. etapp</a>
 <span class="d">23. september 2025</span></li>
 <li><a class="n" href="/race/kolde-lapsed-jooksma-2025">Kolde lapsed jooksma!</a>
 <span class="d">23. september 2025 · Kolde Lasteaed</span></li>
@@ -704,7 +729,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2025 · J.V. Veski nimeline Maarja-Magdaleena Põhikool</span></li>
 <li><a class="n" href="/race/liikumine-on-seltskond-2025">Liikumine on seltskond</a>
 <span class="d">23. september 2025 · Vana-Vigala Lasteaed</span></li>
-<li><a class="n" href="/race/manni-lasteaia-rattaralli-2025">Männi Lasteaia Rattaralli</a>
+<li><a class="n" href="/race/manni-lasteaia-rattaralli-2025">Männi Lasteaia rattaralli</a>
 <span class="d">23. september 2025 · Kohila Lasteaed Männi</span></li>
 <li><a class="n" href="/race/meremiilijooks-2025">Meremiilijooks</a>
 <span class="d">23. september 2025 · Pärnu rand</span></li>
@@ -714,7 +739,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2025 · Tõrva Gümnaasiumi staadion ja palliväljak</span></li>
 <li><a class="n" href="/race/murdmaajooks-funrun-2025">Murdmaajooks &quot; FUNRUN&quot;</a>
 <span class="d">23. september 2025 · Paikuse Põhikool</span></li>
-<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2025-2025">Näpi Kooli Spordinädal (23.-30.09.2025)</a>
+<li><a class="n" href="/race/napi-kooli-spordinadal-23-30-09-2025-2025">Näpi kooli spordinädal (23.-30.09.2025)</a>
 <span class="d">23. september 2025 · Näpi Kooli võimla</span></li>
 <li><a class="n" href="/race/narva-kesklinna-kooli-klasside-liikumispaevad-2025">Narva Kesklinna Kooli klasside liikumispäevad</a>
 <span class="d">23. september 2025 · Narva Kesklinna Gümnaasium</span></li>
@@ -744,7 +769,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2025 · Peetri Lasteaed-Põhikool</span></li>
 <li><a class="n" href="/race/pelguranna-lasteaia-spordinadal-2025">Pelguranna lasteaia spordinädal</a>
 <span class="d">23. september 2025 · Pelguranna Lasteaed</span></li>
-<li><a class="n" href="/race/poska-liigub-2025">Poska Liigub</a>
+<li><a class="n" href="/race/poska-liigub-2025">Poska liigub</a>
 <span class="d">23. september 2025 · Vanemuise 35</span></li>
 <li><a class="n" href="/race/pug-maastikumang-2025">PÜG maastikumäng</a>
 <span class="d">23. september 2025 · Veski 5</span></li>
@@ -914,7 +939,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. september 2025 · Rõuge Põhikool</span></li>
 <li><a class="n" href="/race/sugisene-rattamatk-2025">Sügisene Rattamatk</a>
 <span class="d">22. september 2025 · Rõngu Keskkool</span></li>
-<li><a class="n" href="/race/sugisene-spordinadal-tallinna-loitsu-lasteaias-2025">Sügisene Spordinädal Tallinna Loitsu Lasteaias</a>
+<li><a class="n" href="/race/sugisene-spordinadal-tallinna-loitsu-lasteaias-2025">Sügisene spordinädal Tallinna Loitsu Lasteaias</a>
 <span class="d">22. september 2025 · Tallinna Loitsu lasteaed</span></li>
 <li><a class="n" href="/race/tahetera-spordinadal-2025">TäheTERA spordinädal</a>
 <span class="d">22. september 2025 · Tartu Erakool</span></li>
@@ -930,7 +955,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. september 2025 · Vikerlase 16</span></li>
 <li><a class="n" href="/race/torma-pohikooli-spordinadal-2025">Torma Põhikooli spordinädal</a>
 <span class="d">22. september 2025 · Carl Robert Jakobsoni nim Torma Põhikool</span></li>
-<li><a class="n" href="/race/tour-d-oo-tallinn-x-autovaba-paev-2025">Tour D&#39;Öö Tallinn X Autovaba Päev</a>
+<li><a class="n" href="/race/tour-d-oo-tallinn-x-autovaba-paev-2025">Tour D&#39;Öö Tallinn X Autovaba päev</a>
 <span class="d">22. september 2025 · Pirita Surfiklubi</span></li>
 <li><a class="n" href="/race/vaikeste-seiklejate-nadal-2025">Väikeste Seiklejate Nädal</a>
 <span class="d">22. september 2025 · Põltsamaa Valla Lasteaed</span></li>
@@ -948,7 +973,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. september 2025 · Vabaduse väljak</span></li>
 <li><a class="n" href="/race/karujarve-sugisjooks-2025">Karujärve Sügisjooks</a>
 <span class="d">21. september 2025 · Karujärve Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/kose-maastiku-takistusjooksu-voistlus-vale-ja-visa-2025">Kose Maastiku-Takistusjooksu Võistlus „Väle Ja Visa“</a>
+<li><a class="n" href="/race/kose-maastiku-takistusjooksu-voistlus-vale-ja-visa-2025">Kose Maastiku-Takistusjooksu võistlus „Väle ja Visa“</a>
 <span class="d">21. september 2025</span></li>
 <li><a class="n" href="/race/liikudes-tervemaks-sudamejooks-2025">Liikudes Tervemaks: Südamejooks</a>
 <span class="d">21. september 2025 · Kuressaare Tervisepark</span></li>
@@ -970,9 +995,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. september 2025 · Järva-Jaani discgolfi rada</span></li>
 <li><a class="n" href="/race/kentsi-ring-2025-rahvajooks-2025">Kentsi Ring 2025 rahvajooks</a>
 <span class="d">20. september 2025 · Annikoru tee 17</span></li>
-<li><a class="n" href="/race/laane-harju-valla-majakajooks-2025-2025">Lääne-Harju Valla Majakajooks 2025</a>
+<li><a class="n" href="/race/laane-harju-valla-majakajooks-2025-2025">Lääne-Harju valla Majakajooks 2025</a>
 <span class="d">20. september 2025 · Paldiski Keskväljak</span></li>
-<li><a class="n" href="/race/laane-harju-valla-paldiski-majaka-jooks-2025">Lääne-Harju Valla, Paldiski Majaka Jooks</a>
+<li><a class="n" href="/race/laane-harju-valla-paldiski-majaka-jooks-2025">Lääne-Harju valla, Paldiski Majaka jooks</a>
 <span class="d">20. september 2025</span></li>
 <li><a class="n" href="/race/laste-rattakross-2025">Laste Rattakross</a>
 <span class="d">20. september 2025 · Kohila Spordikeskuse terviserada</span></li>
@@ -982,7 +1007,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. september 2025 · Narva linn</span></li>
 <li><a class="n" href="/race/perepaev-2025">Perepäev</a>
 <span class="d">20. september 2025 · Järve terviserada</span></li>
-<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2025">Tupiku Igamehe Maastikumaraton</a>
+<li><a class="n" href="/race/tupiku-igamehe-maastikumaraton-2025">Tupiku Igamehe maastikumaraton</a>
 <span class="d">20. september 2025</span></li>
 <li><a class="n" href="/race/vortsjarve-klassikaline-enduro-2025-2025">Võrtsjärve Klassikaline Enduro 2025</a>
 <span class="d">20. september 2025</span></li>
@@ -1000,15 +1025,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. september 2025 · Eistvere järv</span></li>
 <li><a class="n" href="/race/ida-virumaa-kuldliiga-i-etapp-kivioli-2025">Ida-Virumaa Kuldliiga I etapp - Kiviõli</a>
 <span class="d">18. september 2025 · Kiviõli Linna Spordiklubi</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2025">Keila Seeriajooksu 6. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-6-etapp-2025">Keila seeriajooksu 6. etapp</a>
 <span class="d">18. september 2025</span></li>
 <li><a class="n" href="/race/konnisundmus-liigume-koos-vol-6-2025">Kõnnisündmus &quot;Liigume koos!&quot; vol 6</a>
 <span class="d">18. september 2025 · Tartu Descartes`i Kooli võimlemisväljak</span></li>
 <li><a class="n" href="/race/ridala-pohikooli-kooliolumpiamangud-2025">Ridala põhikooli kooliolümpiamängud</a>
 <span class="d">18. september 2025 · Ridala Põhikool</span></li>
-<li><a class="n" href="/race/saku-lastesarja-4-etapp-2025">Saku Lastesarja 4. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-4-etapp-2025">Saku lastesarja 4. etapp</a>
 <span class="d">18. september 2025</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-pullapaa-2025">Läänemaa Orienteerumiskolmapäevakud Pullapää</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-pullapaa-2025">Läänemaa orienteerumiskolmapäevakud Pullapää</a>
 <span class="d">17. september 2025 · Pullapää Klindimägi</span></li>
 <li><a class="n" href="/race/laiuse-jaan-poska-pohikooli-spordinadal-2025">Laiuse Jaan Poska Põhikooli spordinädal</a>
 <span class="d">17. september 2025 · Laiuse Jaan Poska Põhikooli staadion ja korvpalliplats</span></li>
@@ -1018,7 +1043,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. september 2025 · Ümera 9</span></li>
 <li><a class="n" href="/race/karavete-umber-jarve-jooks-ambla-sk-sv-etapp-2025">Käravete ümber järve jooks Ambla SK SV etapp</a>
 <span class="d">16. september 2025 · Käravete järv</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2025">Keila Seeriajooksu 5. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-5-etapp-2025">Keila seeriajooksu 5. etapp</a>
 <span class="d">16. september 2025</span></li>
 <li><a class="n" href="/race/swedbanki-tallinna-maraton-2025">Swedbanki Tallinna Maraton</a>
 <span class="d">16. september 2025 · Suure-Jaani</span></li>
@@ -1026,7 +1051,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">16. september 2025 · Tähtvere Spordipark</span></li>
 <li><a class="n" href="/race/annelinna-spordibingo-2025">Annelinna Spordibingo</a>
 <span class="d">15. september 2025 · Tartu Lasteaed Poku</span></li>
-<li><a class="n" href="/race/lasteaed-paikene-spordinadal-2025">Lasteaed Päikene Spordinädal</a>
+<li><a class="n" href="/race/lasteaed-paikene-spordinadal-2025">Lasteaed Päikene spordinädal</a>
 <span class="d">15. september 2025 · Lasteaed Päikene</span></li>
 <li><a class="n" href="/race/somerpalu-maja-spordinadal-sport-teeb-meele-roomsaks-2025">Sõmerpalu maja Spordinädal &quot;Sport teeb meele rõõmsaks!&quot;</a>
 <span class="d">15. september 2025 · Sõmerpalu</span></li>
@@ -1050,7 +1075,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. september 2025 · Vabaduse väljak</span></li>
 <li><a class="n" href="/race/swedbanki-tallinna-maraton-teatemaraton-42-2-km-2025">Swedbanki Tallinna Maraton - Teatemaraton 42,2 km</a>
 <span class="d">14. september 2025 · Vabaduse väljak</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2025">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2025">Tallinna maraton</a>
 <span class="d">14. september 2025 · Tallinn - Falgi tee</span></li>
 <li><a class="n" href="/race/26-tallinna-sugisjooks-2025">26. Tallinna Sügisjooks</a>
 <span class="d">13. september 2025 · Tallinn - Falgi tee</span></li>
@@ -1060,13 +1085,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. september 2025 · Heino Lipu staadion</span></li>
 <li><a class="n" href="/race/linnuriigi-paev-2025">Linnuriigi päev</a>
 <span class="d">13. september 2025 · Kotka tn</span></li>
-<li><a class="n" href="/race/mustamae-laste-ja-noorte-sugisjooks-2025">Mustamäe Laste- Ja Noorte Sügisjooks</a>
+<li><a class="n" href="/race/mustamae-laste-ja-noorte-sugisjooks-2025">Mustamäe Laste- Ja Noorte sügisjooks</a>
 <span class="d">13. september 2025</span></li>
 <li><a class="n" href="/race/nike-noortejooks-2025">Nike Noortejooks</a>
 <span class="d">13. september 2025 · Tallinn - Vabaduse väljak</span></li>
 <li><a class="n" href="/race/nomme-huvikooli-seeriavoistlus-kabes-2025-4">Nõmme huvikooli seeriavõistlus kabes</a>
 <span class="d">13. september 2025 · Vikerkaare 10</span></li>
-<li><a class="n" href="/race/paekna-jarve-jooks-2025">Paekna Järve Jooks</a>
+<li><a class="n" href="/race/paekna-jarve-jooks-2025">Paekna järve jooks</a>
 <span class="d">13. september 2025</span></li>
 <li><a class="n" href="/race/ramuddden-11-valgehobusemae-rattamaraton-estonian-cup-2025">Ramuddden 11. Valgehobusemäe Rattamaraton (Estonian Cup)</a>
 <span class="d">13. september 2025 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
@@ -1082,7 +1107,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. september 2025 · Antsla</span></li>
 <li><a class="n" href="/race/liikumiskuu-2025">Liikumiskuu</a>
 <span class="d">12. september 2025 · Kose-Uuemõisa staadion ja rannavõrkpalliplats</span></li>
-<li><a class="n" href="/race/xix-saue-ohtujooks-2025">Xix Saue Õhtujooks</a>
+<li><a class="n" href="/race/xix-saue-ohtujooks-2025">XIX Saue õhtujooks</a>
 <span class="d">12. september 2025 · Saue Gümnaasiumi staadion</span></li>
 <li><a class="n" href="/race/kogu-kool-spordib-2025">Kogu Kool Spordib!</a>
 <span class="d">11. september 2025 · Surju Kooli staadion</span></li>
@@ -1094,9 +1119,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. september 2025 · Rapla Lasteaed Naksitrallid</span></li>
 <li><a class="n" href="/race/viljandi-30-jarvejooksu-6-etapp-2025">Viljandi 30. Järvejooksu 6. etapp</a>
 <span class="d">11. september 2025 · Tervise- ja suusarada ümber Viljandi järve</span></li>
-<li><a class="n" href="/race/kiili-rattakross55-2025">Kiili Rattakross55</a>
+<li><a class="n" href="/race/kiili-rattakross55-2025">Kiili rattakross55</a>
 <span class="d">10. september 2025</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-uuemoisa-2025">Läänemaa Orienteerumiskolmapäevakud Uuemõisa</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-uuemoisa-2025">Läänemaa orienteerumiskolmapäevakud Uuemõisa</a>
 <span class="d">10. september 2025 · Uuemõisa Lasteaed- Algkool</span></li>
 <li><a class="n" href="/race/liikudes-tervemaks-mo-saaremaa-kissellijooks-2025">Liikudes Tervemaks - MO Saaremaa kissellijooks</a>
 <span class="d">10. september 2025 · Kuressaare linnastaadion</span></li>
@@ -1122,19 +1147,17 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. september 2025 · Kastani pst 12</span></li>
 <li><a class="n" href="/race/preediku-jooks-ambla-sk-sv-vi-etapp-2025">Preediku jooks, Ambla SK SV VI etapp</a>
 <span class="d">9. september 2025 · Preediku järv</span></li>
-<li><a class="n" href="/race/25-juri-jaansoni-kahe-silla-jooks-2025">25. Jüri Jaansoni Kahe Silla jooks</a>
-<span class="d">7. september 2025 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-gravelis-2025">Eesti meistrivõistlused gravelis</a>
 <span class="d">7. september 2025 · Sinimäe</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-kepikonnis-2025">Eesti meistrivõistlused kepikõnnis</a>
 <span class="d">7. september 2025 · Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/mustamae-sugisene-perepaev-rahvajooks-2025">Mustamäe Sügisene Perepäev, Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-sugisene-perepaev-rahvajooks-2025">Mustamäe Sügisene Perepäev, rahvajooks</a>
 <span class="d">7. september 2025 · Kadaka Staadion</span></li>
 <li><a class="n" href="/race/puhapaev-spordiga-2025">Pühapäev Spordiga</a>
 <span class="d">7. september 2025 · Kuressaare linnastaadion</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-metsajooks-2025-2025">Sportland Kõrvemaa Metsajooks 2025</a>
 <span class="d">7. september 2025 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/25-juri-jaansoni-kahe-silla-jooks-2025-2">25. Jüri Jaansoni Kahe Silla jooks</a>
+<li><a class="n" href="/race/25-juri-jaansoni-kahe-silla-jooks-2025">25. Jüri Jaansoni Kahe Silla jooks</a>
 <span class="d">6. september 2025 · Endla Teater</span></li>
 <li><a class="n" href="/race/alansi-motopaev-emv-baltic-cup-laste-atv-hobikross-2025">Alansi Motopäev: EMV/Baltic Cup/Laste ATV Hobikross</a>
 <span class="d">6. september 2025</span></li>
@@ -1142,9 +1165,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. september 2025 · Põhja-Tallinna linnaosa</span></li>
 <li><a class="n" href="/race/jarvakandi-duatlon-2025">Järvakandi Duatlon</a>
 <span class="d">6. september 2025</span></li>
-<li><a class="n" href="/race/linnamae-rattasoit-2025">Linnamäe Rattasõit</a>
+<li><a class="n" href="/race/linnamae-rattasoit-2025">Linnamäe rattasõit</a>
 <span class="d">6. september 2025</span></li>
-<li><a class="n" href="/race/parnu-ohtujooks-2025">Pärnu Õhtujooks</a>
+<li><a class="n" href="/race/parnu-ohtujooks-2025">Pärnu õhtujooks</a>
 <span class="d">6. september 2025 · Pärnu - Vaasa park ja Keskväljak</span></li>
 <li><a class="n" href="/race/ida-viru-jooksusari-toila-rahvajooks-2025">Ida-Viru jooksusari - Toila Rahvajooks</a>
 <span class="d">5. september 2025 · Toila SPA Hotell</span></li>
@@ -1158,9 +1181,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. september 2025 · Viljandi Kesklinna Kool (algklassid)</span></li>
 <li><a class="n" href="/race/magede-jarve-jooks-7-jarvamaa-jarvede-jooksud-8-etapp-ambla--2025">Mägede järve jooks, 7.Järvamaa Järvede jooksud 8.etapp, Ambla SK SV I etapp</a>
 <span class="d">4. september 2025 · Mägede</span></li>
-<li><a class="n" href="/race/saku-lastesarja-3-etapp-2025">Saku Lastesarja 3. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-3-etapp-2025">Saku lastesarja 3. etapp</a>
 <span class="d">4. september 2025</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-palivere-2025">Läänemaa Orienteerumiskolmapäevakud Palivere</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-palivere-2025">Läänemaa orienteerumiskolmapäevakud Palivere</a>
 <span class="d">3. september 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/49-jarvamaa-orienteerumispaevakud-viii-etapp-2025">49. Järvamaa orienteerumispäevakud VIII etapp</a>
 <span class="d">2. september 2025 · Vetla-Taganurga orienteerumiskaart</span></li>
@@ -1170,7 +1193,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. september 2025 · Krootuse kool</span></li>
 <li><a class="n" href="/race/sammukogumisvaljakutse-liikumine-on-seltskond-2025">Sammukogumisväljakutse &quot;Liikumine on seltskond&quot;</a>
 <span class="d">1. september 2025 · Kadriorg</span></li>
-<li><a class="n" href="/race/7-silda-ujumismatk-2025-2025">7 Silda Ujumismatk 2025</a>
+<li><a class="n" href="/race/7-silda-ujumismatk-2025-2025">7 silda ujumismatk 2025</a>
 <span class="d">31. august 2025 · Liiva 3</span></li>
 <li><a class="n" href="/race/fred-kudu-lastevoistlus-2025">Fred Kudu lastevõistlus</a>
 <span class="d">31. august 2025 · Tamme staadion</span></li>
@@ -1178,21 +1201,21 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. august 2025 · Jõulumäe Tervisespordikeskuse discgolfi park</span></li>
 <li><a class="n" href="/race/juri-ratase-xix-jalgrattavoistlus-2025">Jüri Ratase XIX Jalgrattavõistlus</a>
 <span class="d">31. august 2025 · Tallinn, Pirita Spordikeskus</span></li>
-<li><a class="n" href="/race/mustamae-vii-rahvajooks-2025">Mustamäe VII Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-vii-rahvajooks-2025">Mustamäe VII rahvajooks</a>
 <span class="d">31. august 2025</span></li>
 <li><a class="n" href="/race/28-tallinna-rattamaraton-2025">28. Tallinna Rattamaraton</a>
 <span class="d">30. august 2025 · Sportland Kõrvemaa Matka- ja Suusakeskus</span></li>
-<li><a class="n" href="/race/8-kristiine-rahvajooks-2025">8. Kristiine Rahvajooks</a>
+<li><a class="n" href="/race/8-kristiine-rahvajooks-2025">8. Kristiine rahvajooks</a>
 <span class="d">30. august 2025 · Kristiine, Löwenruhe park</span></li>
 <li><a class="n" href="/race/brc-turbo-relay-2025">BRC Turbo Relay</a>
 <span class="d">30. august 2025 · Putukaväil</span></li>
 <li><a class="n" href="/race/kloogaranna-liigub-2025">Kloogaranna liigub</a>
 <span class="d">30. august 2025 · Kloogaranna korvpalliplats</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissari-klooga-ranna-liigub-2025">Lääne-Harju Liikumissari Klooga-Ranna Liigub</a>
+<li><a class="n" href="/race/laane-harju-liikumissari-klooga-ranna-liigub-2025">Lääne-Harju Liikumissari Klooga-Ranna liigub</a>
 <span class="d">30. august 2025</span></li>
 <li><a class="n" href="/race/red-bull-tour-of-vikings-2025">Red Bull Tour of Vikings</a>
 <span class="d">30. august 2025 · Saaremaa</span></li>
-<li><a class="n" href="/race/sillamae-ultra-2025-eesti-meistrivoistlused-100-km-jooksus-2025">Sillamäe Ultra 2025, Eesti Meistrivõistlused 100 Km Jooksus</a>
+<li><a class="n" href="/race/sillamae-ultra-2025-eesti-meistrivoistlused-100-km-jooksus-2025">Sillamäe Ultra 2025, Eesti meistrivõistlused 100 km jooksus</a>
 <span class="d">30. august 2025</span></li>
 <li><a class="n" href="/race/horeda-moisa-jooks-2025">Hõreda mõisa jooks</a>
 <span class="d">29. august 2025 · Hõreda mõis</span></li>
@@ -1246,7 +1269,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. august 2025 · Võru linna keskväljak</span></li>
 <li><a class="n" href="/race/balti-keti-velotuur-2025-baltic-chain-tour-2025-2025">Balti Keti Velotuur 2025/ Baltic Chain Tour 2025</a>
 <span class="d">21. august 2025 · Eesti Rahva Muuseum</span></li>
-<li><a class="n" href="/race/tervisekassa-triatlon-2025">Tervisekassa Triatlon</a>
+<li><a class="n" href="/race/tervisekassa-triatlon-2025">Tervisekassa triatlon</a>
 <span class="d">21. august 2025</span></li>
 <li><a class="n" href="/race/2025-virtus-swimming-championships-2025">2025 Virtus Swimming Championships</a>
 <span class="d">20. august 2025 · Bangkok</span></li>
@@ -1262,21 +1285,21 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. august 2025 · Türi orienteerumiskaart</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2025">Pärnu Aastajooksud</a>
 <span class="d">19. august 2025 · Reiu-Raeküla terviserada</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-2-etapp-2025">Tallinna Kiiruisuklubi Sprindisarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-2-etapp-2025">Tallinna kiiruisuklubi sprindisarja 2. etapp</a>
 <span class="d">18. august 2025</span></li>
 <li><a class="n" href="/race/husqvarna-eesti-olumpiakrossi-karikasari-iii-etapp-valgehobu-2025">Husqvarna Eesti Olümpiakrossi Karikasari III etapp - Valgehobusemäe XCO</a>
 <span class="d">17. august 2025 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
-<li><a class="n" href="/race/kohtla-nomme-enduro-emv-ekv-2025-2-paev-2025">Kohtla-Nõmme Enduro EMV/Ekv 2025 – 2. Päev</a>
+<li><a class="n" href="/race/kohtla-nomme-enduro-emv-ekv-2025-2-paev-2025">Kohtla-Nõmme Enduro EMV/Ekv 2025 – 2. päev</a>
 <span class="d">17. august 2025</span></li>
 <li><a class="n" href="/race/caspar-austa-valjalangemissoit-2025">Caspar Austa Väljalangemissõit</a>
 <span class="d">16. august 2025 · MTÜ Estonia Elamuspark</span></li>
 <li><a class="n" href="/race/jarlepa-superliiga-2025-2025">Järlepa superliiga 2025</a>
 <span class="d">16. august 2025 · Järlepa mõis</span></li>
-<li><a class="n" href="/race/jarlepa-superliiga-triatlon-2025">Järlepa Superliiga Triatlon</a>
+<li><a class="n" href="/race/jarlepa-superliiga-triatlon-2025">Järlepa Superliiga triatlon</a>
 <span class="d">16. august 2025</span></li>
-<li><a class="n" href="/race/jarvakandi-xiii-igamehe-maraton-2025-2025">Järvakandi Xiii Igamehe Maraton 2025</a>
+<li><a class="n" href="/race/jarvakandi-xiii-igamehe-maraton-2025-2025">Järvakandi XIII Igamehe maraton 2025</a>
 <span class="d">16. august 2025</span></li>
-<li><a class="n" href="/race/kohtla-nomme-enduro-emv-ekv-2025-1-paev-2025">Kohtla-Nõmme Enduro EMV/Ekv 2025 – 1. Päev</a>
+<li><a class="n" href="/race/kohtla-nomme-enduro-emv-ekv-2025-1-paev-2025">Kohtla-Nõmme Enduro EMV/Ekv 2025 – 1. päev</a>
 <span class="d">16. august 2025</span></li>
 <li><a class="n" href="/race/lehtse-romuring-2025">Lehtse Romuring</a>
 <span class="d">16. august 2025</span></li>
@@ -1320,7 +1343,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. august 2025 · Paistu</span></li>
 <li><a class="n" href="/race/e-piim-22-kullamaa-rattasoit-laanemaa-meistrivoistlused-jalg-2025">E-PIIM 22. Kullamaa rattasõit, Läänemaa meistrivõistlused jalgrattakrossis</a>
 <span class="d">9. august 2025 · Kullamaa</span></li>
-<li><a class="n" href="/race/e-piim-kullamaa-22-rattasoit-2025">E-Piim Kullamaa 22. Rattasõit</a>
+<li><a class="n" href="/race/e-piim-kullamaa-22-rattasoit-2025">E-Piim Kullamaa 22. rattasõit</a>
 <span class="d">9. august 2025</span></li>
 <li><a class="n" href="/race/filter-maanteekarikasari-suurel-munamael-3-etapp-2025">Filter Maanteekarikasari Suurel Munamäel (3. etapp)</a>
 <span class="d">9. august 2025 · Haanja spordi- ja puhkekeskus</span></li>
@@ -1358,7 +1381,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. august 2025 · Rakke Linnamäe staadion</span></li>
 <li><a class="n" href="/race/vaana-joesuu-jooks-2025">Vääna-Jõesuu jooks</a>
 <span class="d">3. august 2025 · Vääna-Jõesuu</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-2025">Vägilase Jooksusarja 3. Etapp – Lähte</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-3-etapp-lahte-2025">Vägilase jooksusarja 3. etapp – Lähte</a>
 <span class="d">3. august 2025</span></li>
 <li><a class="n" href="/race/8th-e-dition-eutr-estonia-ultra-trail-race-2025">8th E dition EUTR - Estonia Ultra-Trail Race</a>
 <span class="d">2. august 2025 · Äkkeküla tee</span></li>
@@ -1368,9 +1391,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. august 2025</span></li>
 <li><a class="n" href="/race/mapri-ehitus-x-oovagilane-2025">Mapri Ehitus x Öövägilane</a>
 <span class="d">2. august 2025 · Lähte terviserajad ja jõulinnak</span></li>
-<li><a class="n" href="/race/murutraktorite-kestvuskross-iii-etapp-moisakula-2025">Murutraktorite Kestvuskross III Etapp Mõisaküla</a>
+<li><a class="n" href="/race/murutraktorite-kestvuskross-iii-etapp-moisakula-2025">Murutraktorite Kestvuskross III etapp Mõisaküla</a>
 <span class="d">2. august 2025</span></li>
-<li><a class="n" href="/race/oismae-raba-terviseraja-jooks-2025">Õismäe Raba Terviseraja Jooks</a>
+<li><a class="n" href="/race/oismae-raba-terviseraja-jooks-2025">Õismäe Raba Terviseraja jooks</a>
 <span class="d">2. august 2025</span></li>
 <li><a class="n" href="/race/oovagilane-2025">Öövägilane</a>
 <span class="d">2. august 2025</span></li>
@@ -1380,7 +1403,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. august 2025 · Suure-Jaani paisjärv</span></li>
 <li><a class="n" href="/race/vaatsa-rahvatriatlon-2025">Väätsa Rahvatriatlon</a>
 <span class="d">2. august 2025 · Väätsa Weikpark</span></li>
-<li><a class="n" href="/race/vaatsa-triatlon-2025">Väätsa Triatlon</a>
+<li><a class="n" href="/race/vaatsa-triatlon-2025">Väätsa triatlon</a>
 <span class="d">2. august 2025</span></li>
 <li><a class="n" href="/race/xxxvi-vanad-olumpiaalad-2025">XXXVI Vanad Olümpiaalad</a>
 <span class="d">2. august 2025 · Suure-Jaani</span></li>
@@ -1400,23 +1423,23 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. juuli 2025 · Türi Ühisgümnaasium</span></li>
 <li><a class="n" href="/race/vorbuse-tt4-transtar-temposari-iv-etapp-2025">Vorbuse TT4 - Transtar Temposari IV etapp</a>
 <span class="d">30. juuli 2025 · Vorbuse</span></li>
-<li><a class="n" href="/race/23-kilingi-nomme-triatlon-2025">23. Kilingi-Nõmme Triatlon</a>
+<li><a class="n" href="/race/23-kilingi-nomme-triatlon-2025">23. Kilingi-Nõmme triatlon</a>
 <span class="d">27. juuli 2025</span></li>
 <li><a class="n" href="/race/lelle-moisa-jooks-2025">Lelle mõisa jooks</a>
 <span class="d">27. juuli 2025 · Lelle mõis</span></li>
-<li><a class="n" href="/race/luunja-triatlon-2025">Luunja Triatlon</a>
+<li><a class="n" href="/race/luunja-triatlon-2025">Luunja triatlon</a>
 <span class="d">27. juuli 2025</span></li>
 <li><a class="n" href="/race/otepaa-triatlon-2025">Otepää triatlon</a>
 <span class="d">27. juuli 2025 · Otepää Aedlinna jalgpallistaadion</span></li>
-<li><a class="n" href="/race/25-ebavere-kange-triatlon-2025">25. Ebavere Kange Triatlon</a>
+<li><a class="n" href="/race/25-ebavere-kange-triatlon-2025">25. Ebavere Kange triatlon</a>
 <span class="d">26. juuli 2025</span></li>
-<li><a class="n" href="/race/eesti-seeniorispordi-ja-spordiveteranide-liidu-58-spordimang-2025">Eesti Seeniorispordi Ja Spordiveteranide Liidu 58. Spordimängud</a>
+<li><a class="n" href="/race/eesti-seeniorispordi-ja-spordiveteranide-liidu-58-spordimang-2025">Eesti Seeniorispordi ja Spordiveteranide Liidu 58. Spordimängud</a>
 <span class="d">26. juuli 2025 · Tondi 84</span></li>
 <li><a class="n" href="/race/kohila-sprinditriatlon-2025">Kohila Sprinditriatlon</a>
 <span class="d">26. juuli 2025</span></li>
 <li><a class="n" href="/race/kohila-triatlon-2025-2025">Kohila triatlon 2025</a>
 <span class="d">26. juuli 2025 · Kohila Spordikeskus</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-3-etapp-paldiski-liigub-2025">Lääne-Harju Liikumissarja 3. Etapp, Paldiski Liigub</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-3-etapp-paldiski-liigub-2025">Lääne-Harju Liikumissarja 3. etapp, Paldiski liigub</a>
 <span class="d">26. juuli 2025</span></li>
 <li><a class="n" href="/race/paldiski-liigub-2025">Paldiski liigub</a>
 <span class="d">26. juuli 2025 · Paldiski Spordikeskus</span></li>
@@ -1428,7 +1451,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. juuli 2025 · Türgi</span></li>
 <li><a class="n" href="/race/kesk-eesti-seeriavoistlus-2025-discolfis-2025-2">Kesk-Eesti seeriavõistlus 2025 discolfis</a>
 <span class="d">24. juuli 2025 · Paide Ülejõe discgolfi park</span></li>
-<li><a class="n" href="/race/kiili-triatlon-2025">Kiili Triatlon</a>
+<li><a class="n" href="/race/kiili-triatlon-2025">Kiili triatlon</a>
 <span class="d">24. juuli 2025</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2025-vii-etapp-1000m-2025">Kohila pikamaajooksude sari 2025 VII etapp 1000m</a>
 <span class="d">23. juuli 2025 · Kohila Spordikeskuse staadion</span></li>
@@ -1448,9 +1471,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. juuli 2025 · Pärnu Sõudeklubi</span></li>
 <li><a class="n" href="/race/4-eesti-metsatriatlon-2025">4. Eesti Metsatriatlon</a>
 <span class="d">19. juuli 2025 · Ähijärve</span></li>
-<li><a class="n" href="/race/mustamae-ja-haabersti-i-rahvatriatlon-2025">Mustamäe Ja Haabersti I Rahvatriatlon</a>
+<li><a class="n" href="/race/mustamae-ja-haabersti-i-rahvatriatlon-2025">Mustamäe ja Haabersti I rahvatriatlon</a>
 <span class="d">19. juuli 2025 · Harku järve rand</span></li>
-<li><a class="n" href="/race/mustamae-haabersti-i-rahvatriatlon-2025">Mustamäe-Haabersti I Rahvatriatlon</a>
+<li><a class="n" href="/race/mustamae-haabersti-i-rahvatriatlon-2025">Mustamäe-Haabersti I rahvatriatlon</a>
 <span class="d">19. juuli 2025</span></li>
 <li><a class="n" href="/race/ormso-half-2025">Ormsö Half</a>
 <span class="d">19. juuli 2025 · Vormsi - Rälby</span></li>
@@ -1492,11 +1515,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. juuli 2025 · Mäetaguse mõis</span></li>
 <li><a class="n" href="/race/lauri-ausi-22-malestusvoistlus-2025">Lauri Ausi 22. mälestusvõistlus</a>
 <span class="d">12. juuli 2025 · Pirita Velodroom</span></li>
-<li><a class="n" href="/race/noo-veskijarve-iv-triatlon-2025">Nõo Veskijärve IV Triatlon</a>
+<li><a class="n" href="/race/noo-veskijarve-iv-triatlon-2025">Nõo Veskijärve IV triatlon</a>
 <span class="d">12. juuli 2025 · Nõo - Veskijärv</span></li>
 <li><a class="n" href="/race/pirgu-superliiga-2025-2025">Pirgu superliiga 2025</a>
 <span class="d">12. juuli 2025 · Karitsa järv</span></li>
-<li><a class="n" href="/race/pirgu-superliiga-triatlon-2025">Pirgu Superliiga Triatlon</a>
+<li><a class="n" href="/race/pirgu-superliiga-triatlon-2025">Pirgu Superliiga triatlon</a>
 <span class="d">12. juuli 2025</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-triatlon-2025-2025">Sportland Kõrvemaa Triatlon 2025</a>
 <span class="d">12. juuli 2025 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -1504,7 +1527,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. juuli 2025 · Tallinn</span></li>
 <li><a class="n" href="/race/tori-porgu-rattasoit-2025">Tori Põrgu Rattasõit</a>
 <span class="d">12. juuli 2025 · Tori vallavalitsuse Tori teenuskeskus</span></li>
-<li><a class="n" href="/race/virtsu-merepaeva-jooks-2025">Virtsu Merepäeva Jooks</a>
+<li><a class="n" href="/race/virtsu-merepaeva-jooks-2025">Virtsu Merepäeva jooks</a>
 <span class="d">12. juuli 2025</span></li>
 <li><a class="n" href="/race/kesk-eesti-seeriavoistlus-2025-discolfis-2025-4">Kesk-Eesti seeriavõistlus 2025 discolfis</a>
 <span class="d">10. juuli 2025 · Koeru Laaneotsa discgolfi park</span></li>
@@ -1520,7 +1543,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. juuli 2025 · Kuressaare linnastaadion</span></li>
 <li><a class="n" href="/race/husqvarna-xco-voistlus-jalgratta-maastikukrossis-2025">Husqvarna XCO võistlus jalgratta maastikukrossis</a>
 <span class="d">5. juuli 2025 · Valgehobusemäe spordikeskus</span></li>
-<li><a class="n" href="/race/marjamaa-rahvatriatlon-2025">Märjamaa Rahvatriatlon</a>
+<li><a class="n" href="/race/marjamaa-rahvatriatlon-2025">Märjamaa rahvatriatlon</a>
 <span class="d">5. juuli 2025</span></li>
 <li><a class="n" href="/race/sangaste-valgete-teede-rattaralli-2025-jaab-ara-2025">Sangaste Valgete Teede Rattaralli 2025 - JÄÄB ÄRA!</a>
 <span class="d">5. juuli 2025 · Lossiküla</span></li>
@@ -1532,8 +1555,6 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. juuli 2025 · Türi discgolfi park</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2025-vaela-2025">Škoda MTB Kolmapäevakud 2025 - Vaela</a>
 <span class="d">2. juuli 2025 · Vaela terviserada</span></li>
-<li><a class="n" href="/race/13-narva-linna-jooks-2025">13. Narva Linna Jooks</a>
-<span class="d">29. juuni 2025 · Narva</span></li>
 <li><a class="n" href="/race/narva-linna-jooks-5-km-ja-10-km-2025">Narva Linna Jooks - 5 km ja 10 km</a>
 <span class="d">29. juuni 2025 · Joaorg</span></li>
 <li><a class="n" href="/race/nuuksio-backyard-ultra-2025">Nuuksio Backyard Ultra</a>
@@ -1542,7 +1563,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. juuni 2025 · Võsu</span></li>
 <li><a class="n" href="/race/valga-triatlon-2025">Valga triatlon</a>
 <span class="d">29. juuni 2025 · Pedeli paisjärv</span></li>
-<li><a class="n" href="/race/13-narva-linna-jooks-2025-2">13. Narva Linna Jooks</a>
+<li><a class="n" href="/race/13-narva-linna-jooks-2025">13. Narva linna jooks</a>
 <span class="d">28. juuni 2025 · Joaorg</span></li>
 <li><a class="n" href="/race/kehtna-sprinditriatlon-2025">Kehtna Sprinditriatlon</a>
 <span class="d">28. juuni 2025</span></li>
@@ -1566,9 +1587,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. juuni 2025 · Eidapere mõis</span></li>
 <li><a class="n" href="/race/parnumaa-voidupuha-maraton-2025">Pärnumaa Võidupüha maraton</a>
 <span class="d">22. juuni 2025 · Iseseisvuse väljak</span></li>
-<li><a class="n" href="/race/rulluisu-temposoidu-emv-2025">Rulluisu Temposõidu EMV</a>
+<li><a class="n" href="/race/rulluisu-temposoidu-emv-2025">Rulluisu temposõidu EMV</a>
 <span class="d">22. juuni 2025</span></li>
-<li><a class="n" href="/race/12-koveri-triatlon-2025">12. Kõveri Triatlon</a>
+<li><a class="n" href="/race/12-koveri-triatlon-2025">12. Kõveri triatlon</a>
 <span class="d">21. juuni 2025</span></li>
 <li><a class="n" href="/race/columbia-kivi-eesti-meistrivoistlused-maantee-eraldistardist-2025">Columbia-Kivi Eesti meistrivõistlused maantee eraldistardist sõidus</a>
 <span class="d">21. juuni 2025 · Jüri</span></li>
@@ -1608,11 +1629,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. juuni 2025 · Kalevi Keskstaadion</span></li>
 <li><a class="n" href="/race/xi-kalevi-noortetuur-2025">XI Kalevi Noortetuur</a>
 <span class="d">17. juuni 2025 · Pirita Spordikeskuse tervise- ja suusarajad</span></li>
-<li><a class="n" href="/race/aidu-hard-enduroeesti-hard-enduro-meistri-ja-karikavoistlust-2025">Aidu Hard Enduroeesti Hard Enduro Meistri- Ja Karikavõistluste 1. Etappläti Hard Enduro Meistrivõistluste 4. Etapp – Finaalsõit</a>
+<li><a class="n" href="/race/aidu-hard-enduroeesti-hard-enduro-meistri-ja-karikavoistlust-2025">Aidu Hard Enduroeesti Hard Enduro Meistri- Ja Karikavõistluste 1. Etappläti Hard Enduro Meistrivõistluste 4. etapp – Finaalsõit</a>
 <span class="d">15. juuni 2025</span></li>
-<li><a class="n" href="/race/aidu-hard-enduroeesti-hard-enduro-meistri-ja-karikavoistlust-2025-2">Aidu Hard Enduroeesti Hard Enduro Meistri- Ja Karikavõistluste 1. Etappläti Hard Enduro Meistrivõistluste 4. Etapp – Põhisõidud</a>
+<li><a class="n" href="/race/aidu-hard-enduroeesti-hard-enduro-meistri-ja-karikavoistlust-2025-2">Aidu Hard Enduroeesti Hard Enduro Meistri- Ja Karikavõistluste 1. Etappläti Hard Enduro Meistrivõistluste 4. etapp – Põhisõidud</a>
 <span class="d">15. juuni 2025</span></li>
-<li><a class="n" href="/race/karitsa-superliiga-triatlon-2025">Karitsa Superliiga Triatlon</a>
+<li><a class="n" href="/race/karitsa-superliiga-triatlon-2025">Karitsa Superliiga triatlon</a>
 <span class="d">15. juuni 2025</span></li>
 <li><a class="n" href="/race/karitsa-superliigatriatlon-2025-2025">Karitsa Superliigatriatlon 2025</a>
 <span class="d">15. juuni 2025 · Pirgu terviserada</span></li>
@@ -1628,15 +1649,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. juuni 2025 · Kohila Spordikompleks</span></li>
 <li><a class="n" href="/race/lovo-broloppet-xii-siltajuoksu-2025">Lövö Broloppet – XII Siltajuoksu</a>
 <span class="d">14. juuni 2025</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-turi-alliku-etapp-2025">Murutraktorite Liiga Türi-Alliku Etapp</a>
+<li><a class="n" href="/race/murutraktorite-liiga-turi-alliku-etapp-2025">Murutraktorite Liiga Türi-Alliku etapp</a>
 <span class="d">14. juuni 2025</span></li>
 <li><a class="n" href="/race/2-benno-jooks-2025">2. Benno jooks</a>
 <span class="d">13. juuni 2025 · Tarvastu Gümnaasiumi staadion</span></li>
-<li><a class="n" href="/race/aidu-hard-enduro-proloog-30-km-2025">Aidu Hard Enduro – Proloog 30 Km</a>
+<li><a class="n" href="/race/aidu-hard-enduro-proloog-30-km-2025">Aidu Hard Enduro – Proloog 30 km</a>
 <span class="d">13. juuni 2025</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2025-tartumaa-liigub-etapp-2025">Elva Südaööjooks 2025 Tartumaa Liigub Etapp</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2025-tartumaa-liigub-etapp-2025">Elva südaööjooks 2025 Tartumaa liigub etapp</a>
 <span class="d">13. juuni 2025 · Elva Kultuurikeskus</span></li>
-<li><a class="n" href="/race/saku-lastesarja-2-etapp-2025">Saku Lastesarja 2. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-2-etapp-2025">Saku lastesarja 2. etapp</a>
 <span class="d">12. juuni 2025</span></li>
 <li><a class="n" href="/race/filter-temposari-4-etapp-2025">Filter Temposari (4. etapp)</a>
 <span class="d">11. juuni 2025 · 11616 Tallinn</span></li>
@@ -1658,19 +1679,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. juuni 2025 · Suurupi spordiplats</span></li>
 <li><a class="n" href="/race/vaela-kulajooks-2-0-2025">Vaela Külajooks 2.0</a>
 <span class="d">8. juuni 2025</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2025">Vägilase Jooksusarja 2. Etapp – Rummu</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-2-etapp-rummu-2025">Vägilase jooksusarja 2. etapp – Rummu</a>
 <span class="d">8. juuni 2025</span></li>
 <li><a class="n" href="/race/11-alutaguse-rattamaraton-2025">11. Alutaguse rattamaraton</a>
 <span class="d">7. juuni 2025 · Alutaguse Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/5-ida-virumaa-staadioniultra-2025">5. Ida-Virumaa staadioniultra</a>
 <span class="d">7. juuni 2025 · Kohtla-Nõmme Kooli staadion</span></li>
-<li><a class="n" href="/race/kopli-liinide-jooks-2025">Kopli Liinide Jooks</a>
+<li><a class="n" href="/race/kopli-liinide-jooks-2025">Kopli Liinide jooks</a>
 <span class="d">7. juuni 2025</span></li>
 <li><a class="n" href="/race/lammasmae-eesti-oojooks-rakvere-2025-2025">LAMMASMÄE Eesti Ööjooks - Rakvere 2025</a>
 <span class="d">7. juuni 2025 · Rakvere linn</span></li>
 <li><a class="n" href="/race/polva-maakonna-lahtised-55-meistrivoistlused-orienteerumise--2025-2">Põlva maakonna lahtised 55. meistrivõistlused orienteerumise lühirajal</a>
 <span class="d">7. juuni 2025 · Karaski</span></li>
-<li><a class="n" href="/race/saue-valla-rattaretk-2025-2025">Saue Valla Rattaretk 2025</a>
+<li><a class="n" href="/race/saue-valla-rattaretk-2025-2025">Saue valla Rattaretk 2025</a>
 <span class="d">7. juuni 2025 · Vanamõisa vabaõhukeskus</span></li>
 <li><a class="n" href="/race/kesk-eesti-seeriavoistlus-2025-discolfis-2025-7">Kesk-Eesti seeriavõistlus 2025 discolfis</a>
 <span class="d">5. juuni 2025 · Väätsa discgolfi park</span></li>
@@ -1686,15 +1707,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. juuni 2025 · 11616 Tallinn</span></li>
 <li><a class="n" href="/race/kevek-ja-tartu-kalev-2025-a-staadionijooksu-iii-etapp-2025">KEVEK ja Tartu KALEV 2025.a. STAADIONIJOOKSU III etapp</a>
 <span class="d">4. juuni 2025 · Tamme staadion</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-paralepa-2025">Läänemaa Orienteerumiskolmapäevakud Paralepa</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-paralepa-2025">Läänemaa orienteerumiskolmapäevakud Paralepa</a>
 <span class="d">4. juuni 2025 · Paralepa Terviserada</span></li>
-<li><a class="n" href="/race/ruila-kooli-rattapaev-2025">Ruila Kooli Rattapäev</a>
+<li><a class="n" href="/race/ruila-kooli-rattapaev-2025">Ruila kooli Rattapäev</a>
 <span class="d">4. juuni 2025</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2025-rohuneeme-2025">Škoda MTB Kolmapäevakud 2025 - Rohuneeme</a>
 <span class="d">4. juuni 2025 · Rohuneeme</span></li>
 <li><a class="n" href="/race/viljandimaa-orienteerumispaevakud-5-etapp-2025">Viljandimaa orienteerumispäevakud 5. etapp</a>
 <span class="d">4. juuni 2025 · Viljandi orienteerumiskaart</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-1-etapp-2025">Tallinna Kiiruisuklubi Sprindisarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-sprindisarja-1-etapp-2025">Tallinna kiiruisuklubi sprindisarja 1. etapp</a>
 <span class="d">2. juuni 2025</span></li>
 <li><a class="n" href="/race/turi-rattaralli-virtuaalsoit-ii-etapp-2025">Türi Rattaralli Virtuaalsõit II etapp</a>
 <span class="d">2. juuni 2025 · Türi</span></li>
@@ -1716,15 +1737,15 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. mai 2025 · Jõhvi Muusikaväljak</span></li>
 <li><a class="n" href="/race/kondimootor-30-50-70-tallinn-urban-2025">Kondimootor 30/50/70: Tallinn URBAN</a>
 <span class="d">31. mai 2025 · Nõmme Spordikeskus</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-2-etapp-padise-liigub-2025">Lääne-Harju Liikumissarja 2. Etapp, Padise Liigub</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-2-etapp-padise-liigub-2025">Lääne-Harju Liikumissarja 2. etapp, Padise liigub</a>
 <span class="d">31. mai 2025</span></li>
 <li><a class="n" href="/race/ladies-tour-of-estonia-2025-2025">Ladies Tour of Estonia 2025</a>
 <span class="d">31. mai 2025 · Tartu linn</span></li>
 <li><a class="n" href="/race/mall-kalve-memorial-cup-2025-agg-summer-princess-rg-paikeses-2025">Mall Kalve Memorial Cup 2025 (AGG), Summer Princess (RG), Päikesesära turniir (EST B-grupid)</a>
 <span class="d">31. mai 2025 · Kalevi Spordihall</span></li>
-<li><a class="n" href="/race/mustamae-suvine-perepaev-rahvajooks-2025">Mustamäe Suvine Perepäev, Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-suvine-perepaev-rahvajooks-2025">Mustamäe Suvine Perepäev, rahvajooks</a>
 <span class="d">31. mai 2025 · Kadaka Staadion</span></li>
-<li><a class="n" href="/race/mustamae-vi-rahvajooks-2025">Mustamäe VI Rahvajooks</a>
+<li><a class="n" href="/race/mustamae-vi-rahvajooks-2025">Mustamäe VI rahvajooks</a>
 <span class="d">31. mai 2025</span></li>
 <li><a class="n" href="/race/padise-liigub-2025">Padise liigub</a>
 <span class="d">31. mai 2025 · Lääne-Harju Kultuurikeskus Padise rahvamaja</span></li>
@@ -1736,21 +1757,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. mai 2025 · Kastani pst 12</span></li>
 <li><a class="n" href="/race/roja-ultramaraton-festival-2025">Roja Ultramaraton Festival</a>
 <span class="d">30. mai 2025 · Roja - Latvia</span></li>
-<li><a class="n" href="/race/tour-of-estonia-2025-2025">Tour Of Estonia 2025</a>
-<span class="d">30. mai 2025 · Tallinn - Tartu</span></li>
 <li><a class="n" href="/race/xvii-sakala-mangud-2025">XVII Sakala Mängud</a>
 <span class="d">30. mai 2025 · Mulgi vald</span></li>
-<li><a class="n" href="/race/7-vaatsa-jarve-jooks-2025">7. Väätsa Järve Jooks</a>
+<li><a class="n" href="/race/7-vaatsa-jarve-jooks-2025">7. Väätsa järve jooks</a>
 <span class="d">29. mai 2025</span></li>
 <li><a class="n" href="/race/kesk-eesti-seeriavoistlus-2025-discolfis-2025-8">Kesk-Eesti seeriavõistlus 2025 discolfis</a>
 <span class="d">29. mai 2025 · Väätsa discgolfi park</span></li>
 <li><a class="n" href="/race/paide-tehisjarve-jooks-7-jarvamaa-jarvede-jooksud-4-etapp-2025">Paide tehisjärve jooks , 7. Järvamaa Järvede jooksud 4.etapp</a>
 <span class="d">29. mai 2025 · Paide tehisjärv</span></li>
-<li><a class="n" href="/race/parnumaa-meistrivoistlused-maanteerattasoidus-2025-2025">Pärnumaa Meistrivõistlused Maanteerattasõidus 2025</a>
+<li><a class="n" href="/race/parnumaa-meistrivoistlused-maanteerattasoidus-2025-2025">Pärnumaa meistrivõistlused Maanteerattasõidus 2025</a>
 <span class="d">29. mai 2025 · Uulu</span></li>
-<li><a class="n" href="/race/tour-of-estonia-2025-2025-2">Tour of Estonia 2025</a>
+<li><a class="n" href="/race/tour-of-estonia-2025-2025">Tour of Estonia 2025</a>
 <span class="d">29. mai 2025 · Mercure Tallinn</span></li>
-<li><a class="n" href="/race/xxvi-korghoone-kuninga-jooks-2025">Xxvi Kõrghoone Kuninga Jooks</a>
+<li><a class="n" href="/race/xxvi-korghoone-kuninga-jooks-2025">XXVI Kõrghoone Kuninga jooks</a>
 <span class="d">29. mai 2025</span></li>
 <li><a class="n" href="/race/are-pargijooksud-1-etapp-2025">Are Pargijooksud (1.etapp)</a>
 <span class="d">28. mai 2025 · Are Mõisapargi discgolfi park</span></li>
@@ -1760,7 +1779,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. mai 2025 · Kohila Spordikeskuse staadion</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-mv-2025">Lääne-Virumaa noorte MV</a>
 <span class="d">28. mai 2025 · Kastani pst 12</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-linnamae-2025">Läänemaa Orienteerumiskolmapäevakud Linnamäe</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-linnamae-2025">Läänemaa orienteerumiskolmapäevakud Linnamäe</a>
 <span class="d">28. mai 2025 · Linnamäe küla orienteerumiskaart</span></li>
 <li><a class="n" href="/race/tartu-linna-mv-u14-u16-ja-u18-2025">Tartu linna MV U14,U16 ja U18</a>
 <span class="d">28. mai 2025 · Tartu Tamme staadion</span></li>
@@ -1770,7 +1789,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. mai 2025 · Paide</span></li>
 <li><a class="n" href="/race/parnu-aastajooksud-2025-7">Pärnu Aastajooksud</a>
 <span class="d">27. mai 2025 · Pärnu</span></li>
-<li><a class="n" href="/race/saku-lastesarja-1-etapp-2025">Saku Lastesarja 1. Etapp</a>
+<li><a class="n" href="/race/saku-lastesarja-1-etapp-2025">Saku lastesarja 1. etapp</a>
 <span class="d">27. mai 2025</span></li>
 <li><a class="n" href="/race/viljandi-mk-noorte-tokkejooksu-paev-2025">Viljandi MK Noorte Tõkkejooksu Päev</a>
 <span class="d">27. mai 2025 · Viljandi linnastaadion</span></li>
@@ -1782,23 +1801,21 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. mai 2025 · Kirde 2</span></li>
 <li><a class="n" href="/race/kohila-3-2025-ii-etapp-kohila-rattakross-kannukuningas-2025">Kohila 3 2025 II etapp Kohila rattakross KÄNNUKUNINGAS</a>
 <span class="d">25. mai 2025 · Kohila Aandu rattakrossirada</span></li>
-<li><a class="n" href="/race/kohila-rattakross-kannukuningas-2025">Kohila Rattakross “kännukuningas”</a>
+<li><a class="n" href="/race/kohila-rattakross-kannukuningas-2025">Kohila rattakross “kännukuningas”</a>
 <span class="d">25. mai 2025</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-rattamaraton-2025-2025">Sportland Kõrvemaa Rattamaraton 2025</a>
 <span class="d">25. mai 2025 · Kõrvemaa Matka- ja Suusakeskus</span></li>
 <li><a class="n" href="/race/13-rapla-selveri-suurjooks-2025">13. Rapla SELVERi Suurjooks</a>
 <span class="d">24. mai 2025 · Rapla, SELVER&#39;i parkla</span></li>
-<li><a class="n" href="/race/18-icebug-kova-mehe-jooks-2025">18. ICEBUG Kõva Mehe jooks</a>
-<span class="d">24. mai 2025 · Saunapunkt, Saue vald</span></li>
 <li><a class="n" href="/race/eesti-meistrivoistlused-kriteeriumis-maxilla-67-elva-tanavas-2025">Eesti Meistrivõistlused Kriteeriumis / MAXILLA 67. Elva Tänavasõit</a>
 <span class="d">24. mai 2025 · Puiestee 2</span></li>
 <li><a class="n" href="/race/kohtla-jarve-linna-lahtised-meistrivoistlused-2025">Kohtla-Järve linna lahtised meistrivõistlused</a>
 <span class="d">24. mai 2025 · Heino Lipu staadion</span></li>
-<li><a class="n" href="/race/lehtse-rattakross-2025">Lehtse Rattakross</a>
+<li><a class="n" href="/race/lehtse-rattakross-2025">Lehtse rattakross</a>
 <span class="d">24. mai 2025</span></li>
 <li><a class="n" href="/race/sh-vehendi-rogain-2025">SH Vehendi rogain</a>
 <span class="d">24. mai 2025 · Vehendi</span></li>
-<li><a class="n" href="/race/2025-icebug-kova-mehe-jooks-2025">2025 Icebug Kõva Mehe Jooks</a>
+<li><a class="n" href="/race/2025-icebug-kova-mehe-jooks-2025">2025 Icebug Kõva Mehe jooks</a>
 <span class="d">23. mai 2025 · Saunapunkt</span></li>
 <li><a class="n" href="/race/5-icebug-kova-tiimi-jooks-2025">5. ICEBUG Kõva Tiimi jooks</a>
 <span class="d">23. mai 2025 · Saunapunkt, Saue vald</span></li>
@@ -1822,7 +1839,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2025 · 11616 Tallinn</span></li>
 <li><a class="n" href="/race/kevek-ja-tartu-kalev-2025-a-staadionijooksu-ii-etapp-2025">KEVEK ja Tartu KALEV 2025.a. STAADIONIJOOKSU II etapp</a>
 <span class="d">21. mai 2025 · Tamme staadion</span></li>
-<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-risti-2025">Läänemaa Orienteerumiskolmapäevakud Risti</a>
+<li><a class="n" href="/race/laanemaa-orienteerumiskolmapaevakud-risti-2025">Läänemaa orienteerumiskolmapäevakud Risti</a>
 <span class="d">21. mai 2025 · Risti Kool</span></li>
 <li><a class="n" href="/race/laanemaa-soprade-liiga-seikluspark-2025">Läänemaa Sõprade Liiga - seikluspark</a>
 <span class="d">21. mai 2025 · Haapsalu Seikluspark</span></li>
@@ -1850,7 +1867,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">18. mai 2025 · Tallinn</span></li>
 <li><a class="n" href="/race/1-joulumae-kriteerium-2025">1. Jõulumäe kriteerium</a>
 <span class="d">17. mai 2025 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/38-lhv-maijooks-2025">38. LHV Maijooks</a>
+<li><a class="n" href="/race/38-lhv-maijooks-2025">38. LHV maijooks</a>
 <span class="d">17. mai 2025 · Tallinna Lauluväljak</span></li>
 <li><a class="n" href="/race/kevadakro-2025-2025">KevadAkro 2025</a>
 <span class="d">17. mai 2025 · OMAsaal</span></li>
@@ -1874,7 +1891,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. mai 2025 · Tervise- ja suusarada ümber Viljandi järve</span></li>
 <li><a class="n" href="/race/kohila-pikamaajooksude-sari-2025-ii-etapp-800m-2025">Kohila pikamaajooksude sari 2025 II etapp 800m</a>
 <span class="d">14. mai 2025 · Kohila Spordikeskuse staadion</span></li>
-<li><a class="n" href="/race/soeru-kevadjooks-2025">Sõeru Kevadjooks</a>
+<li><a class="n" href="/race/soeru-kevadjooks-2025">Sõeru kevadjooks</a>
 <span class="d">14. mai 2025</span></li>
 <li><a class="n" href="/race/49-jarvamaa-orienteerumispaevakud-iv-etapp-2025">49. Järvamaa orienteerumispäevakud IV etapp</a>
 <span class="d">13. mai 2025 · Pirgu orienteerumiskaart</span></li>
@@ -1896,7 +1913,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">11. mai 2025 · Viljandi Rotary discgolfi park</span></li>
 <li><a class="n" href="/race/30-palivere-miilijooks-2025">30. Palivere Miilijooks</a>
 <span class="d">10. mai 2025</span></li>
-<li><a class="n" href="/race/43-tartu-maastikumaraton-2025">43. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/43-tartu-maastikumaraton-2025">43. Tartu maastikumaraton</a>
 <span class="d">10. mai 2025 · Tartumaa Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/43-tartu-maastikumaratoni-elva-lastejooks-2025">43. Tartu Maastikumaratoni Elva lastejooks</a>
 <span class="d">10. mai 2025 · Tartumaa Tervisespordikeskus</span></li>
@@ -1906,7 +1923,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. mai 2025 · Kohtla-Järve Kultuurikeskus</span></li>
 <li><a class="n" href="/race/liigume-koos-kogukonnaga-rattamatk-umber-vaatsa-ja-labi-ajal-2025">Liigume koos kogukonnaga-rattamatk ümber Väätsa ja läbi ajaloo</a>
 <span class="d">10. mai 2025 · Eesti Jalgrattamuuseum / Estonian Bicycle Museum</span></li>
-<li><a class="n" href="/race/murutraktorite-liiga-i-etapp-upa-2025">Murutraktorite Liiga I Etapp – Upa</a>
+<li><a class="n" href="/race/murutraktorite-liiga-i-etapp-upa-2025">Murutraktorite Liiga I etapp – Upa</a>
 <span class="d">10. mai 2025</span></li>
 <li><a class="n" href="/race/ujumissari-sakalamaa-angerjas-iii-etapp-2025">Ujumissari &quot;SAKALAMAA ANGERJAS&quot; III etapp</a>
 <span class="d">10. mai 2025 · Suure-Jaani Tervisekoja ujula ja spordisaalid</span></li>
@@ -1942,7 +1959,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">6. mai 2025 · Sütiste tee parkmets</span></li>
 <li><a class="n" href="/race/49-jarvamaa-orienteerumispaevakud-iii-etapp-2025">49. Järvamaa orienteerumispäevakud III etapp</a>
 <span class="d">6. mai 2025 · Mägede orienteerumiskaart</span></li>
-<li><a class="n" href="/race/kernu-terasmees-ja-terasnaine-saue-jalgrattakross-2025">Kernu Terasmees Ja Terasnaine, Saue Jalgrattakross</a>
+<li><a class="n" href="/race/kernu-terasmees-ja-terasnaine-saue-jalgrattakross-2025">Kernu Terasmees ja Terasnaine, Saue Jalgrattakross</a>
 <span class="d">6. mai 2025</span></li>
 <li><a class="n" href="/race/turi-valla-liikumiskampaania-kogu-km-rattasoidus-2025">Türi valla liikumiskampaania-kogu km rattasõidus</a>
 <span class="d">5. mai 2025 · Türi vald</span></li>
@@ -1950,7 +1967,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. mai 2025 · Viimsi</span></li>
 <li><a class="n" href="/race/jk-sarma-seeriajooks-2000-m-2025">JK Sarma seeriajooks 2000 m</a>
 <span class="d">4. mai 2025 · Kuressaare linnastaadion</span></li>
-<li><a class="n" href="/race/kasari-kahe-silla-jooks-2025">Kasari Kahe Silla Jooks</a>
+<li><a class="n" href="/race/kasari-kahe-silla-jooks-2025">Kasari Kahe Silla jooks</a>
 <span class="d">4. mai 2025</span></li>
 <li><a class="n" href="/race/kasari-sillajooks-2025">Kasari Sillajooks</a>
 <span class="d">4. mai 2025 · Kasari raudbetoonsild</span></li>
@@ -1960,7 +1977,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. mai 2025 · Jõulumäe Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/reaalprojekt-25-mulgi-rattamaraton-2025">REAALPROJEKT 25. Mulgi Rattamaraton</a>
 <span class="d">4. mai 2025 · Viljandi</span></li>
-<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-kivioli-2025">Vägilase Jooksusarja 1. Etapp, Kiviõli</a>
+<li><a class="n" href="/race/vagilase-jooksusarja-1-etapp-kivioli-2025">Vägilase jooksusarja 1. etapp, Kiviõli</a>
 <span class="d">4. mai 2025</span></li>
 <li><a class="n" href="/race/wings-for-life-world-run-2025">Wings for Life World Run</a>
 <span class="d">4. mai 2025 · Tallinna Lauluväljak</span></li>
@@ -1978,7 +1995,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. mai 2025 · Määrasmägi</span></li>
 <li><a class="n" href="/race/keila-joa-liigub-2025">Keila-Joa liigub</a>
 <span class="d">3. mai 2025 · Keila-Joa</span></li>
-<li><a class="n" href="/race/laane-harju-liikumissarja-1-etapp-keila-joa-liigub-2025">Lääne-Harju Liikumissarja 1. Etapp, Keila-Joa Liigub</a>
+<li><a class="n" href="/race/laane-harju-liikumissarja-1-etapp-keila-joa-liigub-2025">Lääne-Harju Liikumissarja 1. etapp, Keila-Joa liigub</a>
 <span class="d">3. mai 2025</span></li>
 <li><a class="n" href="/race/noorus-cup-2025">Noorus Cup</a>
 <span class="d">3. mai 2025 · Kalevi Spordihall</span></li>
@@ -1990,7 +2007,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. mai 2025 · Tartu Ülikooli Staadion</span></li>
 <li><a class="n" href="/race/96-suurjooks-umber-viljandi-jarve-2025">96. Suurjooks ümber Viljandi järve</a>
 <span class="d">1. mai 2025 · Viljandi Linnastaadion</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2025">Keila Seeriajooksu 4. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-4-etapp-2025">Keila seeriajooksu 4. etapp</a>
 <span class="d">1. mai 2025</span></li>
 <li><a class="n" href="/race/kogu-pere-jalgrattamatk-2025">Kogu pere jalgrattamatk</a>
 <span class="d">1. mai 2025 · Konesko Türi Spordihoone</span></li>
@@ -2012,7 +2029,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. aprill 2025 · Türi Ühisgümnaasium</span></li>
 <li><a class="n" href="/race/jarvamaa-mv-valikorienteerumises-2025">Järvamaa MV valikorienteerumises</a>
 <span class="d">29. aprill 2025 · Türi Ühisgümnaasium</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2025">Keila Seeriajooksu 3. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-3-etapp-2025">Keila seeriajooksu 3. etapp</a>
 <span class="d">29. aprill 2025</span></li>
 <li><a class="n" href="/race/laane-viru-noorte-u11-u14-murdmaajooksu-mv-2025">Lääne-Viru noorte U11-U14 murdmaajooksu MV</a>
 <span class="d">29. aprill 2025 · Rakvere tammiku matkarada</span></li>
@@ -2022,7 +2039,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. aprill 2025</span></li>
 <li><a class="n" href="/race/17-kevatpolkaisu-2025">17. Kevätpolkaisu</a>
 <span class="d">27. aprill 2025</span></li>
-<li><a class="n" href="/race/pohja-tallinna-ii-kevadjooks-2025">Põhja-Tallinna II Kevadjooks</a>
+<li><a class="n" href="/race/pohja-tallinna-ii-kevadjooks-2025">Põhja-Tallinna II kevadjooks</a>
 <span class="d">27. aprill 2025</span></li>
 <li><a class="n" href="/race/raplamaa-mv-ujumises-2025-2025">Raplamaa MV ujumises 2025</a>
 <span class="d">27. aprill 2025 · Valtu Spordimaja</span></li>
@@ -2034,7 +2051,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. aprill 2025 · Rannamõisa Lasteaed</span></li>
 <li><a class="n" href="/race/xiii-turi-paide-rahvatriatlon-2025">XIII Türi- Paide rahvatriatlon</a>
 <span class="d">27. aprill 2025 · Türi Ujula</span></li>
-<li><a class="n" href="/race/xiv-turi-paide-triatlon-2025">Xiv Türi-Paide Triatlon</a>
+<li><a class="n" href="/race/xiv-turi-paide-triatlon-2025">XIV Türi-Paide triatlon</a>
 <span class="d">27. aprill 2025</span></li>
 <li><a class="n" href="/race/3-jooks-umber-paunkula-veehoidla-2025">3. jooks ümber Paunküla veehoidla</a>
 <span class="d">26. aprill 2025 · Paunküla Heaolukeskus</span></li>
@@ -2044,7 +2061,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. aprill 2025 · Majoraadi park</span></li>
 <li><a class="n" href="/race/67-hyrylan-ajot-2025">67. Hyrylän Ajot</a>
 <span class="d">26. aprill 2025</span></li>
-<li><a class="n" href="/race/naisten-aika-ajo-2-4-km-2025">Naisten Aika Ajo 2.4 Km</a>
+<li><a class="n" href="/race/naisten-aika-ajo-2-4-km-2025">Naisten Aika Ajo 2.4 km</a>
 <span class="d">26. aprill 2025</span></li>
 <li><a class="n" href="/race/pirita-kepikonnimatk-2025">Pirita Kepikõnnimatk</a>
 <span class="d">26. aprill 2025 · Pirita Tervisespordi Maja</span></li>
@@ -2058,7 +2075,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. aprill 2025 · Pärnu-Jaagupi Spordikeskus</span></li>
 <li><a class="n" href="/race/viljandimaa-murdmaajooksu-mv-2025">Viljandimaa murdmaajooksu MV</a>
 <span class="d">25. aprill 2025 · Viiratsi</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2025">Keila Seeriajooksu 2. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-2-etapp-2025">Keila seeriajooksu 2. etapp</a>
 <span class="d">24. aprill 2025</span></li>
 <li><a class="n" href="/race/musterorienteerumine-tapa-valla-koolidele-ja-lasteaedadele-2025">Musterorienteerumine Tapa valla koolidele ja lasteaedadele</a>
 <span class="d">24. aprill 2025 · Tapa staadion, spordiväljakud ja suusarajad</span></li>
@@ -2072,11 +2089,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. aprill 2025 · Surju</span></li>
 <li><a class="n" href="/race/jurioojooks-lihula-moisamael-2025">Jüriööjooks Lihula Mõisamäel</a>
 <span class="d">23. aprill 2025 · Lihula mõis</span></li>
-<li><a class="n" href="/race/kernu-jurioo-jooks-2025">Kernu Jüriöö Jooks</a>
+<li><a class="n" href="/race/kernu-jurioo-jooks-2025">Kernu Jüriöö jooks</a>
 <span class="d">23. aprill 2025</span></li>
 <li><a class="n" href="/race/kohila-3-2025-i-etapp-kohila-oojooks-jurioo-ring-2025">Kohila 3 2025 I etapp Kohila ööjooks JÜRIÖÖ RING</a>
 <span class="d">23. aprill 2025 · Vabaduse tn</span></li>
-<li><a class="n" href="/race/kohila-oojooks-jurioo-ring-2025">Kohila Ööjooks “jüriöö Ring”</a>
+<li><a class="n" href="/race/kohila-oojooks-jurioo-ring-2025">Kohila ööjooks “jüriöö Ring”</a>
 <span class="d">23. aprill 2025</span></li>
 <li><a class="n" href="/race/kullamaa-56-jurioo-jooks-2025">Kullamaa 56. jüriöö jooks</a>
 <span class="d">23. aprill 2025 · Kullamaa Keskkool</span></li>
@@ -2098,7 +2115,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. aprill 2025 · Raassilla orienteerumiskaart</span></li>
 <li><a class="n" href="/race/jurioo-jooks-rahvakond-paidesse-2025">Jüriöö jooks rahvakõnd Paidesse</a>
 <span class="d">22. aprill 2025 · Konesko Türi Spordihoone</span></li>
-<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2025">Keila Seeriajooksu 1. Etapp</a>
+<li><a class="n" href="/race/keila-seeriajooksu-1-etapp-2025">Keila seeriajooksu 1. etapp</a>
 <span class="d">22. aprill 2025</span></li>
 <li><a class="n" href="/race/laanemaa-soprade-liiga-mini-nato-test-2025">Läänemaa sõprade Liiga - mini NATO test</a>
 <span class="d">22. aprill 2025 · Haapsalu</span></li>
@@ -2184,7 +2201,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. märts 2025 · Kastani pst 12</span></li>
 <li><a class="n" href="/race/orienteerumisvoistlus-tallinna-linnarogain-2025">Orienteerumisvõistlus Tallinna Linnarogain</a>
 <span class="d">22. märts 2025 · Pirita Spordikeskuse/Velodroomi spordirajatised</span></li>
-<li><a class="n" href="/race/tartu-kalev-u-10-ja-u-12-laste-voistlus-2025">Tartu Kalev U-10 Ja U-12 Laste Võistlus</a>
+<li><a class="n" href="/race/tartu-kalev-u-10-ja-u-12-laste-voistlus-2025">Tartu Kalev U-10 ja U-12 Laste võistlus</a>
 <span class="d">20. märts 2025 · Tartu Ülikooli Spordihoone</span></li>
 <li><a class="n" href="/race/tv-10-os-tartu-ja-tartumaa-iii-etapp-2025">TV 10 OS Tartu ja Tartumaa III etapp</a>
 <span class="d">20. märts 2025 · Ujula 4</span></li>
@@ -2214,7 +2231,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. märts 2025 · Pärnu kergejõustikuhall</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2025-iv-etapp-2025">Palivere Suusasari 2025 IV etapp</a>
 <span class="d">9. märts 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-4-etapp-2025">Palivere Suusasarja 4. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-4-etapp-2025">Palivere suusasarja 4. etapp</a>
 <span class="d">9. märts 2025</span></li>
 <li><a class="n" href="/race/sportland-korvemaa-suusamaraton-2025-2025">Sportland Kõrvemaa Suusamaraton 2025</a>
 <span class="d">9. märts 2025 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -2230,11 +2247,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. märts 2025 · Haapsalu Kutsehariduskeskus</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2025-iii-etapp-ja-laanemaa-meistrivoistlu-2025">Palivere Suusasari 2025 III etapp ja Läänemaa meistrivõistlused suusatamises</a>
 <span class="d">2. märts 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2025">Palivere Suusasarja 3. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-3-etapp-2025">Palivere suusasarja 3. etapp</a>
 <span class="d">2. märts 2025</span></li>
 <li><a class="n" href="/race/39-viru-maraton-2025">39. Viru Maraton</a>
 <span class="d">1. märts 2025 · Mõedaku spordibaas</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2025">Tallinna Kiiruisuklubi Karikasarja 3. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-3-etapp-2025">Tallinna kiiruisuklubi karikasarja 3. etapp</a>
 <span class="d">1. märts 2025</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2025-4-etapp-2025">Türi suusatamise SV &quot; Türi suusatalv 2025&quot; 4. etapp</a>
 <span class="d">25. veebruar 2025 · Türi Tolli mets</span></li>
@@ -2246,11 +2263,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. veebruar 2025 · Võllaste terviserajad</span></li>
 <li><a class="n" href="/race/narva-suusasoit-2025-2025">Narva Suusasõit 2025</a>
 <span class="d">24. veebruar 2025 · Äkkeküla spordikeskus</span></li>
-<li><a class="n" href="/race/keila-suusasarja-4-etapp-2025">Keila Suusasarja 4. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-4-etapp-2025">Keila suusasarja 4. etapp</a>
 <span class="d">23. veebruar 2025</span></li>
-<li><a class="n" href="/race/marjamaa-valla-nelikurituse-1-etapp-2025">Märjamaa Valla Nelikürituse 1. Etapp</a>
+<li><a class="n" href="/race/marjamaa-valla-nelikurituse-1-etapp-2025">Märjamaa valla Nelikürituse 1. etapp</a>
 <span class="d">23. veebruar 2025</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-4-etapp-pikk-soit-2025">Triathlon Estonia Keila Suusasarja 2025 4. Etapp - Pikk Sõit</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-4-etapp-pikk-soit-2025">Triathlon Estonia Keila suusasarja 2025 4. etapp - Pikk sõit</a>
 <span class="d">23. veebruar 2025 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/27-tallinna-suusamaraton-2025">27. Tallinna Suusamaraton</a>
 <span class="d">22. veebruar 2025 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -2260,7 +2277,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. veebruar 2025 · Paluküla Hiiemäe terviserajad</span></li>
 <li><a class="n" href="/race/noorus-winter-cup-2025">Noorus Winter Cup</a>
 <span class="d">22. veebruar 2025 · Kalevi Spordihall</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-3-etapp-2x100-m-spri-2025">Triathlon Estonia Keila Suusasarja 2025 3. Etapp - 2x100 M Sprindid Edasipääsudega</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-3-etapp-2x100-m-spri-2025">Triathlon Estonia Keila suusasarja 2025 3. etapp - 2x100 M Sprindid Edasipääsudega</a>
 <span class="d">22. veebruar 2025 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/jarva-valla-seeriavoistlus-suusatamises-ii-etapp-2025">Järva valla seeriavõistlus suusatamises II etapp</a>
 <span class="d">20. veebruar 2025 · Koeru terviserada</span></li>
@@ -2286,7 +2303,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">13. veebruar 2025 · Aravete terviserada</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-u12-vanuseklassi-talvised-voistlused-2025">Lääne-Virumaa noorte U12 vanuseklassi talvised võistlused</a>
 <span class="d">13. veebruar 2025 · Kastani pst 12</span></li>
-<li><a class="n" href="/race/saue-valla-mv-suusatamises-2025">Saue Valla MV Suusatamises</a>
+<li><a class="n" href="/race/saue-valla-mv-suusatamises-2025">Saue valla MV suusatamises</a>
 <span class="d">13. veebruar 2025</span></li>
 <li><a class="n" href="/race/joulumae-karikavoistlused-murdmaasuusatamises-parnumaa-mv-2025">Jõulumäe karikavõistlused murdmaasuusatamises - Pärnumaa MV</a>
 <span class="d">12. veebruar 2025 · Jõulumäe Tervisespordikeskus</span></li>
@@ -2314,7 +2331,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">4. veebruar 2025 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
 <li><a class="n" href="/race/laane-virumaa-noorte-u18-ja-u-20-vanuseklassi-talvised-mv-2025">Lääne-Virumaa noorte U18 ja U 20 vanuseklassi talvised MV</a>
 <span class="d">4. veebruar 2025 · Kastani pst 12</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2025">Tallinna Kiiruisuklubi Karikasarja 2. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-2-etapp-2025">Tallinna kiiruisuklubi karikasarja 2. etapp</a>
 <span class="d">2. veebruar 2025</span></li>
 <li><a class="n" href="/race/26-neeruti-maraton-2025">26. Neeruti Maraton</a>
 <span class="d">1. veebruar 2025 · Pariisi Puhkeküla suusarada</span></li>
@@ -2336,7 +2353,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. jaanuar 2025 · Kalevi Spordihall</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2025-ii-etapp-ja-laanemaa-meistrivoistlus-2025">Palivere Suusasari 2025 II etapp ja Läänemaa meistrivõistlused suusatamises</a>
 <span class="d">26. jaanuar 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2025">Palivere Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-2-etapp-2025">Palivere suusasarja 2. etapp</a>
 <span class="d">26. jaanuar 2025</span></li>
 <li><a class="n" href="/race/100-suusatundi-2025-paliveres-taiskasvanud-klassikatehnika-2025">100 suusatundi 2025 Paliveres - täiskasvanud - klassikatehnika</a>
 <span class="d">25. jaanuar 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
@@ -2366,13 +2383,13 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. jaanuar 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
 <li><a class="n" href="/race/tallinn-open-suusaorienteerumise-etapp-2025">Tallinn Open. Suusaorienteerumise etapp.</a>
 <span class="d">18. jaanuar 2025 · Kose</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2025">Tallinna Kiiruisuklubi Karikasarja 1. Etapp</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2025">Tallinna kiiruisuklubi karikasarja 1. etapp</a>
 <span class="d">18. jaanuar 2025</span></li>
 <li><a class="n" href="/race/tartu-kevek-open-2025-rahvusvahelised-sisevoistlused-veteran-2025">TARTU KEVEK OPEN 2025 rahvusvahelised sisevõistlused veteranidele</a>
 <span class="d">18. jaanuar 2025 · Tartu Ülikooli Akadeemiline Spordiklubi</span></li>
-<li><a class="n" href="/race/keila-suusasarja-2-etapp-2025">Keila Suusasarja 2. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-2-etapp-2025">Keila suusasarja 2. etapp</a>
 <span class="d">17. jaanuar 2025</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-2-etapp-uhisstart-2025">Triathlon Estonia Keila Suusasarja 2025 2. Etapp - Ühisstart</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-2-etapp-uhisstart-2025">Triathlon Estonia Keila suusasarja 2025 2. etapp - Ühisstart</a>
 <span class="d">17. jaanuar 2025 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/tv-10-os-tartu-ja-tartumaa-ii-etapp-2025">TV 10 OS Tartu ja Tartumaa II etapp</a>
 <span class="d">16. jaanuar 2025 · Ujula 4</span></li>
@@ -2382,11 +2399,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">15. jaanuar 2025 · Märjamaa ujula</span></li>
 <li><a class="n" href="/race/raplamaa-tv-10-os-ii-etapp-2025">Raplamaa TV 10 OS II etapp</a>
 <span class="d">15. jaanuar 2025 · Kohila Spordikeskus</span></li>
-<li><a class="n" href="/race/keila-suusasarja-1-etapp-2025">Keila Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/keila-suusasarja-1-etapp-2025">Keila suusasarja 1. etapp</a>
 <span class="d">14. jaanuar 2025</span></li>
-<li><a class="n" href="/race/tallinna-2025-a-u14-u16-u18-ja-u20-talvised-mv-2025">Tallinna 2025. A U14 U16 U18 Ja U20 Talvised MV</a>
+<li><a class="n" href="/race/tallinna-2025-a-u14-u16-u18-ja-u20-talvised-mv-2025">Tallinna 2025. A U14 U16 U18 ja U20 Talvised MV</a>
 <span class="d">14. jaanuar 2025 · Tallinna Kergejõustikuhall</span></li>
-<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-1-etapp-eraldistart-2025">Triathlon Estonia Keila Suusasarja 2025 1. Etapp - Eraldistart</a>
+<li><a class="n" href="/race/triathlon-estonia-keila-suusasarja-2025-1-etapp-eraldistart-2025">Triathlon Estonia Keila suusasarja 2025 1. etapp - Eraldistart</a>
 <span class="d">14. jaanuar 2025 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/turi-suusatamise-sv-turi-suusatalv-2025-i-etapp-2025">Türi suusatamise SV &quot; Türi suusatalv 2025&quot; I etapp</a>
 <span class="d">14. jaanuar 2025 · Türi Tolli mets</span></li>
@@ -2394,7 +2411,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. jaanuar 2025 · Järvakandi TERVISERADA</span></li>
 <li><a class="n" href="/race/palivere-suusasari-2025-i-etapp-2025">Palivere Suusasari 2025 I etapp</a>
 <span class="d">12. jaanuar 2025 · Palivere Turismi- ja Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2025">Palivere Suusasarja 1. Etapp</a>
+<li><a class="n" href="/race/palivere-suusasarja-1-etapp-2025">Palivere suusasarja 1. etapp</a>
 <span class="d">12. jaanuar 2025</span></li>
 <li><a class="n" href="/race/sisesuund-2025-kullo-2025">Sisesuund 2025 Kullo</a>
 <span class="d">12. jaanuar 2025 · Mustamäe tee 59</span></li>
@@ -2410,7 +2427,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. jaanuar 2025 · Uus Maailm</span></li>
 <li><a class="n" href="/race/jarva-valla-seeriavoistlus-suusatamises-i-etapp-2025">Järva valla seeriavõistlus suusatamises I etapp</a>
 <span class="d">9. jaanuar 2025 · Järva-Jaani staadion</span></li>
-<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2025">Tallinna Kiiruisuklubi Ühe Tunni Sõit</a>
+<li><a class="n" href="/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2025">Tallinna kiiruisuklubi Ühe Tunni sõit</a>
 <span class="d">9. jaanuar 2025</span></li>
 <li><a class="n" href="/race/kuulitouke-talvine-seeriavoistlus-ii-etapp-2025">Kuulitõuke talvine seeriavõistlus - II etapp</a>
 <span class="d">8. jaanuar 2025 · Audentese Spordiklubi</span></li>

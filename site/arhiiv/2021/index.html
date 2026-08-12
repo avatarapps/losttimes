@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2021. aasta võistluste tulemused | LostTimes</title>
-<meta name="description" content="Kõik 2021. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 967 võistlust.">
+<meta name="description" content="Kõik 2021. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 965 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2021/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2021/">
+<meta property="og:title" content="2021. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2021. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 965 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -77,7 +102,7 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>2021. aasta võistlused</h1>
-<p class="meta">967 võistlust</p>
+<p class="meta">965 võistlust</p>
 <ul class="list"><li><a class="n" href="/race/viimase-oo-unistus-2021">Viimase Öö Unistus</a>
 <span class="d">31. detsember 2021</span></li>
 <li><a class="n" href="/race/audentese-sk-aastalopu-kuulitoukevoistlus-2021">Audentese SK Aastalõpu Kuulitõukevõistlus</a>
@@ -112,7 +137,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. detsember 2021 · Virtuaalne</span></li>
 <li><a class="n" href="/race/rae-spordikooli-jouluvoistlus-2021">Rae Spordikooli Jõuluvõistlus</a>
 <span class="d">12. detsember 2021 · Lasnamäe Kergejõustikuhall</span></li>
-<li><a class="n" href="/race/xxxv-johvi-huppajate-paev-2021">Xxxv Jõhvi Hüppajate Päev</a>
+<li><a class="n" href="/race/xxxv-johvi-huppajate-paev-2021">XXXV Jõhvi Hüppajate päev</a>
 <span class="d">11. detsember 2021 · Ahtme Spordihall</span></li>
 <li><a class="n" href="/race/ksk-alem-kv-paigalthupete-kolmevoistluses-2021">KSK Alem KV paigalthüpete kolmevõistluses</a>
 <span class="d">10. detsember 2021 · Konesko Türi Spordihoone</span></li>
@@ -204,7 +229,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">10. oktoober 2021 · Viljandi, Tasuja plats</span></li>
 <li><a class="n" href="/race/eesti-maastiku-maraton-2021">Eesti maastiku maraton</a>
 <span class="d">10. oktoober 2021</span></li>
-<li><a class="n" href="/race/noortesari-uju-ja-jookse-2021">Noortesari - Uju Ja Jookse</a>
+<li><a class="n" href="/race/noortesari-uju-ja-jookse-2021">Noortesari - Uju ja Jookse</a>
 <span class="d">10. oktoober 2021 · Keila tervisekeskus</span></li>
 <li><a class="n" href="/race/vosu-sugisjooks-2021">Võsu Sügisjooks</a>
 <span class="d">10. oktoober 2021</span></li>
@@ -352,9 +377,9 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">29. september 2021 · Mammaste Lasteaed</span></li>
 <li><a class="n" href="/race/sammude-kogumine-liikumisvahetunnid-noarootsi-koolis-2021">Sammude kogumine (liikumisvahetunnid) Noarootsi Koolis</a>
 <span class="d">29. september 2021 · Noarootsi staadion ja palliplatsid</span></li>
-<li><a class="n" href="/race/spordinadala-jooks-2021">Spordinädala Jooks</a>
+<li><a class="n" href="/race/spordinadala-jooks-2021">Spordinädala jooks</a>
 <span class="d">29. september 2021 · Kadrioru staadion</span></li>
-<li><a class="n" href="/race/tahtede-jooks-2021-2021">Tähtede Jooks 2021</a>
+<li><a class="n" href="/race/tahtede-jooks-2021-2021">Tähtede jooks 2021</a>
 <span class="d">29. september 2021 · Põlva staadion</span></li>
 <li><a class="n" href="/race/tareke-orienteerumine-2021">Tareke orienteerumine</a>
 <span class="d">29. september 2021 · Narva Lasteaed Tareke</span></li>
@@ -558,7 +583,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">25. september 2021 · Põhja-Tallinna linnaosa</span></li>
 <li><a class="n" href="/race/porkuni-jarve-jooks-2021">Porkuni järve jooks</a>
 <span class="d">25. september 2021 · Porkuni</span></li>
-<li><a class="n" href="/race/roosa-lindi-jooks-2021">Roosa Lindi Jooks</a>
+<li><a class="n" href="/race/roosa-lindi-jooks-2021">Roosa Lindi jooks</a>
 <span class="d">25. september 2021 · Järve terviserada</span></li>
 <li><a class="n" href="/race/tallinna-liikuri-lasteaiapere-orienteerumisvaljakutse-2021">Tallinna Liikuri Lasteaiapere orienteerumisväljakutse</a>
 <span class="d">25. september 2021 · Tallinn</span></li>
@@ -646,7 +671,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. september 2021 · Tõrva Gümnaasiumi staadion ja palliväljak</span></li>
 <li><a class="n" href="/race/valgeranna-rattamatk-2021">Valgeranna rattamatk</a>
 <span class="d">24. september 2021 · Valgeranna</span></li>
-<li><a class="n" href="/race/viii-oma-riigi-rahvajooks-2021-2021">VIII Oma Riigi Rahvajooks 2021</a>
+<li><a class="n" href="/race/viii-oma-riigi-rahvajooks-2021-2021">VIII Oma Riigi rahvajooks 2021</a>
 <span class="d">24. september 2021 · Pärnu-Jaagupi kultuuri- ja spordipark</span></li>
 <li><a class="n" href="/race/start-jooksupaev-2021">&quot;START&quot; jooksupäev</a>
 <span class="d">23. september 2021 · Lasteaed Kirju-Mirju</span></li>
@@ -804,7 +829,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. september 2021 · Palivere Põhikooli spordiväljak</span></li>
 <li><a class="n" href="/race/pelguranna-lasteaia-sportlik-nadal-2021-2021">Pelguranna Lasteaia sportlik nädal 2021</a>
 <span class="d">23. september 2021 · Pelguranna Lasteaed</span></li>
-<li><a class="n" href="/race/poska-liigub-2021">Poska Liigub</a>
+<li><a class="n" href="/race/poska-liigub-2021">Poska liigub</a>
 <span class="d">23. september 2021 · Vanemuise 35</span></li>
 <li><a class="n" href="/race/rattamatk-puhtulaiule-2021">Rattamatk Puhtulaiule</a>
 <span class="d">23. september 2021 · Kõmsi Lasteaed-Algkooli jalgpalliväljak</span></li>
@@ -1068,7 +1093,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. september 2021 · Kuusalu staadion</span></li>
 <li><a class="n" href="/race/joulumae-xco-husqvarna-eesti-olumpiakrossi-karikasari-2021">Jõulumäe XCO (Husqvarna Eesti Olümpiakrossi Karikasari)</a>
 <span class="d">12. september 2021 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2021">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2021">Tallinna maraton</a>
 <span class="d">12. september 2021 · Tallinn, Lauluväljak</span></li>
 <li><a class="n" href="/race/74-laste-paala-jarve-jooks-2021">74. laste Paala järve jooks</a>
 <span class="d">11. september 2021 · Kergliiklustee ümber Paala järve</span></li>
@@ -1100,7 +1125,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">7. september 2021</span></li>
 <li><a class="n" href="/race/pae-pargi-rahvajooks-2021">Pae Pargi Rahvajooks</a>
 <span class="d">7. september 2021 · Pae Park</span></li>
-<li><a class="n" href="/race/pae-pargi-v-rahvajooks-2021">Pae Pargi V Rahvajooks</a>
+<li><a class="n" href="/race/pae-pargi-v-rahvajooks-2021">Pae Pargi V rahvajooks</a>
 <span class="d">7. september 2021 · Lasnamäe, Pae park</span></li>
 <li><a class="n" href="/race/polva-orienteerumisteisipaevakud-2021-23-etapp-2021">Põlva orienteerumisteisipäevakud 2021, 23.etapp</a>
 <span class="d">7. september 2021 · Palojärve põhi orienteerumiskaart</span></li>
@@ -1128,7 +1153,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">3. september 2021</span></li>
 <li><a class="n" href="/race/torva-kolme-jarve-jooks-2021">Tõrva Kolme Järve jooks</a>
 <span class="d">3. september 2021</span></li>
-<li><a class="n" href="/race/xv-saue-ohtujooks-2021">Xv Saue Õhtujooks</a>
+<li><a class="n" href="/race/xv-saue-ohtujooks-2021">XV Saue õhtujooks</a>
 <span class="d">3. september 2021 · Saue Gümnaasiumi staadion</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2021-5">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">2. september 2021 · Silla</span></li>
@@ -1144,7 +1169,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">31. august 2021 · Raeküla</span></li>
 <li><a class="n" href="/race/polva-orienteerumisteisipaevakud-2021-22-etapp-2021">Põlva orienteerumisteisipäevakud 2021, 22.etapp</a>
 <span class="d">31. august 2021 · Valgesoo orienteerumiskaart</span></li>
-<li><a class="n" href="/race/7-silda-ujumismatk-2021">7 Silda Ujumismatk</a>
+<li><a class="n" href="/race/7-silda-ujumismatk-2021">7 silda ujumismatk</a>
 <span class="d">29. august 2021 · TARTU LINN, EMAJÕGI</span></li>
 <li><a class="n" href="/race/filter-maanteekarikasari-v-etapp-elva-36-rattapaev-2021">Filter Maanteekarikasari V etapp: Elva 36. rattapäev</a>
 <span class="d">29. august 2021 · Elva</span></li>
@@ -1192,21 +1217,19 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. august 2021 · Aarna oru orienteerumiskaart</span></li>
 <li><a class="n" href="/race/15-tartu-rulluisumaraton-2021">15. Tartu Rulluisumaraton</a>
 <span class="d">22. august 2021 · Tartu</span></li>
-<li><a class="n" href="/race/akke-gp-xco-husqvarna-eesti-olumpiakrossi-karikasari-2021">Äkke Gp XCO (Husqvarna Eesti Olümpiakrossi Karikasari)</a>
+<li><a class="n" href="/race/akke-gp-xco-husqvarna-eesti-olumpiakrossi-karikasari-2021">Äkke Gp XCO (Husqvarna Eesti Olümpiakrossi karikasari)</a>
 <span class="d">22. august 2021 · Äkkeküla spordikeskus</span></li>
-<li><a class="n" href="/race/karksi-nuia-triatlon-2021">Karksi-Nuia Triatlon</a>
+<li><a class="n" href="/race/karksi-nuia-triatlon-2021">Karksi-Nuia triatlon</a>
 <span class="d">22. august 2021 · Karksi-Nuia</span></li>
 <li><a class="n" href="/race/tapa-valla-rahvajooks-2021">Tapa Valla Rahvajooks</a>
 <span class="d">22. august 2021</span></li>
-<li><a class="n" href="/race/40-kuressaare-linnajooks-2021">40. Kuressaare Linnajooks</a>
-<span class="d">21. august 2021 · Kuressaare staadion</span></li>
 <li><a class="n" href="/race/kondimootor-30-50-taevaskoja-tallajad-2021">Kondimootor 30/50: Taevaskoja tallajad</a>
 <span class="d">21. august 2021 · Taevaskoja</span></li>
 <li><a class="n" href="/race/kose-7-jarve-rattamaraton-2021">Kose 7 Järve rattamaraton</a>
 <span class="d">21. august 2021 · Paunküla Heaolukeskus</span></li>
 <li><a class="n" href="/race/vi-ulenurme-rattapaev-2021">VI Ülenurme Rattapäev</a>
 <span class="d">21. august 2021 · Eesti Põllumajandusmuuseum</span></li>
-<li><a class="n" href="/race/40-kuressaare-linnajooks-2021-2">40. Kuressaare Linnajooks</a>
+<li><a class="n" href="/race/40-kuressaare-linnajooks-2021">40. Kuressaare Linnajooks</a>
 <span class="d">20. august 2021 · Kuressaare staadion</span></li>
 <li><a class="n" href="/race/elva-elamusjooks-2021">Elva Elamusjooks</a>
 <span class="d">20. august 2021 · Annikoru Männiku liikumisrajad</span></li>
@@ -1252,11 +1275,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. august 2021</span></li>
 <li><a class="n" href="/race/triathlon-estonia-avaveeujumine-2021">Triathlon Estonia Avaveeujumine</a>
 <span class="d">14. august 2021 · Kuremaa</span></li>
-<li><a class="n" href="/race/triathlon-estonia-jooksuklassika-42-2-21-1-10-ja-5-km-2021">Triathlon Estonia Jooksuklassika - 42,2, 21,1, 10 Ja 5 Km</a>
+<li><a class="n" href="/race/triathlon-estonia-jooksuklassika-42-2-21-1-10-ja-5-km-2021">Triathlon Estonia Jooksuklassika - 42,2, 21,1, 10 ja 5 km</a>
 <span class="d">14. august 2021 · Kuremaa</span></li>
 <li><a class="n" href="/race/triathlon-estonia-laste-ja-rahvatriatlon-2021">Triathlon Estonia laste- ja rahvatriatlon</a>
 <span class="d">14. august 2021 · Kuremaa</span></li>
-<li><a class="n" href="/race/triathlon-estonia-maantee-eraldisoit-90-ja-180-km-2021">Triathlon Estonia Maantee Eraldisõit 90 Ja 180 Km</a>
+<li><a class="n" href="/race/triathlon-estonia-maantee-eraldisoit-90-ja-180-km-2021">Triathlon Estonia Maantee Eraldisõit 90 ja 180 km</a>
 <span class="d">14. august 2021 · Lossi 1</span></li>
 <li><a class="n" href="/race/triathlon-estonia-triatloniklassika-taispikk-poolpikk-olumpi-2021">Triathlon Estonia Triatloniklassika - Täispikk, Poolpikk, Olümpia, Sprint</a>
 <span class="d">14. august 2021 · Lossi 1</span></li>
@@ -1456,7 +1479,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. juuli 2021 · Paide linna kunstmurustaadion</span></li>
 <li><a class="n" href="/race/rmk-parnumaa-orienteerumisneljapaevak-2021-14">RMK Pärnumaa orienteerumisneljapäevak</a>
 <span class="d">1. juuli 2021 · Valgeranna</span></li>
-<li><a class="n" href="/race/turi-temposoit-2021-2021">Türi Temposõit 2021</a>
+<li><a class="n" href="/race/turi-temposoit-2021-2021">Türi temposõit 2021</a>
 <span class="d">1. juuli 2021 · Parasi-Põikva-Rassi</span></li>
 <li><a class="n" href="/race/kevek-ja-tartu-kalev-2021-a-staadionijooksu-iv-etapp-2021">KEVEK ja Tartu KALEV 2021.a. STAADIONIJOOKSU IV etapp</a>
 <span class="d">30. juuni 2021 · Tamme staadion</span></li>
@@ -1506,8 +1529,6 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. juuni 2021 · Räpina</span></li>
 <li><a class="n" href="/race/jaanipaeva-voistlus-2021">Jaanipäeva võistlus</a>
 <span class="d">21. juuni 2021 · Türi linna staadion</span></li>
-<li><a class="n" href="/race/14-icebug-kova-mehe-jooks-2021">14. ICEBUG Kõva Mehe jooks</a>
-<span class="d">20. juuni 2021 · Saunapunkt, Saue vald</span></li>
 <li><a class="n" href="/race/palivere-miil-2021">Palivere Miil</a>
 <span class="d">20. juuni 2021 · Palivere</span></li>
 <li><a class="n" href="/race/rand-tuulberg-eesti-meistrivoistlused-grupisoidus-2021">Rand &amp; Tuulberg Eesti Meistrivõistlused grupisõidus</a>
@@ -1516,7 +1537,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">20. juuni 2021 · Eesti Vabaõhumuuseum</span></li>
 <li><a class="n" href="/race/viljandi-triatlon-2021">Viljandi triatlon</a>
 <span class="d">20. juuni 2021 · Viljandi järv</span></li>
-<li><a class="n" href="/race/14-icebug-kova-mehe-jooks-2021-2">14. ICEBUG Kõva Mehe jooks</a>
+<li><a class="n" href="/race/14-icebug-kova-mehe-jooks-2021">14. ICEBUG Kõva Mehe jooks</a>
 <span class="d">19. juuni 2021 · Saunapunkt</span></li>
 <li><a class="n" href="/race/31-juri-lossmanni-malestusjooks-2021">31. Jüri Lossmanni mälestusjooks</a>
 <span class="d">19. juuni 2021 · Viljandi linn</span></li>
@@ -1524,7 +1545,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. juuni 2021 · Saunapunkt, Saue vald</span></li>
 <li><a class="n" href="/race/laulasmaa-ultra-2021">Laulasmaa Ultra</a>
 <span class="d">19. juuni 2021</span></li>
-<li><a class="n" href="/race/elva-sudaoojooks-2021">Elva Südaööjooks</a>
+<li><a class="n" href="/race/elva-sudaoojooks-2021">Elva südaööjooks</a>
 <span class="d">18. juuni 2021 · Elva Kultuurikeskus</span></li>
 <li><a class="n" href="/race/jarvamaa-rattakrossi-sv-ii-etapp-2021-2021">Järvamaa rattakrossi SV II etapp 2021</a>
 <span class="d">17. juuni 2021 · Koeru</span></li>
@@ -1662,7 +1683,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. mai 2021 · Kiili</span></li>
 <li><a class="n" href="/race/jalgrattakross-2021">Jalgrattakross</a>
 <span class="d">26. mai 2021 · Imavere</span></li>
-<li><a class="n" href="/race/klooga-maastikujooks-5-km-2021">Klooga Maastikujooks 5 Km</a>
+<li><a class="n" href="/race/klooga-maastikujooks-5-km-2021">Klooga maastikujooks 5 km</a>
 <span class="d">26. mai 2021 · Klooga järv</span></li>
 <li><a class="n" href="/race/kohila-ohtuvoistlus-100m-jooksus-ja-kaugushuppes-2021">Kohila õhtuvõistlus 100m jooksus ja kaugushüppes</a>
 <span class="d">25. mai 2021 · Kohila Spordikompleks</span></li>
@@ -1792,7 +1813,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">1. mai 2021 · Kangrumäe</span></li>
 <li><a class="n" href="/race/laanemaa-omamoodi-maraton-2021">Läänemaa Omamoodi Maraton</a>
 <span class="d">1. mai 2021 · Lääne maakond</span></li>
-<li><a class="n" href="/race/tallink-maijooks-2021">Tallink Maijooks</a>
+<li><a class="n" href="/race/tallink-maijooks-2021">Tallink maijooks</a>
 <span class="d">1. mai 2021 · Tallinna lauluväljak</span></li>
 <li><a class="n" href="/race/tallink-maijooks-2021-virtuaaljooks-2021">Tallink Maijooks 2021 virtuaaljooks</a>
 <span class="d">1. mai 2021 · üle terve Eesti</span></li>
@@ -1832,7 +1853,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">2. aprill 2021 · Koorvere</span></li>
 <li><a class="n" href="/race/2021-audi-heategevuslik-jooksukuu-2021">2021 Audi heategevuslik jooksukuu</a>
 <span class="d">1. aprill 2021 · Vabaõhumuuseumi tee 8</span></li>
-<li><a class="n" href="/race/39-tartu-maastikumaraton-2021-2">39. Tartu Maastikumaraton</a>
+<li><a class="n" href="/race/39-tartu-maastikumaraton-2021-2">39. Tartu maastikumaraton</a>
 <span class="d">1. aprill 2021 · Otepää - Elva</span></li>
 <li><a class="n" href="/race/audi-vana-aasta-jooksukuu-2021">AUDI Vana-aasta Jooksukuu</a>
 <span class="d">1. aprill 2021 · Tallinn, Rocca Al Mare</span></li>
@@ -1880,7 +1901,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">28. veebruar 2021 · Viljandi</span></li>
 <li><a class="n" href="/race/joulumae-talvetriatlon-eesti-mv-parnumaa-mv-2021">Jõulumäe talvetriatlon, Eesti MV, Pärnumaa MV</a>
 <span class="d">28. veebruar 2021 · Jõulumäe Tervisespordikeskus</span></li>
-<li><a class="n" href="/race/triathlon-estnia-suusasarja-6-etapp-edasi-lukatud-rada-sulas-2021">Triathlon Estnia Suusasarja 6. Etapp - Edasi Lükatud, Rada Sulas Ära!</a>
+<li><a class="n" href="/race/triathlon-estnia-suusasarja-6-etapp-edasi-lukatud-rada-sulas-2021">Triathlon Estnia suusasarja 6. etapp - Edasi Lükatud, Rada Sulas Ära!</a>
 <span class="d">28. veebruar 2021 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/23-tallinna-suusamaraton-2021">23. Tallinna Suusamaraton</a>
 <span class="d">27. veebruar 2021 · Kõrvemaa Matka- ja Suusakeskus</span></li>
@@ -1910,11 +1931,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. veebruar 2021 · Lasnamäe Kergejõustikuhall</span></li>
 <li><a class="n" href="/race/47-tartu-maratoni-lasteuritused-2021">47. Tartu Maratoni lasteüritused</a>
 <span class="d">20. veebruar 2021 · Tartu, Tähtvere Spordipark</span></li>
-<li><a class="n" href="/race/48-elva-talikross-ii-etapp-2021">48. Elva Talikross II Etapp</a>
+<li><a class="n" href="/race/48-elva-talikross-ii-etapp-2021">48. Elva Talikross II etapp</a>
 <span class="d">20. veebruar 2021 · Elva</span></li>
 <li><a class="n" href="/race/eesti-talvised-meistrivoistlused-2021">Eesti talvised meistrivõistlused</a>
 <span class="d">20. veebruar 2021 · Lasnamäe Kergejõustikuhall</span></li>
-<li><a class="n" href="/race/triathlon-estnia-suusasarja-5-etapp-2021">Triathlon Estnia Suusasarja 5. Etapp</a>
+<li><a class="n" href="/race/triathlon-estnia-suusasarja-5-etapp-2021">Triathlon Estnia suusasarja 5. etapp</a>
 <span class="d">20. veebruar 2021 · Keila Terviserajad</span></li>
 <li><a class="n" href="/race/mulgi-valla-suusatamise-iii-etapp-2021">Mulgi valla suusatamise III etapp</a>
 <span class="d">18. veebruar 2021 · Karksi-Nuia Sokaoru suusa- ja terviserada</span></li>
@@ -1932,7 +1953,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">14. veebruar 2021 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
 <li><a class="n" href="/race/20-albu-suusasoit-jaak-mae-karikatele-klassika-paarisstart-2021">20. Albu Suusasõit Jaak Mae karikatele (klassika, paarisstart)</a>
 <span class="d">13. veebruar 2021 · Valgehobusemäe Suusa- ja Puhkekeskus</span></li>
-<li><a class="n" href="/race/48-elva-talikross-i-etapp-2021">48. Elva Talikross I Etapp</a>
+<li><a class="n" href="/race/48-elva-talikross-i-etapp-2021">48. Elva Talikross I etapp</a>
 <span class="d">13. veebruar 2021 · Elva</span></li>
 <li><a class="n" href="/race/eesti-kurtide-spordiliidu-suusatamise-meistrivoistlused-2021-2021">Eesti Kurtide Spordiliidu suusatamise meistrivõistlused 2021</a>
 <span class="d">13. veebruar 2021 · Jõulumäe Tervisespordikeskuse suusastaadion ja liikumisrajad</span></li>

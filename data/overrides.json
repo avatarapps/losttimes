@@ -23,6 +23,9 @@
     { "date": "2026-08-12", "match": "Rava SwimRun", "hide": true },
     { "date": "2026-08-20", "match": "Ummamuudu", "hide": true },
 
+    { "_miks": "Nimi muutus manual.json-is. Kirje id sisaldab nime, seega tekib uue nime all UUS kirje ja vana jääb kumulatiivsesse arhiivi alles. Ilma selle reeglita oleks 19. detsembril kaks Audi jooksu.",
+      "date": "2026-12-19", "match": "Audi heategevuslik jooksupäev", "hide": true },
+
     { "date": "2026-06-07", "match": "Tartu Rattaralli",
       "organiser": "https://tartumaraton.ee/et/tartu-rattaralli-2026" },
 

@@ -6,12 +6,29 @@
 <title>2017. aasta võistluste tulemused | LostTimes</title>
 <meta name="description" content="Kõik 2017. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 514 võistlust.">
 <link rel="canonical" href="https://losttimes.ee/arhiiv/2017/">
+
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/arhiiv/2017/">
+<meta property="og:title" content="2017. aasta võistluste tulemused | LostTimes">
+<meta property="og:description" content="Kõik 2017. aasta Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused ning tulemuste lingid. Kokku 514 võistlust.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -86,7 +111,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. detsember 2017 · Tartu</span></li>
 <li><a class="n" href="/race/pekist-priiks-turi-2017">Pekist Priiks Türi</a>
 <span class="d">26. detsember 2017 · Türi</span></li>
-<li><a class="n" href="/race/stamina-vana-aasta-jooks-2017-2017">Stamina Vana-Aasta Jooks 2017</a>
+<li><a class="n" href="/race/stamina-vana-aasta-jooks-2017-2017">Stamina Vana-Aasta jooks 2017</a>
 <span class="d">17. detsember 2017 · Tallinn</span></li>
 <li><a class="n" href="/race/vak-staieri-joulujooks-2017">VAK Staieri Jõulujooks</a>
 <span class="d">16. detsember 2017 · Viljandi Jakobsoni Kooli juurest</span></li>
@@ -274,7 +299,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">12. september 2017 · Viljandi Paala järve ümbrus</span></li>
 <li><a class="n" href="/race/matsalu-x-rattamaraton-2017">Matsalu X rattamaraton</a>
 <span class="d">10. september 2017 · Kirbla keskus</span></li>
-<li><a class="n" href="/race/tallinna-maraton-2017">Tallinna Maraton</a>
+<li><a class="n" href="/race/tallinna-maraton-2017">Tallinna maraton</a>
 <span class="d">10. september 2017 · Tallinn, Vabaduse väljak</span></li>
 <li><a class="n" href="/race/68-laste-jooks-umber-paala-jarve-2017">68.Laste jooks ümber Paala järve</a>
 <span class="d">9. september 2017 · Viljandi Paala järve ümbrus</span></li>
@@ -286,7 +311,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. september 2017 · Vabaduse väljak, Tallinna kesklinn</span></li>
 <li><a class="n" href="/race/seb-tallinna-maratoni-sugisjooks-10-km-2017">SEB Tallinna Maratoni Sügisjooks 10 km</a>
 <span class="d">9. september 2017 · Tallinn</span></li>
-<li><a class="n" href="/race/tallinna-sugisjooks-2017">Tallinna Sügisjooks</a>
+<li><a class="n" href="/race/tallinna-sugisjooks-2017">Tallinna sügisjooks</a>
 <span class="d">9. september 2017 · Tallinn, Vabaduse väljak</span></li>
 <li><a class="n" href="/race/nike-noortejooks-we-run-tallinn-2017">Nike Noortejooks/ We Run Tallinn</a>
 <span class="d">8. september 2017 · Vabaduse väljak, Tallinna kesklinn</span></li>
@@ -396,7 +421,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">17. august 2017 · Malvaste</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2017-4">ŠKODA MTB Kolmapäevakud</a>
 <span class="d">16. august 2017 · 9. etapp - Pirita</span></li>
-<li><a class="n" href="/race/transtar-temposoidu-karikasarja-v-etapp-2017">Transtar Temposõidu Karikasarja V Etapp</a>
+<li><a class="n" href="/race/transtar-temposoidu-karikasarja-v-etapp-2017">Transtar temposõidu karikasarja V etapp</a>
 <span class="d">16. august 2017 · Tõravere</span></li>
 <li><a class="n" href="/race/vak-staieri-seeriajooks-5000-m-2017">VAK Staieri seeriajooks 5000 m</a>
 <span class="d">16. august 2017 · Viljandi Staadion</span></li>
@@ -510,7 +535,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">19. juuli 2017 · Rava küla</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2017-6">ŠKODA MTB Kolmapäevakud</a>
 <span class="d">19. juuli 2017 · 7. etapp - Harku</span></li>
-<li><a class="n" href="/race/transtar-temposoidu-karikasarja-iv-etapp-2017">Transtar Temposõidu Karikasarja IV Etapp</a>
+<li><a class="n" href="/race/transtar-temposoidu-karikasarja-iv-etapp-2017">Transtar temposõidu karikasarja IV etapp</a>
 <span class="d">19. juuli 2017 · Kärkna</span></li>
 <li><a class="n" href="/race/polva-o-teisipaevakud-14-etapp-2017">Põlva o-teisipäevakud, 14.etapp</a>
 <span class="d">18. juuli 2017 · Möksi veski</span></li>
@@ -688,7 +713,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">8. juuni 2017 · Nohipalo</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2017-9">ŠKODA MTB Kolmapäevakud</a>
 <span class="d">7. juuni 2017 · 4. etapp - Tähetorni</span></li>
-<li><a class="n" href="/race/transtar-temposoidu-karikasarja-iii-etapp-2017">Transtar Temposõidu Karikasarja III Etapp</a>
+<li><a class="n" href="/race/transtar-temposoidu-karikasarja-iii-etapp-2017">Transtar temposõidu karikasarja III etapp</a>
 <span class="d">7. juuni 2017 · Kavastu</span></li>
 <li><a class="n" href="/race/jarvamaa-orienteerumisteisipaevakud-2017-5">Järvamaa orienteerumisteisipäevakud</a>
 <span class="d">6. juuni 2017 · Vanaõue</span></li>
@@ -754,7 +779,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">24. mai 2017 · Lauka</span></li>
 <li><a class="n" href="/race/skoda-mtb-kolmapaevakud-2017-10">ŠKODA MTB Kolmapäevakud</a>
 <span class="d">24. mai 2017 · 3. etapp - Kroodi</span></li>
-<li><a class="n" href="/race/transtar-temposoidu-karikasarja-ii-etapp-2017">Transtar Temposõidu Karikasarja II Etapp</a>
+<li><a class="n" href="/race/transtar-temposoidu-karikasarja-ii-etapp-2017">Transtar temposõidu karikasarja II etapp</a>
 <span class="d">24. mai 2017 · Tõravere</span></li>
 <li><a class="n" href="/race/ulemaailmne-orienteerumispaev-2017">Ülemaailmne orienteerumispäev</a>
 <span class="d">24. mai 2017 · Järvamaa</span></li>
@@ -774,7 +799,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. mai 2017 · Saku</span></li>
 <li><a class="n" href="/race/17-mulgi-rattamaraton-2017">17. Mulgi Rattamaraton</a>
 <span class="d">20. mai 2017 · Viljandi kesklinn</span></li>
-<li><a class="n" href="/race/30-seb-maijooks-2017">30. SEB Maijooks</a>
+<li><a class="n" href="/race/30-seb-maijooks-2017">30. SEB maijooks</a>
 <span class="d">20. mai 2017 · Tallinna Lauluväljak, Narva mnt 95, Tallinn</span></li>
 <li><a class="n" href="/race/jarvamaa-lahtised-mv-ujumises-2017">Järvamaa lahtised MV ujumises</a>
 <span class="d">20. mai 2017 · Paide ujula</span></li>
@@ -930,7 +955,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">26. aprill 2017 · Koeru Terviserada</span></li>
 <li><a class="n" href="/race/lihula-kolmapaevak-2017">Lihula kolmapäevak</a>
 <span class="d">26. aprill 2017 · Lihula linn</span></li>
-<li><a class="n" href="/race/transtar-temposoidu-karikasarja-i-etapp-2017">Transtar Temposõidu Karikasarja I Etapp</a>
+<li><a class="n" href="/race/transtar-temposoidu-karikasarja-i-etapp-2017">Transtar temposõidu karikasarja I etapp</a>
 <span class="d">26. aprill 2017 · Rahinge</span></li>
 <li><a class="n" href="/race/hiiumaa-avavoistlus-heidetes-2017">Hiiumaa avavõistlus heidetes</a>
 <span class="d">25. aprill 2017 · Kärdla staadion</span></li>
@@ -1086,7 +1111,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">30. jaanuar 2017 · Tallinn, hotell Olümpia</span></li>
 <li><a class="n" href="/race/7-mulgi-uisumaraton-2017">7. Mulgi Uisumaraton</a>
 <span class="d">29. jaanuar 2017 · Viljandi järv</span></li>
-<li><a class="n" href="/race/iii-tondiraba-sisemaraton-2017">III Tondiraba Sisemaraton</a>
+<li><a class="n" href="/race/iii-tondiraba-sisemaraton-2017">III Tondiraba sisemaraton</a>
 <span class="d">29. jaanuar 2017 · Tallinn, Tondiraba Jäähall</span></li>
 <li><a class="n" href="/race/33-viru-maraton-2017">33. Viru Maraton</a>
 <span class="d">28. jaanuar 2017 · Mõedaku</span></li>

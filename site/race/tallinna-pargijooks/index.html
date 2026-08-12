@@ -6,12 +6,29 @@
 <title>Tallinna Pargijooks tulemused — kõik aastad | LostTimes</title>
 <meta name="description" content="Tallinna Pargijooks tulemused aastate kaupa: 2016–2016. Otselingid ajavõtjate lehtedele.">
 <link rel="canonical" href="https://losttimes.ee/race/tallinna-pargijooks">
+<meta name="robots" content="noindex,follow">
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://losttimes.ee/race/tallinna-pargijooks">
+<meta property="og:title" content="Tallinna Pargijooks tulemused — kõik aastad | LostTimes">
+<meta property="og:description" content="Tallinna Pargijooks tulemused aastate kaupa: 2016–2016. Otselingid ajavõtjate lehtedele.">
+<meta property="og:image" content="https://losttimes.ee/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -21,8 +38,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:22px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -30,15 +55,15 @@ background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
 stroke-linecap:round;stroke-linejoin:round}
 .icons button[aria-expanded="true"]{color:var(--red)}
-.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:250px;
+.menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:206px;
 max-width:calc(100vw - 44px);background:var(--bg);border:1px solid var(--line);
 border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu[hidden]{display:none}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
-color:var(--ink);text-decoration:none}
+color:var(--ink);text-decoration:none;text-align:center}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
@@ -78,26 +103,26 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 <h1>Tallinna Pargijooks</h1>
 <p class="meta">20 korda · 2016–2016</p>
-<ul class="list"><li><a class="r" href="/race/tallinna-pargijooks-2016">2016</a><span class="d">19. september 2016 · Snelli tiik · <a href="/race/tallinna-pargijooks-2016">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-2">2016</a><span class="d">5. september 2016 · Tähetorni · <a href="/race/tallinna-pargijooks-2016-2">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-3">2016</a><span class="d">29. august 2016 · Kadriorg · <a href="/race/tallinna-pargijooks-2016-3">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-4">2016</a><span class="d">22. august 2016 · Männiku · <a href="/race/tallinna-pargijooks-2016-4">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-5">2016</a><span class="d">15. august 2016 · Mustamäe · <a href="/race/tallinna-pargijooks-2016-5">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-6">2016</a><span class="d">8. august 2016 · Piritia-Kose · <a href="/race/tallinna-pargijooks-2016-6">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-7">2016</a><span class="d">1. august 2016 · Tallinna Lauluväljak · <a href="/race/tallinna-pargijooks-2016-7">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-8">2016</a><span class="d">27. juuni 2016 · Maardu · <a href="/race/tallinna-pargijooks-2016-8">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-9">2016</a><span class="d">20. juuni 2016 · Raku · <a href="/race/tallinna-pargijooks-2016-9">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-10">2016</a><span class="d">13. juuni 2016 · Saue · <a href="/race/tallinna-pargijooks-2016-10">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-11">2016</a><span class="d">6. juuni 2016 · Jüri · <a href="/race/tallinna-pargijooks-2016-11">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-12">2016</a><span class="d">30. mai 2016 · Harku · <a href="/race/tallinna-pargijooks-2016-12">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-13">2016</a><span class="d">23. mai 2016 · Hiiu · <a href="/race/tallinna-pargijooks-2016-13">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-14">2016</a><span class="d">16. mai 2016 · Kloostrimetsa · <a href="/race/tallinna-pargijooks-2016-14">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-15">2016</a><span class="d">9. mai 2016 · Pääsküla · <a href="/race/tallinna-pargijooks-2016-15">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-16">2016</a><span class="d">2. mai 2016 · Stroomi · <a href="/race/tallinna-pargijooks-2016-16">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-17">2016</a><span class="d">25. aprill 2016 · Liiva · <a href="/race/tallinna-pargijooks-2016-17">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-18">2016</a><span class="d">18. aprill 2016 · Pae park · <a href="/race/tallinna-pargijooks-2016-18">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-19">2016</a><span class="d">11. aprill 2016 · Järve terviserada · <a href="/race/tallinna-pargijooks-2016-19">detailid</a></span></li>
-<li><a class="r" href="/race/tallinna-pargijooks-2016-20">2016</a><span class="d">4. aprill 2016 · Lillepi park · <a href="/race/tallinna-pargijooks-2016-20">detailid</a></span></li></ul>
+<ul class="list"><li><a class="r" href="/race/tallinna-pargijooks-2016" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">19. september 2016 · Snelli tiik · <a href="/race/tallinna-pargijooks-2016">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-2" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">5. september 2016 · Tähetorni · <a href="/race/tallinna-pargijooks-2016-2">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-3" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">29. august 2016 · Kadriorg · <a href="/race/tallinna-pargijooks-2016-3">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-4" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">22. august 2016 · Männiku · <a href="/race/tallinna-pargijooks-2016-4">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-5" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">15. august 2016 · Mustamäe · <a href="/race/tallinna-pargijooks-2016-5">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-6" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">8. august 2016 · Piritia-Kose · <a href="/race/tallinna-pargijooks-2016-6">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-7" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">1. august 2016 · Tallinna Lauluväljak · <a href="/race/tallinna-pargijooks-2016-7">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-8" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">27. juuni 2016 · Maardu · <a href="/race/tallinna-pargijooks-2016-8">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-9" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">20. juuni 2016 · Raku · <a href="/race/tallinna-pargijooks-2016-9">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-10" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">13. juuni 2016 · Saue · <a href="/race/tallinna-pargijooks-2016-10">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-11" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">6. juuni 2016 · Jüri · <a href="/race/tallinna-pargijooks-2016-11">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-12" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">30. mai 2016 · Harku · <a href="/race/tallinna-pargijooks-2016-12">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-13" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">23. mai 2016 · Hiiu · <a href="/race/tallinna-pargijooks-2016-13">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-14" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">16. mai 2016 · Kloostrimetsa · <a href="/race/tallinna-pargijooks-2016-14">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-15" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">9. mai 2016 · Pääsküla · <a href="/race/tallinna-pargijooks-2016-15">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-16" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">2. mai 2016 · Stroomi · <a href="/race/tallinna-pargijooks-2016-16">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-17" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">25. aprill 2016 · Liiva · <a href="/race/tallinna-pargijooks-2016-17">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-18" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">18. aprill 2016 · Pae park · <a href="/race/tallinna-pargijooks-2016-18">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-19" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">11. aprill 2016 · Järve terviserada · <a href="/race/tallinna-pargijooks-2016-19">detailid</a></span></li>
+<li><a class="r" href="/race/tallinna-pargijooks-2016-20" aria-label="Tallinna Pargijooks 2016">2016</a><span class="d">4. aprill 2016 · Lillepi park · <a href="/race/tallinna-pargijooks-2016-20">detailid</a></span></li></ul>
 <footer><strong>Me ei hoia tulemusi. Me lihtsalt teame, kus need on.</strong><br>
 Iga link viib otse ametlikku allikasse.</footer>
 </div>
