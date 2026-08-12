@@ -27,6 +27,19 @@ const MONTHS_ET = ['jaanuar','veebruar','märts','aprill','mai','juuni',
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+// Osa ajavotjaid kirjutab nime LABIVATE SUURTAHTEDEGA. Teisendame ainult siis,
+// kui nimi on PARIS kapslites — "XXIII Muhu Jooks" jaab puutumata.
+// NB: slug tehakse endiselt algsest nimest, nii et aadressid ei muutu.
+const KEEP_CAPS = new Set(['MTB','XCO','ATV','SEB','TTP','EMV','MV','SK','JK','KFC','EGCC','LHV','TV','II','III','IV','VI','VII','VIII','IX','XI','XII']);
+export function tidyName(name) {
+  const letters = (name.match(/\p{L}/gu) || []).length;
+  const upper = (name.match(/\p{Lu}/gu) || []).length;
+  if (!letters || upper / letters < 0.8) return name;
+  return name.toLowerCase()
+    .replace(/(^|[\s(\[„"'\-\/.])(\p{L})/gu, (m, p, c) => p + c.toUpperCase())
+    .replace(/\p{L}+/gu, (w) => (KEEP_CAPS.has(w.toUpperCase()) ? w.toUpperCase() : w));
+}
+
 function baseSlug(name) {
   return String(name)
     .toLowerCase()
@@ -94,7 +107,7 @@ background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoratio
 font-weight:600;text-decoration:none}
 .note{margin-top:18px;font-size:14.5px;color:var(--slate)}
 ul.list{margin:18px 0 0;padding:0;list-style:none}
-ul.list li{padding:14px 0;border-bottom:1px solid var(--line)}
+ul.list li{padding:14px 0;border-bottom:1px solid #F0F3F4}
 ul.list .n{font-weight:600;font-size:16.5px;text-decoration:none}
 ul.list .d{display:block;font-size:13px;color:var(--slate);font-weight:500;margin-top:3px}
 ul.list .r{font-weight:600;font-size:14.5px;color:var(--red);text-decoration:none}
@@ -163,23 +176,23 @@ function eventPage(e, siblings) {
   if (org) extras.push(`<a class="alt" href="${esc(org.links.organiser)}">Korraldaja</a>`);
 
   const others = siblings.length > 1
-    ? `<p class="note"><a href="/race/${e.hub}">Kõik ${esc(e.name.replace(/\s*\(?\d{4}\)?\s*$/, ''))} aastad →</a></p>`
+    ? `<p class="note"><a href="/race/${e.hub}">Kõik ${esc(tidyName(e.name).replace(/\s*\(?\d{4}\)?\s*$/, ''))} aastad →</a></p>`
     : '';
 
   return SHELL({
-    title: `${e.name} ${year} tulemused | LostTimes`,
-    description: `${e.name} — ${when}${where}. ` +
+    title: `${tidyName(e.name)} ${year} tulemused | LostTimes`,
+    description: `${tidyName(e.name)} — ${when}${where}. ` +
       (res ? 'Otselink tulemustele ja stardinimekirjale.' : 'Kust leida selle võistluse tulemused.'),
     canonical: `${SITE}/race/${e.slug}`,
     jsonld: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'SportsEvent',
-      name: e.name,
+      name: tidyName(e.name),
       startDate: e.date,
       ...(e.location ? { location: { '@type': 'Place', name: e.location } } : {}),
       ...(res ? { url: res } : {}),
     }),
-    body: `<h1>${esc(e.name)}</h1>
+    body: `<h1>${esc(tidyName(e.name))}</h1>
 <p class="meta">${esc(when)}${esc(where)}${e.sport ? ' · ' + esc(e.sport) : ''}</p>
 ${action}${extras.join('')}
 <p class="note">${res
@@ -211,10 +224,10 @@ function hubPage(name, rows) {
   const last = rows[0].date.slice(0, 4);
 
   return SHELL({
-    title: `${name} tulemused — kõik aastad | LostTimes`,
-    description: `${name} tulemused aastate kaupa: ${first}–${last}. Otselingid ajavõtjate lehtedele.`,
+    title: `${tidyName(name)} tulemused — kõik aastad | LostTimes`,
+    description: `${tidyName(name)} tulemused aastate kaupa: ${first}–${last}. Otselingid ajavõtjate lehtedele.`,
     canonical: `${SITE}/race/${baseSlug(name)}`,
-    body: `<h1>${esc(name)}</h1>
+    body: `<h1>${esc(tidyName(name))}</h1>
 <p class="meta">${rows.length} korda · ${first}–${last}</p>
 <ul class="list">${items}</ul>`,
   });
@@ -222,7 +235,7 @@ function hubPage(name, rows) {
 
 function yearPage(year, rows) {
   const items = rows
-    .map((e) => `<li><a class="n" href="/race/${e.slug}">${esc(e.name)}</a>
+    .map((e) => `<li><a class="n" href="/race/${e.slug}">${esc(tidyName(e.name))}</a>
 <span class="d">${esc(etDate(e.date))}${e.location ? ' · ' + esc(e.location) : ''}</span></li>`)
     .join('\n');
 
@@ -256,7 +269,7 @@ function ssrRows(rows) {
       const mon = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()];
       const res = resultsLink(e);
       return `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div></div>` +
-        `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(e.name)}</a></h2>` +
+        `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(tidyName(e.name))}</a></h2>` +
         `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}">Results <span class="arr">↗</span></a></div></div></article>`;
     })
     .join('');
