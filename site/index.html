@@ -81,32 +81,22 @@
   .icons button[aria-expanded="true"]{color:var(--red)}
 
   /* ---------- pealkiri ---------- */
-  /* Pealkiri peab mahtuma ÜHELE reale ka kitsal telefonil. Kirjasuurus tuleb
-     seetõttu ekraani laiusest (vw), mitte kindlast arvust, ja nowrap hoiab
-     ära murdumise. 6.6vw tähendab 390px telefonil ~26px — mahub. */
-  /* Hero on hierarhia tipp. Suurus tuleb ekraani laiusest, sest rida peab
-     mahtuma ühele reale ka 360px telefonil — 8vw on suurim, mis sinna mahub.
-     Ilma nowrapita murduks see kitsal ekraanil ja rikuks rütmi. */
+  /* Hero on hierarhia tipp ja peab olema ÜHEL real. Suurus tuleb ekraani
+     laiusest (vw), mitte kindlast arvust, ja nowrap hoiab ära murdumise.
+     7.3vw on siin ülempiir, mitte lubadus: kitsal telefonil söövad 22px
+     veerised laiusest suurema osa ja tekst ei mahuks. Lõpliku suuruse
+     otsustab fitHero(), mis mõõdab päris laiust ja kahandab vajadusel. */
   h1{
     margin:22px 0 0;font-size:clamp(21px,7.3vw,31px);font-weight:700;
     letter-spacing:-.028em;line-height:1.08;white-space:nowrap;color:var(--ink);
   }
-  /* Küsimärk on SVG, mitte tähemärk — nii saab kaare ja punkti eraldi värvida
-     ja kuju jääb igas suuruses teravaks.
-
-     viewBox'i alumine serv = tähejoon, seega `vertical-align: baseline`
-     istutab ta teksti sisse õigesti. Suurust reguleerib ainult `height`:
-     kui märk tundub tekstiga võrreldes suur või väike, muuda seda üht arvu. */
-  .qm{height:.80em;width:auto;vertical-align:baseline;margin-left:.03em}
-  .qm .hook{fill:none;stroke:currentColor;stroke-width:11.3;stroke-linecap:butt}
-  .qm .dot{fill:var(--red)}
   /* Vastus on tahtlikult vaiksem kui küsimus — peaaegu õlakehitus.
      Punane annab talle niigi piisavalt kaalu; kui ta oleks suur ja bold,
      hakkaks ta küsimusega konkureerima ja mõjuks alapealkirjana.
      Seetõttu ka väike vahe ülalpool: ta peab lugema vastusena, mitte
      järgmise sektsiooni algusena. */
-  .sub{margin:6px 0 0;font-size:clamp(16px,5vw,21px);font-weight:500;
-    letter-spacing:-.018em;line-height:1.1;color:var(--red)}
+  .sub{margin:6px 0 0;font-size:clamp(15px,4.6vw,19px);font-weight:550;
+    letter-spacing:-.016em;line-height:1.1;color:var(--red)}
 
   /* ---------- otsing ---------- */
   .searchbar{display:none;padding-top:18px}
@@ -158,8 +148,8 @@
   /* Tabid on navigatsioon, mitte kolmas pealkiri. Alljoon on õhuke ja täpselt
      sõna laiune — punast on heros juba piisavalt. */
   /* Mõlemad tabid on sama tume toon. Vahe tuleb AINULT kaalust — punast on
-     lehel juba logo punktis, küsimärgis, vastuses ja Results linkides.
-     Punane alljoon oleks viies punane asi ühel ekraanil. */
+     lehel juba logo punktis, vastuses ja Results linkides. Punane alljoon
+     oleks neljas punane asi ühel ekraanil. */
   .tabs{display:flex;gap:28px;margin-top:36px;border-bottom:1px solid var(--line)}
   .tabs a{
     font-family:var(--sans);font-size:15px;font-weight:450;letter-spacing:.085em;
@@ -227,7 +217,7 @@
 
   <div id="yearbar"></div>
 
-  <h1>Ei leia jälle tulemusi<svg class="qm" viewBox="26 0 48 92" role="img" aria-label="?"><path class="hook" d="M32 30 A18 18 0 1 1 62 43 C58 51 48 54 48 64 L48 66"/><circle class="dot" cx="48" cy="83" r="7"/></svg></h1>
+  <h1>Ei leia jälle tulemusi?</h1>
   <p class="sub">Siin nad on.</p>
 
   <div class="searchbar" id="searchbar">
@@ -610,6 +600,40 @@ window.addEventListener('pageshow', (ev) => {
     render();
   }
 });
+
+// Hero peab mahtuma ÜHELE reale IGAL telefonil, mitte ainult minu omal.
+//
+// 7.3vw on valitud 390px ekraani järgi. Aga mida kitsam ekraan, seda suurema
+// osa laiusest söövad ära 22px veerised: 320px telefonil jääb tekstile 276px
+// ehk 11.8 tähesuurust, 430px telefonil 12.5. Vahe on 5% — ja kui string on
+// juhtumisi 2% liiga lai, tekib kogu lehele horisontaalne kerimine.
+//
+// Ükski CSS-i valem seda ette ära ei arva, sest tegelik laius sõltub fondist,
+// kerningust ja sellest, kas Geist jõudis laadida. Seega laseme brauseril
+// endal mõõta ja kahandame AINULT siis, kui päriselt üle ääre läheb.
+function fitHero() {
+  const h1 = document.querySelector('h1');
+  if (!h1) return;
+  h1.style.fontSize = '';                    // taasta CSS-i suurus, siis mõõda
+  const avail = h1.clientWidth;
+  if (!avail || h1.scrollWidth <= avail) return;
+
+  let size = parseFloat(getComputedStyle(h1).fontSize);
+  // Kaks ringi: esimene jõuab peaaegu kohale, teine parandab kerningu nihke.
+  for (let i = 0; i < 2 && h1.scrollWidth > avail; i++) {
+    size = size * avail / h1.scrollWidth;
+    h1.style.fontSize = size + 'px';
+  }
+}
+
+// Fondi laadimine muudab laiust — mõõdame alles siis, kui Geist kohal on.
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHero);
+let heroTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(heroTimer);
+  heroTimer = setTimeout(fitHero, 120);     // ka ekraani pööramisel
+});
+fitHero();
 
 (async () => {
   try {
