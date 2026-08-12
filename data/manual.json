@@ -45,7 +45,17 @@
     "timer": "Tallinna Maraton"
   },
   {
-    "name": "Audi heategevuslik jooksupäev",
+    "name": "53. Tartu Maraton",
+    "date": "2027-02-27",
+    "location": "Otepää–Elva",
+    "sport": "Suusatamine",
+    "results": "https://tartumaraton.ee/et/tulemused",
+    "startlist": "https://tartumaraton.ee/et/osalejad",
+    "organiser": "https://tartumaraton.ee/et/tartu-maraton-2027/programm",
+    "timer": "Tartu Maraton"
+  },
+  {
+    "name": "Audi Vana-aasta jooks",
     "date": "2026-12-19",
     "location": "Tallinn",
     "sport": "Jooksmine",
