@@ -43,6 +43,36 @@ const DROP_NAME = new RegExp(
   'i'
 );
 
+// VALISMAA VOISTLUSED
+//
+// LostTimes katab Eestis toimuvat. Allikatesse satub siiski Soome ja Lati
+// voistlusi — sama ajavotja teenindab ule lahe ja kirje tuleb meieni kaasa.
+// Eesti jooksja jaoks on "68. Hyrylän Ajot" mura: ta ei otsi seda kunagi ja
+// nimekirjas votab ta ruumi ara.
+//
+// Eraldi regexina, mitte DROP_NAME sees, sest tunnus on teine: seal on
+// tegemist ALAGA, siin ASUKOHAGA. Kui kunagi tekib pohjus Soome voistlusi
+// naidata, saab selle uhe reegli valja luliada ilma ulejaanut puutumata.
+//
+// Sonad on valitud nii, et nad EI saa olla eestikeelses nimes:
+// "juoksu" (mitte "jooks"), "naisten" (mitte "naiste"), "ajot".
+// "Lahti" jai tahtlikult valja — see on ka eesti sona.
+const VOORAS = new RegExp(
+  [
+    // soomekeelsed voistlussonad
+    '\\bajot\\b', '\\baika[- ]?ajo', '\\bnaisten\\b', '\\bmiesten\\b',
+    '\\bjuoksu', '\\bhölkkä\\b', '\\bpolkaisu\\b', '\\bkevät',
+    '\\bkilpailu\\b', '\\bhiihto\\b', '\\bpyöräily\\b', '\\bbroloppet\\b',
+    // soome kohanimed, mis meie andmetes esinevad
+    '\\bhyrylä', '\\bnuuksio\\b', '\\bespoo\\b', '\\bvantaa\\b',
+    '\\bhelsinki\\b', '\\bporvoo\\b', '\\bkouvola\\b',
+    // lati
+    '\\bskrējiens\\b', '\\bskrejiens\\b', '\\bvelobrauciens\\b',
+    '\\bsacens[īi]bas\\b',
+  ].join('|'),
+  'i'
+);
+
 // Erand: "Tartu Rattaralli" ja "Rattaralli" on ratas, mitte autoralli.
 const RALLI_OK = /rattaralli|jalgrattaralli/i;
 
@@ -51,6 +81,7 @@ export function isRelevant(event) {
 
   if (RALLI_OK.test(name)) return true;
   if (DROP_NAME.test(name)) return false;
+  if (VOORAS.test(name)) return false;
 
   const sport = (event.sport || '').toLowerCase().trim();
   if (sport) {
