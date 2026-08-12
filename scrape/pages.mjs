@@ -147,8 +147,16 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:20px;letter-spacing:-.035em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.035em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
 .icons button{width:40px;height:40px;display:grid;place-items:center;margin-top:-9px;
@@ -315,7 +323,7 @@ function yearPage(year, rows) {
 function archiveIndex(years) {
   const total = years.reduce((n, y) => n + y.count, 0);
   return SHELL({
-    title: 'Eesti võistluste tulemuste arhiiv | LostTimes',
+    title: 'Spordivõistluste tulemuste arhiiv | LostTimes',
     description: `Eesti jooksu-, ratta-, suusa- ja triatlonivõistluste tulemused aastate kaupa. Kokku ${total} võistlust.`,
     canonical: `${SITE}/arhiiv/`,
     body: `<h1>Tulemuste arhiiv</h1>
@@ -404,7 +412,7 @@ export async function buildPages(events, years) {
 
   const upcoming = inject(shell, next)
     .replace(/<title>[\s\S]*?<\/title>/,
-      '<title>Tulemas — Eesti võistluste kalender | LostTimes</title>')
+      '<title>Tulemas — Spordivõistluste kalender | LostTimes</title>')
     .replace(/<meta name="description" content="[^"]*">/,
       '<meta name="description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">')
     .replace(/<link rel="canonical" href="[^"]*">/,
@@ -414,7 +422,7 @@ export async function buildPages(events, years) {
     .replace(/<meta property="og:url" content="[^"]*">/,
       `<meta property="og:url" content="${SITE}/upcoming/">`)
     .replace(/<meta property="og:title" content="[^"]*">/,
-      '<meta property="og:title" content="Tulemas — Eesti võistluste kalender | LostTimes">')
+      '<meta property="og:title" content="Tulemas — Spordivõistluste kalender | LostTimes">')
     .replace(/<meta property="og:description" content="[^"]*">/,
       '<meta property="og:description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">');
   await writeFile('site/upcoming/index.html', upcoming);

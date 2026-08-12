@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kontakt — LostTimes</title>
-<meta name="description" content="Kõik tähtsad Eesti võistluste tulemused ühes kohas. Jooks, ratas, suusk ja triatlon. Kirjuta, kui mõni võistlus on puudu.">
+<meta name="description" content="Kõik tähtsad spordivõistluste tulemused ühes kohas. Jooks, ratas, suusk ja triatlon. Kirjuta, kui mõni võistlus on puudu.">
 <link rel="canonical" href="https://losttimes.ee/kontakt/">
 
 <!-- Jagamiskaart: Messenger, WhatsApp, Slack, iMessage. og:image peab olema
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="et_EE">
 <meta property="og:url" content="https://losttimes.ee/kontakt/">
 <meta property="og:title" content="Kontakt — LostTimes">
-<meta property="og:description" content="Kõik tähtsad Eesti võistluste tulemused ühes kohas. Jooks, ratas, suusk ja triatlon.">
+<meta property="og:description" content="Kõik tähtsad spordivõistluste tulemused ühes kohas. Jooks, ratas, suusk ja triatlon.">
 <meta property="og:image" content="https://losttimes.ee/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -35,11 +35,19 @@ body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.6;
 -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 22px}
-.top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:26px 0 0}
-.logo{display:inline-block;font-weight:700;font-size:20px;letter-spacing:-.03em;
+.top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+/* Logo ja ikoonid peavad seisma TAPSELT samal joonel. Varem oli logo
+   20px korge tekstikast ja ikoon 44px nupu sees — nende optilised keskmed
+   erinesid paari piksli vorra ja seda oli naha.
+   Nuud on molemal 44px korge kast, mis negatiivsete marginaalidega
+   kokku surutakse 20px-ni. align-items:center joondab kastide keskmed,
+   ja kuna tekst on oma kastis samuti keskel, langevad ka keskmed kokku.
+   Boonus: logol on nuud korralik 44px puutepind. */
+.logo{display:inline-flex;align-items:center;height:44px;margin:-12px 0;
+font-weight:700;font-size:20px;letter-spacing:-.03em;
 line-height:1;text-decoration:none;color:var(--ink)}
 .logo i{color:var(--red);font-style:normal}
-.icons{margin:-11px -11px 0 0}
+.icons{display:flex;margin:-12px -11px -12px 0}
 .icons button{width:44px;height:44px;display:grid;place-items:center;
 background:none;border:0;cursor:pointer;color:var(--ink)}
 .icons button svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;
