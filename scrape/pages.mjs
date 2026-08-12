@@ -117,11 +117,27 @@ const SHELL = (o) => `<!doctype html>
 <meta name="description" content="${esc(o.description)}">
 <link rel="canonical" href="${o.canonical}">
 <meta name="theme-color" content="#FFFFFF">
+
+<!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
+     paljast aadressi ilma pealkirja ja pildita. og:image PEAB olema
+     taisaadress — suhteline tee ei toimi, sest kaardi ehitab vork,
+     mitte brauser. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LostTimes">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="${o.canonical}">
+<meta property="og:title" content="${esc(o.title)}">
+<meta property="og:description" content="${esc(o.description)}">
+<meta property="og:image" content="${SITE}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LOSTTIMES. Ei leia jälle tulemusi? Siin nad on.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#FFFFFF;--ink:#13202B;--red:#FF4938;--slate:#66717D;--line:#E7EBED;
 --sans:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -392,7 +408,15 @@ export async function buildPages(events, years) {
     .replace(/<meta name="description" content="[^"]*">/,
       '<meta name="description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">')
     .replace(/<link rel="canonical" href="[^"]*">/,
-      `<link rel="canonical" href="${SITE}/upcoming/">`);
+      `<link rel="canonical" href="${SITE}/upcoming/">`)
+    // Jagamiskaart peab jargima lehte, mitte avalehte — muidu naitab
+    // Messenger /upcoming lingi juures avalehe pealkirja.
+    .replace(/<meta property="og:url" content="[^"]*">/,
+      `<meta property="og:url" content="${SITE}/upcoming/">`)
+    .replace(/<meta property="og:title" content="[^"]*">/,
+      '<meta property="og:title" content="Tulemas — Eesti võistluste kalender | LostTimes">')
+    .replace(/<meta property="og:description" content="[^"]*">/,
+      '<meta property="og:description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">');
   await writeFile('site/upcoming/index.html', upcoming);
 
   // 7. Sitemap ja robots
