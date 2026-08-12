@@ -31,13 +31,62 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
 // kui nimi on PARIS kapslites — "XXIII Muhu Jooks" jaab puutumata.
 // NB: slug tehakse endiselt algsest nimest, nii et aadressid ei muutu.
 const KEEP_CAPS = new Set(['MTB','XCO','ATV','SEB','TTP','EMV','MV','SK','JK','KFC','EGCC','LHV','TV','II','III','IV','VI','VII','VIII','IX','XI','XII']);
+
+// Eesti keeles kirjutatakse pealkirjas suure tähega ainult esimene sona ja
+// parisnimed — mitte iga sona. Kui allikas annab nime LABALT SUURTAHTEDEGA
+// ("KIILI KUUBIKU 5. ETAPP"), teeb ulemine reegel igast sonast "Etapp",
+// "Jooks", "Ja". See nimekiri toob need tagasi vaiketahega.
+//
+// Sees on ainult uldnimed ja sidesonad. Kohanimed (Keila, Narva), brandid
+// (Estonia, Cup, Run) ja luhendid jaavad puutumata — neid ei saa masinlikult
+// eristada, seega parem jatta suureks kui eksida parisnime kallal.
+// Rooma numbrid: KEEP_CAPS ei jaksa koiki variante loetleda (XXIII, XVII...).
+// Kontrollime kuju jargi. Uhetahelised I, V, X jaavad valja — need on liiga
+// sageli midagi muud kui number.
+const ROMAN = /^(?=[mdclxvi]{2,})m*(c[md]|d?c{0,3})(x[cl]|l?x{0,3})(i[xv]|v?i{0,3})$/i;
+
+const LOWER_WORDS = new Set([
+  'etapp','etapid','etappi','avaetapp','finaal',
+  'jooks','jooksud','jooksu','jooksupaev','joouspaev',
+  'rahvajooks','linnajooks','suurjooks','maijooks','ohtujooks','kevadjooks',
+  'sugisjooks','talvejooks','metsajooks','maastikujooks','tervisejooks',
+  'soit','soidud','soidu','rahvasoit','rattasoit','lastesoit','temposoit','temposoidu',
+  'maraton','poolmaraton','rattamaraton','maastikumaraton','teatemaraton','oomaraton',
+  'triatlon','rahvatriatlon','kross','rattakross','ralli','rattaralli','velotuur',
+  'suusasoit','suusasarja','seeriajooksu','karikasarja','jooksusarja','lastesarja',
+  'sprindisarja','sari','sarja','seeriavoistlus','seeriavoistlused',
+  'jooksusari','suusasari','sprindisari','karikasari','lastesari','seeriajooks',
+  'meistrivoistlused','karikavoistlused','malestusvoistlus','malestusvoistlused',
+  'kiiruisuklubi','kolmapaevakud','orienteerumiskolmapaevakud','spordinadal',
+  'paev','paevad','valla','linna','umber','ja','ning','ehk','km','liigub',
+  'jarve','moisa','silda','sild','voistlus','voistlused','sisemaraton',
+  'ujumismatk','sudaoojooks','oojooks','matk','ujumine','koolide','kooli',
+  'suusatamises','jooksus','ujumises','orienteerumises','kergejoustikus',
+  'murdmaasuusatamises','triatlonis','rattasoidus','suuskadel','vigursoit',
+]);
+
+// Eesti tapitahed peavad olema motestatud ka siis, kui allikas kirjutab need
+// eri moodi — vordleme ilma diakriitikuteta.
+function foldWord(w) {
+  return w.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
 export function tidyName(name) {
   const letters = (name.match(/\p{L}/gu) || []).length;
   const upper = (name.match(/\p{Lu}/gu) || []).length;
   if (!letters || upper / letters < 0.8) return name;
   return name.toLowerCase()
     .replace(/(^|[\s(\[„"'\-\/.])(\p{L})/gu, (m, p, c) => p + c.toUpperCase())
-    .replace(/\p{L}+/gu, (w) => (KEEP_CAPS.has(w.toUpperCase()) ? w.toUpperCase() : w));
+    .replace(/\p{L}+/gu, (w, off, all) => {
+      const U = w.toUpperCase();
+      if (KEEP_CAPS.has(U) || ROMAN.test(w)) return U;
+      // Esimene sona jaab alati suureks, ka siis kui ta on nimekirjas.
+      // Mottekriipsu voi koolonit jargnev sona alustab uut osa ("... 3. etapp
+      // - Vigursoit") ja jaab suureks nagu esimene sona. Sidekriips ilma
+      // tuhikuta on liitsona ("Laane-Virumaa"), see reegel sinna ei kai.
+      const segiAlgus = off === 0 || /[\u2013\u2014:-]\s+$/.test(all.slice(0, off));
+      if (!segiAlgus && LOWER_WORDS.has(foldWord(w))) return w.toLowerCase();
+      return w;
+    });
 }
 
 function baseSlug(name) {
