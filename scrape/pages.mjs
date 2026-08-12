@@ -147,8 +147,8 @@ border-radius:16px;padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10)}
 .menu a{display:block;padding:9px 0;font-size:15px;font-weight:600;
 color:var(--ink);text-decoration:none}
 .menu a:hover{color:var(--red)}
-h1{margin:30px 0 0;font-size:clamp(26px,6.6vw,34px);font-weight:700;
-letter-spacing:-.032em;line-height:1.12}
+h1{margin:30px 0 0;font-size:clamp(22px,7.7vw,33px);font-weight:640;
+letter-spacing:-.028em;line-height:1.14}
 .meta{margin-top:10px;font-size:15.5px;color:var(--slate);font-weight:500}
 .cta{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:100px;
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
