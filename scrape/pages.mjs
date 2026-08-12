@@ -129,6 +129,7 @@ ${o.body}
 Iga link viib otse ametlikku allikasse.</footer>
 </div>
 <script>
+if(location.hostname.endsWith('.pages.dev'))location.replace('https://losttimes.ee'+location.pathname+location.search+location.hash);
 var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
 b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
 b.setAttribute('aria-expanded',String(!m.hidden));});
