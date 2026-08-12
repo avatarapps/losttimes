@@ -26,6 +26,20 @@
     { "_miks": "Nimi muutus manual.json-is. Kirje id sisaldab nime, seega tekib uue nime all UUS kirje ja vana jääb kumulatiivsesse arhiivi alles. Ilma selle reeglita oleks 19. detsembril kaks Audi jooksu.",
       "date": "2026-12-19", "match": "Audi heategevuslik jooksupäev", "hide": true },
 
+    { "_miks": "Filter Temposari 2025 lingid viisid Sportose tühjale tulemuste lehele. Päris tulemused on TolkNetis, loetletud siin: https://spordisarjad.ee/temposari/tulemused — seal on hooaeg kohanimede kaupa ilma kuupäevata, seega on etapp seotud JÄRJEKORRA järgi (1. etapp = esimesena loetletud Jüri jne)." },
+    { "date": "2025-05-07", "match": "Filter Temposari",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=583" },
+    { "date": "2025-05-21", "match": "Filter Temposari",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=585" },
+    { "date": "2025-06-04", "match": "Filter Temposari",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=6161" },
+    { "date": "2025-06-11", "match": "Filter Temposari",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=591" },
+    { "date": "2025-08-06", "match": "Filter Temposari",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=606" },
+    { "date": "2025-08-13", "match": "Filter Temposari",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=611" },
+
     { "date": "2026-06-07", "match": "Tartu Rattaralli",
       "organiser": "https://tartumaraton.ee/et/tartu-rattaralli-2026" },
 
