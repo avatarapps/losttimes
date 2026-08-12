@@ -315,9 +315,11 @@ function hubPage(name, rows) {
       const res = resultsLink(e);
       const start = e.sources.find((s) => s.links.startlist);
       const links = [
-        res ? `<a class="r" href="${esc(res)}">${y} tulemused</a>` : `<a class="r" href="/race/${e.slug}">${y}</a>`,
+        res
+          ? `<a class="r" href="${esc(res)}" aria-label="${esc(tidyName(name))} ${y} tulemused">${y} tulemused</a>`
+          : `<a class="r" href="/race/${e.slug}" aria-label="${esc(tidyName(name))} ${y}">${y}</a>`,
         start && start.links.startlist !== res
-          ? `<a class="s" href="${esc(start.links.startlist)}">Stardinimekiri</a>` : '',
+          ? `<a class="s" href="${esc(start.links.startlist)}" aria-label="${esc(tidyName(name))} ${y} stardinimekiri">Stardinimekiri</a>` : '',
       ].join('');
       return `<li>${links}<span class="d">${esc(etDate(e.date))}${e.location ? ' · ' + esc(e.location) : ''} · <a href="/race/${e.slug}">detailid</a></span></li>`;
     })
@@ -375,7 +377,8 @@ function ssrRows(rows) {
       const res = resultsLink(e);
       return `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div></div>` +
         `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(tidyName(e.name))}</a></h2>` +
-        `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}">Results <span class="arr">↗</span></a></div></div></article>`;
+        `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}" ` +
+        `aria-label="Results — ${esc(tidyName(e.name))} tulemused">Results <span class="arr">↗</span></a></div></div></article>`;
     })
     .join('');
 }

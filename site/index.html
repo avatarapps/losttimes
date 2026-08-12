@@ -377,18 +377,27 @@ function actions(e){
   const res = e.sources.find(s => s.links.results);
   let lost = false;
 
+  // Nähtav tekst jääb "Results" — lühike ja alati sama, nagu kokku lepitud.
+  // Aga masina jaoks on sada identset "Results" linki sisutu müra: ei Google
+  // ega ekraanilugeja saa aru, KUHU see konkreetne link viib.
+  //
+  // aria-label annab igale lingile oma nime. Nähtav sõna on labelis ESIMENE
+  // meelega: WCAG 2.5.3 nõuab, et ligipääsetav nimi sisaldaks nähtavat teksti,
+  // muidu ei leia häälkäsklusega "vajuta Results" seda linki enam üles.
+  const nimi = tidyName(e.name).replace(/"/g, '&quot;');
+
   if (res){
-    out.push(`<a class="res" href="${res.links.results}"${EXT}>Results ${ARROW}</a>`);
+    out.push(`<a class="res" href="${res.links.results}" aria-label="Results — ${nimi} tulemused"${EXT}>Results ${ARROW}</a>`);
   } else {
     const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
-    out.push(`<a class="res" href="https://www.google.com/search?q=${q}"${EXT}>Results ${ARROW}</a>`);
+    out.push(`<a class="res" href="https://www.google.com/search?q=${q}" aria-label="Results — otsi ${nimi} tulemusi"${EXT}>Results ${ARROW}</a>`);
     lost = true;
   }
 
   const start = e.sources.find(s => s.links.startlist && s.links.startlist !== (res && res.links.results));
   if (start){
     out.push('<span class="sep">·</span>');
-    out.push(`<a class="other" href="${start.links.startlist}"${EXT}>Start list ${ARROW}</a>`);
+    out.push(`<a class="other" href="${start.links.startlist}" aria-label="Start list — ${nimi} stardinimekiri"${EXT}>Start list ${ARROW}</a>`);
   }
 
   return out.join('');
