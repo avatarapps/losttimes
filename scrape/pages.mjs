@@ -192,6 +192,17 @@ font-size:13.5px;font-weight:600;text-decoration:none}
 footer{margin-top:40px;padding:20px 0 44px;border-top:1px solid var(--line);
 color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
 footer strong{color:var(--ink);font-weight:600}
+
+/* ---------- desktop ----------
+   Sama polumotte, mis avalehel: ainult paigutus, koik @media sees.
+   .wrap laieneb ka siin, et pais ja logo ei hupaks avalehelt voistluse
+   lehele minnes kohta. Tekstiloikude enda max-width (32em / 30em) hoiab
+   lugemispikkuse ikka lyhikesena — laiem konteiner ei tee ridu pikemaks. */
+@media (min-width:900px){
+  .wrap{max-width:1000px}
+  ul.list li{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 24px}
+  ul.list .d{display:block;margin-top:0;margin-left:auto}
+}
 </style>
 ${o.jsonld ? `<script type="application/ld+json">${o.jsonld}</script>` : ''}
 </head>

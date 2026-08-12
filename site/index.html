@@ -208,6 +208,41 @@
   .empty{padding:64px 0;text-align:center;color:var(--slate);font-weight:500}
   footer{padding:36px 0 48px;color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
   footer strong{color:var(--ink);font-weight:600}
+
+  /* ---------- desktop ----------
+
+     KOGU see plokk on @media (min-width:900px) sees ja brauser ei hinda
+     neid ridu alla 900px ULDSE. Mobiilivaade ei saa siit muutuda — see ei
+     ole ettevaatlikkus, vaid struktuur. Kui midagi on vaja muuta valjaspool
+     seda plokki, on see viga, mitte maitsekusimus.
+
+     900px, mitte 768px: iPad pustasendis on 768-834px lai ja peab jaama
+     puutepaigutusele, kus sihtmargid on 44px.
+
+     Ruum kulub LAIUSESSE, mitte korgusesse. Rida ei lahe suuremaks — ta
+     laheb uhele reale:
+        mobiil : 12 AUG
+                 Filter Temposari
+                 Results · Start list
+        desktop: 12 AUG | Filter Temposari | Results · Start list
+     Sama info, sama fondid, sama loogika. Ainult pakitud teisiti. */
+  @media (min-width:900px){
+    .wrap{max-width:1000px}
+
+    .row .date{width:64px}
+    .row .body{display:flex;align-items:baseline;gap:28px}
+
+    /* min-width:0 lubab pikal nimel kahaneda ja vajadusel murduda.
+       Ilma selleta lukastaks 127-tahemargiline nimi lingid rea servast
+       valja. Kolmpunktiga ei loika: eesti voistluste nimed erinevad
+       LOPUST ("... V etapp - Hiiumaa XCO") ja ara loigatuna jaaks alles
+       just see osa, mis on koigil etappidel uhesugune. */
+    .row h2{flex:1;min-width:0}
+
+    /* baseline hoiab lingid nime ESIMESE rea joonel ka siis, kui nimi
+       murdub kahele reale. */
+    .row .acts{flex:none;margin-top:0}
+  }
 </style>
 </head>
 <body>
