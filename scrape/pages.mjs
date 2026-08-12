@@ -116,6 +116,7 @@ const SHELL = (o) => `<!doctype html>
 <title>${esc(o.title)}</title>
 <meta name="description" content="${esc(o.description)}">
 <link rel="canonical" href="${o.canonical}">
+${o.robots ? `<meta name="robots" content="${o.robots}">` : ''}
 <meta name="theme-color" content="#FFFFFF">
 
 <!-- Jagamiskaart. Ilma nendeta naitab Messenger, WhatsApp voi Slack
@@ -230,6 +231,36 @@ function resultsLink(e) {
   return r ? r.links.results : null;
 }
 
+// KAS SEE LEHT VAARIB INDEKSIT?
+//
+// Kusimus, millele iga indekseeritav leht peab vastama: mis kasu on
+// Google'i kasutajal siit lehest vorreldes sellega, kui Google saadaks
+// ta otse ajavotja juurde?
+//
+// Kui meil on valine link, on vastus selge — see leht ON see, mis seob
+// voistluse nime ja aasta oige ajavotu-URLiga, ja seda seost mujal ei ole.
+//
+// Kui valist linki ei ole, utleb leht kulastajale "me ei tea, kus tulemused
+// on" ja pakub Google'i otsingut. Kasutaja tuli Google'ist. Selline leht ei
+// lahenda midagi ja indeksis teeb ta kahju, mitte kasu.
+//
+// Reegel on ISETERVENEV: kui oine resolver leiab hiljem lingi, muutub leht
+// jargmisel jooksul ise indekseeritavaks. Kaitsi nimekirja hoida ei ole vaja.
+function isOwn(url) {
+  return !url || url.includes('losttimes.ee') || url.startsWith('/');
+}
+
+export function worthIndexing(e) {
+  const res = resultsLink(e);
+  if (!isOwn(res)) return true;
+  return e.sources.some((x) => x.links.startlist && !isOwn(x.links.startlist));
+}
+
+// noindex EI tahenda lehe peitmist. Leht jaab saidile, teda roomatakse ja
+// follow annab arhiivile ning sarjahubidele endiselt linkivaartust edasi.
+// Kaob ainult indeksikirje.
+const ROBOTS_THIN = 'noindex,follow';
+
 function eventPage(e, siblings) {
   const year = e.date.slice(0, 4);
   const when = etDate(e.date);
@@ -257,6 +288,7 @@ function eventPage(e, siblings) {
     description: `${tidyName(e.name)} — ${when}${where}. ` +
       (res ? 'Otselink tulemustele ja stardinimekirjale.' : 'Kust leida selle võistluse tulemused.'),
     canonical: `${SITE}/race/${e.slug}`,
+    robots: worthIndexing(e) ? null : ROBOTS_THIN,
     jsonld: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'SportsEvent',
@@ -298,6 +330,8 @@ function hubPage(name, rows) {
     title: `${tidyName(name)} tulemused — kõik aastad | LostTimes`,
     description: `${tidyName(name)} tulemused aastate kaupa: ${first}–${last}. Otselingid ajavõtjate lehtedele.`,
     canonical: `${SITE}/race/${baseSlug(name)}`,
+    // Hub, mille koik kumme aastat on tuhjad, on kumme korda tuhi leht.
+    robots: rows.some(worthIndexing) ? null : ROBOTS_THIN,
     body: `<h1>${esc(tidyName(name))}</h1>
 <p class="meta">${rows.length} korda · ${first}–${last}</p>
 <ul class="list">${items}</ul>`,
@@ -434,8 +468,13 @@ export async function buildPages(events, years) {
     // koos saadaksime Google'ile vasturaakiva signaali.
     `${SITE}/`, `${SITE}/upcoming/`, `${SITE}/arhiiv/`, `${SITE}/kontakt/`,
     ...[...byYear.keys()].map((y) => `${SITE}/arhiiv/${y}/`),
-    ...[...series.entries()].filter(([h, r]) => r.length >= 2 && !used.has(h)).map(([h]) => `${SITE}/race/${h}`),
-    ...events.map((e) => `${SITE}/race/${e.slug}`),
+    // Sitemapis on AINULT need, mida me tahame indeksis naha. Sama reegel,
+    // mis maarab noindex'i — muidu utleks sitemap "indekseeri" ja lehe enda
+    // margend "ara indekseeri", ja me saadaksime vasturaakiva signaali.
+    ...[...series.entries()]
+      .filter(([h, r]) => r.length >= 2 && !used.has(h) && r.some(worthIndexing))
+      .map(([h]) => `${SITE}/race/${h}`),
+    ...events.filter(worthIndexing).map((e) => `${SITE}/race/${e.slug}`),
   ];
   await writeFile('site/sitemap.xml',
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
