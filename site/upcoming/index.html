@@ -284,8 +284,8 @@
        Google saab indekseerida ja inimene jagada. JS võtab kliki üle ja
        vahetab vaadet ilma laadimiseta, aga link töötab ka ilma JS-ita. -->
   <div class="tabs" role="tablist">
-    <a id="tab-past" role="tab" href="/" aria-selected="true">Tulemused</a>
-    <a id="tab-next" role="tab" href="/upcoming/" aria-selected="false">Tulevased</a>
+    <a id="tab-past" role="tab" href="/" aria-selected="false">Tulemused</a>
+    <a id="tab-next" role="tab" href="/upcoming/" aria-selected="true">Tulevased</a>
   </div>
 </div>
 
@@ -510,7 +510,9 @@ function matches(e, terms){
 async function loadYear(year){
   if (state.loaded.has(year)) return;
   state.loaded.add(year);
-  const res = await fetch(`events-${year}.json`);
+  // Absoluutne tee. Suhteline `events-2026.json` lahendaks /upcoming/
+  // lehel aadressiks /upcoming/events-2026.json ja annaks 404.
+  const res = await fetch(`/events-${year}.json`);
   if (!res.ok) return;
   const rows = await res.json();
   for (const e of rows){
@@ -751,7 +753,9 @@ fitHero();
 
 (async () => {
   try {
-    state.meta = await (await fetch('index.json')).json();
+    // Absoluutne tee — vt loadYear(). Sama louks: /upcoming/index.json
+    // ei ole olemas ja leht jai tuhjaks.
+    state.meta = await (await fetch('/index.json')).json();
   } catch {
     document.getElementById('list').innerHTML =
       '<div class="empty">Andmeid ei leitud.</div>';

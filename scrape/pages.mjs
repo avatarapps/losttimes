@@ -472,7 +472,14 @@ export async function buildPages(events, years) {
     .replace(/<meta property="og:title" content="[^"]*">/,
       '<meta property="og:title" content="Tulemas — Spordivõistluste kalender | LostTimes">')
     .replace(/<meta property="og:description" content="[^"]*">/,
-      '<meta property="og:description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">');
+      '<meta property="og:description" content="Tulemas olevad Eesti jooksu-, ratta-, suusa- ja triatlonivõistlused. Stardinimekirjad ja tulemuste lingid ühes kohas.">')
+    // Oige tab on valitud juba staatilises HTML-is, mitte alles siis kui JS
+    // jouab kohale. Nii ei valgu kasutajale hetkeks vale sakk silma ja
+    // crawler naeb samuti oiget seisu.
+    .replace('<a id="tab-past" role="tab" href="/" aria-selected="true">',
+             '<a id="tab-past" role="tab" href="/" aria-selected="false">')
+    .replace('<a id="tab-next" role="tab" href="/upcoming/" aria-selected="false">',
+             '<a id="tab-next" role="tab" href="/upcoming/" aria-selected="true">');
   await writeFile('site/upcoming/index.html', upcoming);
 
   // 7. Sitemap ja robots
