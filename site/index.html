@@ -620,12 +620,20 @@ window.addEventListener('pageshow', (ev) => {
     return;
   }
 
-  // Laeme jooksva aasta kohe. Kui aasta on alles alanud ja kirjeid on vähe,
-  // võtame eelmise ka — muidu oleks jaanuaris leht peaaegu tühi.
-  const years = state.meta.years.map(y => y.year);
+  // Laeme jooksva aasta kohe — ja KÕIK tulevased aastad kaasa.
+  //
+  // Tulevasi aastaid on alati vaid paar tükki ja neid on paarsada kilobaiti
+  // vähem kui ühtki ajalooaastat. Ilma nendeta ei saa "Tulevased" tab kunagi
+  // näidata näiteks 2027. aasta veebruari suusamaratone: augustis on jooksva
+  // aasta kalender läbi ja tab jääb tühjaks, kuigi andmed on failis olemas.
+  const years = state.meta.years.map(y => y.year);          // kahanevas järjekorras
   const thisYear = String(new Date().getFullYear());
   const first = years.includes(thisYear) ? thisYear : years[0];
-  await loadYear(first);
+  const future = years.filter(y => y > thisYear);
+  await Promise.all([first, ...future].map(loadYear));
+
+  // Kui aasta on alles alanud ja kirjeid on vähe, võtame eelmise ka —
+  // muidu oleks jaanuaris leht peaaegu tühi.
   if (state.events.length < 60 && years[years.indexOf(first) + 1]) {
     await loadYear(years[years.indexOf(first) + 1]);
   }

@@ -103,6 +103,57 @@ async function main() {
   return finish(collected, health);
 }
 
+// Mitmepaevased voistlused tulevad allikatest kahe kirjena: Estoloppet annab
+// vahemiku alguse, Sportos loppu. Kumulatiivne arhiiv hoiab molemat alles, sest
+// kuupaev on osa id-st — nii jai "48. Alutaguse Maraton" listi kaks korda,
+// 7. ja 8. veebruaril.
+//
+// Liidame kokku ainult siis, kui nimi on TAPSELT sama ja kuupaevade vahe on
+// tapselt uks paev. Sarja etapid ("1. etapp", "2. etapp") jaavad eraldi, sest
+// nende nimed erinevad. Alles jaab varasem kuupaev — voistlus algab siis.
+function runKey(name) {
+  return (name || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/^[ivxlcdm]+\.?\s+/i, '')
+    .replace(/^\d+\.?\s*/, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+function mergeMultiDay(events) {
+  const byKey = new Map();
+  for (const e of events) {
+    const k = runKey(e.name);
+    if (!byKey.has(k)) byKey.set(k, []);
+    byKey.get(k).push(e);
+  }
+
+  const drop = new Set();
+  let merged = 0;
+  for (const group of byKey.values()) {
+    if (group.length < 2) continue;
+    group.sort((a, b) => a.date.localeCompare(b.date));
+    for (let i = 0; i < group.length - 1; i++) {
+      const a = group[i], b = group[i + 1];
+      if (drop.has(a.id)) continue;
+      const gap = (Date.parse(b.date) - Date.parse(a.date)) / 86400000;
+      if (gap !== 1) continue;
+
+      // Hilisema kirje allikad ja distantsid rannavad varasemasse.
+      const seen = new Set(a.sources.map((s) => s.id));
+      for (const s of b.sources) if (!seen.has(s.id)) a.sources.push(s);
+      a.distances = [...new Set([...(a.distances || []), ...(b.distances || [])])];
+      if (!a.location && b.location) a.location = b.location;
+      drop.add(b.id);
+      merged++;
+    }
+  }
+  if (merged) console.log(`[mitmepaevased] liidetud ${merged} topeltkirjet`);
+  return events.filter((e) => !drop.has(e.id));
+}
+
 async function finish(collected, health) {
   const merged = merge(collected);
   const withDate = merged.filter((e) => e.date);
@@ -159,7 +210,7 @@ async function finish(collected, health) {
   }
 
   // Kasitsi parandused KOIGE VIIMASENA — need voidavad alati automaatika.
-  const all = (await applyOverrides(cleaned.kept)).sort(
+  const all = mergeMultiDay(await applyOverrides(cleaned.kept)).sort(
     (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
   if (beforeClean !== all.length) console.log(`[arhiiv] ${beforeClean} -> ${all.length}`);
