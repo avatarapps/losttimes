@@ -46,7 +46,7 @@ background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoratio
 font-weight:600;text-decoration:none}
 .note{margin-top:18px;font-size:14.5px;color:var(--slate)}
 ul.list{margin:18px 0 0;padding:0;list-style:none}
-ul.list li{padding:14px 0;border-bottom:1px solid var(--line)}
+ul.list li{padding:14px 0;border-bottom:1px solid #F0F3F4}
 ul.list .n{font-weight:600;font-size:16.5px;text-decoration:none}
 ul.list .d{display:block;font-size:13px;color:var(--slate);font-weight:500;margin-top:3px}
 ul.list .r{font-weight:600;font-size:14.5px;color:var(--red);text-decoration:none}
@@ -98,7 +98,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">21. november 2015 · Pääsküla</span></li>
 <li><a class="n" href="/race/tartu-novembrijooks-2015">Tartu Novembrijooks</a>
 <span class="d">21. november 2015 · Tartu</span></li>
-<li><a class="n" href="/race/reinpaul-xiii-maastikujooks-2015">REINPAUL XIII MAASTIKUJOOKS</a>
+<li><a class="n" href="/race/reinpaul-xiii-maastikujooks-2015">Reinpaul Xiii Maastikujooks</a>
 <span class="d">1. november 2015 · Ebavere</span></li>
 <li><a class="n" href="/race/kahe-staadioni-jooks-2015">Kahe staadioni jooks</a>
 <span class="d">25. oktoober 2015</span></li>
@@ -230,7 +230,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">22. juuni 2015</span></li>
 <li><a class="n" href="/race/13-rakvere-rattamaraton-2015">13. Rakvere Rattamaraton</a>
 <span class="d">21. juuni 2015 · Rakvere</span></li>
-<li><a class="n" href="/race/13-varska-gp-rattamaraton-2015">13. VÄRSKA GP RATTAMARATON</a>
+<li><a class="n" href="/race/13-varska-gp-rattamaraton-2015">13. Värska Gp Rattamaraton</a>
 <span class="d">20. juuni 2015</span></li>
 <li><a class="n" href="/race/valga-valka-helen-triatlon-2015">Valga-Valka Helen Triatlon</a>
 <span class="d">20. juuni 2015 · Valga</span></li>
@@ -352,7 +352,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">5. märts 2015 · Haanja</span></li>
 <li><a class="n" href="/race/18-tallinna-suusamaraton-2015">18. Tallinna Suusamaraton</a>
 <span class="d">1. märts 2015 · Aegviidu</span></li>
-<li><a class="n" href="/race/test-voistlus-ara-registreeru-2015">TEST VÕISTLUS - ÄRA REGISTREERU</a>
+<li><a class="n" href="/race/test-voistlus-ara-registreeru-2015">Test Võistlus - Ära Registreeru</a>
 <span class="d">1. märts 2015 · Tallinn</span></li>
 <li><a class="n" href="/race/kalevipoja-vii-uisumaraton-ei-toimu-2015">Kalevipoja VII Uisumaraton - EI TOIMU!!!</a>
 <span class="d">28. veebruar 2015</span></li>
@@ -374,6 +374,7 @@ footer strong{color:var(--ink);font-weight:600}
 Iga link viib otse ametlikku allikasse.</footer>
 </div>
 <script>
+if(location.hostname.endsWith('.pages.dev'))location.replace('https://losttimes.ee'+location.pathname+location.search+location.hash);
 var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
 b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
 b.setAttribute('aria-expanded',String(!m.hidden));});

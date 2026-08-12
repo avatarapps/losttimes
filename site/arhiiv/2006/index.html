@@ -46,7 +46,7 @@ background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoratio
 font-weight:600;text-decoration:none}
 .note{margin-top:18px;font-size:14.5px;color:var(--slate)}
 ul.list{margin:18px 0 0;padding:0;list-style:none}
-ul.list li{padding:14px 0;border-bottom:1px solid var(--line)}
+ul.list li{padding:14px 0;border-bottom:1px solid #F0F3F4}
 ul.list .n{font-weight:600;font-size:16.5px;text-decoration:none}
 ul.list .d{display:block;font-size:13px;color:var(--slate);font-weight:500;margin-top:3px}
 ul.list .r{font-weight:600;font-size:14.5px;color:var(--red);text-decoration:none}
@@ -78,7 +78,7 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 <h1>2006. aasta võistlused</h1>
 <p class="meta">38 võistlust</p>
-<ul class="list"><li><a class="n" href="/race/stamina-vana-aasta-jooks-2006">STAMINA VANA-AASTA JOOKS</a>
+<ul class="list"><li><a class="n" href="/race/stamina-vana-aasta-jooks-2006">Stamina Vana-Aasta Jooks</a>
 <span class="d">30. detsember 2006 · Tallinn, Premia Jäähall</span></li>
 <li><a class="n" href="/race/66-rabajooks-2006">66. Rabajooks</a>
 <span class="d">8. oktoober 2006 · Harku raba mets, Nõmme</span></li>
@@ -116,7 +116,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">23. juuli 2006 · Harku</span></li>
 <li><a class="n" href="/race/iii-lauri-ausi-memoriaal-2006">III Lauri Ausi Memoriaal</a>
 <span class="d">20. juuli 2006 · Tallinn</span></li>
-<li><a class="n" href="/race/abec-cup-2006">ABEC CUP</a>
+<li><a class="n" href="/race/abec-cup-2006">Abec Cup</a>
 <span class="d">16. juuli 2006 · Tallinn</span></li>
 <li><a class="n" href="/race/eec-6-elva-rattamaraton-2006">EEC 6. Elva Rattamaraton</a>
 <span class="d">9. juuli 2006 · Elva</span></li>
@@ -158,6 +158,7 @@ footer strong{color:var(--ink);font-weight:600}
 Iga link viib otse ametlikku allikasse.</footer>
 </div>
 <script>
+if(location.hostname.endsWith('.pages.dev'))location.replace('https://losttimes.ee'+location.pathname+location.search+location.hash);
 var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
 b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
 b.setAttribute('aria-expanded',String(!m.hidden));});

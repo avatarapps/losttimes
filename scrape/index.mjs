@@ -27,6 +27,7 @@ import { normalizeName } from './lib.mjs';
 import { explainFilter } from './filter.mjs';
 import { resolveMissing } from './resolve.mjs';
 import { buildPages } from './pages.mjs';
+import { applyOverrides } from './overrides.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -157,7 +158,8 @@ async function finish(collected, health) {
       cleaned.dropped.slice(0, 5).map((e) => e.name).join(' | '));
   }
 
-  const all = cleaned.kept.sort(
+  // Kasitsi parandused KOIGE VIIMASENA — need voidavad alati automaatika.
+  const all = (await applyOverrides(cleaned.kept)).sort(
     (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
   if (beforeClean !== all.length) console.log(`[arhiiv] ${beforeClean} -> ${all.length}`);

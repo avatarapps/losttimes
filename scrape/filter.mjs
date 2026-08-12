@@ -34,7 +34,7 @@ const DROP_NAME = new RegExp(
     'workshop', 'tutvustus', 'proovitund', 'kontsert', 'näidis',
     // Kergejoustik ja koolispordi sarjad ei ole kestvusalad.
     'kergejõustik', 'olümpiastarti', 'koolinoorte', 'võimlemis', 'võimlejate',
-    'hüppevõistlus', 'teatevõistlus',
+    'hüppevõistlus', 'teatevõistlus', 'boccia',
     // Matkad ja elamusretked ei ole voistlused — seal ei ole aegu ega kohti.
     'elamusretk', '\\bmatka', '\\bmatk\\b', 'rahvamatk', 'seiklusretk',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',

@@ -46,7 +46,7 @@ background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoratio
 font-weight:600;text-decoration:none}
 .note{margin-top:18px;font-size:14.5px;color:var(--slate)}
 ul.list{margin:18px 0 0;padding:0;list-style:none}
-ul.list li{padding:14px 0;border-bottom:1px solid var(--line)}
+ul.list li{padding:14px 0;border-bottom:1px solid #F0F3F4}
 ul.list .n{font-weight:600;font-size:16.5px;text-decoration:none}
 ul.list .d{display:block;font-size:13px;color:var(--slate);font-weight:500;margin-top:3px}
 ul.list .r{font-weight:600;font-size:14.5px;color:var(--red);text-decoration:none}
@@ -120,11 +120,11 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">9. september 2012 · Tallinn</span></li>
 <li><a class="n" href="/race/12-elva-rattamaraton-2012">12. Elva Rattamaraton</a>
 <span class="d">8. september 2012 · Elva</span></li>
-<li><a class="n" href="/race/rae-rullimaraton-2012">RAE RULLIMARATON</a>
+<li><a class="n" href="/race/rae-rullimaraton-2012">Rae Rullimaraton</a>
 <span class="d">8. september 2012 · Tallinn</span></li>
 <li><a class="n" href="/race/xii-juri-jaansoni-parnu-2-silla-jooks-2012">XII Jüri Jaansoni Pärnu 2 Silla jooks</a>
 <span class="d">2. september 2012 · Pärnu</span></li>
-<li><a class="n" href="/race/iv-etapp-2012">IV ETAPP</a>
+<li><a class="n" href="/race/iv-etapp-2012">IV Etapp</a>
 <span class="d">29. august 2012 · Kambja</span></li>
 <li><a class="n" href="/race/volkswagen-mtb-kolmapaevakud-11-etapp-2012">Volkswagen MTB Kolmapäevakud 11. etapp</a>
 <span class="d">29. august 2012 · Jõelähtme</span></li>
@@ -206,7 +206,7 @@ footer strong{color:var(--ink);font-weight:600}
 <span class="d">27. juuni 2012 · Viimsi</span></li>
 <li><a class="n" href="/race/volkswagen-mtb-kolmapaevakud-6-etapp-2012">Volkswagen MTB Kolmapäevakud 6. etapp</a>
 <span class="d">27. juuni 2012 · Kiili</span></li>
-<li><a class="n" href="/race/35-jaanijooks-umber-karksi-nuia-paisjarve-2012">35. JAANIJOOKS ÜMBER KARKSI-NUIA PAISJÄRVE</a>
+<li><a class="n" href="/race/35-jaanijooks-umber-karksi-nuia-paisjarve-2012">35. Jaanijooks Ümber Karksi-Nuia Paisjärve</a>
 <span class="d">23. juuni 2012 · Karksi-Nuia</span></li>
 <li><a class="n" href="/race/vii-viljandi-mulgi-jaani-triatlon-2012">VII Viljandi Mulgi-Jaani Triatlon</a>
 <span class="d">23. juuni 2012 · Viljandi</span></li>
@@ -332,6 +332,7 @@ footer strong{color:var(--ink);font-weight:600}
 Iga link viib otse ametlikku allikasse.</footer>
 </div>
 <script>
+if(location.hostname.endsWith('.pages.dev'))location.replace('https://losttimes.ee'+location.pathname+location.search+location.hash);
 var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
 b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
 b.setAttribute('aria-expanded',String(!m.hidden));});

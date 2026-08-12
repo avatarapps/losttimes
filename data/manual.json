@@ -5,7 +5,7 @@
     "location": "Tallinn",
     "sport": "Jalgrattasport",
     "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=666",
-    "organiser": "https://spordisarjad.ee/temposari",
+    "organiser": "https://spordisarjad.ee/temposari/etapp/tallinn",
     "timer": "TolkNet"
   },
   {
@@ -34,5 +34,23 @@
     "results": "https://www.championchip.ee/results/1863",
     "organiser": "https://stamina.ee/et/triatlon",
     "timer": "ChampionChip"
+  },
+  {
+    "name": "Tallinna Maraton 42km",
+    "date": "2026-09-13",
+    "location": "Tallinn",
+    "sport": "Jooksmine",
+    "results": "https://www.jooks.ee/et/tallinna-maraton/tulemused",
+    "organiser": "https://www.jooks.ee/et/tallinna-maraton/distantsid-info",
+    "timer": "Tallinna Maraton"
+  },
+  {
+    "name": "Audi heategevuslik jooksupäev",
+    "date": "2026-12-19",
+    "location": "Tallinn",
+    "sport": "Jooksmine",
+    "results": "https://stamina.ee/et/jooksupaev/tulemused",
+    "organiser": "https://stamina.ee/et/jooksupaev/info-ja-juhend?competition_id=331",
+    "timer": "Stamina"
   }
 ]

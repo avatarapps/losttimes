@@ -46,7 +46,7 @@ background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoratio
 font-weight:600;text-decoration:none}
 .note{margin-top:18px;font-size:14.5px;color:var(--slate)}
 ul.list{margin:18px 0 0;padding:0;list-style:none}
-ul.list li{padding:14px 0;border-bottom:1px solid var(--line)}
+ul.list li{padding:14px 0;border-bottom:1px solid #F0F3F4}
 ul.list .n{font-weight:600;font-size:16.5px;text-decoration:none}
 ul.list .d{display:block;font-size:13px;color:var(--slate);font-weight:500;margin-top:3px}
 ul.list .r{font-weight:600;font-size:14.5px;color:var(--red);text-decoration:none}
@@ -77,10 +77,11 @@ footer strong{color:var(--ink);font-weight:600}
 </div>
 </div>
 <h1>49. Alutaguse Maraton</h1>
-<p class="meta">20 korda · 2009–2027</p>
+<p class="meta">21 korda · 2009–2027</p>
 <ul class="list"><li><a class="r" href="https://www.estoloppet.ee/et/tulemused">2027 tulemused</a><a class="s" href="https://www.estoloppet.ee/et/registreerumine">Stardinimekiri</a><span class="d">7. veebruar 2027 · <a href="/race/49-alutaguse-maraton-2027">detailid</a></span></li>
+<li><a class="r" href="https://www.estoloppet.ee/et/tulemused">2027 tulemused</a><a class="s" href="https://www.estoloppet.ee/et/registreerumine">Stardinimekiri</a><span class="d">6. veebruar 2027 · <a href="/race/49-alutaguse-maraton-2027-2">detailid</a></span></li>
 <li><a class="r" href="https://www.estoloppet.ee/et/tulemused">2026 tulemused</a><a class="s" href="https://www.estoloppet.ee/et/registreerumine">Stardinimekiri</a><span class="d">8. veebruar 2026 · <a href="/race/48-alutaguse-maraton-2026">detailid</a></span></li>
-<li><a class="r" href="https://www.sportos.eu/ee/et/48-alutaguse-maraton/tulemused/">2026 tulemused</a><a class="s" href="https://www.sportos.eu/ee/et/48-alutaguse-maraton/stardinimekirjad/">Stardinimekiri</a><span class="d">7. veebruar 2026 · Alutaguse Tervisespordikeskus · <a href="/race/48-alutaguse-maraton-2026-2">detailid</a></span></li>
+<li><a class="r" href="https://www.estoloppet.ee/et/tulemused">2026 tulemused</a><a class="s" href="https://www.estoloppet.ee/et/registreerumine">Stardinimekiri</a><span class="d">7. veebruar 2026 · <a href="/race/48-alutaguse-maraton-2026-2">detailid</a></span></li>
 <li><a class="r" href="https://www.sportos.eu/ee/et/47-alutaguse-maraton/tulemused/">2025 tulemused</a><a class="s" href="https://www.sportos.eu/ee/et/47-alutaguse-maraton/stardinimekirjad/">Stardinimekiri</a><span class="d">8. veebruar 2025 · Alutaguse Tervisespordikeskus · <a href="/race/47-alutaguse-maraton-2025">detailid</a></span></li>
 <li><a class="r" href="https://www.sportos.eu/ee/et/46-alutaguse-maraton/tulemused/">2024 tulemused</a><a class="s" href="https://www.sportos.eu/ee/et/46-alutaguse-maraton/stardinimekirjad/">Stardinimekiri</a><span class="d">9. veebruar 2024 · Alutaguse Puhke- ja Spordikeskus · <a href="/race/46-alutaguse-maraton-2024">detailid</a></span></li>
 <li><a class="r" href="https://www.sportos.eu/ee/et/24-alutaguse-maraton/tulemused/">2023 tulemused</a><a class="s" href="https://www.sportos.eu/ee/et/24-alutaguse-maraton/stardinimekirjad/">Stardinimekiri</a><span class="d">10. veebruar 2023 · Alutaguse Puhke- ja Spordikeskus · <a href="/race/45-alutaguse-maraton-2023">detailid</a></span></li>
@@ -102,6 +103,7 @@ footer strong{color:var(--ink);font-weight:600}
 Iga link viib otse ametlikku allikasse.</footer>
 </div>
 <script>
+if(location.hostname.endsWith('.pages.dev'))location.replace('https://losttimes.ee'+location.pathname+location.search+location.hash);
 var m=document.getElementById('menu'),b=document.getElementById('btn-menu');
 b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;
 b.setAttribute('aria-expanded',String(!m.hidden));});
