@@ -193,6 +193,19 @@ footer{margin-top:40px;padding:20px 0 44px;border-top:1px solid var(--line);
 color:var(--slate);font-size:12.5px;font-weight:500;line-height:1.65}
 footer strong{color:var(--ink);font-weight:600}
 
+/* Otsing arhiivilehel. Otsingumootorit siin EI dubleerita — vorm saadab
+   parisu avalehele (/?q=...), kus kogu loogika juba on. Uks mootor, mitte
+   kaks, mis aja jooksul lahku kasvavad.
+   Kirjasuurus 16px on tahtlik: alla selle suumib iOS Safari valjale
+   klikkides lehe sisse ja kasutaja peab kaega tagasi suumima. */
+form.find{margin:20px 0 0;display:flex;gap:10px;align-items:center}
+form.find input{flex:1;min-width:0;padding:11px 0;font-family:var(--sans);
+font-size:16px;font-weight:500;color:var(--ink);background:none;border:0;
+border-bottom:2px solid var(--ink);outline:none}
+form.find input::placeholder{color:var(--slate);font-weight:500}
+form.find button{border:0;background:none;font-family:var(--sans);font-size:15px;
+font-weight:600;color:var(--red);cursor:pointer;padding:8px 2px}
+
 /* ---------- desktop ----------
    Sama polumotte, mis avalehel: ainult paigutus, koik @media sees.
    .wrap laieneb ka siin, et pais ja logo ei hupaks avalehelt voistluse
@@ -363,11 +376,19 @@ function yearPage(year, rows) {
     canonical: `${SITE}/arhiiv/${year}/`,
     body: `<h1>${year}. aasta võistlused</h1>
 <p class="meta">${rows.length} võistlust</p>
+<form class="find" action="/" method="get" role="search">
+<input name="q" type="search" placeholder="Otsi võistlust" aria-label="Otsi võistlust">
+<button type="submit">Otsi</button></form>
 <ul class="list">${items}</ul>`,
   });
 }
 
 function archiveIndex(years) {
+  // Arhiiv on TOIMUNUD voistluste kohta. 2027. aasta suusamaraton ei ole
+  // arhiiv vaid kalender — ta elab /upcoming lehel. Jooksev aasta jaab
+  // sisse, sest seal on nii toimunud kui tulevasi.
+  const thisYear = String(new Date().getFullYear());
+  years = years.filter((y) => y.year <= thisYear);
   const total = years.reduce((n, y) => n + y.count, 0);
   return SHELL({
     title: 'Spordivõistluste tulemuste arhiiv | LostTimes',
@@ -375,7 +396,10 @@ function archiveIndex(years) {
     canonical: `${SITE}/arhiiv/`,
     body: `<h1>Tulemuste arhiiv</h1>
 <p class="meta">${total} võistlust, ${years[years.length - 1].year}–${years[0].year}</p>
-<div class="years">${years.map((y) => `<a href="/arhiiv/${y.year}/">${y.year}</a>`).join('')}</div>`,
+<div class="years">${years.map((y) => `<a href="/arhiiv/${y.year}/">${y.year}</a>`).join('')}</div>
+<form class="find" action="/" method="get" role="search">
+<input name="q" type="search" placeholder="Otsi võistlust" aria-label="Otsi võistlust">
+<button type="submit">Otsi</button></form>`,
   });
 }
 

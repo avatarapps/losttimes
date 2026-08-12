@@ -805,6 +805,21 @@ fitHero();
     await loadYear(years[years.indexOf(first) + 1]);
   }
 
+  // Otsingu saab anda kaasa aadressis: /?q=tartu
+  //
+  // Nii saab arhiivileht pakkuda otsingut ilma otsingumootorit seal
+  // dubleerimata — ta lihtsalt saadab kasutaja siia. Korvalkasu: otsingu
+  // tulemuse aadressi saab jagada ja jarjehoidjasse panna.
+  const q0 = new URLSearchParams(location.search).get('q');
+  if (q0 && q0.trim()){
+    state.q = q0;
+    qEl.value = q0;
+    document.getElementById('searchbar').classList.add('open');
+    document.getElementById('btn-search').setAttribute('aria-expanded', 'true');
+    searchLoaded = true;          // arhiiv laeb kohe, mitte esimese tahe pealt
+    await loadAllYears();
+  }
+
   const d = new Date(state.meta.generated);
   const span = years.length ? `${years[years.length - 1]}–${years[0]}` : '';
   document.getElementById('stamp').textContent =
