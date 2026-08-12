@@ -132,9 +132,9 @@
   /* ---------- rippmenüü ---------- */
   .menu{
     position:absolute;right:0;top:calc(100% + 8px);z-index:40;
-    width:290px;max-width:calc(100vw - 44px);
+    width:206px;max-width:calc(100vw - 44px);
     background:var(--bg);border:1px solid var(--line);border-radius:16px;
-    padding:16px;box-shadow:0 12px 32px rgba(19,32,43,.10);
+    padding:10px 16px;box-shadow:0 12px 32px rgba(19,32,43,.10);
   }
   .menu[hidden]{display:none}
   .menu-label{
@@ -148,11 +148,10 @@
     border:1px solid var(--line);background:none;color:var(--slate);
   }
   .menu-years button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
-  .menu-links{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
-    display:flex;flex-direction:column;gap:2px}
+  .menu-links{display:flex;flex-direction:column;gap:2px}
   .menu-links a{
     display:block;padding:9px 0;font-size:15px;font-weight:600;
-    color:var(--ink);text-decoration:none;
+    color:var(--ink);text-decoration:none;text-align:right;
   }
   .menu-links a:hover{color:var(--red)}
 
