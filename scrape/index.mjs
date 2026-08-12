@@ -28,6 +28,7 @@ import { explainFilter } from './filter.mjs';
 import { resolveMissing } from './resolve.mjs';
 import { buildPages } from './pages.mjs';
 import { applyOverrides } from './overrides.mjs';
+import { applySpordisarjad } from './spordisarjad.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -222,6 +223,11 @@ async function finish(collected, health) {
   // ole, ei saanud seda mitte kunagi — sest teda ei olnud uheski hilisemas
   // jooksus. Nuud korjab iga jooks vana arhiivi puudujaake juurde ja vahemalu
   // hoolitseb selle eest, et sama lehte kaks korda ei kusitaks.
+  // Korraldaja tulemuste leht annab otselingid TolkNeti taha, kuhu me
+  // muidu ligi ei saa. Kaib ENNE resolverit: kui link on juba kaes, ei
+  // pea resolver seda voistlust uldse proovima.
+  if (!SKIP_RESOLVE) await applySpordisarjad(all);
+
   if (!SKIP_RESOLVE) await resolveMissing(all);
 
   const byYear = new Map();
