@@ -36,13 +36,13 @@ import estoloppet from './sources/estoloppet.mjs';
 import antrotsenter from './sources/antrotsenter.mjs';
 import timing from './sources/timing.mjs';
 import manual from './sources/manual.mjs';
-import { eestimaraton, maru } from './sources/bestit.mjs';
+import { eestimaraton, maru, rattamaratonid } from './sources/bestit.mjs';
 
 // Jarjekord loeb: merge jatab esimesena tulnud allika lingi peale.
 // Korraldaja enda susteem (BestIT) on ees, sest Sportose "tulemused"
 // aadress on neil voistlustel sageli tuhi kest — link on olemas, aga
 // ots on umbes.
-const ALL_SOURCES = [eestimaraton, maru, sportos, championchip, estoloppet, antrotsenter, timing, manual];
+const ALL_SOURCES = [eestimaraton, maru, rattamaratonid, sportos, championchip, estoloppet, antrotsenter, timing, manual];
 
 // Uhe allika kaupa testimiseks:  node scrape/index.mjs --only=sportos
 const onlyArg = process.argv.find((a) => a.startsWith('--only='));

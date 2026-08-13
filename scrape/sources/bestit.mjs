@@ -143,6 +143,18 @@ export const eestimaraton = bestItSource({
   sport: 'Jooksmine',
 });
 
+export const rattamaratonid = bestItSource({
+  id: 'rattamaratonid',
+  label: 'Eesti Maastikurattasari',
+  base: 'https://www.rattamaratonid.ee/et/etapid',
+  list: [
+    'https://www.rattamaratonid.ee/et/etapid',     // kaesolev hooaeg
+    'https://www.rattamaratonid.ee/et/tulemused',  // toimunud
+    'https://www.rattamaratonid.ee/',              // avaleht, sama nimekiri
+  ],
+  sport: 'Jalgrattasport',
+});
+
 export const maru = bestItSource({
   id: 'maru',
   label: 'Stamina',
