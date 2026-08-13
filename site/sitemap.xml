@@ -53,6 +53,7 @@
 <url><loc>https://losttimes.ee/arhiiv/1980/</loc></url>
 <url><loc>https://losttimes.ee/arhiiv/1979/</loc></url>
 <url><loc>https://losttimes.ee/arhiiv/1978/</loc></url>
+<url><loc>https://losttimes.ee/race/viimsi-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/tartu-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/alutaguse-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/neeruti-maraton</loc></url>
@@ -66,6 +67,7 @@
 <url><loc>https://losttimes.ee/race/juri-jaansoni-kahe-silla-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-ohtujooks</loc></url>
 <url><loc>https://losttimes.ee/race/saue-ohtujooks</loc></url>
+<url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-saku</loc></url>
 <url><loc>https://losttimes.ee/race/ironman-70-3-tallinn</loc></url>
 <url><loc>https://losttimes.ee/race/ironman-tallinn</loc></url>
 <url><loc>https://losttimes.ee/race/ironkids-tallinn</loc></url>
@@ -75,6 +77,7 @@
 <url><loc>https://losttimes.ee/race/jarvamaa-meistrivoistlused-orienteerumise-luhirajal</loc></url>
 <url><loc>https://losttimes.ee/race/viljandimaa-orienteerumispaevakud</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-aastajooksud</loc></url>
+<url><loc>https://losttimes.ee/race/lehtse-romuring</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-oojooks-tallinn</loc></url>
 <url><loc>https://losttimes.ee/race/filter-temposari</loc></url>
 <url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-pirita</loc></url>
@@ -144,7 +147,6 @@
 <url><loc>https://losttimes.ee/race/sportland-korvemaa-rattamaraton</loc></url>
 <url><loc>https://losttimes.ee/race/suurupi-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/icebug-kova-mehe-jooks</loc></url>
-<url><loc>https://losttimes.ee/race/viimsi-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/rapla-selveri-suurjooks</loc></url>
 <url><loc>https://losttimes.ee/race/icebug-kova-tiimi-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/jarvamaa-koolide-algklasside-murdmaa-teatejooksu-voistlused</loc></url>
@@ -249,7 +251,6 @@
 <url><loc>https://losttimes.ee/race/balti-keti-velotuur-baltic-chain-tour</loc></url>
 <url><loc>https://losttimes.ee/race/tervisekassa-triatlon</loc></url>
 <url><loc>https://losttimes.ee/race/jarvakandi-xiii-igamehe-maraton</loc></url>
-<url><loc>https://losttimes.ee/race/lehtse-romuring</loc></url>
 <url><loc>https://losttimes.ee/race/maru-puslejooks</loc></url>
 <url><loc>https://losttimes.ee/race/raikkula-moisa-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-metsajooks</loc></url>
@@ -285,7 +286,6 @@
 <url><loc>https://losttimes.ee/race/jarvamaa-tv10-os-iii-etapp</loc></url>
 <url><loc>https://losttimes.ee/race/magede-jarve-jooks-ii-etapp</loc></url>
 <url><loc>https://losttimes.ee/race/heateo-jooks</loc></url>
-<url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-saku</loc></url>
 <url><loc>https://losttimes.ee/race/vagilase-jooksusarja-kivioli</loc></url>
 <url><loc>https://losttimes.ee/race/filter-maanteekarikasari-tallinnas</loc></url>
 <url><loc>https://losttimes.ee/race/filter-rullituur-tallinnas</loc></url>
@@ -645,7 +645,12 @@
 <url><loc>https://losttimes.ee/race/stamina-rahvarull-i-etapp</loc></url>
 <url><loc>https://losttimes.ee/race/juri-jaansoni-2-silla-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/kalevipoja-uisumaraton</loc></url>
+<url><loc>https://losttimes.ee/race/39-viimsi-jooks-2027</loc></url>
+<url><loc>https://losttimes.ee/race/tartu-maraton-31-km-klassika-2027</loc></url>
+<url><loc>https://losttimes.ee/race/tartu-maraton-63-km-klassika-2027</loc></url>
 <url><loc>https://losttimes.ee/race/53-tartu-maraton-2027</loc></url>
+<url><loc>https://losttimes.ee/race/tartu-maraton-31-km-vabatehnika-2027</loc></url>
+<url><loc>https://losttimes.ee/race/tartu-maraton-teatesoit-2027</loc></url>
 <url><loc>https://losttimes.ee/race/49-alutaguse-maraton-2027</loc></url>
 <url><loc>https://losttimes.ee/race/27-neeruti-maraton-2027</loc></url>
 <url><loc>https://losttimes.ee/race/audi-vana-aasta-jooks-2026</loc></url>
@@ -664,16 +669,17 @@
 <url><loc>https://losttimes.ee/race/xx-saue-ohtujooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-vee-54-jooks-umber-ulemiste-jarve-2026</loc></url>
 <url><loc>https://losttimes.ee/race/telliskivi-5000-2026</loc></url>
+<url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-2026-saku-2026</loc></url>
 <url><loc>https://losttimes.ee/race/ironman-70-3-tallinn-2026</loc></url>
 <url><loc>https://losttimes.ee/race/karu-jarve-jooks-jarvamaa-jarvede-joksu-7-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-aastajooksud-2026</loc></url>
 <url><loc>https://losttimes.ee/race/laane-virumaa-jooksusari-2026-27-viru-nigula-rahvajooks-2026</loc></url>
+<url><loc>https://losttimes.ee/race/lehtse-romuring-2026</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-oojooks-tallinn-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/filter-temposari-6-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/kiili-kuubiku-5-etapp-paekna-umber-jarve-jooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-2026-pirita-2026</loc></url>
 <url><loc>https://losttimes.ee/race/37-lauritsapaevajooks-2026</loc></url>
-<url><loc>https://losttimes.ee/race/urumarja-38-velotuur-2026</loc></url>
 <url><loc>https://losttimes.ee/race/oismae-raba-terviseraja-jooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/turi-triatlon-2026</loc></url>
 <url><loc>https://losttimes.ee/race/baltimaade-ja-eesti-veteranide-meistrivoistlused-2026</loc></url>
@@ -755,7 +761,6 @@
 <url><loc>https://losttimes.ee/race/columbia-kivi-eesti-meistrivoistlused-eraldistardis-2026</loc></url>
 <url><loc>https://losttimes.ee/race/filter-temposari-4-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/i-do-hard-enduro-finaalsoit-2026</loc></url>
-<url><loc>https://losttimes.ee/race/lauri-ausi-23-malestusvoistlus-2026</loc></url>
 <url><loc>https://losttimes.ee/race/elva-sudaoojooks-2026-tartumaa-liigub-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/i-do-hard-enduro-noortesoit-2026</loc></url>
 <url><loc>https://losttimes.ee/race/i-do-hard-enduro-pohisoit-2026</loc></url>
@@ -783,7 +788,6 @@
 <url><loc>https://losttimes.ee/race/14-narva-linna-jooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/ruila-kooli-rattapaev-2026</loc></url>
 <url><loc>https://losttimes.ee/race/saku-lastesarja-2-etapp-2026</loc></url>
-<url><loc>https://losttimes.ee/race/tour-of-estonia-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/filter-temposari-3-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/viljandimaa-orienteerumispaevakud-4-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-sprindisarja-1-etapp-2026</loc></url>
@@ -817,7 +821,6 @@
 <url><loc>https://losttimes.ee/race/jarvamaa-koolide-algklasside-murdmaa-teatejooksu-voistlused-2026</loc></url>
 <url><loc>https://losttimes.ee/race/pelgulinna-riigigumnaasiumi-kevadjooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/50-jarvamaa-orienteerumispaevakud-iii-etapp-2026</loc></url>
-<url><loc>https://losttimes.ee/race/2-joulumae-kriteerium-2026</loc></url>
 <url><loc>https://losttimes.ee/race/28-rouge-rattamaraton-2026</loc></url>
 <url><loc>https://losttimes.ee/race/eastman-charity-run-2026</loc></url>
 <url><loc>https://losttimes.ee/race/39-lhv-maijooks-2026</loc></url>
@@ -827,7 +830,7 @@
 <url><loc>https://losttimes.ee/race/preediku-jarve-jooks-8-jarvamaa-jarvede-jooksud-ii-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/luke-mois-tt2-transtar-temposari-ii-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-2026-rohuneeme-2026</loc></url>
-<url><loc>https://losttimes.ee/race/soeru-kevadjooks-2026-2026</loc></url>
+<url><loc>https://losttimes.ee/race/soeru-kevadjooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/ambla-sk-seeriavoistlus-umber-jarve-jooks-magede-2026</loc></url>
 <url><loc>https://losttimes.ee/race/jarvamaa-tv-10-os-iii-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-aastajooksud-2026-8</loc></url>
