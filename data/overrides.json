@@ -59,6 +59,12 @@
     { "_miks": "Sportoses on nimi kirjavigane — 'Tellisikivi' ühe i-ga liiga palju. Seetõttu ei liitunud ta ChampionChipi kirjega ja 28. augustil oli kaks Telliskivi 5000. Peidame vigase; õige jääb koos tulemuste lingiga alles.",
       "date": "2026-08-28", "match": "Tellisikivi", "hide": true },
 
+    { "date": "2026-09-19", "match": "Tartu Rattamaraton",
+      "startlist": "https://tartumaraton.ee/et/osalejad" },
+
+    { "date": "2026-10-16", "match": "Saaremaa Kolme Päeva Jooks",
+      "startlist": "https://www.saaremaajooks.ee/#/stardiprotokollid/" },
+
     { "date": "2026-09-04", "match": "Saue õhtujooks",
       "organiser": "https://kalender.sauevald.ee/kalender/xx-saue-ohtujooks/" },
 
