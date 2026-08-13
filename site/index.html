@@ -188,14 +188,17 @@
   .row{display:flex;gap:0;padding-top:13px}
   .row .date{width:52px;flex:none;padding-top:1px}
   .row .day{font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink)}
-  /* Aastaarv ilmub AINULT siis, kui võistlus ei ole jooksvast aastast.
-     Otsing käib üle kogu arhiivi ja ilma selleta ei erista "19 DEC"
-     mullust tänavusest. Jooksva aasta ridadel jääb see ära, sest seal ei
-     ole midagi selgitada.
-     Mobiilis EI kasva rida sellest ühegi piksli võrra: kõrguse määrab
-     sisuplokk (61px) ja kuupäevaplokk mahub sinna alla ka aastaga (60px). */
-  .row .yr{margin-top:3px;font-size:11.5px;font-weight:500;
-    letter-spacing:.06em;color:var(--slate)}
+  /* Aasta ei käi iga rea juurde, vaid tuleb VAHEREANA seal, kus aasta
+     vahetub. Detsembris oleks nimekirjas 60 rida, millest igaühel seisab
+     "2027" — sama info kuuskümmend korda. Vaherida ütleb selle ühe korra
+     ja kehtib sealt edasi, nagu peatüki pealkiri.
+     Joon jookseb sõnast paremale lehe servani: see lõikab nimekirja
+     nähtavalt kaheks, ilma et juurde tuleks kasti või tausta. */
+  .yearsep{display:flex;align-items:center;gap:14px;padding:28px 0 8px;
+    font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--slate)}
+  .yearsep::after{content:"";flex:1;height:1px;background:var(--line)}
+  /* Esimene vaherida on nimekirja tipus — seal ei ole midagi eraldada. */
+  .yearsep:first-child{padding-top:4px}
   .row .mon{margin-top:3px;font-size:11.5px;font-weight:450;letter-spacing:.1em;
     text-transform:uppercase;color:var(--slate)}
   .row .body{min-width:0;flex:1;padding-bottom:13px;border-bottom:1px solid var(--line-soft)}
@@ -247,7 +250,7 @@
     /* Desktopis läheb kuupäev ühele reale — 19 DEC 2019 — nii et
        aastarida ei tee rida kõrgemaks. Sama info, teisiti pakitud. */
     .row .date{width:104px;display:flex;align-items:baseline;gap:6px}
-    .row .mon,.row .yr{margin-top:0}
+    .row .mon{margin-top:0}
     .row .body{display:flex;align-items:baseline;gap:28px}
 
     /* min-width:0 lubab pikal nimel kahaneda ja vajadusel murduda.
@@ -595,16 +598,20 @@ function render(){
     return;
   }
 
-  const thisYear = String(new Date().getFullYear());
+  // Vaherida ILMUB KA nimekirja tipus, mitte ainult vahetuse kohal.
+  // Muidu ei tea detsembris keegi, mis aasta ülemised read on — silt
+  // tuleks alles siis, kui oled juba 2027 lõpuni kerinud.
+  let viimaneAasta = null;
 
   list.innerHTML = rows.slice(0, 300).map(e => {
     const d = new Date(e.date + 'T12:00:00');
     const yr = e.date.slice(0, 4);
-    return `<article class="row">
+    const sep = yr === viimaneAasta ? '' : `<div class="yearsep">${yr}</div>`;
+    viimaneAasta = yr;
+    return sep + `<article class="row">
       <div class="date">
         <div class="day">${String(d.getDate()).padStart(2,'0')}</div>
         <div class="mon">${MONTHS[d.getMonth()]}</div>
-        ${yr === thisYear ? '' : `<div class="yr">${yr}</div>`}
       </div>
       <div class="body">
         <h2>${nameHtml(e)}</h2>

@@ -409,17 +409,19 @@ function archiveIndex(years) {
 
 /** Reamärgistus, mis läheb avalehe HTML-i sisse crawleri jaoks. */
 function ssrRows(rows) {
+  let viimaneAasta = null;
   return rows
     .map((e) => {
       const d = new Date(e.date + 'T12:00:00');
       const mon = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()];
       const res = resultsLink(e);
-      // Sama reegel mis kliendipoolses renderis: aastaarv ainult siis, kui
-      // voistlus ei ole jooksvast aastast. Muidu naeks crawler ja esimene
+      // Sama reegel mis kliendipoolses renderis: aasta tuleb vaghereana seal,
+      // kus ta vahetub, ja ka nimekirja tipus. Muidu naeks crawler ja esimene
       // pilguheit eri asja kui see, mis JS-i jarel ekraanile jaab.
       const yr = e.date.slice(0, 4);
-      const yrHtml = yr === String(new Date().getFullYear()) ? '' : `<div class="yr">${yr}</div>`;
-      return `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div>${yrHtml}</div>` +
+      const sep = yr === viimaneAasta ? '' : `<div class="yearsep">${yr}</div>`;
+      viimaneAasta = yr;
+      return sep + `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div></div>` +
         `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(tidyName(e.name))}</a></h2>` +
         `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}" ` +
         `aria-label="Results — ${esc(tidyName(e.name))} tulemused">Results <span class="arr">↗</span></a></div></div></article>`;
