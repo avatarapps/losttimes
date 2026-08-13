@@ -31,12 +31,35 @@ const SERIES = [
   {
     id: 'maru',
     label: 'Stamina',
-    url: 'https://stamina.ee/et/jarvejooks/voistlused',
+    base: 'https://stamina.ee/et/jarvejooks/voistlused',
     match: /jooks|maraton|kross|triatlon/i,
+  },
+  {
+    id: 'oojooks',
+    label: 'Eesti Maraton',
+    base: 'https://eestimaraton.ee/et/sundmused',
+    // Nimekirja asukoht ei ole neil lehtedel uhtne. Proovime jarjest ja
+    // votame esimese, mis competition_id-sid annab.
+    list: ['https://eestimaraton.ee/et/sundmused', 'https://eestimaraton.ee/et/avaleht',
+           'https://eestimaraton.ee/et/tulemused'],
+    match: /jooks|maraton/i,
   },
 ];
 
-const DATE = /(\d{1,2})\.(\d{1,2})\.((?:19|20)\d{2})/;
+// Kuupaev voib olla vahemik: "R 14.08 - L 15.08.2026".
+// Votame ALGUSE paeva ja kuu ning aasta rea lopust. Uhepaevasel
+// ("L 30.01.2027") annab sama reegel sama tulemuse.
+//
+// See ei ole ilustus: Ulemiste Ooejooks kestab kaks paeva ja meie kirje on
+// 14. augustil. Lopu kuupaeva vottes ei oleks link kunagi kohale joudnud.
+function parseDate(txt) {
+  const dm = (txt || '').match(/(\d{1,2})\.(\d{1,2})/);
+  const yy = (txt || '').match(/((?:19|20)\d{2})/g);
+  if (!dm || !yy) return null;
+  const d = Number(dm[1]), m = Number(dm[2]);
+  if (d < 1 || d > 31 || m < 1 || m > 12) return null;
+  return `${yy[yy.length - 1]}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+}
 
 // Nimedest jaavad alles ainult eristavad sonad: pikad, ilma diakriitikuta,
 // ilma aastaarvu ja uldsonadeta. "Tallinna Vee 54. jooks umber Ulemiste
@@ -74,39 +97,37 @@ function parseStage(html) {
     return i >= 0 ? lines[i + 1] || '' : '';
   };
 
-  const m = (val('Toimumisaeg') || '').match(DATE);
-  if (!m) return null;
+  const date = parseDate(val('Toimumisaeg'));
+  if (!date) return null;
 
   const koht = val('Toimumise asukoht');
-  return {
-    name,
-    date: `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`,
-    location: koht && koht.length < 80 ? koht : null,
-  };
+  return { name, date, location: koht && koht.length < 80 ? koht : null };
 }
 
 function isDeadEnd(url) {
   // Sarja uldleht ei ole vastus — ta on koht, kust kasutaja peab edasi otsima.
   return !url || url.includes('losttimes.ee') || url.startsWith('/') ||
     /sportos\.eu/i.test(url) ||
-    /\/voistlused\/?$/.test(url) || /\/tulemused\/?$/.test(url);
+    /\/(voistlused|sundmused|tulemused|avaleht)\/?$/.test(url);
 }
 
 export async function applyBestIt(events) {
   let seotud = 0;
 
   for (const sari of SERIES) {
-    let ids;
-    try {
-      const $ = cheerio.load(await fetchHtml(sari.url, `bestit-${sari.id}`, { timeoutMs: 20000, tries: 2 }));
-      ids = [...new Set(
-        $('a[href*="competition_id="]')
-          .map((_, a) => ($(a).attr('href') || '').match(/competition_id=(\d+)/)?.[1])
-          .get().filter(Boolean)
-      )];
-    } catch (err) {
-      console.warn(`  [bestit] ${sari.id}: ${err.message}`);
-      continue;
+    let ids = [];
+    for (const [n, listUrl] of (sari.list || [sari.base]).entries()) {
+      try {
+        const $ = cheerio.load(await fetchHtml(listUrl, `bestit-${sari.id}-list${n}`, { timeoutMs: 20000, tries: 2 }));
+        ids = [...new Set(
+          $('a[href*="competition_id="]')
+            .map((_, a) => ($(a).attr('href') || '').match(/competition_id=(\d+)/)?.[1])
+            .get().filter(Boolean)
+        )];
+      } catch (err) {
+        console.warn(`  [bestit] ${sari.id} ${listUrl}: ${err.message}`);
+      }
+      if (ids.length) break;
     }
     if (!ids.length) {
       console.warn(`  [bestit] ${sari.id}: nimekirjast ei leidnud ühtegi competition_id-d`);
@@ -114,7 +135,7 @@ export async function applyBestIt(events) {
     }
 
     for (const id of ids) {
-      const leht = `${sari.url}?competition_id=${id}`;
+      const leht = `${sari.base}?competition_id=${id}`;
       let info;
       try {
         info = parseStage(await fetchHtml(leht, `bestit-${sari.id}-${id}`, { timeoutMs: 20000, tries: 2 }));
