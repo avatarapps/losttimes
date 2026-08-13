@@ -101,5 +101,23 @@
     "results": "https://www.viimsi.ee/jooks",
     "organiser": "https://www.viimsi.ee/jooks",
     "timer": "Nelson Timing"
+  },
+  {
+    "name": "Karitsa triatlon, sprindi ja teatevõistluse EMV",
+    "date": "2026-06-28",
+    "location": "Karitsa",
+    "sport": "Triatlon",
+    "results": "https://teamkehtna.ee/karitsa-triatlon-sprindi-ja-teatevoistluse-emv/",
+    "organiser": "https://teamkehtna.ee/karitsa-triatlon-sprindi-ja-teatevoistluse-emv/",
+    "timer": "Team Kehtna"
+  },
+  {
+    "name": "Järvakandi duatlon",
+    "date": "2026-09-06",
+    "location": "Järvakandi",
+    "sport": "Triatlon",
+    "results": "https://teamkehtna.ee/spordimekoos-triatlonisari-2026/",
+    "organiser": "https://teamkehtna.ee/spordimekoos-triatlonisari-2026/",
+    "timer": "Team Kehtna"
   }
 ]

@@ -39,6 +39,10 @@ const DROP_NAME = new RegExp(
     'elamusretk', '\\bmatka', '\\bmatk\\b', 'rahvamatk', 'seiklusretk',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',
     'petank', 'mälumäng', 'motokross', 'kardi', 'rally', 'ralli\\b',
+    // Mootorisport, mis polnud varasemate sonadega kaetud. "Lehtse
+    // romuring" paases sisse just seetottu, et tema ala oli allikas tuhi
+    // ja nimi oli ainus tunnus, mille jargi otsustada.
+    'romuring', '\\bromu', 'autokross', 'rahvaralli', 'krossikas', 'drift',
   ].join('|'),
   'i'
 );

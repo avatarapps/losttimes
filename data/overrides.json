@@ -40,6 +40,20 @@
     { "date": "2025-08-13", "match": "Filter Temposari",
       "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=611" },
 
+    { "_miks": "SPORDIMEKOOS triatlonisari 2026, korraldaja SK Team Kehtna. Igal etapil on korraldaja enda leht; kahel etapil oma lehte ei ole, siis viitame sarja üldlehele.",
+      "date": "2026-05-03", "match": "Rapla duatlon",
+      "organiser": "https://teamkehtna.ee/rapla-duatlon-2026/" },
+    { "date": "2026-05-31", "match": "Kaerepere",
+      "organiser": "https://teamkehtna.ee/kaerepere-basseinitriatlon-2026/" },
+    { "date": "2026-06-27", "match": "Karitsa",
+      "organiser": "https://teamkehtna.ee/karitsa-supertri-2026/" },
+    { "date": "2026-07-12", "match": "Kohila",
+      "organiser": "https://teamkehtna.ee/elementor-6185/" },
+    { "date": "2026-08-01", "match": "Väätsa",
+      "organiser": "https://teamkehtna.ee/spordimekoos-triatlonisari-2026/" },
+    { "date": "2026-08-16", "match": "Pärnu triatlon",
+      "organiser": "https://teamkehtna.ee/spordimekoos-triatlonisari-2026/" },
+
     { "_miks": "Sportoses on nimi kirjavigane — 'Tellisikivi' ühe i-ga liiga palju. Seetõttu ei liitunud ta ChampionChipi kirjega ja 28. augustil oli kaks Telliskivi 5000. Peidame vigase; õige jääb koos tulemuste lingiga alles.",
       "date": "2026-08-28", "match": "Tellisikivi", "hide": true },
 
