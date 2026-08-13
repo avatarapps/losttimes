@@ -27,6 +27,17 @@ jobs:
         run: |
           git config user.name  "wheresmytime-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add site/index.json site/events-*.json data/cache.json
+          # Kogu site/, mitte ainult andmefailid.
+          #
+          # Varem lisati siia ainult index.json ja events-*.json. Nimekiri
+          # uuenes, aga genereeritud lehed mitte — uue voistluse /race/ lehte
+          # ei olnud olemas ja "Results" nupp andis 404, sest lingita
+          # voistlusel viitab see nupp just sellele lehele. Ka sitemap jai
+          # vanaks, nii et Google ei saanud uutest lehtedest teada enne
+          # jargmist kasitsi jooksu.
+          #
+          # Git lisab ainult tegelikult muutunud failid, nii et ooine commit
+          # jaab vaikeseks ka siis, kui kaustas on 4000 lehte.
+          git add site data/cache.json
           git diff --staged --quiet || git commit -m "Andmed uuendatud $(date -u +%Y-%m-%d)"
           git push
