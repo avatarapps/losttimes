@@ -37,6 +37,9 @@ const DROP_NAME = new RegExp(
     'hüppevõistlus', 'teatevõistlus', 'boccia',
     // Matkad ja elamusretked ei ole voistlused — seal ei ole aegu ega kohti.
     'elamusretk', '\\bmatka', '\\bmatk\\b', 'rahvamatk', 'seiklusretk',
+    // Rogain on kaardiga rannak, kus aeg ei ole voistluse mote — sama
+    // pere matkadega. Orienteerumine ise jaab sisse.
+    'rogain', 'rogaining', 'punktipeitus',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',
     'petank', 'mälumäng', 'motokross', 'kardi', 'rally', 'ralli\\b',
     // Mootorisport, mis polnud varasemate sonadega kaetud. "Lehtse

@@ -160,6 +160,80 @@ function mergeMultiDay(events) {
   return events.filter((e) => !drop.has(e.id));
 }
 
+// SAMA PAEVA DUPLIKAADID
+//
+// Uks voistlus tuleb kahest allikast eri nimega ja merge ei liida neid, sest
+// ta vordleb tapset normaliseeritud nime:
+//
+//   "9. Tartu Rattamaraton"  vs  "SEB Uhispanga 9. Tartu Rattamaraton"
+//   "Rapla duatlon"          vs  "RAPLA DUATLON - DUATLONI KARIKASARJA 1. ETAPP"
+//
+// Reegel: sama kuupaev JA uhe nime koik tunnussonad on teises olemas.
+// Sponsori nimi ees ei tee uut voistlust.
+//
+// NUMBRID ON TUNNUSSONAD ja neid EI tohi valja filtreerida. Ilma selleta
+// oleks "Tartu Maraton 63 km klassika" ja "Tartu Maraton 31 km klassika"
+// teineteise alamhulk ja liidetaks kokku — kaks eri sõitu uheks.
+// Sama loeb "Tallinna Maraton 21km" ja "42km" ning "1. PAEV" ja "2. PAEV".
+const DUP_STOP = new Set(['ja', 'the', 'and', 'ning', 'voistlus', 'voistlused', 'sari', 'sarja']);
+
+function dupTokens(name) {
+  return new Set(
+    (name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ').split(' ')
+      .filter((w) => w && (w.length >= 3 || /^\d+$/.test(w)) && !DUP_STOP.has(w))
+  );
+}
+
+// Alles jaab see kirje, millel on PARIS valine tulemuste link. Kui neid on
+// molemal voi kummalgi, jaab pikem nimi — sponsoriga nimi on tapsem.
+function parem(a, b) {
+  const link = (e) => {
+    const u = e.sources.map((s) => s.links && s.links.results).find(Boolean);
+    return u && !u.includes('losttimes.ee') && !u.startsWith('/');
+  };
+  if (link(a) !== link(b)) return link(a) ? a : b;
+  return a.name.length >= b.name.length ? a : b;
+}
+
+function mergeSameDay(events) {
+  const byDate = new Map();
+  for (const e of events) {
+    if (!byDate.has(e.date)) byDate.set(e.date, []);
+    byDate.get(e.date).push(e);
+  }
+
+  const drop = new Set();
+  let merged = 0;
+  for (const rows of byDate.values()) {
+    if (rows.length < 2) continue;
+    const toks = rows.map((e) => dupTokens(e.name));
+    for (let i = 0; i < rows.length; i++) {
+      if (drop.has(rows[i].id)) continue;
+      for (let j = i + 1; j < rows.length; j++) {
+        if (drop.has(rows[j].id)) continue;
+        const A = toks[i], B = toks[j];
+        if (!A.size || !B.size) continue;
+        const yhised = [...A].filter((w) => B.has(w)).length;
+        if (yhised !== Math.min(A.size, B.size)) continue;
+
+        const hoia = parem(rows[i], rows[j]);
+        const viska = hoia === rows[i] ? rows[j] : rows[i];
+        const seen = new Set(hoia.sources.map((x) => x.id));
+        for (const x of viska.sources) if (!seen.has(x.id)) hoia.sources.push(x);
+        hoia.distances = [...new Set([...(hoia.distances || []), ...(viska.distances || [])])];
+        if (!hoia.location && viska.location) hoia.location = viska.location;
+        if (!hoia.sport && viska.sport) hoia.sport = viska.sport;
+        drop.add(viska.id);
+        merged++;
+        if (viska === rows[i]) break;
+      }
+    }
+  }
+  if (merged) console.log(`[duplikaadid] liidetud ${merged} sama päeva topeltkirjet`);
+  return events.filter((e) => !drop.has(e.id));
+}
+
 async function finish(collected, health) {
   const merged = merge(collected);
   const withDate = merged.filter((e) => e.date);
@@ -216,7 +290,7 @@ async function finish(collected, health) {
   }
 
   // Kasitsi parandused KOIGE VIIMASENA — need voidavad alati automaatika.
-  const all = mergeMultiDay(await applyOverrides(cleaned.kept)).sort(
+  const all = mergeSameDay(mergeMultiDay(await applyOverrides(cleaned.kept))).sort(
     (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
   if (beforeClean !== all.length) console.log(`[arhiiv] ${beforeClean} -> ${all.length}`);
