@@ -29,7 +29,6 @@ import { resolveMissing } from './resolve.mjs';
 import { buildPages } from './pages.mjs';
 import { applyOverrides } from './overrides.mjs';
 import { applySpordisarjad } from './spordisarjad.mjs';
-import { applyBestIt } from './bestit.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -37,8 +36,13 @@ import estoloppet from './sources/estoloppet.mjs';
 import antrotsenter from './sources/antrotsenter.mjs';
 import timing from './sources/timing.mjs';
 import manual from './sources/manual.mjs';
+import { eestimaraton, maru } from './sources/bestit.mjs';
 
-const ALL_SOURCES = [sportos, championchip, estoloppet, antrotsenter, timing, manual];
+// Jarjekord loeb: merge jatab esimesena tulnud allika lingi peale.
+// Korraldaja enda susteem (BestIT) on ees, sest Sportose "tulemused"
+// aadress on neil voistlustel sageli tuhi kest — link on olemas, aga
+// ots on umbes.
+const ALL_SOURCES = [eestimaraton, maru, sportos, championchip, estoloppet, antrotsenter, timing, manual];
 
 // Uhe allika kaupa testimiseks:  node scrape/index.mjs --only=sportos
 const onlyArg = process.argv.find((a) => a.startsWith('--only='));
@@ -228,7 +232,6 @@ async function finish(collected, health) {
   // muidu ligi ei saa. Kaib ENNE resolverit: kui link on juba kaes, ei
   // pea resolver seda voistlust uldse proovima.
   if (!SKIP_RESOLVE) await applySpordisarjad(all);
-  if (!SKIP_RESOLVE) await applyBestIt(all);
 
   if (!SKIP_RESOLVE) await resolveMissing(all);
 
