@@ -29,6 +29,7 @@ import { resolveMissing } from './resolve.mjs';
 import { buildPages } from './pages.mjs';
 import { applyOverrides } from './overrides.mjs';
 import { applySpordisarjad } from './spordisarjad.mjs';
+import { applyBestIt } from './bestit.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -227,6 +228,7 @@ async function finish(collected, health) {
   // muidu ligi ei saa. Kaib ENNE resolverit: kui link on juba kaes, ei
   // pea resolver seda voistlust uldse proovima.
   if (!SKIP_RESOLVE) await applySpordisarjad(all);
+  if (!SKIP_RESOLVE) await applyBestIt(all);
 
   if (!SKIP_RESOLVE) await resolveMissing(all);
 
