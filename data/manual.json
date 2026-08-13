@@ -45,16 +45,6 @@
     "timer": "Tallinna Maraton"
   },
   {
-    "name": "53. Tartu Maraton",
-    "date": "2027-02-27",
-    "location": "Otepää–Elva",
-    "sport": "Suusatamine",
-    "results": "https://tartumaraton.ee/et/tulemused",
-    "startlist": "https://tartumaraton.ee/et/osalejad",
-    "organiser": "https://tartumaraton.ee/et/tartu-maraton-2027/programm",
-    "timer": "Tartu Maraton"
-  },
-  {
     "name": "Audi Vana-aasta jooks",
     "date": "2026-12-19",
     "location": "Tallinn",
@@ -62,5 +52,54 @@
     "results": "https://stamina.ee/et/jooksupaev/tulemused",
     "organiser": "https://stamina.ee/et/jooksupaev/info-ja-juhend?competition_id=331",
     "timer": "Stamina"
+  },
+  {
+    "name": "Tartu Maraton 63 km klassika",
+    "date": "2027-02-28",
+    "location": "Otepää–Elva",
+    "sport": "Suusatamine",
+    "results": "https://tartumaraton.ee/et/tulemused",
+    "startlist": "https://tartumaraton.ee/et/osalejad",
+    "organiser": "https://tartumaraton.ee/et/tartu-maraton-2027/klassikasoidud",
+    "timer": "Tartu Maraton"
+  },
+  {
+    "name": "Tartu Maraton 31 km klassika",
+    "date": "2027-02-28",
+    "location": "Arula–Elva",
+    "sport": "Suusatamine",
+    "results": "https://tartumaraton.ee/et/tulemused",
+    "startlist": "https://tartumaraton.ee/et/osalejad",
+    "organiser": "https://tartumaraton.ee/et/tartu-maraton-2027/klassikasoidud",
+    "timer": "Tartu Maraton"
+  },
+  {
+    "name": "Tartu Maraton 31 km vabatehnika",
+    "date": "2027-02-27",
+    "location": "Arula–Elva",
+    "sport": "Suusatamine",
+    "results": "https://tartumaraton.ee/et/tulemused",
+    "startlist": "https://tartumaraton.ee/et/osalejad",
+    "organiser": "https://tartumaraton.ee/et/tartu-maraton-2027/vabatehnika-soit",
+    "timer": "Tartu Maraton"
+  },
+  {
+    "name": "Tartu Maraton teatesõit",
+    "date": "2027-02-27",
+    "location": "Arula–Elva",
+    "sport": "Suusatamine",
+    "results": "https://tartumaraton.ee/et/tulemused",
+    "startlist": "https://tartumaraton.ee/et/osalejad",
+    "organiser": "https://tartumaraton.ee/et/tartu-maraton-2027/teatesoit",
+    "timer": "Tartu Maraton"
+  },
+  {
+    "name": "39. Viimsi Jooks",
+    "date": "2027-05-15",
+    "location": "Viimsi",
+    "sport": "Jooksmine",
+    "results": "https://www.viimsi.ee/jooks",
+    "organiser": "https://www.viimsi.ee/jooks",
+    "timer": "Nelson Timing"
   }
 ]
