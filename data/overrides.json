@@ -40,6 +40,9 @@
     { "date": "2025-08-13", "match": "Filter Temposari",
       "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=611" },
 
+    { "_miks": "Sportoses on nimi kirjavigane — 'Tellisikivi' ühe i-ga liiga palju. Seetõttu ei liitunud ta ChampionChipi kirjega ja 28. augustil oli kaks Telliskivi 5000. Peidame vigase; õige jääb koos tulemuste lingiga alles.",
+      "date": "2026-08-28", "match": "Tellisikivi", "hide": true },
+
     { "date": "2026-09-04", "match": "Saue õhtujooks",
       "organiser": "https://kalender.sauevald.ee/kalender/xx-saue-ohtujooks/" },
 
