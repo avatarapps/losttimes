@@ -1,0 +1,14 @@
+# Cloudflare Pages redirect-reeglid.
+#
+# Vanad ingliskeelsed aadressid -> uued eestikeelsed. 301 tahendab
+# "kolis alatiseks": Google kannab lingivaartuse ule ja unustab vana.
+#
+# Varem oli siin vaheleht tekstiga "Leht kolis" ja meta-refresh. See
+# tootas inimesele, aga oli halvem kahel viisil: kasutaja nagi hetkeks
+# tuhja lehte, ja Google luges seda omaette leheks, mitte umbersuunamiseks.
+#
+# TAHTIS: staatiline fail voidab redirect-reegli. Seeparast said
+# site/advertise.html ja site/about.html kustutatud — kuni nad olemas
+# olid, ei joudnud reegel kunagi jarjekorda.
+/advertise    /reklaam/    301
+/about        /kontakt/    301
