@@ -76,6 +76,7 @@
 <url><loc>https://losttimes.ee/race/maru-puslejooks</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-metsajooks</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-rattamaraton</loc></url>
+<url><loc>https://losttimes.ee/race/sillamae-ultra-eesti-meistrivoistlused-100-km-jooksus</loc></url>
 <url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-saku</loc></url>
 <url><loc>https://losttimes.ee/race/ironman-70-3-tallinn</loc></url>
 <url><loc>https://losttimes.ee/race/ironman-tallinn</loc></url>
@@ -672,11 +673,13 @@
 <url><loc>https://losttimes.ee/race/sony-center-maardu-city-run-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/22-ulemiste-metsajooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/29-tallinna-rattamaraton-2026</loc></url>
+<url><loc>https://losttimes.ee/race/sillamae-ultra-2026-eesti-meistrivoistlused-100-km-jooksus-2026</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-vee-54-jooks-umber-ulemiste-jarve-2026</loc></url>
 <url><loc>https://losttimes.ee/race/valter-kulveti-malestusvoistlused-2026</loc></url>
 <url><loc>https://losttimes.ee/race/telliskivi-5000-2026</loc></url>
 <url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-2026-saku-2026</loc></url>
 <url><loc>https://losttimes.ee/race/ironman-70-3-tallinn-2026</loc></url>
+<url><loc>https://losttimes.ee/race/baltic-chain-tour-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/karu-jarve-jooks-jarvamaa-jarvede-joksu-7-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-superliiga-triatlon-2026</loc></url>
 <url><loc>https://losttimes.ee/race/jarvakandi-xv-igamehe-maraton-2026-2026</loc></url>
@@ -690,6 +693,7 @@
 <url><loc>https://losttimes.ee/race/urumarja-38-velotuur-2026</loc></url>
 <url><loc>https://losttimes.ee/race/oismae-raba-terviseraja-jooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/turi-triatlon-2026</loc></url>
+<url><loc>https://losttimes.ee/race/filter-rull-de-tallinn-2026</loc></url>
 <url><loc>https://losttimes.ee/race/filter-tour-de-tallinn-2026</loc></url>
 <url><loc>https://losttimes.ee/race/heavy-metal-ultra-2026</loc></url>
 <url><loc>https://losttimes.ee/race/paldiski-liigub-2026</loc></url>
