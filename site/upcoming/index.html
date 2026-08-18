@@ -430,7 +430,19 @@ function actions(e){
   //
   // Kui otselinki ei ole, viib nupp valmis otsingusse ja me ütleme ausalt
   // ühe lausega, et see üks läks meil käest.
-  const res = e.sources.find(s => s.links.results);
+  // Kuhu "Results" viib — sama reegel mis scrape/lib.mjs reaLink().
+  //
+  //   1. väline tulemuste link
+  //   2. väline korraldaja leht (tulevasel võistlusel tulemusi veel ei ole,
+  //      aga just seal nad ilmuvad)
+  //   3. Google'i otsing
+  //
+  // MEIE ENDA LEHELE ME EI VII. Nupp, mis lubab tulemusi ja jätab lugeja
+  // samale saidile, on tühi lubadus.
+  const valine = (u) => u && !u.includes('losttimes.ee') && !u.startsWith('/');
+  const resUrl = e.sources.map(s => s.links.results).find(valine);
+  const orgUrl = e.sources.map(s => s.links.organiser).find(valine);
+  const res = resUrl ? { links: { results: resUrl } } : null;
   let lost = false;
 
   // Nähtav tekst jääb "Results" — lühike ja alati sama, nagu kokku lepitud.
@@ -442,8 +454,10 @@ function actions(e){
   // muidu ei leia häälkäsklusega "vajuta Results" seda linki enam üles.
   const nimi = tidyName(e.name).replace(/"/g, '&quot;');
 
-  if (res){
-    out.push(`<a class="res" href="${res.links.results}" aria-label="Results — ${nimi} tulemused"${EXT}>Results ${ARROW}</a>`);
+  if (resUrl){
+    out.push(`<a class="res" href="${resUrl}" aria-label="Results — ${nimi} tulemused"${EXT}>Results ${ARROW}</a>`);
+  } else if (orgUrl){
+    out.push(`<a class="res" href="${orgUrl}" aria-label="Results — ${nimi} korraldaja lehel"${EXT}>Results ${ARROW}</a>`);
   } else {
     const q = encodeURIComponent(`${e.name} ${e.date.slice(0,4)} tulemused`);
     out.push(`<a class="res" href="https://www.google.com/search?q=${q}" aria-label="Results — otsi ${nimi} tulemusi"${EXT}>Results ${ARROW}</a>`);

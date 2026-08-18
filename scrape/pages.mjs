@@ -17,7 +17,7 @@
 // Pealkirjad ja kirjeldused on EESTI KEELES, sest otsitakse eesti keeles.
 
 import { writeFile, readFile, mkdir } from 'node:fs/promises';
-import { normalizeName, reastus } from './lib.mjs';
+import { normalizeName, reastus, reaLink } from './lib.mjs';
 
 const SITE = 'https://losttimes.ee';
 
@@ -340,7 +340,7 @@ function hubPage(name, rows) {
   const items = rows
     .map((e) => {
       const y = e.date.slice(0, 4);
-      const res = resultsLink(e);
+      const rea = reaLink(e);
       const start = e.sources.find((s) => s.links.startlist);
       const links = [
         res
@@ -408,6 +408,14 @@ function archiveIndex(years) {
 }
 
 /** Reamärgistus, mis läheb avalehe HTML-i sisse crawleri jaoks. */
+// Silt raagib masinale, kuhu link viib. Nahtav "Results" on labelis ESIMENE:
+// WCAG 2.5.3 nouab, et ligipaasetav nimi sisaldaks nahtavat teksti.
+function reaSilt(tyyp, nimi) {
+  if (tyyp === 'korraldaja') return `Results — ${nimi} korraldaja lehel`;
+  if (tyyp === 'otsing') return `Results — otsi ${nimi} tulemusi`;
+  return `Results — ${nimi} tulemused`;
+}
+
 function ssrRows(rows) {
   let viimaneAasta = null;
   return rows
@@ -423,8 +431,8 @@ function ssrRows(rows) {
       viimaneAasta = yr;
       return sep + `<article class="row"><div class="date"><div class="day">${String(d.getDate()).padStart(2,'0')}</div><div class="mon">${mon}</div></div>` +
         `<div class="body"><h2><a class="title" href="/race/${e.slug}">${esc(tidyName(e.name))}</a></h2>` +
-        `<div class="acts"><a class="res" href="${res ? esc(res) : `/race/${e.slug}`}" ` +
-        `aria-label="Results — ${esc(tidyName(e.name))} tulemused">Results <span class="arr">↗</span></a></div></div></article>`;
+        `<div class="acts"><a class="res" href="${esc(rea.url)}" ` +
+        `aria-label="${esc(reaSilt(rea.tyyp, tidyName(e.name)))}">Results <span class="arr">↗</span></a></div></div></article>`;
     })
     .join('');
 }

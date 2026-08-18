@@ -164,3 +164,32 @@ export function reastus(a, b) {
   return rank(a) - rank(b) || tulemustega(a) - tulemustega(b) ||
     a.name.localeCompare(b.name, 'et');
 }
+
+// Kuhu nimekirja "Results" nupp viib
+//
+// Nahtav sona jaab alati "Results" — see on kokku lepitud ja ei muutu.
+// Muutub ainult SIHT, ja jarjekord on:
+//
+//   1. Valine tulemuste link — see, milleks kogu leht olemas on.
+//   2. Valine korraldaja leht — kui tulemusi veel ei ole (tulevane voistlus),
+//      siis just seal nad ilmuvad. Lugeja jouab oigesse kohta.
+//   3. Google'i otsing — viimane abinou.
+//
+// MEIE ENDA LEHELE ME EI VII. Varem oli SSR-i tagavaraks `/race/<slug>`:
+// lugeja klopsis "Results", jai samale saidile ja sai lehe, mis utles
+// "me ei tea, kus tulemused on". See on tuhi lubadus ja risu.
+//
+// NB: SSR ja brauser kaitusid siin ERINEVALT — SSR viis meie lehele, brauser
+// Google'isse. Sama nupp andis kaks eri tulemust vastavalt sellele, kas JS
+// joudis kaia. Nuud on molemal sama reegel.
+export function reaLink(e) {
+  const oma = (u) => !u || u.includes('losttimes.ee') || u.startsWith('/');
+  const res = e.sources.map((s) => s.links.results).find((u) => !oma(u));
+  if (res) return { url: res, tyyp: 'tulemused' };
+
+  const org = e.sources.map((s) => s.links.organiser).find((u) => !oma(u));
+  if (org) return { url: org, tyyp: 'korraldaja' };
+
+  const q = encodeURIComponent(`${e.name} ${e.date.slice(0, 4)} tulemused`);
+  return { url: `https://www.google.com/search?q=${q}`, tyyp: 'otsing' };
+}

@@ -91,9 +91,13 @@
 
     { "_miks": "19. augustil oli kolm orienteerumiskirjet, millest kaks on üks ja sama võistlus Ruunaraipe kaardil, kahe maakonna sarja arvestuses. Jätame alles Järvamaa päevaku.",
       "date": "2026-08-19", "match": "Viljandimaa orienteerumispäevakud", "hide": true },
-    { "date": "2026-08-19", "match": "Järvamaa orienteerumispäevakud",
+    { "_miks": "Ürituse lingiks on võistlusjuhendi PDF. See ei ole ilus aadress, aga see ON võistluse info — parem kui üldine kalendrileht.",
+      "date": "2026-08-19", "match": "Järvamaa orienteerumispäevakud",
       "results": "https://jarvasport.ee/et/tulemused",
-      "organiser": "https://jarvasport.ee/et/kalender" },
+      "organiser": "https://is2020.sportos.eu/bw_client_files/sportos/public/img_1953/File/Jarva_MV_2026_orienteerumine_luhirada_juhend.pdf" },
+
+    { "date": "2026-08-20", "match": "Baltic Chain Tour",
+      "organiser": "https://balticchaintour.com/program/" },
 
     { "_miks": "Hiiumaa etapil on korraldajal oma leht, täpsem kui sarja üldleht.",
       "date": "2026-08-22", "match": "Hiiumaa XCO",
@@ -145,6 +149,13 @@
 
     { "date": "2026-10-16", "match": "Saaremaa Kolme Päeva Jooks",
       "startlist": "https://www.saaremaajooks.ee/#/stardiprotokollid/" },
+
+    { "_miks": "Kolme päeva jooks kestab 16.-18. oktoobrini ja allikas andis kaks kirjet, mõlemad oma ChampionChipi protokolliga (3308 ja 3312). Nimekirjas peab olema üks võistlus, alguspäeva all.",
+      "date": "2026-10-18", "match": "Saaremaa Kolme Päeva Jooks", "hide": true },
+
+    { "_miks": "Osalejate nimekirja aadressist võtsin maha version=20260818_130008 ja tühjad filtriväljad. Ajatempel on lehe enda vahemälu võti — see vananeb ja link läheb katki. competition_id + year on püsiv ja annab sama lehe.",
+      "date": "2026-10-03", "match": "Tartu Linnamaraton",
+      "startlist": "https://tartumaraton.ee/et/osalejad?competition_id=1898&year=2026" },
 
     { "date": "2026-08-20", "match": "Kooraste",
       "results": "https://my.raceresult.com/406189/results",
