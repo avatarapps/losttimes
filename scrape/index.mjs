@@ -234,6 +234,31 @@ function mergeSameDay(events) {
   return events.filter((e) => !drop.has(e.id));
 }
 
+// LINGITA VOISTLUS EI JOUA LEHELE
+//
+// Kui meil ei ole voistluse kohta UHTEGI valist linki — ei tulemusi, ei
+// stardinimekirja, ei korraldaja lehte — siis me ei tea sellest voistlusest
+// midagi peale nime ja kuupaeva. Kasutaja jaoks on see umbtee: ta klikib
+// ja jouab lehele, mis utleb "me ei tea, kus tulemused on".
+//
+// Reegel EI puuduta tulevasi voistlusi, sest neil on alati vahemalt
+// korraldaja link olemas — mootmise hetkel kadus selle reegliga null
+// tulevast voistlust ja 2308 vana.
+//
+// TAHTIS: arhiiv on kumulatiivne ja need kirjed EI TULE tagasi tavalise
+// ooise jooksuga, sest see puudutab ainult varsket otsa. Kui reegel kunagi
+// valja lulitada, tuleb ajalugu taastada kaega:  node scrape/index.mjs --deep
+function dropLinkless(events) {
+  const oma = (u) => !u || u.includes('losttimes.ee') || u.startsWith('/');
+  const onLink = (e) => e.sources.some((s) =>
+    !oma(s.links.results) || !oma(s.links.startlist) || !oma(s.links.organiser));
+
+  const kept = events.filter(onLink);
+  const kadus = events.length - kept.length;
+  if (kadus) console.log(`[lingita] eemaldatud ${kadus} võistlust, millel ei ole ühtegi välist linki`);
+  return kept;
+}
+
 async function finish(collected, health) {
   const merged = merge(collected);
   const withDate = merged.filter((e) => e.date);
@@ -309,8 +334,16 @@ async function finish(collected, health) {
 
   if (!SKIP_RESOLVE) await resolveMissing(all);
 
+  // KOIGE VIIMASENA, sest resolver ja korraldajate moodulid lisavad
+  // linke kuni siiani. Varem tehtuna viskaks see valja voistlusi,
+  // millele link oleks paar rida hiljem leitud.
+  const nahtavad = dropLinkless(all);
+
+  // KOIK valjundid lahtuvad nahtavatest. Kui aastafailid tuleksid endiselt
+  // `all` pealt, naitaks nimekiri lingita voistlusi edasi — leht loeb
+  // events-*.json, mitte genereeritud HTML-i.
   const byYear = new Map();
-  for (const e of all) {
+  for (const e of nahtavad) {
     const year = e.date.slice(0, 4);
     if (!byYear.has(year)) byYear.set(year, []);
     byYear.get(year).push(e);
@@ -326,7 +359,7 @@ async function finish(collected, health) {
     JSON.stringify({
       generated: new Date().toISOString(),
       sources: health,
-      total: all.length,
+      total: nahtavad.length,
       // withResults = mitmel selle aasta voistlusel on paris tulemuste link.
       // Leht kasutab seda otsustamaks, milliseid aastaid uldse sirvimiseks
       // pakkuda — kehva kattega aasta naeb kasutaja silmis katkine valja.
@@ -343,9 +376,9 @@ async function finish(collected, health) {
 
   // Staatilised lehed — need on ainus asi, mida Google naeb.
   const yearMeta = years.map((y) => ({ year: y, count: byYear.get(y).length }));
-  await buildPages(all, yearMeta);
+  await buildPages(nahtavad, yearMeta);
 
-  console.log(`\n=> arhiivis ${all.length} voistlust (sellest jooksust ${events.length})`);
+  console.log(`\n=> arhiivis ${nahtavad.length} voistlust (sellest jooksust ${events.length})`);
   console.log(`=> aastad: ${years.map((y) => `${y}(${byYear.get(y).length})`).join(' ')}`);
 
   const broken = health.filter((h) => !h.ok);
