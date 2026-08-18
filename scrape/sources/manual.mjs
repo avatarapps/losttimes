@@ -5,8 +5,16 @@
 // Seda ei saa ega tohi mooda hiilida. Kuna lehe tookoht on anda oige viit,
 // piisab siin kasitsi kirjest: kuupaev + nimi + link. Uks kirje = pool minutit.
 //
-// Lisa uus voistlus data/manual.json faili. Ainult "name", "date" ja "results"
-// on kohustuslikud, ulejaanud voivad puududa.
+// Lisa uus voistlus data/manual.json faili. Kohustuslikud on "name", "date"
+// ja VAHEMALT UKS link — results, startlist voi organiser.
+//
+// Varem oli "results" kohustuslik. See ei tootanud tulevaste voistluste
+// puhul: 2027. aasta jooksul EI OLE tulemusi ega saagi olla, ja ainus viis
+// teda sisse saada oleks pannud tulemuste lingiks juhendi lehe. See oleks
+// lubanud lugejale tulemusi ja andnud talle voistlusjuhendi.
+//
+// Ilma tulemusteta kirje naitab lehel "Otsi tulemusi" ja korraldaja linki.
+// See on aus: me utleme, et meil neid veel ei ole.
 
 import { readFile } from 'node:fs/promises';
 
@@ -26,7 +34,8 @@ export default {
     }
 
     return rows
-      .filter((r) => r && r.name && r.date && r.results && !/^NÄIDE/.test(r.name))
+      .filter((r) => r && r.name && r.date && !/^NÄIDE/.test(r.name) &&
+        (r.results || r.startlist || r.organiser))
       .map((r) => ({
         source: 'manual',
         sourceId: `${r.date}-${r.name.replace(/\W+/g, '-').toLowerCase()}`.slice(0, 80),
@@ -39,7 +48,7 @@ export default {
         // et kasutaja naeks nupul "Tulemused TolkNet".
         labelOverride: r.timer || null,
         links: {
-          results: r.results,
+          results: r.results || null,
           startlist: r.startlist || null,
           live: r.live || null,
           organiser: r.organiser || null,

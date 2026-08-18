@@ -112,6 +112,24 @@
     "timer": "Team Kehtna"
   },
   {
+    "_miks": "Gurmeejooksud MTÜ 2027. aasta võistlused. Kummalgi ei ole veel tulemusi ega saagi olla — korraldaja leht on ainus aus link. Osalejate nimekiri on Facebookis, seda me ei lingi.",
+    "name": "2. Alutaguse mee ultra",
+    "date": "2027-05-01",
+    "location": "Pannjärve, Alutaguse tervisespordikeskus",
+    "sport": "Jooksmine",
+    "organiser": "https://gurmeejooksud.ee/alutaguse-mee-ultra-2027/",
+    "timer": "Gurmeejooksud"
+  },
+  {
+    "_miks": "Kodulehel nime all 'Kohtla-Nõmme 24 tunni jooks', juhend elab staadioniultra lehel. Kestab kaks päeva (26.-27.06), kirje käib alguspäeva alla.",
+    "name": "Kohtla-Nõmme 24 tunni jooks",
+    "date": "2027-06-26",
+    "location": "Kohtla-Nõmme",
+    "sport": "Jooksmine",
+    "organiser": "https://gurmeejooksud.ee/staadioniultra/staadioniultra-2027/",
+    "timer": "Gurmeejooksud"
+  },
+  {
     "name": "Järvakandi duatlon",
     "date": "2026-09-06",
     "location": "Järvakandi",
