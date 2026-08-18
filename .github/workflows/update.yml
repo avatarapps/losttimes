@@ -23,6 +23,18 @@ jobs:
       - name: Scrape
         run: npm run scrape
 
+      # Suitsutest ENNE commitit.
+      #
+      # buildPages voib katkeda POOLE PEAL: voistluste lehed saavad kirjutatud,
+      # avaleht ja /upcoming mitte. Andmefail on siis uus, SSR vana, ja
+      # valjastpoolt naeb koik korras valja. Uks selline joosk labis maerkamatult
+      # ja leht seisis vana sisuga.
+      #
+      # Kui test kukub, EI COMMITITA midagi ja Action laheb punaseks.
+      # Parem katkine joosk, millest saab teada, kui vaikne vale sisu.
+      - name: Suitsutest
+        run: node scrape/test.mjs
+
       - name: Commit muudatused
         run: |
           git config user.name  "wheresmytime-bot"

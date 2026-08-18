@@ -340,7 +340,11 @@ function hubPage(name, rows) {
   const items = rows
     .map((e) => {
       const y = e.date.slice(0, 4);
-      const rea = reaLink(e);
+      // Sarja hub naitab aastate kaupa. Siin EI kasuta me reaLink() ahelat:
+      // hubi mote on "millisel aastal on tulemused olemas". Kui tulemusi ei
+      // ole, viitame oma aastalehele, kus on korraldaja link — mitte ei
+      // teeskle, et korraldaja leht ON tulemused.
+      const res = resultsLink(e);
       const start = e.sources.find((s) => s.links.startlist);
       const links = [
         res
@@ -422,7 +426,7 @@ function ssrRows(rows) {
     .map((e) => {
       const d = new Date(e.date + 'T12:00:00');
       const mon = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()];
-      const res = resultsLink(e);
+      const rea = reaLink(e);
       // Sama reegel mis kliendipoolses renderis: aasta tuleb vaghereana seal,
       // kus ta vahetub, ja ka nimekirja tipus. Muidu naeks crawler ja esimene
       // pilguheit eri asja kui see, mis JS-i jarel ekraanile jaab.
