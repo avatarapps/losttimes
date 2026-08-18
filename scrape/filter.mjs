@@ -83,10 +83,18 @@ const VOORAS = new RegExp(
 // Erand: "Tartu Rattaralli" ja "Rattaralli" on ratas, mitte autoralli.
 const RALLI_OK = /rattaralli|jalgrattaralli/i;
 
+// ENDURO on kahes tahenduses. Mootorratta enduro ("Hard Enduro", "Enduro
+// EMV") ei ole kestvusala ja ei kuulu siia. Maastikuratta enduro on ratas
+// ja kuulub. Nime jargi eristamine on ainus voimalus, sest ala on allikas
+// tihti tuhi.
+const ENDURO = /\benduro\b/i;
+const ENDURO_OK = /mtb|maastikujalgratta|jalgratta|rattaenduro/i;
+
 export function isRelevant(event) {
   const name = event.name || '';
 
   if (RALLI_OK.test(name)) return true;
+  if (ENDURO.test(name) && !ENDURO_OK.test(name)) return false;
   if (DROP_NAME.test(name)) return false;
   if (VOORAS.test(name)) return false;
 
