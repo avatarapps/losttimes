@@ -125,5 +125,28 @@ for (const fail of ['site/index.html', 'site/upcoming/index.html']) {
   ok(`${fail} ei vii iseendale`, omale === 0, `${omale} sellist rida`);
 }
 
+// --- D. Kettal ei tohi olla orbe ega puuduvaid lehti --------------------
+//
+// buildPages koristab orvud ise. See kontroll on selleks, et koristus ise
+// katki ei laheks: kui ta hakkaks kustutama LIIGA PALJU, jaaks siin puudu
+// lehti, mida nimekiri lubab. Uks vaike test kahe vea vastu korraga.
+
+console.log('\nD. lehed kettal vastavad võistlustele');
+const elus = new Set(events.map((e) => e.slug));
+const hubid = new Map();
+for (const e of events) {
+  if (!hubid.has(e.hub)) hubid.set(e.hub, 0);
+  hubid.set(e.hub, hubid.get(e.hub) + 1);
+}
+for (const [hub, n] of hubid) if (n >= 2 && !elus.has(hub)) elus.add(hub);
+
+const kettal = fs.readdirSync('site/race', { withFileTypes: true })
+  .filter((d) => d.isDirectory()).map((d) => d.name);
+const orvud = kettal.filter((n) => !elus.has(n));
+const puudu = [...elus].filter((n) => !fs.existsSync(`site/race/${n}/index.html`));
+
+ok('orbe ei ole', orvud.length === 0, `${orvud.length} tk`);
+ok('ükski lubatud leht ei puudu', puudu.length === 0, `${puudu.length} tk`);
+
 console.log(`\n${vigu ? `${vigu} VIGA` : 'kõik korras'}\n`);
 process.exit(vigu ? 1 : 0);

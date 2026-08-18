@@ -16,7 +16,7 @@
 //
 // Pealkirjad ja kirjeldused on EESTI KEELES, sest otsitakse eesti keeles.
 
-import { writeFile, readFile, mkdir } from 'node:fs/promises';
+import { writeFile, readFile, mkdir, readdir, rm } from 'node:fs/promises';
 import { normalizeName, reastus, reaLink } from './lib.mjs';
 
 const SITE = 'https://losttimes.ee';
@@ -319,7 +319,16 @@ function eventPage(e, siblings) {
       name: tidyName(e.name),
       startDate: e.date,
       ...(e.location ? { location: { '@type': 'Place', name: e.location } } : {}),
-      ...(res ? { url: res } : {}),
+      // url PEAB olema meie oma leht.
+      //
+      // Varem oli siin `res` ehk ajavotja tulemuste aadress. See utles
+      // Google'ile, et selle voistluse kanooniline aadress on
+      // my.raceresult.com — ehk me juhatasime masina oma lehelt minema
+      // just sellel lehel, mille eest me otsingus voitleme.
+      //
+      // Nahtavat muudatust ei ole: see plokk on <script type="ld+json">
+      // sees ja seda loeb ainult masin.
+      url: `${SITE}/race/${e.slug}`,
     }),
     body: `<h1>${esc(tidyName(e.name))}</h1>
 <p class="meta">${esc(when)}${esc(where)}${e.sport ? ' · ' + esc(e.sport) : ''}</p>
@@ -553,6 +562,43 @@ export async function buildPages(events, years) {
     urls.map((u) => `<url><loc>${u}</loc></url>`).join('\n') + `\n</urlset>\n`);
 
   await writeFile('site/robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+
+  // 8. ORVUKS JAANUD LEHTEDE KORISTUS
+  //
+  // Kettale jai 4903 lehte, mille voistlust enam ei ole: Reegel B viskas
+  // lingita kirjed valja, filter vottis alad ara, duplikaadid liideti ja
+  // moni voistlus sai uue nime ehk uue slugi. Vana leht jai lihtsalt seisma.
+  //
+  // Need EI OLE sitemapis, aga 73% neist kandis endiselt indekseeritavat
+  // silti — nad olid varem sitemapis ja Google voib nad seal veel hoida.
+  // Kustutamine teeb neist 404, mis on siin OIGE vastus: leht raagib
+  // voistlusest, mida me teadlikult ei kuva. Vaiksem kuri kui leht, mis
+  // lubab tulemusi ja ei vii kuhugi.
+  //
+  // Umbersuunamist ei tee: enamikul ei ole sihtkohta, kuhu suunata, ja
+  // tuhandete aadresside suunamine uhele lehele on Google'i silmis
+  // "soft 404" — halvem kui aus 404.
+  //
+  // KAITSE. Kui joosk kukub poolelt labi ja events jaab vaikeseks, ei tohi
+  // see samm kogu saiti ara pyhkida. Seetottu kaks piiret, molemad peavad
+  // kehtima: voistlusi peab olema mojuvalt palju ja kustutatav osa ei tohi
+  // ulatuda ule poole kettal olevast.
+  const elus = new Set(events.map((e) => e.slug));
+  for (const [hub, rows] of series) if (rows.length >= 2 && !used.has(hub)) elus.add(hub);
+
+  const kettal = (await readdir('site/race', { withFileTypes: true }))
+    .filter((d) => d.isDirectory()).map((d) => d.name);
+  const orvud = kettal.filter((n) => !elus.has(n));
+
+  if (!orvud.length) {
+    console.log('[lehed] orbe ei ole');
+  } else if (events.length < 3000 || orvud.length > kettal.length / 2) {
+    console.warn(`[lehed] HOIATUS: ${orvud.length} orbu / ${kettal.length} kataloogi ` +
+      `(${events.length} võistlust) — kahtlaselt palju, JÄTAN KORISTAMATA`);
+  } else {
+    for (const n of orvud) await rm(`site/race/${n}`, { recursive: true, force: true });
+    console.log(`[lehed] koristasin ${orvud.length} orvuks jäänud lehte`);
+  }
 
   console.log(`[lehed] ${events.length} võistlust, ${hubs} sarja hubi, ${byYear.size} aastalehte`);
   console.log(`[lehed] avaleht ja /upcoming eelrenderdatud, sitemapis ${urls.length} aadressi`);
