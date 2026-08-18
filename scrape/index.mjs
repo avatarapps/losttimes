@@ -198,6 +198,25 @@ function parem(a, b) {
   return a.name.length >= b.name.length ? a : b;
 }
 
+// Sama nimi, ainult tuhikud mujal.
+//
+// "KARITSA SUPERLIIGA TRIATLON" ja "Karitsa Superliigatriatlon 2026" on uks
+// ja sama voistlus, aga sonadeks tukeldades ei kattu nad kunagi: uhel on
+// {karitsa, superliiga, triatlon}, teisel {karitsa, superliigatriatlon}.
+// Liidame tahed kokku ja votame aastaarvu maha — siis on nad identsed.
+//
+// PROOVISIN KA SISALDUVUST ja loobusin. "tartulinnamaraton" sisaldub
+// stringis "tartulinnamaratonilastejooksud", aga lastejooks EI OLE sama
+// voistlus. Sama SEB Tallinna Maratoni ja tema Sugisjooksuga. Sisalduvus
+// oleks liitnud 32 paari, millest enamik oli vale; identsus annab 6 ja
+// koik kuus on paris duplikaadid.
+function liimNimi(name) {
+  return String(name || '')
+    .toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/(19|20)\d{2}/g, '')
+    .replace(/[^a-z0-9]/g, '');
+}
+
 function mergeSameDay(events) {
   const byDate = new Map();
   for (const e of events) {
@@ -215,9 +234,14 @@ function mergeSameDay(events) {
       for (let j = i + 1; j < rows.length; j++) {
         if (drop.has(rows[j].id)) continue;
         const A = toks[i], B = toks[j];
-        if (!A.size || !B.size) continue;
-        const yhised = [...A].filter((w) => B.has(w)).length;
-        if (yhised !== Math.min(A.size, B.size)) continue;
+        const liimA = liimNimi(rows[i].name), liimB = liimNimi(rows[j].name);
+        const sama = liimA && liimA === liimB;
+
+        if (!sama) {
+          if (!A.size || !B.size) continue;
+          const yhised = [...A].filter((w) => B.has(w)).length;
+          if (yhised !== Math.min(A.size, B.size)) continue;
+        }
 
         const hoia = parem(rows[i], rows[j]);
         const viska = hoia === rows[i] ? rows[j] : rows[i];

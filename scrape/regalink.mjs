@@ -98,6 +98,16 @@ export async function parandaKorraldaja(url) {
 
   const host = u.hostname.replace(/^www\./, '');
 
+  // Google Formsi vorm EI OLE kunagi ürituse leht.
+  //
+  // Arhiivis oli neid 12, korraldaja lingina. Osa neist on koguni /edit voi
+  // ?edit_requested=true — vormi OMANIKU vaade, mida meil pole oigust avadagi.
+  // Ainus, mida lugeja seal teha saab, on end kirja panna voi veateade saada.
+  // Google Docs jaab puutumata: juhend dokumendina on tapesti oige link.
+  if (/(^|\.)docs\.google\.com$/i.test(host) && /^\/forms\//i.test(u.pathname)) {
+    return { url: null, miks: 'Google Formsi vorm, link maha' };
+  }
+
   // raceresult: /NNNN/registration -> /NNNN/info. Sama voistlus, oige leht.
   if (/(^|\.)raceresult\.com$/i.test(host) && /\/registration\/?$/i.test(u.pathname)) {
     return { url: url.replace(/\/registration\/?$/i, '/info'), miks: 'raceresult /info' };
