@@ -30,6 +30,7 @@ import { buildPages } from './pages.mjs';
 import { applyOverrides } from './overrides.mjs';
 import { applySpordisarjad } from './spordisarjad.mjs';
 import { applyRegaLinks } from './regalink.mjs';
+import { applyLingipere } from './lingipere.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -328,6 +329,10 @@ async function finish(collected, health) {
   // Ja Reegel B peab otsustama parandatud linkide, mitte registreerimis-
   // vormide pealt — muidu jaab lehele voistlus, mille ainus link on makseleht.
   if (!SKIP_RESOLVE) await applyRegaLinks(all);
+
+  // Linkide pere PARAST regalinki: seemneks peab olema puhas link. Kui
+  // seeme oleks registreerimisaadress, levitaksime vea kolme kohta korraga.
+  applyLingipere(all);
 
   // Korraldaja-hupe kaib ULE KOGU ARHIIVI, mitte ainult selle jooksu kirjete.
   //

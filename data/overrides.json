@@ -14,13 +14,24 @@
     "stamina.ee/tervisejooks"
   ],
 
+  "_hideName": [
+    "Kehtivad IGAL aastal, kuupäeva ei vaadata. Enne uue lisamist kontrolli,",
+    "mitu kirjet muster arhiivis tabab — 'Viljandimaa orienteerumispäevakud'",
+    "näeb välja nagu üks duplikaat, aga on 28 etapiga päris sari.",
+    "Selle kontrolli tegemata jätmine kustutaks terve sarja vaikselt ära."
+  ],
+
   "hideName": [
     "Pärnu Aasta jooksud",
     "Pärnu Aastajooksud",
     "JK Sarma",
     "Põhja Prefektuuri",
     "Ühe Tunni sõit",
-    "lastesõidud"
+    "lastesõidud",
+
+    "Pirgu 2x2",
+    "Pärnu Superliiga",
+    "Järvamaa meistrivõistlused orienteerumise"
   ],
 
   "_nimeLingid": "Kehtivad KOIGILE, kelle nimes muster esineb — kuupäeva ei ole vaja. Sobib sarjadele, kus etappe on palju ja igal aastal tulevad uued juurde.",
@@ -77,12 +88,8 @@
     { "_miks": "Sportoses on nimi kirjavigane — 'Tellisikivi' ühe i-ga liiga palju. Seetõttu ei liitunud ta ChampionChipi kirjega ja 28. augustil oli kaks Telliskivi 5000. Peidame vigase; õige jääb koos tulemuste lingiga alles.",
       "date": "2026-08-28", "match": "Tellisikivi", "hide": true },
 
-    { "_miks": "16. augustil oli Pärnu triatlon kaks korda: Antrotsentri 'PÄRNU SUPERLIIGA TRIATLON' ja meie 'Pärnu triatlon 2026'. Nimed on liiga erinevad, et duplikaadireegel neid liidaks.",
-      "date": "2026-08-16", "match": "PÄRNU SUPERLIIGA TRIATLON", "hide": true },
-
     { "_miks": "19. augustil oli kolm orienteerumiskirjet, millest kaks on üks ja sama võistlus Ruunaraipe kaardil, kahe maakonna sarja arvestuses. Jätame alles Järvamaa päevaku.",
       "date": "2026-08-19", "match": "Viljandimaa orienteerumispäevakud", "hide": true },
-    { "date": "2026-08-19", "match": "Järvamaa meistrivõistlused orienteerumise", "hide": true },
     { "date": "2026-08-19", "match": "Järvamaa orienteerumispäevakud",
       "results": "https://jarvasport.ee/et/tulemused",
       "organiser": "https://jarvasport.ee/et/kalender" },
@@ -104,9 +111,6 @@
     { "_miks": "Nimi lühemaks: 'Kogu pere rullsuusapäev' kõlab külapäevana, tegu on maakonna meistrivõistlustega.",
       "date": "2026-08-29", "match": "Kogu pere rullsuusapäev",
       "name": "Pärnumaa MV rullsuusatamises" },
-
-    { "_miks": "Korraldaja lingiks oli Google Formsi MUUTMISE aadress (docs.google.com/forms/.../edit) — vorm, mida meil pole õigust avadagi. Külaüritus, ei kuulu siia.",
-      "date": "2026-08-29", "match": "Pirgu 2x2", "hide": true },
 
     { "date": "2026-08-29", "match": "Sillamäe ultra",
       "results": "https://my.raceresult.com/359508/results",
