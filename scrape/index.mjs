@@ -29,6 +29,7 @@ import { resolveMissing } from './resolve.mjs';
 import { buildPages } from './pages.mjs';
 import { applyOverrides } from './overrides.mjs';
 import { applySpordisarjad } from './spordisarjad.mjs';
+import { applyRegaLinks } from './regalink.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -319,6 +320,14 @@ async function finish(collected, health) {
     (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
   );
   if (beforeClean !== all.length) console.log(`[arhiiv] ${beforeClean} -> ${all.length}`);
+
+  // Registreerimislingid valja ENNE resolverit ja enne Reeglit B.
+  //
+  // Enne, sest resolver kasutab korraldaja domeeni tulemuste otsimiseks:
+  // "iseteenindus.xco.ee" pealt ei leia ta midagi, "xco.ee" pealt leiab.
+  // Ja Reegel B peab otsustama parandatud linkide, mitte registreerimis-
+  // vormide pealt — muidu jaab lehele voistlus, mille ainus link on makseleht.
+  if (!SKIP_RESOLVE) await applyRegaLinks(all);
 
   // Korraldaja-hupe kaib ULE KOGU ARHIIVI, mitte ainult selle jooksu kirjete.
   //

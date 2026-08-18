@@ -32,7 +32,11 @@
 
     { "match": "Transtar Temposari",
       "results": "https://temposari.ee/tulemused",
-      "organiser": "https://temposari.ee/" }
+      "organiser": "https://temposari.ee/" },
+
+    { "_miks": "Olümpiakrossi karikasari — Sportos annab korraldajaks iseteenindus.xco.ee. regalink.mjs teeb sellest automaatselt xco.ee; siin täpsustame etappide lehele. AINULT korraldaja: tulemuste aadress on aastapõhine (tulemused-2026), seega sarjareegel paneks 2020. ja 2022. etapile vale aasta protokolli. Tulemused tulevad kuupäevareeglist.",
+      "match": "Olümpiakrossi karikasarja",
+      "organiser": "https://xco.ee/etapid/" }
   ],
 
   "events": [
@@ -82,6 +86,15 @@
     { "date": "2026-08-19", "match": "Järvamaa orienteerumispäevakud",
       "results": "https://jarvasport.ee/et/tulemused",
       "organiser": "https://jarvasport.ee/et/kalender" },
+
+    { "_miks": "Hiiumaa etapil on korraldajal oma leht, täpsem kui sarja üldleht.",
+      "date": "2026-08-22", "match": "Hiiumaa XCO",
+      "results": "https://xco.ee/tulemused-2026/",
+      "organiser": "https://xco.ee/etapid/hiiumaa-xco/" },
+
+    { "_miks": "Sportos andis korraldajaks reg.sportiv.ee. sportiv.ee on ise registreerimisplatvorm, seega emadomeeni tuletada ei saa — regalink.mjs võtab lingi maha ja õige tuleb siit.",
+      "date": "2026-08-22", "match": "Lüganuse rahvajooks",
+      "organiser": "https://www.idaviru.events/event/https-sportiv-ee-jooksusari2025-2" },
 
     { "date": "2026-08-20", "match": "Käru järve jooks",
       "results": "https://jarvasport.ee/et/tulemused",
