@@ -23,7 +23,7 @@ if (NODE_MAJOR < 18) {
 }
 
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
-import { normalizeName } from './lib.mjs';
+import { normalizeName, reastus } from './lib.mjs';
 import { explainFilter } from './filter.mjs';
 import { resolveMissing } from './resolve.mjs';
 import { buildPages } from './pages.mjs';
@@ -271,7 +271,7 @@ async function finish(collected, health) {
     console.log('  naiteid: ' + dropped.slice(0, 6).map((e) => e.name).join(' | '));
   }
 
-  const events = kept.sort((a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
+  const events = kept.sort((a, b) => b.date.localeCompare(a.date) || reastus(a, b));
 
   // Arhiiv jaotatakse aastate kaupa. Uks 11 000 voistlusega fail oleks
   // mobiilis liiga range — leht laeb jooksva aasta kohe ja vanemad siis,
@@ -317,7 +317,7 @@ async function finish(collected, health) {
 
   // Kasitsi parandused KOIGE VIIMASENA — need voidavad alati automaatika.
   const all = mergeSameDay(mergeMultiDay(await applyOverrides(cleaned.kept))).sort(
-    (a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name)
+    (a, b) => b.date.localeCompare(a.date) || reastus(a, b)
   );
   if (beforeClean !== all.length) console.log(`[arhiiv] ${beforeClean} -> ${all.length}`);
 

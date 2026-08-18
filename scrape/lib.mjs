@@ -138,3 +138,29 @@ export function logSource(id, events) {
   console.log(`  ${id}: ${events.length} kirjet`);
   return events;
 }
+
+// Sama paeva voistluste jarjekord: TAHTSUS ENNE TAHESTIKKU.
+//
+// Tahestik on masina jarjekord, mitte lugeja oma. 29. augustil algas paev
+// numbriga "22. Ulemiste metsajooks" ainult sellepärast, et 2 < T. Lugejale
+// on paeva suurim voistlus tahtsam kui see, millise margiga nimi algab.
+//
+// Kolm astet, selles jarjekorras:
+//
+//  1. rank — kasitsi antud number data/overrides.json-is. Vaiksem tuleb enne.
+//     Vaikimisi 50, nii et jarjestamata voistlus jaab keskele ja uue reegli
+//     saab panna nii ette (1, 2, 3) kui taha (90).
+//
+//  2. Kas voistlusel on paris tulemuste link. Voistlus, mille tulemusteni me
+//     pariselt viime, on lugejale kasulikum kui see, mille juures saame ainult
+//     korraldajat naidata. See aste tootab ise, ilma et keegi peaks midagi
+//     jarjestama.
+//
+//  3. Alles siis tahestik.
+export function reastus(a, b) {
+  const rank = (e) => (typeof e.rank === 'number' ? e.rank : 50);
+  const oma = (u) => !u || u.includes('losttimes.ee') || u.startsWith('/');
+  const tulemustega = (e) => (e.sources.some((s) => !oma(s.links.results)) ? 0 : 1);
+  return rank(a) - rank(b) || tulemustega(a) - tulemustega(b) ||
+    a.name.localeCompare(b.name, 'et');
+}

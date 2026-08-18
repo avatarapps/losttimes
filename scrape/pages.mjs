@@ -17,7 +17,7 @@
 // Pealkirjad ja kirjeldused on EESTI KEELES, sest otsitakse eesti keeles.
 
 import { writeFile, readFile, mkdir } from 'node:fs/promises';
-import { normalizeName } from './lib.mjs';
+import { normalizeName, reastus } from './lib.mjs';
 
 const SITE = 'https://losttimes.ee';
 
@@ -488,7 +488,7 @@ export async function buildPages(events, years) {
   // 6. Avaleht ja /upcoming — sama rakendus, aga sisu on HTML-is olemas
   const today = new Date().toISOString().slice(0, 10);
   const past = events.filter((e) => e.date <= today).slice(0, 60);
-  const next = events.filter((e) => e.date > today).sort((a, b) => a.date.localeCompare(b.date)).slice(0, 60);
+  const next = events.filter((e) => e.date > today).sort((a, b) => a.date.localeCompare(b.date) || reastus(a, b)).slice(0, 60);
 
   const shell = await readFile('site/index.html', 'utf8');
   const inject = (html, rows) =>

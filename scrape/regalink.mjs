@@ -127,12 +127,40 @@ export async function parandaKorraldaja(url) {
   return { url: null, miks: 'registreerimisleht, link maha' };
 }
 
+// Paljas domeen ei ole tulemuste link.
+//
+// "https://my.raceresult.com/" lubab tulemusi ja annab ajavotja esilehe.
+// See on sama lubaduse murdmine mis registreerimisleht: kasutaja klopsib
+// "Results" ja peab siis ise otsima hakkama.
+//
+// HASH LOEB TEEKS. "saaremaajooks.ee/#/stardiprotokollid/" naeb valja nagu
+// paljas domeen, sest kogu marsruut on # taga. Esimene katse oleks selle
+// maha votnud — seetottu on hash siin eraldi valja kirjutatud.
+function paljasDomeen(url) {
+  try {
+    const u = new URL(url);
+    const tee = u.pathname.replace(/^\/+|\/+$/g, '');
+    return !tee && !u.search && !u.hash;
+  } catch {
+    return false;
+  }
+}
+
 export async function applyRegaLinks(events) {
   let parandatud = 0;
   let mahav = 0;
+  let paljad = 0;
 
   for (const e of events) {
     for (const s of e.sources) {
+      // Tulemused ja stardinimekiri: paljas esileht ei ole vastus.
+      for (const valja of ['results', 'startlist']) {
+        if (s.links[valja] && paljasDomeen(s.links[valja])) {
+          s.links[valja] = null;
+          paljad++;
+        }
+      }
+
       // Korraldaja JA info — molemad on lingid, mida kasutaja voib klopsida.
       for (const valja of ['organiser', 'info']) {
         const vana = s.links[valja];
@@ -146,6 +174,6 @@ export async function applyRegaLinks(events) {
     }
   }
 
-  console.log(`[regalink] registreerimislinke: parandatud ${parandatud}, eemaldatud ${mahav}`);
+  console.log(`[regalink] registreerimislinke: parandatud ${parandatud}, eemaldatud ${mahav}; paljaid esilehti ${paljad}`);
   return events;
 }

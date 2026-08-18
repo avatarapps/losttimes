@@ -96,6 +96,23 @@
       "date": "2026-08-22", "match": "Lüganuse rahvajooks",
       "organiser": "https://www.idaviru.events/event/https-sportiv-ee-jooksusari2025-2" },
 
+    { "_miks": "29. august 2026 — tähtsus enne tähestikku. rank on väiksem = eespool; vaikimisi 50. Ilma selleta algas päev '22. Ülemiste metsajooksuga' ainult sellepärast, et 2 tuleb tähestikus enne T-d.",
+      "date": "2026-08-29", "match": "Tallinna Rattamaraton", "rank": 1 },
+    { "date": "2026-08-29", "match": "Tallinna Vee 54", "rank": 2 },
+    { "date": "2026-08-29", "match": "Ülemiste metsajooks", "rank": 3 },
+
+    { "_miks": "Nimi lühemaks: 'Kogu pere rullsuusapäev' kõlab külapäevana, tegu on maakonna meistrivõistlustega.",
+      "date": "2026-08-29", "match": "Kogu pere rullsuusapäev",
+      "name": "Pärnumaa MV rullsuusatamises" },
+
+    { "_miks": "Korraldaja lingiks oli Google Formsi MUUTMISE aadress (docs.google.com/forms/.../edit) — vorm, mida meil pole õigust avadagi. Külaüritus, ei kuulu siia.",
+      "date": "2026-08-29", "match": "Pirgu 2x2", "hide": true },
+
+    { "date": "2026-08-29", "match": "Sillamäe ultra",
+      "results": "https://my.raceresult.com/359508/results",
+      "startlist": "https://my.raceresult.com/359508/participants",
+      "organiser": "https://gurmeejooksud.ee/sillamae-ultra-2026/" },
+
     { "date": "2026-08-20", "match": "Käru järve jooks",
       "results": "https://jarvasport.ee/et/tulemused",
       "organiser": "https://jarvasport.ee/et/kalender?event_id=3072" },
@@ -133,11 +150,22 @@
     { "date": "2026-08-14", "match": "KÕKÕVA",
       "organiser": "https://www.panepanepane.ee/k6k6va" },
 
-    { "date": "2026-08-20", "match": "IronKids",
+    { "_miks": "Stardinimekiri lisatud olemasolevasse reeglisse, MITTE uue reana: kuupäevareeglite tsükkel katkeb esimese sobiva reegli järel, seega teine sama kuupäeva ja nimega rida ei rakenduks kunagi.",
+      "date": "2026-08-20", "match": "IronKids",
+      "startlist": "https://www.sportos.eu/ee/et/tallinn-ironkids-triathlon/registreerunud/",
       "organiser": "https://triatloniakadeemia.ee/uritused/ironkids-tallinn/" },
 
     { "date": "2026-08-20", "match": "Sunset Run",
+      "startlist": "https://www.sportos.eu/ee/en/sunset-run/registreerunud/",
       "organiser": "https://triatloniakadeemia.ee/uritused/sunset-run/" },
+
+    { "date": "2026-08-22", "match": "IRONMAN Tallinn",
+      "results": "https://www.ironman.com/races/im-tallinn/results",
+      "organiser": "https://www.ironman.com/im-tallinn" },
+
+    { "date": "2026-08-23", "match": "IRONMAN 70.3 Tallinn",
+      "results": "https://www.ironman.com/races/im703-tallinn/results",
+      "organiser": "https://www.ironman.com/im703-tallinn" },
 
     { "date": "2026-09-12", "match": "Tallinna Sügisjooks",
       "name": "Tallinna Sügisjooks 10km",

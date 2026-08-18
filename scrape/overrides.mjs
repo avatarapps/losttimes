@@ -24,7 +24,10 @@ export async function applyOverrides(events) {
     return events;
   }
 
-  const rules = conf.events || [];
+  // Ainult paris reeglid. Failis on ka uksikuid { "_miks": ... } ridu, mis
+  // seletavad jargnevat plokki — need ei ole reeglid ja ilma selle filtrita
+  // teatas "kasutamata reeglite" hoiatus neist iga kord: undefined "undefined".
+  const rules = (conf.events || []).filter((r) => r && r.date);
   // Nimereeglid kaivad KOIGI sama nimemustriga voistluste peale, ilma
   // kuupaevata. Sarjal on kumme etappi ja igaühele eraldi rea kirjutamine
   // tahendaks, et jargmise hooaja etapid jaavad kohe parandamata.
@@ -87,6 +90,9 @@ export async function applyOverrides(events) {
       // Nime saab ule kirjutada — allikad kirjutavad neid vahel poolikult
       // voi valesti ("TALLINNA MARATON" kolme eri distantsi kohta).
       if (r.name) e.name = r.name;
+
+      // Jarjekorranumber sama paeva sees. Vaiksem tuleb enne, vaikimisi 50.
+      if (typeof r.rank === 'number') e.rank = r.rank;
 
       // Parandus laheb ETTE, et ta voidaks automaatselt leitud lingi ule.
       e.sources.unshift({
