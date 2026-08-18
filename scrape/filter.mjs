@@ -14,7 +14,7 @@
 const KEEP_SPORTS = [
   'jooksmine', 'kepikõnd', 'käimine',
   'jalgrattasport', 'maanteerattasõit', 'maastikurattasõit', 'tsüklokross', 'gravel',
-  'rulluisutamine', 'rullsuusatamine', 'suusatamine', 'uisutamine', 'kiiruisutamine',
+  'rullsuusatamine', 'suusatamine',
   'triatlon', 'triatlon/duatlon', 'duatlon', 'akvatlon',
   'ujumine', 'orienteerumine', 'seiklussport', 'sõudmine', 'aerutamine',
 ];
@@ -46,6 +46,12 @@ const DROP_NAME = new RegExp(
     // romuring" paases sisse just seetottu, et tema ala oli allikas tuhi
     // ja nimi oli ainus tunnus, mille jargi otsustada.
     'romuring', '\\bromu', 'autokross', 'rahvaralli', 'krossikas', 'drift',
+    // Uisutamine ei kuulu siia lehele. Rulluisk jaab — see kaib
+    // rulluisumaratonide alla, mis on kestvusala.
+    // Uisk ei kuulu siia lehele — ei kiiruisk, ei rulluisk. Sait katab
+    // nelja ala: jooks, ratas, suusk, triatlon. ROLLsuusatamine jaab, sest
+    // see on suusatamise treeningvorm, mitte uisutamine.
+    'uisu',
   ].join('|'),
   'i'
 );
@@ -88,10 +94,20 @@ const RALLI_OK = /rattaralli|jalgrattaralli/i;
 // "Maastikujalgratta voistlus Paikuse Enduro" on samuti moto. Seega koik.
 const ENDURO = /\benduro\b/i;
 
+// RULLSUUSK on suusatamise suvine vorm ja kuulub siia. Sportos margib neid
+// aga alaks "Rulluisutamine" — "Nevene Rullsuusamaraton", "Paide Rull",
+// "Lõuna-Järva Rull" kandsid koik seda silti. Kui usaldada ainult ala valja,
+// kaoks 9 paris rullsuusavoistlust koos uisuga.
+//
+// "\brull\b" nouab omaette sona: "Viru Rull" ja "Paide Rull" tabavad,
+// "Rulluisumaraton" ja "Rulluisu temposoit" ei taba — need on uisk.
+const RULLSUUSK_OK = /rullsuus|suusarull|\brull\b/i;
+
 export function isRelevant(event) {
   const name = event.name || '';
 
   if (RALLI_OK.test(name)) return true;
+  if (RULLSUUSK_OK.test(name)) return true;
   if (ENDURO.test(name)) return false;
   if (DROP_NAME.test(name)) return false;
   if (VOORAS.test(name)) return false;

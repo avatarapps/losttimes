@@ -73,6 +73,20 @@
     { "_miks": "Sportoses on nimi kirjavigane — 'Tellisikivi' ühe i-ga liiga palju. Seetõttu ei liitunud ta ChampionChipi kirjega ja 28. augustil oli kaks Telliskivi 5000. Peidame vigase; õige jääb koos tulemuste lingiga alles.",
       "date": "2026-08-28", "match": "Tellisikivi", "hide": true },
 
+    { "_miks": "16. augustil oli Pärnu triatlon kaks korda: Antrotsentri 'PÄRNU SUPERLIIGA TRIATLON' ja meie 'Pärnu triatlon 2026'. Nimed on liiga erinevad, et duplikaadireegel neid liidaks.",
+      "date": "2026-08-16", "match": "PÄRNU SUPERLIIGA TRIATLON", "hide": true },
+
+    { "_miks": "19. augustil oli kolm orienteerumiskirjet, millest kaks on üks ja sama võistlus Ruunaraipe kaardil, kahe maakonna sarja arvestuses. Jätame alles Järvamaa päevaku.",
+      "date": "2026-08-19", "match": "Viljandimaa orienteerumispäevakud", "hide": true },
+    { "date": "2026-08-19", "match": "Järvamaa meistrivõistlused orienteerumise", "hide": true },
+    { "date": "2026-08-19", "match": "Järvamaa orienteerumispäevakud",
+      "results": "https://jarvasport.ee/et/tulemused",
+      "organiser": "https://jarvasport.ee/et/kalender" },
+
+    { "date": "2026-08-20", "match": "Käru järve jooks",
+      "results": "https://jarvasport.ee/et/tulemused",
+      "organiser": "https://jarvasport.ee/et/kalender?event_id=3072" },
+
     { "date": "2026-09-19", "match": "Tartu Rattamaraton",
       "startlist": "https://tartumaraton.ee/et/osalejad" },
 
