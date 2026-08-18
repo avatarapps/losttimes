@@ -492,6 +492,22 @@ function nameHtml(e){
 // ja võistluste nimed on täpitähti täis. Ilma selleta ei leiaks pool asju.
 const fold = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
+// Sama reegel mis scrape/lib.mjs reastus(): tähtsus enne tähestikku.
+// rank tuleb data/overrides.json-ist, vaikimisi 50. Teine aste eelistab
+// võistlusi, millel on päris tulemuste link. Alles kolmandana tähestik.
+//
+// PEAB OLEMA SIIN, MITTE FUNKTSIOONI SEES. Esimest korda kirjutasin selle
+// loadYear() sisse, aga render() kasutab teda ka — ja "Tulevased" vajutamine
+// viskas ReferenceErrori, mille peale kogu nimekiri jäi renderdamata.
+const linkOma = (u) => !u || u.includes('losttimes.ee') || u.startsWith('/');
+function reastus(a, b) {
+  const rank = (e) => (typeof e.rank === 'number' ? e.rank : 50);
+  const tulemustega = (e) => (e.sources.some((s) => !linkOma(s.links.results)) ? 0 : 1);
+  return rank(a) - rank(b) || tulemustega(a) - tulemustega(b) ||
+    a.name.localeCompare(b.name, 'et');
+}
+
+
 // Levenshtein, aga peatume niipea kui vahe on üle lubatud piiri.
 function closeEnough(word, target, max){
   if (Math.abs(word.length - target.length) > max) return false;
@@ -541,16 +557,6 @@ async function loadYear(year){
     e._w = e._s.split(/[^a-z0-9]+/).filter(w => w.length > 2);
   }
   state.events = state.events.concat(rows);
-  // Sama reegel mis scrape/lib.mjs reastus(): tähtsus enne tähestikku.
-  // rank tuleb data/overrides.json-ist, vaikimisi 50. Teine aste eelistab
-  // võistlusi, millel on päris tulemuste link. Alles kolmandana tähestik.
-  const oma = (u) => !u || u.includes('losttimes.ee') || u.startsWith('/');
-  const reastus = (a,b) => {
-    const rank = (e) => (typeof e.rank === 'number' ? e.rank : 50);
-    const tulemustega = (e) => (e.sources.some((s) => !oma(s.links.results)) ? 0 : 1);
-    return rank(a) - rank(b) || tulemustega(a) - tulemustega(b) ||
-      a.name.localeCompare(b.name, 'et');
-  };
   state.events.sort((a,b) => b.date.localeCompare(a.date) || reastus(a,b));
 }
 
