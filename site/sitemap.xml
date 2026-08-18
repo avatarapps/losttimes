@@ -74,6 +74,7 @@
 <url><loc>https://losttimes.ee/race/parnu-ohtujooks</loc></url>
 <url><loc>https://losttimes.ee/race/saue-ohtujooks</loc></url>
 <url><loc>https://losttimes.ee/race/maru-puslejooks</loc></url>
+<url><loc>https://losttimes.ee/race/kristiine-rahvajooks</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-metsajooks</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-rattamaraton</loc></url>
 <url><loc>https://losttimes.ee/race/sillamae-ultra-eesti-meistrivoistlused-100-km-jooksus</loc></url>
@@ -86,6 +87,7 @@
 <url><loc>https://losttimes.ee/race/jarvamaa-orienteerumispaevakud</loc></url>
 <url><loc>https://losttimes.ee/race/jarvamaa-meistrivoistlused-orienteerumise-luhirajal</loc></url>
 <url><loc>https://losttimes.ee/race/viljandimaa-orienteerumispaevakud</loc></url>
+<url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-uhe-tunni-soit</loc></url>
 <url><loc>https://losttimes.ee/race/filter-temposari</loc></url>
 <url><loc>https://losttimes.ee/race/skoda-mtb-kolmapaevakud-pirita</loc></url>
 <url><loc>https://losttimes.ee/race/lauritsapaevajooks</loc></url>
@@ -210,7 +212,6 @@
 <url><loc>https://losttimes.ee/race/tondiraba-sisemaraton</loc></url>
 <url><loc>https://losttimes.ee/race/viru-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/jarva-valla-seeriavoistlus-suusatamises-ii-etapp</loc></url>
-<url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-uhe-tunni-soit</loc></url>
 <url><loc>https://losttimes.ee/race/jarva-valla-seeriavoistlus-suusatamises-i-etapp</loc></url>
 <url><loc>https://losttimes.ee/race/lehtse-talikross</loc></url>
 <url><loc>https://losttimes.ee/race/pooripaevajooks-jooks-talve</loc></url>
@@ -241,7 +242,6 @@
 <url><loc>https://losttimes.ee/race/tallinna-sugisjooks</loc></url>
 <url><loc>https://losttimes.ee/race/sportland-korvemaa-metsajooks</loc></url>
 <url><loc>https://losttimes.ee/race/linnamae-rattasoit</loc></url>
-<url><loc>https://losttimes.ee/race/kristiine-rahvajooks</loc></url>
 <url><loc>https://losttimes.ee/race/red-bull-tour-of-vikings</loc></url>
 <url><loc>https://losttimes.ee/race/horeda-moisa-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/turi-maraton</loc></url>
@@ -652,6 +652,7 @@
 <url><loc>https://losttimes.ee/race/27-neeruti-maraton-2027</loc></url>
 <url><loc>https://losttimes.ee/race/audi-vana-aasta-jooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/53-saaremaa-kolme-paeva-jooks-2026</loc></url>
+<url><loc>https://losttimes.ee/race/53-saaremaa-kolme-paeva-jooks-2026-2</loc></url>
 <url><loc>https://losttimes.ee/race/71-viljandi-linnajooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/8-alutaguse-sugisjooks-10-jarve-lugu-2026</loc></url>
 <url><loc>https://losttimes.ee/race/15-tartu-linnamaraton-2026</loc></url>
@@ -681,6 +682,8 @@
 <url><loc>https://losttimes.ee/race/ironman-70-3-tallinn-2026</loc></url>
 <url><loc>https://losttimes.ee/race/baltic-chain-tour-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/karu-jarve-jooks-jarvamaa-jarvede-joksu-7-etapp-2026</loc></url>
+<url><loc>https://losttimes.ee/race/pohja-prefektuuri-triatlon-2026</loc></url>
+<url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2026</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-superliiga-triatlon-2026</loc></url>
 <url><loc>https://losttimes.ee/race/jarvakandi-xv-igamehe-maraton-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/kohtla-nomme-enduro-2026-enduro-emv-2-etapp-2026</loc></url>
@@ -693,6 +696,7 @@
 <url><loc>https://losttimes.ee/race/urumarja-38-velotuur-2026</loc></url>
 <url><loc>https://losttimes.ee/race/oismae-raba-terviseraja-jooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/turi-triatlon-2026</loc></url>
+<url><loc>https://losttimes.ee/race/filter-rull-de-tallinn-2026</loc></url>
 <url><loc>https://losttimes.ee/race/filter-tour-de-tallinn-2026</loc></url>
 <url><loc>https://losttimes.ee/race/heavy-metal-ultra-2026</loc></url>
 <url><loc>https://losttimes.ee/race/paldiski-liigub-2026</loc></url>
@@ -926,7 +930,7 @@
 <url><loc>https://losttimes.ee/race/12-tondiraba-sisemaraton-5-tondiraba-sisekumme-2026</loc></url>
 <url><loc>https://losttimes.ee/race/viljandimaa-koolipinks-koigile-2026</loc></url>
 <url><loc>https://losttimes.ee/race/jarva-valla-seeriavoistlus-suusatamises-ii-etapp-2026</loc></url>
-<url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2026</loc></url>
+<url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-uhe-tunni-soit-2026-2</loc></url>
 <url><loc>https://losttimes.ee/race/taliharja-vanakuri-2026</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-kiiruisuklubi-karikasarja-1-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/jarva-valla-seeriavoistlus-suusatamises-i-etapp-2026</loc></url>
