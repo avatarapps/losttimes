@@ -44,7 +44,11 @@ import { eestimaraton, maru, rattamaratonid } from './sources/bestit.mjs';
 // Korraldaja enda susteem (BestIT) on ees, sest Sportose "tulemused"
 // aadress on neil voistlustel sageli tuhi kest — link on olemas, aga
 // ots on umbes.
-const ALL_SOURCES = [eestimaraton, maru, rattamaratonid, sportos, championchip, estoloppet, antrotsenter, timing, manual];
+// BestITi allikad EES. merge() lisab allikad massiivi jarjekorras ja
+// resultsLink() votab esimese — nii voidab korraldaja enda otselink
+// Sportose tuhja kesta. Estoloppet oli varem sportose JAREL ja tema
+// suusamaratonid said seetottu Sportose lingi.
+const ALL_SOURCES = [eestimaraton, maru, rattamaratonid, estoloppet, sportos, championchip, antrotsenter, timing, manual];
 
 // Uhe allika kaupa testimiseks:  node scrape/index.mjs --only=sportos
 const onlyArg = process.argv.find((a) => a.startsWith('--only='));
