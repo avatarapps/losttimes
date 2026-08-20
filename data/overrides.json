@@ -199,7 +199,9 @@
       "startlist": "https://www.sportos.eu/ee/et/tallinn-ironkids-triathlon/registreerunud/",
       "organiser": "https://triatloniakadeemia.ee/uritused/ironkids-tallinn/" },
 
-    { "date": "2026-08-20", "match": "Sunset Run",
+    { "_miks": "Ajavõtja on TolkNet ja tulemused elavad racetecresults.com-is, mis on Cloudflare'i botikaitse taga — sealt me linke ise ei korja. Eva tõi käsitsi. Tulemused lisatud OLEMASOLEVASSE reeglisse: kuupäevareeglite tsükkel katkeb esimese tabamuse järel, seega teine sama kuupäeva ja nimega rida ei rakenduks kunagi.",
+      "date": "2026-08-20", "match": "Sunset Run",
+      "results": "https://www.racetecresults.com/results.aspx?CId=16573&RId=673&EId=1",
       "startlist": "https://www.sportos.eu/ee/en/sunset-run/registreerunud/",
       "organiser": "https://triatloniakadeemia.ee/uritused/sunset-run/" },
 
