@@ -104,9 +104,12 @@
       "results": "https://xco.ee/tulemused-2026/",
       "organiser": "https://xco.ee/etapid/hiiumaa-xco/" },
 
-    { "_miks": "Sportos andis korraldajaks reg.sportiv.ee. sportiv.ee on ise registreerimisplatvorm, seega emadomeeni tuletada ei saa — regalink.mjs võtab lingi maha ja õige tuleb siit.",
-      "date": "2026-08-22", "match": "Lüganuse rahvajooks",
-      "organiser": "https://www.idaviru.events/event/https-sportiv-ee-jooksusari2025-2" },
+    { "_miks": "raceresulti tulemuste link. lingipere.mjs tuletab siit ise ka /participants ja /info.",
+      "date": "2026-08-23", "match": "Luunja 2. Mõisapargi jooksukross",
+      "results": "https://my.raceresult.com/410677/results" },
+
+    { "_miks": "Eva otsustas 18.08.2026 selle välja visata. Varem oli siia pandud idaviru.events link, aga see kirje ei kuulu siia lehele. Reegel on kuupäevapõhine, sest tegu on ühe korraga, mitte kogu Lüganuse sarjaga.",
+      "date": "2026-08-22", "match": "Lüganuse rahvajooks", "hide": true },
 
     { "_miks": "29. august 2026 — tähtsus enne tähestikku. rank on väiksem = eespool; vaikimisi 50. Ilma selleta algas päev '22. Ülemiste metsajooksuga' ainult sellepärast, et 2 tuleb tähestikus enne T-d.",
       "date": "2026-08-29", "match": "Tallinna Rattamaraton", "rank": 1 },
