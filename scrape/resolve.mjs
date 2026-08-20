@@ -36,7 +36,7 @@ const fold = (s) =>
 const RESULT_URL = /results?|tulemus|protokoll|RId=/i;
 
 // Registreerimis- ja korraldajakeskkonnad EI OLE tulemused.
-const NOT_RESULTS = /organizer\.|iseteenindus\.|registreeru|registration|\/shop/i;
+const NOT_RESULTS = /organizer\.|iseteenindus\.|registreeri|registreeru|registration|\/shop/i;
 // Korraldaja leht on BOONUS, mitte allikas. Siin on ebaonnestumine tavaline —
 // pooled lingid on surnud kodulehed voi Facebooki grupid. Kolm katset x 30 s
 // tahendaks, et uks surnud leht sooks poolteist minutit; sadade kaupa laheks
@@ -51,7 +51,10 @@ const DELAY = 500;
 // v4: PARANDUS — fold() oli kasutusel, aga defineerimata. Iga findResultLink()
 //     kutse viskas ReferenceErrori, mille try/catch vaikselt alla neelas.
 //     Seetottu leidis resolver alates v2-st peaaegu mitte midagi.
-const RESOLVER_VERSION = 4;
+// v5: ei arva enam aadressi ara, vaid JARGIB LINKI, mille tekstis seisab
+//     "tulemused" / "protokollid" / "edetabelid". Lisaks votame vastu ka
+//     korraldaja enda lehel oleva protokolli, kui kuupaev klapib.
+const RESOLVER_VERSION = 5;
 
 /** "2026-08-13" -> "13.08" */
 function dateKey(iso) {
@@ -101,6 +104,94 @@ function anchorDate($, el) {
     if (unique.length > 1) return { date: null, box: null }; // liiga lai kontekst
   }
   return { date: null, box: null };
+}
+
+// SILT, MILLE TAHA KORRALDAJA TULEMUSED PEIDAB
+//
+// Moodetud 20.08.2026: 68 korraldajast 32-l on esilehel link, mille NAHTAVAS
+// tekstis seisab uks neist sonadest. Aadressid ise on igauhel omad —
+// laanesport.ee peidab protokollid /ala/koik-alad/ taha, mida ukski
+// aramismise-reegel ei taba. Aga link, millele INIMENE vajutaks, kannab silti.
+const RESULT_LABEL = /tulemus|protokoll|result|edetabel/i;
+
+// Mitu sellist lehte uhe korraldaja kohta labi kaime. Rohkem ei tasu: iga
+// leht on eraldi paring ja korraldajaid on sadu.
+const MAX_JARGI = 3;
+
+/**
+ * Lehelt lingid, mille TEKST lubab tulemusi. Luhem silt enne — "Tulemused"
+ * on tapsem kui "Voistluste juhendid ja tulemused ning muu info".
+ */
+function tulemusteLehed(html, pageUrl) {
+  const $ = cheerio.load(html);
+  const out = [];
+  $('a[href]').each((_, a) => {
+    const el = $(a);
+    const tekst = clean(el.text());
+    if (!tekst || tekst.length > 60 || !RESULT_LABEL.test(tekst)) return;
+    const href = absoluteUrl(el.attr('href'), pageUrl);
+    if (!href || /^(mailto|tel|javascript)/i.test(href)) return;
+    if (NOT_RESULTS.test(href)) return;
+    out.push({ tekst, url: href });
+  });
+  out.sort((a, b) => a.tekst.length - b.tekst.length);
+  const nahtud = new Set();
+  return out.filter((x) => !nahtud.has(x.url) && nahtud.add(x.url)).slice(0, MAX_JARGI);
+}
+
+/**
+ * KORRALDAJA ENDA LEHEL OLEV PROTOKOLL.
+ *
+ * findResultLink() votab vastu ainult ajavotjate domeene. See on oige, kui
+ * tulemused ON ajavotja juures — aga Laanela, Kohila ja veel kolmkummend
+ * korraldajat hoiavad protokolle oma lehel, sageli PDF-ina. Neid ei tohi
+ * pimesi vastu votta: leht on protokolle tais ja vale aasta oma on halvem
+ * kui puuduv link.
+ *
+ * Seetottu on nou range: lingi tekst voi tema lahim pealkiri peab sisaldama
+ * voistluse KUUPAEVA. Nime jargi uksi me ei votagi — "Haapsalu sork" esineb
+ * seal kahekumnel real, igauhel oma kuupaev.
+ */
+function findOwnResults(html, pageUrl, event) {
+  const $ = cheerio.load(html);
+  const accepted = dateKeys(event.date);
+  const aasta = event.date.slice(0, 4);
+  const leiud = [];
+
+  $('a[href]').each((_, a) => {
+    const el = $(a);
+    const href = absoluteUrl(el.attr('href'), pageUrl);
+    if (!href || /^(mailto|tel|javascript)/i.test(href)) return;
+    if (NOT_RESULTS.test(href)) return;
+
+    const tekst = clean(el.text());
+    const ymbrus = `${tekst} ${nearestHeading($, el)}`;
+
+    // AASTA VETO. Kui tekstis on aastaarv ja see EI OLE meie oma, siis see
+    // link kuulub teisele hooajale — ukskoik kui hasti paev ja kuu klapivad.
+    // Ilma selleta oleks "Haapsalu sork #6 04.01.2026" lainud 2025. aasta
+    // voistluse kulge, sest "4.01" klappis. Just seda viga me mujal parasid.
+    const aastad = ymbrus.match(/\b(?:19|20)\d{2}\b/g) || [];
+    if (aastad.length && !aastad.includes(aasta)) return;
+
+    const ctx = anchorDate($, el);
+    const kp = Boolean(ctx.date && accepted.includes(ctx.date));
+    const meieAasta = aastad.includes(aasta);
+    if (!kp && !meieAasta) return;
+
+    leiud.push({ url: href, text: tekst, date: ctx.date || null, stage: null,
+      context: ymbrus, kp });
+  });
+
+  if (!leiud.length) return null;
+
+  // Kuupaevaga tabamus voidab. Kui neid on tapselt uks, on ta meie oma.
+  const tapsed = leiud.filter((l) => l.kp);
+  if (tapsed.length === 1) return tapsed[0];
+  if (tapsed.length > 1) return null;      // mitu sama kuupaevaga = ei tea
+
+  // Kuupaeva ei olnud kuskil, aga aasta klappis ja kandidaate on tapselt uks.
+  return leiud.length === 1 ? leiud[0] : null;
 }
 
 /**
@@ -216,6 +307,23 @@ function findResultLink(html, pageUrl, event) {
  * Kaib labi voistlused, millel tulemusi ei ole, ja proovib korraldaja lehelt.
  * Muudab events massiivi kohapeal.
  */
+// AJAEELARVE
+//
+// Resolver kusib korraldajate lehti ukshaaval, iga paring kuni 12 sekundit
+// pluss viivitus. Kui RESOLVER_VERSION touseb, muutuvad koik vanad vastused
+// kehtetuks — 20.08.2026 tahendas see 4400 uuesti kusimist ehk ligi KAKS
+// TUNDI. Ma ei arvestanud sellega ja Eva joosk seisis tunni.
+//
+// Nuud on seatud eelarve. Kui aeg saab tais, lopetame korralikult: seni
+// leitu jaab alles, vahemalu salvestatakse ja ulejaanud proovitakse
+// JARGMISEL JOOKSUL. Vastused kogunevad ooude kaupa ja uhelgi ool ei
+// pea keegi tundi ootama — ei meie ega korraldajate serverid.
+//
+// --resolve-koik votab eelarve maha, kui tahad korraga labi kaia.
+const EELARVE_MS = process.argv.includes('--resolve-koik')
+  ? Infinity
+  : Number(process.env.RESOLVE_EELARVE_MIN || 10) * 60000;
+
 export async function resolveMissing(events, { limit = 4000 } = {}) {
   const targets = events.filter(
     (e) => !e.sources.some((s) => s.links.results) && e.sources.some((s) => s.links.organiser)
@@ -228,7 +336,15 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
   let fromCache = 0;
   const cache = new Map(); // laetud HTML uhe jooksu jooksul
 
+  const algus = Date.now();
+  let poolik = 0;
+
   for (const [i, event] of targets.slice(0, limit).entries()) {
+    if (Date.now() - algus > EELARVE_MS) {
+      poolik = Math.min(targets.length, limit) - i;
+      console.log(`[resolve] ajaeelarve täis — ${poolik} võistlust jääb järgmisele jooksule`);
+      break;
+    }
     const organiser = event.sources.find((s) => s.links.organiser).links.organiser;
 
     // Facebook ja Instagram ei anna meile midagi.
@@ -265,11 +381,18 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
     try {
       // Sama sarja etapid jagavad korraldaja lehte — laeme uks kord.
       // Otselingid elavad harva esilehel — enamasti korraldaja tulemuste alalehel.
+      // KAKS ASTET.
+      //
+      // 1. Arvatavad aadressid — kiire ja tootab seal, kus korraldaja on
+      //    tavaline. Jaab alles, sest ta ei maksa midagi.
+      // 2. Kui need ei anna midagi, JARGIME LINKI lingi teksti jargi.
+      //    Just siin oli senine kood pime: laanesport.ee peidab protokollid
+      //    /ala/koik-alad/ taha, kohilasport.ee omal aadressil jne. Iga
+      //    korraldaja on eri moodi ja ara arvata ei saa — aga silt on sama.
       const base = organiser.replace(/\/+$/, '');
-      const pages = [`${base}/tulemused`, organiser, `${base}/results`];
       let hit = null;
 
-      for (const url of pages) {
+      const lae = async (url) => {
         let html = cache.get(url);
         if (html === undefined) {
           html = await fetchHtml(url, null, { timeoutMs: TIMEOUT, tries: TRIES })
@@ -277,10 +400,34 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
           cache.set(url, html);
           await sleep(DELAY);
         }
-        if (!html) continue;
+        return html;
+      };
 
+      const avaHtml = await lae(organiser);
+
+      for (const url of [`${base}/tulemused`, organiser, `${base}/results`]) {
+        const html = url === organiser ? avaHtml : await lae(url);
+        if (!html) continue;
         hit = findResultLink(html, url, event);
         if (hit) break;
+      }
+
+      // 2. aste: jargi silti.
+      if (!hit && avaHtml) {
+        for (const kandidaat of tulemusteLehed(avaHtml, organiser)) {
+          const html = await lae(kandidaat.url);
+          if (!html) continue;
+
+          // Esmalt ajavotja link — see on alati parem, sest viib
+          // protokollini, mida keegi teine haldab ja mis ei kolli.
+          hit = findResultLink(html, kandidaat.url, event);
+          if (hit) break;
+
+          // Alles siis korraldaja enda protokoll, ja ainult siis, kui
+          // kuupaev klapib. Vt findOwnResults() kommentaari.
+          hit = findOwnResults(html, kandidaat.url, event);
+          if (hit) break;
+        }
       }
 
       // Jatame meelde ka eitava vastuse, et sama lehte uuesti ei kusiks.
@@ -317,6 +464,7 @@ export async function resolveMissing(events, { limit = 4000 } = {}) {
   }
 
   await saveCache();
-  console.log(`[resolve] leidsin tulemuste lingi ${found} voistlusele (vahemalust ${fromCache})`);
+  console.log(`[resolve] leidsin tulemuste lingi ${found} voistlusele (vahemalust ${fromCache})` +
+    (poolik ? `, ${poolik} jäi järgmisele jooksule` : ''));
   return found;
 }

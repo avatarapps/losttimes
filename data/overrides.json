@@ -104,6 +104,13 @@
       "results": "https://xco.ee/tulemused-2026/",
       "organiser": "https://xco.ee/etapid/hiiumaa-xco/" },
 
+    { "_miks": "Estoloppet keeras competition_id-d uue hooaja peale ümber, seega 2026. aasta kirjed ei ole enam avalehe numbrite taga. Eva võttis need tulemuste lehe rippmenüüst. Aadressis on KAKS numbrit: competition_id=458 on leht ise ja results_competition_id=454 valib, millise hooaja protokolli näidatakse. Lisaks distance_id, mis on distantsipõhine. Neid kolme numbrit ei saa tuletada — need tulevad ainult rippmenüüst.",
+      "date": "2026-01-31", "match": "Neeruti Maraton",
+      "results": "https://www.estoloppet.ee/et/etapid?competition_id=458&action=results&distance_id=877&results_competition_id=454" },
+
+    { "date": "2026-02-07", "match": "Alutaguse Maraton",
+      "results": "https://www.estoloppet.ee/et/etapid?competition_id=457&action=results&distance_id=886&results_competition_id=453" },
+
     { "_miks": "raceresulti tulemuste link. lingipere.mjs tuletab siit ise ka /participants ja /info.",
       "date": "2026-08-23", "match": "Luunja 2. Mõisapargi jooksukross",
       "results": "https://my.raceresult.com/410677/results" },
