@@ -278,6 +278,72 @@ function mergeSameDay(events) {
 // TAHTIS: arhiiv on kumulatiivne ja need kirjed EI TULE tagasi tavalise
 // ooise jooksuga, sest see puudutab ainult varsket otsa. Kui reegel kunagi
 // valja lulitada, tuleb ajalugu taastada kaega:  node scrape/index.mjs --deep
+// KORDUVKASUTATUD VOISTLUSE NUMBER
+//
+// BestITi lehtedel on voistlusel number: ?competition_id=452. Estoloppet
+// keerab selle numbri IGA HOOAEG uue vordluse peale umber — 452 oli
+// 52. Tartu Maraton 2026, nuud on ta 53. Tartu Maraton 2027.
+//
+// Meie arhiiv on kumulatiivne, seega vana kirje jaab sama numbri kulge
+// rippuma. Tulemus: 2026. aasta Tartu Maratoni "Vaata tulemusi" viib
+// 2027. aasta lehele. See on HALVEM kui puuduv link — kasutaja arvab, et
+// on kohal, ja loeb vale aasta protokolli.
+//
+// Reegel: kui sama number esineb mitmel eri kuupaevaga voistlusel, jaab
+// number ainult KOIGE HILISEMALE. Just tema on see, keda number praegu
+// teenindab.
+//
+// VANEMALT EI VOTA ME LINKI ARA, vaid asendame sarja uldise tulemuste
+// lehega. Esimene katse kustutas lingi ja tulemus oli talumatu: 52. Tartu
+// Maratonil 2026 ei olnud uhtegi teist allikat ja Reegel B oleks ta lehelt
+// hoopis KUSTUTANUD — uhe Eesti suurima voistluse. Uldine leht on aus
+// vahepealne: voistlus on olemas, protokoll on seal, aasta tuleb ise valida.
+const BESTIT_YLDINE = '/et/tulemused';
+function dropReusedIds(events) {
+  const kasutus = new Map();   // "host|number" -> [event, ...]
+
+  for (const e of events) {
+    for (const s of e.sources) {
+      for (const k of ['results', 'startlist', 'organiser', 'info']) {
+        const u = s.links[k];
+        if (!u) continue;
+        const m = String(u).match(/competition_id=(\d+)/);
+        if (!m) continue;
+        let host;
+        try { host = new URL(u).hostname; } catch { continue; }
+        const key = `${host}|${m[1]}`;
+        if (!kasutus.has(key)) kasutus.set(key, new Set());
+        kasutus.get(key).add(e);
+      }
+    }
+  }
+
+  let puhastatud = 0;
+  for (const [key, set] of kasutus) {
+    if (set.size < 2) continue;
+    const rida = [...set].sort((a, b) => b.date.localeCompare(a.date));
+    const hoia = rida[0];
+    const number = key.split('|')[1];
+    const yldine = `https://${key.split('|')[0]}${BESTIT_YLDINE}`;
+    for (const e of rida.slice(1)) {
+      for (const s of e.sources) {
+        for (const k of ['results', 'startlist', 'organiser', 'info']) {
+          if (!s.links[k] || !String(s.links[k]).includes(`competition_id=${number}`)) continue;
+          // Tulemused saavad uldise lehe, ulejaanud lihtsalt kaovad:
+          // stardinimekirja ja korraldaja lehe kohta ei ole meil uldist
+          // vastet, mida ausalt pakkuda.
+          s.links[k] = k === 'results' ? yldine : null;
+          puhastatud++;
+        }
+      }
+      console.log(`  [number ${number}] "${e.name}" ${e.date} loobub — number kuulub nüüd "${hoia.name}" ${hoia.date}`);
+    }
+  }
+
+  if (puhastatud) console.log(`[numbrid] eemaldasin ${puhastatud} korduvkasutatud numbriga linki`);
+  return events;
+}
+
 function dropLinkless(events) {
   const oma = (u) => !u || u.includes('losttimes.ee') || u.startsWith('/');
   const onLink = (e) => e.sources.some((s) =>
@@ -361,6 +427,12 @@ async function finish(collected, health) {
   // Linkide pere PARAST regalinki: seemneks peab olema puhas link. Kui
   // seeme oleks registreerimisaadress, levitaksime vea kolme kohta korraga.
   applyLingipere(all);
+
+  // Korduvkasutatud numbrid PARAST lingipere: pere levitab ühe lingi kolme
+  // kohta, seega vale number tuleb maha võtta alles siis, kui kõik koopiad
+  // on olemas. Ja ENNE Reeglit B, et link kaoks enne, kui otsustame, kas
+  // võistlus üldse lehele jääb.
+  dropReusedIds(all);
 
   // Korraldaja-hupe kaib ULE KOGU ARHIIVI, mitte ainult selle jooksu kirjete.
   //
