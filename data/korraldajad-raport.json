@@ -1,0 +1,406 @@
+[
+ {
+  "domeen": "laanesport.ee",
+  "n": 11,
+  "staatus": "leitud",
+  "link": "https://www.laanesport.ee/koolinoored/protokollid/",
+  "silt": "Protokollid"
+ },
+ {
+  "domeen": "kohilasport.ee",
+  "n": 10,
+  "staatus": "leitud",
+  "link": "https://kohilasport.ee/tulemused",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "jalgrattakool.ee",
+  "n": 7,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "ok-okas.ee",
+  "n": 7,
+  "staatus": "leitud",
+  "link": "https://www.ok-okas.ee/failid/Tulemused/2026.06.03_Linnam%C3%A4e/results.htm",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "tskjoosu.weebly.com",
+  "n": 6,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "kevek.ee",
+  "n": 6,
+  "staatus": "leitud",
+  "link": "https://www.kevek.ee/edetabelid/",
+  "silt": "Edetabelid"
+ },
+ {
+  "domeen": "vorumaaspordiliit.ee",
+  "n": 6,
+  "staatus": "leitud",
+  "link": "https://vorumaaspordiliit.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "jooks.ee",
+  "n": 6,
+  "staatus": "leitud",
+  "link": "https://www.jooks.ee/et/maijooks",
+  "silt": "16.-17.05.2026 LHV Maijooks TULEMUSED"
+ },
+ {
+  "domeen": "teamkehtna.ee",
+  "n": 5,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "sport.ut.ee",
+  "n": 5,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "fb.me",
+  "n": 4,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "estoniancup.ee",
+  "n": 3,
+  "staatus": "leitud",
+  "link": "https://estoniancup.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "seeriajooks.ee",
+  "n": 3,
+  "staatus": "leitud",
+  "link": "https://seeriajooks.ee/tulemused.html",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "mapri.eu",
+  "n": 3,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "sksaarde.ee",
+  "n": 3,
+  "staatus": "leitud",
+  "link": "https://www.sksaarde.ee/tulemused/",
+  "silt": "TULEMUSED"
+ },
+ {
+  "domeen": "viraaz.ee",
+  "n": 3,
+  "staatus": "katki"
+ },
+ {
+  "domeen": "ekjl.ee",
+  "n": 3,
+  "staatus": "leitud",
+  "link": "https://www.ekjl.ee/statistika/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "kjkkalev.ee",
+  "n": 3,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "valgamaasl.ee",
+  "n": 3,
+  "staatus": "leitud",
+  "link": "https://www.valgamaasl.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "psl.ee",
+  "n": 3,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "joka.ee",
+  "n": 3,
+  "staatus": "leitud",
+  "link": "http://www.joka.ee/wp/wp-content/uploads/2024/05/240430_magede_paevak_results.htm",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "triatloniakadeemia.ee",
+  "n": 2,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "panepanepane.ee",
+  "n": 2,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "lehola.weebly.com",
+  "n": 2,
+  "staatus": "leitud",
+  "link": "https://lehola.weebly.com/uploads/1/3/0/1/130149654/uueveskil_tulemused_2026.pdf",
+  "silt": "TULEMUSED"
+ },
+ {
+  "domeen": "kuldliiga.ee",
+  "n": 2,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "enkool.ee",
+  "n": 2,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "tartumaraton.ee",
+  "n": 2,
+  "staatus": "leitud",
+  "link": "https://tartumaraton.ee/et/tulemused",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "paidesport.ee",
+  "n": 2,
+  "staatus": "leitud",
+  "link": "https://paidesport.ee/index.php?mid=35",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "tartukalev.ee",
+  "n": 2,
+  "staatus": "leitud",
+  "link": "https://tartukalev.ee/voistluste-tulemoused",
+  "silt": "Võistluste tulemused"
+ },
+ {
+  "domeen": "raplamsl.ee",
+  "n": 2,
+  "staatus": "leitud",
+  "link": "https://raplamsl.ee/2023-aasta-parima-sportlase-valimine/",
+  "silt": "2023. aasta parimate sportlaste valimise tulemused"
+ },
+ {
+  "domeen": "nommespordiklubi.ee",
+  "n": 2,
+  "staatus": "katki"
+ },
+ {
+  "domeen": "scult.app",
+  "n": 2,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "kjveteranid.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://ekva.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "skodalaagri.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "gravely.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "kulka.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "awero.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "ejl.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://ejl.ee/voistlused/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "audentes.ee",
+  "n": 1,
+  "staatus": "katki"
+ },
+ {
+  "domeen": "mulgivald.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "skfortis.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "gurmeejooksud.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://gurmeejooksud.ee/staadioniultra/staadioniultra-2026-tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "tourofestonia.ee",
+  "n": 1,
+  "staatus": "katki"
+ },
+ {
+  "domeen": "xn--vabahukeskus-uib.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "forms.office.com",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "timesport.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "amblask.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://amblask.ee/2024-2/",
+  "silt": "Võistlused ja Tulemused"
+ },
+ {
+  "domeen": "kohila.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "tskl.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://tskl.ee/sportlased/tulemused-2024-2/",
+  "silt": "Tulemused 2024"
+ },
+ {
+  "domeen": "psvk.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://psvk.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "iccdroquetasdemar.com",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://info64.org/team/form-registro-torneos-2022_20th-iccd-worlddeafteamclassicalchess-men",
+  "silt": "Results (Teams, Individual & Open)"
+ },
+ {
+  "domeen": "eevl.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://www.eevl.ee/edetabelid/",
+  "silt": "Edetabelid"
+ },
+ {
+  "domeen": "discgolfiliit.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://discgolfiliit.ee/eesti-koondise-edetabel-2026/",
+  "silt": "Eesti koondise edetabel"
+ },
+ {
+  "domeen": "lumiorav.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "sport.tartuvald.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://sport.tartuvald.ee/voistluste-tulemused",
+  "silt": "Võistluste tulemused"
+ },
+ {
+  "domeen": "wittenstein.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "hiiumaasport.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "seiklushunt.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "http://live.seiklushunt.ee/",
+  "silt": "Live tulemused"
+ },
+ {
+  "domeen": "kuvake.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "maanteejooks.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://maanteejooks.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "nelson.racetecresults.com",
+  "n": 1,
+  "staatus": "katki"
+ },
+ {
+  "domeen": "tyritori.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://tyritori.ee/#Tulemused",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "saaresport.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://www.saaresport.ee/voistlused/protokollid/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "akkesport.net",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "tuksport.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "myfitness.ee",
+  "n": 1,
+  "staatus": "puudub"
+ },
+ {
+  "domeen": "trepijooks.ee",
+  "n": 1,
+  "staatus": "leitud",
+  "link": "https://www.trepijooks.ee/tulemused/",
+  "silt": "Tulemused"
+ },
+ {
+  "domeen": "lindon.ee",
+  "n": 1,
+  "staatus": "puudub"
+ }
+]
