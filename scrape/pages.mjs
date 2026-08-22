@@ -274,7 +274,24 @@ function isOwn(url) {
   return !url || url.includes('losttimes.ee') || url.startsWith('/');
 }
 
+// TOIMUMATA VOISTLUSE LEHT EI KUULU INDEKSISSE.
+//
+// 22.08.2026 otsis Eva Google'ist "ironman tallinn 2026" ja sai meie lehe.
+// Voistlus toimub 23. augustil — tulemusi EI OLE OLEMAS. Leht lubas
+// "Vaata tulemusi" ja saatis ironman.com-i tuhjale protokollile.
+//
+// See on sama lubaduse murdmine, mille me registreerimislinkide ja paljaste
+// esilehtede juures ara keelasime, ainult ajalises vormis: link on tehniliselt
+// oige, aga selle taga ei ole veel midagi. Eva sonadega: sama hea kui 404.
+//
+// Moodetud: 48 sellist lehte. Nad jaavad saiti ja "Tulevased" nimekirja
+// alles — kaob ainult indeksikirje. Kui voistlus on toimunud, muutub leht
+// jargmisel oisel jooksul ise indekseeritavaks, tapselt nagu allpool kirjeldatud
+// isetervenemine.
+const TANA = () => new Date().toISOString().slice(0, 10);
+
 export function worthIndexing(e) {
+  if (e.date > TANA()) return false;
   const res = resultsLink(e);
   if (!isOwn(res)) return true;
   return e.sources.some((x) => x.links.startlist && !isOwn(x.links.startlist));
