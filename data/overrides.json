@@ -32,7 +32,12 @@
     "Pirgu 2x2",
     "Pärnu Superliiga",
     "Järvamaa meistrivõistlused orienteerumise",
-    "Valter Külveti"
+    "Valter Külveti",
+
+    "Seiklushundi",
+    "Mägede järve jooks",
+    "Fred Kudu",
+    "liikumiskolmapäev"
   ],
 
   "_nimeLingid": "Kehtivad KOIGILE, kelle nimes muster esineb — kuupäeva ei ole vaja. Sobib sarjadele, kus etappe on palju ja igal aastal tulevad uued juurde.",
@@ -110,6 +115,12 @@
 
     { "date": "2026-02-07", "match": "Alutaguse Maraton",
       "results": "https://www.estoloppet.ee/et/etapid?competition_id=457&action=results&distance_id=886&results_competition_id=453" },
+
+    { "_miks": "Stamina BestITi leht. Kolm linki tulid Evalt käsitsi; lingipere.mjs oskaks neid ka ise tuletada, aga aluspõhi /et/kristiine/info-ja-juhend ei ole see, mida Maru allikas läbi käib.",
+      "date": "2026-08-30", "match": "Kristiine Rahvajooks",
+      "results": "https://stamina.ee/et/kristiine/info-ja-juhend?competition_id=330&action=results",
+      "startlist": "https://stamina.ee/et/kristiine/info-ja-juhend?competition_id=330&action=registered",
+      "organiser": "https://stamina.ee/et/kristiine/info-ja-juhend?competition_id=330" },
 
     { "_miks": "raceresulti tulemuste link. lingipere.mjs tuletab siit ise ka /participants ja /info.",
       "date": "2026-08-23", "match": "Luunja 2. Mõisapargi jooksukross",

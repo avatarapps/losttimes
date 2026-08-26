@@ -40,6 +40,11 @@ const DROP_NAME = new RegExp(
     // Rogain on kaardiga rannak, kus aeg ei ole voistluse mote — sama
     // pere matkadega. Orienteerumine ise jaab sisse.
     'rogain', 'rogaining', 'punktipeitus',
+
+    // PARASPORT ei kuulu siia lehele. Sonapiirid on hadavajalikud: ilma
+    // nendeta tabaks "para" ka Paralepat, paranduse ja paraadi.
+    '\\bpara-?cycling\\b', '\\bpara-?athletics\\b', '\\bparatriatlon',
+    '\\bparaujumine', '\\bparasport', '\\bpara\\s+mv\\b',
     'tennis', 'sulgpall', 'lauatennis', 'korvpall', 'jalgpall', 'võrkpall', 'käsipall',
     'petank', 'mälumäng', 'motokross', 'kardi', 'rally', 'ralli\\b',
     // Mootorisport, mis polnud varasemate sonadega kaetud. "Lehtse
