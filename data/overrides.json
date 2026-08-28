@@ -18,7 +18,18 @@
     "Kehtivad IGAL aastal, kuupäeva ei vaadata. Enne uue lisamist kontrolli,",
     "mitu kirjet muster arhiivis tabab — 'Viljandimaa orienteerumispäevakud'",
     "näeb välja nagu üks duplikaat, aga on 28 etapiga päris sari.",
-    "Selle kontrolli tegemata jätmine kustutaks terve sarja vaikselt ära."
+    "Selle kontrolli tegemata jätmine kustutaks terve sarja vaikselt ära.",
+    "",
+    "'viievõistlus' on kaitseväe võistlused. Muster on tahtlikult lühike:",
+    "üks kirje on 'KAITSEVÄE VÕISTKONDLIK VIIEVÕISTLUS' ja pikem muster ei",
+    "tabaks teda. Arhiivis annab see täpselt 5 kirjet, kõik kaitseväe omad.",
+    "",
+    "'kaitseväe' ja 'kaitsevägi' katavad kogu ülejäänud sõjaväespordi:",
+    "scoutsrännakud, takistusjooksud, rattatestid.",
+    "",
+    "'mitteavalik' on eraldi ja laiem reegel. Korraldaja kirjutab selle sõna",
+    "ise nimesse, kui üritus ei ole avalik. See on tema selge signaal ja",
+    "kehtib ükskõik kelle võistluse kohta, mitte ainult kaitseväe omade."
   ],
 
   "hideName": [
@@ -37,7 +48,11 @@
     "Seiklushundi",
     "Mägede järve jooks",
     "Fred Kudu",
-    "liikumiskolmapäev"
+    "liikumiskolmapäev",
+    "viievõistlus",
+    "kaitseväe",
+    "kaitsevägi",
+    "mitteavalik"
   ],
 
   "_nimeLingid": "Kehtivad KOIGILE, kelle nimes muster esineb — kuupäeva ei ole vaja. Sobib sarjadele, kus etappe on palju ja igal aastal tulevad uued juurde.",
