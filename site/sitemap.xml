@@ -75,11 +75,12 @@
 <url><loc>https://losttimes.ee/race/jarvamaa-orienteerumispaevakud</loc></url>
 <url><loc>https://losttimes.ee/race/jarvakandi-duatlon</loc></url>
 <url><loc>https://losttimes.ee/race/juri-jaansoni-kahe-silla-jooks</loc></url>
+<url><loc>https://losttimes.ee/race/linnamae-rattasoit</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-ohtujooks</loc></url>
 <url><loc>https://losttimes.ee/race/eesti-meistrivoistlused-gravelis</loc></url>
-<url><loc>https://losttimes.ee/race/linnamae-rattasoit</loc></url>
 <url><loc>https://losttimes.ee/race/saue-ohtujooks</loc></url>
 <url><loc>https://losttimes.ee/race/maru-puslejooks</loc></url>
+<url><loc>https://losttimes.ee/race/saku-lastesarja</loc></url>
 <url><loc>https://losttimes.ee/race/kristiine-rahvajooks</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-rattamaraton</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-metsajooks</loc></url>
@@ -150,7 +151,6 @@
 <url><loc>https://losttimes.ee/race/laane-harju-liikumissari-padise-liigub</loc></url>
 <url><loc>https://losttimes.ee/race/narva-linna-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/ruila-kooli-rattapaev</loc></url>
-<url><loc>https://losttimes.ee/race/saku-lastesarja</loc></url>
 <url><loc>https://losttimes.ee/race/tour-of-estonia</loc></url>
 <url><loc>https://losttimes.ee/race/kevek-ja-tartu-kalev-a-staadionijooksu-iii-etapp</loc></url>
 <url><loc>https://losttimes.ee/race/kohila-pikamaajooksude-sari-iv-etapp-400m</loc></url>
@@ -625,6 +625,8 @@
 <url><loc>https://losttimes.ee/race/raasiku-rahvajooks</loc></url>
 <url><loc>https://losttimes.ee/race/ramirendi-kevadjooks</loc></url>
 <url><loc>https://losttimes.ee/race/juri-jaansoni-2-silla-jooks</loc></url>
+<url><loc>https://losttimes.ee/race/4-maru-puslejooks-2026</loc></url>
+<url><loc>https://losttimes.ee/race/saku-lastesarja-3-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/9-kristiine-rahvajooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/sony-center-maardu-city-run-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/29-tallinna-rattamaraton-2026</loc></url>
