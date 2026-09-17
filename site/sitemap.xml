@@ -71,6 +71,8 @@
 <url><loc>https://losttimes.ee/race/pooripaevajooks-jooks-sugisesse</loc></url>
 <url><loc>https://losttimes.ee/race/elke-tallinn-run-noblessner</loc></url>
 <url><loc>https://losttimes.ee/race/tartu-rattamaraton</loc></url>
+<url><loc>https://losttimes.ee/race/kose-maastikujooksu-voistlus-vale-ja-visa</loc></url>
+<url><loc>https://losttimes.ee/race/tupiku-igamehe-maastikumaraton</loc></url>
 <url><loc>https://losttimes.ee/race/saaremaa-duatlon</loc></url>
 <url><loc>https://losttimes.ee/race/keila-seeriajooksu</loc></url>
 <url><loc>https://losttimes.ee/race/saku-lastesarja</loc></url>
@@ -255,7 +257,6 @@
 <url><loc>https://losttimes.ee/race/kepikond</loc></url>
 <url><loc>https://losttimes.ee/race/lasteaia-jalgrattamaraton</loc></url>
 <url><loc>https://losttimes.ee/race/turi-metsajooks</loc></url>
-<url><loc>https://losttimes.ee/race/tupiku-igamehe-maastikumaraton</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/tallinna-sugisjooks</loc></url>
 <url><loc>https://losttimes.ee/race/sportland-korvemaa-metsajooks</loc></url>
@@ -324,7 +325,6 @@
 <url><loc>https://losttimes.ee/race/valicecar-joulumae-sugisrull</loc></url>
 <url><loc>https://losttimes.ee/race/sillamae-ultra</loc></url>
 <url><loc>https://losttimes.ee/race/marjamaa-alevijooks</loc></url>
-<url><loc>https://losttimes.ee/race/kose-maastikujooksu-voistlus-vale-ja-visa</loc></url>
 <url><loc>https://losttimes.ee/race/husqvarna-eesti-olumpiakrossi-karikasari-v-etapp-joulumae-xc</loc></url>
 <url><loc>https://losttimes.ee/race/aseri-savijooks</loc></url>
 <url><loc>https://losttimes.ee/race/maxima-rahvajooksu</loc></url>
@@ -627,8 +627,10 @@
 <url><loc>https://losttimes.ee/race/raasiku-rahvajooks</loc></url>
 <url><loc>https://losttimes.ee/race/ramirendi-kevadjooks</loc></url>
 <url><loc>https://losttimes.ee/race/juri-jaansoni-2-silla-jooks</loc></url>
-<url><loc>https://losttimes.ee/race/saku-lastesarja-3-etapp-2026</loc></url>
+<url><loc>https://losttimes.ee/race/keila-seeriajooksu-6-etapp-2026</loc></url>
+<url><loc>https://losttimes.ee/race/saku-lastesarja-4-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/keila-seeriajooksu-5-etapp-2026</loc></url>
+<url><loc>https://losttimes.ee/race/karvaete-jarve-jooks-ambla-sk-sv-sugis-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/test-26-2026</loc></url>
 <url><loc>https://losttimes.ee/race/ulemiste-city-business-triathlon-2026</loc></url>
 <url><loc>https://losttimes.ee/race/red-bull-soapbox-race-eesti-2026-2026</loc></url>
@@ -655,7 +657,7 @@
 <url><loc>https://losttimes.ee/race/toila-rahvajooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/xx-saue-ohtujooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/4-maru-puslejooks-2026</loc></url>
-<url><loc>https://losttimes.ee/race/saku-lastesarja-3-etapp-2026-2</loc></url>
+<url><loc>https://losttimes.ee/race/saku-lastesarja-3-etapp-2026</loc></url>
 <url><loc>https://losttimes.ee/race/9-kristiine-rahvajooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/sony-center-maardu-city-run-2026-2026</loc></url>
 <url><loc>https://losttimes.ee/race/29-tallinna-rattamaraton-2026</loc></url>
