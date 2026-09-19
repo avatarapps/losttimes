@@ -180,7 +180,9 @@
       "results": "https://jarvasport.ee/et/tulemused",
       "organiser": "https://jarvasport.ee/et/kalender?event_id=3072" },
 
-    { "date": "2026-09-19", "match": "Tartu Rattamaraton",
+    { "_miks": "LIVE-väli. Otseülekanne ja GPS-jälgimine on elus ainult võistluspäeval, seega pages.mjs näitab LIVE-silti ainult siis, kui võistlus on täna või tulemas. Pärast võistlust jääb link andmetesse alles, aga silt kaob ise ära — arhiivikirje küljes oleks punane LIVE vale lubadus.",
+      "date": "2026-09-19", "match": "Tartu Rattamaraton",
+      "live": "https://tartumaraton.ee/et/29-tartu-rattamaratoni-tulemused-gps-jalgimine",
       "startlist": "https://tartumaraton.ee/et/osalejad" },
 
     { "date": "2026-10-16", "match": "Saaremaa Kolme Päeva Jooks",

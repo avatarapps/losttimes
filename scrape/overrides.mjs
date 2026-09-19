@@ -65,7 +65,7 @@ export async function applyOverrides(events) {
         links: {
           results: r.results || null,
           startlist: r.startlist || null,
-          live: null,
+          live: r.live || null,
           organiser: r.organiser || null,
           info: r.info || r.organiser || null,
         },
@@ -101,7 +101,7 @@ export async function applyOverrides(events) {
         links: {
           results: r.results || null,
           startlist: r.startlist || null,
-          live: null,
+          live: r.live || null,
           organiser: r.organiser || null,
           info: r.info || r.organiser || null,
         },

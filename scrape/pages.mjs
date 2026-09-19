@@ -179,6 +179,10 @@ letter-spacing:-.028em;line-height:1.14}
 background:var(--red);color:#fff;font-size:15.5px;font-weight:600;text-decoration:none}
 .alt{display:inline-block;margin-top:22px;margin-left:10px;font-size:15px;
 font-weight:600;text-decoration:none}
+/* LIVE on sama punane pill nagu nimekirja reas — sama asi peab nagema
+   samamoodi molemas kohas. */
+.alt.live{color:#fff;background:var(--red);padding:3px 11px;border-radius:100px;
+font-size:13px;letter-spacing:.04em}
 .note{margin-top:18px;font-size:14.5px;color:var(--slate)}
 ul.list{margin:18px 0 0;padding:0;list-style:none}
 ul.list li{padding:14px 0;border-bottom:1px solid #F0F3F4}
@@ -315,6 +319,17 @@ function eventPage(e, siblings) {
     : `<a class="cta" href="https://www.google.com/search?q=${encodeURIComponent(e.name + ' ' + year + ' tulemused')}">Otsi tulemusi →</a>`;
 
   const extras = [];
+
+  // LIVE ainult siis, kui voistlus on TANA voi tulemas.
+  //
+  // Otseulekanne ja GPS-jalgimine on elus paar tundi. Arhiivikirje kulge
+  // jaanud punane LIVE silt on vale lubadus samamoodi nagu "Vaata tulemusi"
+  // voistluselt, mida pole veel olnud — ainult teistpidi ajas.
+  const liveAllikas = e.sources.find((s) => s.links.live);
+  if (liveAllikas && e.date >= TANA()) {
+    extras.push(`<a class="alt live" href="${esc(liveAllikas.links.live)}">LIVE</a>`);
+  }
+
   if (start && start.links.startlist !== res) {
     extras.push(`<a class="alt" href="${esc(start.links.startlist)}">Stardinimekiri</a>`);
   }
