@@ -420,10 +420,18 @@ const EXT = ' target="_blank" rel="noopener"';
 
 function actions(e){
   const out = [];
-  for (const s of e.sources){
-    if (s.links.live)
-      out.push(`<a class="live" href="${s.links.live}"${EXT}>LIVE</a>`);
-  }
+
+  // AINULT ÜKS LIVE-silt.
+  //
+  // Varem käis see tsüklina üle KÕIGI allikate ja joonistas igaühe kohta
+  // oma sildi. 19.09.2026 oli Tartu Rattamaratonil kaks live-linki —
+  // käsitsi antud GPS-jälgimine ja ChampionChipi oma — ja reale tekkis
+  // kaks punast LIVE-pilli kõrvuti.
+  //
+  // Sama reegel mis tulemustel: võta esimene, mis olemas on. Käsitsi
+  // parandus on allikate massiivis ees, seega tema võidab.
+  const liveUrl = e.sources.map(s => s.links.live).find(Boolean);
+  if (liveUrl) out.push(`<a class="live" href="${liveUrl}"${EXT}>LIVE</a>`);
   // Igal real on ALATI "Results". Ei "Organiser", ei "Search", ei tühja rida.
   // Kasutaja tuli siia üheks asjaks ja tal ei ole vaja meie sisemist
   // teadmatust sildina lugeda.
