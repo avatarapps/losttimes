@@ -67,6 +67,7 @@
 <url><loc>https://losttimes.ee/race/haanja-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/alutaguse-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/neeruti-maraton</loc></url>
+<url><loc>https://losttimes.ee/race/jarvamaa-orienteerumispaevakud</loc></url>
 <url><loc>https://losttimes.ee/race/tv-10-os-tartu-ja-tartumaa-i-etapp</loc></url>
 <url><loc>https://losttimes.ee/race/ambla-sk-sv-suusatajate-seeriajooks-kepikond</loc></url>
 <url><loc>https://losttimes.ee/race/parnu-rannajooks</loc></url>
@@ -106,7 +107,6 @@
 <url><loc>https://losttimes.ee/race/swedbanki-tallinna-maraton</loc></url>
 <url><loc>https://losttimes.ee/race/korghoone-kuninga-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/viljandimaa-orienteerumispaevakud</loc></url>
-<url><loc>https://losttimes.ee/race/jarvamaa-orienteerumispaevakud</loc></url>
 <url><loc>https://losttimes.ee/race/jarvakandi-duatlon</loc></url>
 <url><loc>https://losttimes.ee/race/juri-jaansoni-kahe-silla-jooks</loc></url>
 <url><loc>https://losttimes.ee/race/linnamae-rattasoit</loc></url>
@@ -636,6 +636,9 @@
 <url><loc>https://losttimes.ee/race/raasiku-rahvajooks</loc></url>
 <url><loc>https://losttimes.ee/race/ramirendi-kevadjooks</loc></url>
 <url><loc>https://losttimes.ee/race/juri-jaansoni-2-silla-jooks</loc></url>
+<url><loc>https://losttimes.ee/race/7-jarve-mtb-2026</loc></url>
+<url><loc>https://losttimes.ee/race/71-viljandi-linnajooks-2026</loc></url>
+<url><loc>https://losttimes.ee/race/laane-virumaa-jooksusari-2026-7-vosu-sugisjooks-2026</loc></url>
 <url><loc>https://losttimes.ee/race/8-alutaguse-sugisjooks-10-jarve-lugu-2026</loc></url>
 <url><loc>https://losttimes.ee/race/alutaguse-metsamiilid-2026</loc></url>
 <url><loc>https://losttimes.ee/race/alutaguse-sugiskond-10-jarve-lugu-2026</loc></url>
