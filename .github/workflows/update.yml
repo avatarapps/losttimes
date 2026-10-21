@@ -21,6 +21,7 @@ jobs:
       - run: npm ci || npm install
 
       - name: Scrape
+        id: scrape
         run: npm run scrape
 
       # Suitsutest ENNE commitit.
@@ -53,3 +54,12 @@ jobs:
           git add site data/cache.json
           git diff --staged --quiet || git commit -m "Andmed uuendatud $(date -u +%Y-%m-%d)"
           git push
+
+      # Moni allikas oli katki, aga ulejaanud andmed on juba commititud.
+      # Muudame jooksu punaseks, et GitHub saadaks kirja — muidu jaaks
+      # katkine allikas nadalateks markamata.
+      - name: Katkised allikad
+        if: steps.scrape.outputs.broken != ''
+        run: |
+          echo "::error::Allikas annab 0 kirjet: ${{ steps.scrape.outputs.broken }}. Ulejaanud andmed on commititud."
+          exit 1

@@ -22,7 +22,7 @@ if (NODE_MAJOR < 18) {
   process.exit(1);
 }
 
-import { writeFile, mkdir, readFile } from 'node:fs/promises';
+import { writeFile, mkdir, readFile, appendFile } from 'node:fs/promises';
 import { normalizeName, reastus } from './lib.mjs';
 import { explainFilter } from './filter.mjs';
 import { resolveMissing } from './resolve.mjs';
@@ -495,10 +495,28 @@ async function finish(collected, health) {
   console.log(`\n=> arhiivis ${nahtavad.length} voistlust (sellest jooksust ${events.length})`);
   console.log(`=> aastad: ${years.map((y) => `${y}(${byYear.get(y).length})`).join(' ')}`);
 
+  // Katkine allikas EI blokeeri enam kogu uuendust.
+  //
+  // Varem valjus skript siin koodiga 1 ja workflow ei commitinud midagi —
+  // kui Sportos pani 2026-10 ette botikontrolli, seisis terve sait paevi,
+  // kuigi ulejaanud allikad toid varsked andmed. Arhiiv hoiab katkise
+  // allika vanad kirjed alles, nii et commitida on ohutu.
+  //
+  // Teavitus jaab: katkised allikad lahevad GITHUB_OUTPUT-i ja workflow
+  // viimane samm muudab jooksu PARAST commitit punaseks -> tuleb kiri.
+  // Kui katki on ule poole allikatest, on midagi pohjalikumalt valesti
+  // (nt runneri vork) — siis kukume kohe ja ei commiti.
   const broken = health.filter((h) => !h.ok);
   if (broken.length) {
-    console.error(`\nKATKI: ${broken.map((b) => b.id).join(', ')}`);
-    process.exit(1);
+    const ids = broken.map((b) => b.id).join(', ');
+    console.error(`\nKATKI: ${ids}`);
+    if (broken.length > health.length / 2) {
+      console.error('Liiga palju allikaid katki — ei commiti.');
+      process.exit(1);
+    }
+    if (process.env.GITHUB_OUTPUT) {
+      await appendFile(process.env.GITHUB_OUTPUT, `broken=${ids}\n`);
+    }
   }
 }
 
