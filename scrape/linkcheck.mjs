@@ -44,6 +44,8 @@ async function probe(url) {
 }
 
 export function isDeadStatus(status) {
+  // Puuduv vahesertifikaat: Node ei usalda, brauser täidab ise ja leht avaneb.
+  if (status === 'ERR UNABLE_TO_VERIFY_LEAF_SIGNATURE') return false;
   if (typeof status === 'string') return true;          // DNS, ühendus, timeout
   if ([401, 403, 429].includes(status)) return false;    // botikaitse, mitte surnud
   return status >= 400;
