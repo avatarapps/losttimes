@@ -31,6 +31,8 @@ import { applyOverrides } from './overrides.mjs';
 import { applySpordisarjad } from './spordisarjad.mjs';
 import { applyRegaLinks } from './regalink.mjs';
 import { applyLingipere } from './lingipere.mjs';
+import { loadValik, applyValik } from './valik.mjs';
+import { checkLinks } from './linkcheck.mjs';
 
 import sportos from './sources/sportos.mjs';
 import championchip from './sources/championchip.mjs';
@@ -71,6 +73,8 @@ const FROM_RAW = process.argv.includes('--from-raw');
 // kirjed on VALED (nt vale aastaga) — muidu jaaksid nad kumulatiivse
 // liitmise tottu igavesti alles ja tekiksid duplikaadid.
 const REBUILD = process.argv.includes('--rebuild');
+// Lokaalselt ilma vorguta oleks iga link 'surnud' — --no-linkcheck jatab vahele.
+const SKIP_LINKCHECK = process.argv.includes('--no-linkcheck');
 
 // Arhiivi ei karbita — kogu ajalugu jaab alles, aastate kaupa failides.
 
@@ -386,11 +390,21 @@ async function finish(collected, health) {
   if (REBUILD) {
     console.log('[arhiiv] --rebuild: vana arhiiv jaetakse arvestamata, ehitan nullist');
   } else try {
-    const meta = JSON.parse(await readFile('site/index.json', 'utf8'));
-    for (const { year } of meta.years) {
-      const rows = JSON.parse(await readFile(`site/events-${year}.json`, 'utf8'));
-      for (const e of rows) archive.set(e.id, e);
+    // Täisarhiiv elab data/arhiiv.json-is. site/ kaustas on ainult kureeritud
+    // valik (data/valik.json), seega sealt lugedes kaoks valikust välja
+    // jäänud ajalugu igaveseks. Esimesel korral (faili veel pole) loeme
+    // vanast kohast — seal on siis veel kõik.
+    let rows;
+    try {
+      rows = JSON.parse(await readFile('data/arhiiv.json', 'utf8'));
+    } catch {
+      const meta = JSON.parse(await readFile('site/index.json', 'utf8'));
+      rows = [];
+      for (const { year } of meta.years) {
+        rows.push(...JSON.parse(await readFile(`site/events-${year}.json`, 'utf8')));
+      }
     }
+    for (const e of rows) archive.set(e.id, e);
     console.log(`[arhiiv] olemas ${archive.size} voistlust, liidan uued peale`);
   } catch {
     console.log('[arhiiv] varasemat arhiivi ei leidnud, alustan nullist');
@@ -451,7 +465,18 @@ async function finish(collected, health) {
   // KOIGE VIIMASENA, sest resolver ja korraldajate moodulid lisavad
   // linke kuni siiani. Varem tehtuna viskaks see valja voistlusi,
   // millele link oleks paar rida hiljem leitud.
-  const nahtavad = dropLinkless(all);
+  // Täisarhiiv salvestatakse ENNE valikut — nii saab sarja hiljem
+  // valik.json-isse lisada ja kõik tema varasemad aastad tulevad tagasi.
+  await writeFile('data/arhiiv.json', JSON.stringify(all));
+
+  // Ainult kureeritud võistlused. Kõik, mida valik.json ei nimeta, jääb välja.
+  const valitud = applyValik(all, await loadValik());
+
+  // Katkised lingid maha ENNE dropLinkless-i: võistlus, mille ainus link on
+  // surnud, ei tohi lehele jääda.
+  if (!SKIP_LINKCHECK) await checkLinks(valitud);
+
+  const nahtavad = dropLinkless(valitud);
 
   // KOIK valjundid lahtuvad nahtavatest. Kui aastafailid tuleksid endiselt
   // `all` pealt, naitaks nimekiri lingita voistlusi edasi — leht loeb

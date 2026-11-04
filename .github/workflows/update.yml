@@ -51,7 +51,7 @@ jobs:
           #
           # Git lisab ainult tegelikult muutunud failid, nii et ooine commit
           # jaab vaikeseks ka siis, kui kaustas on 4000 lehte.
-          git add site data/cache.json
+          git add site data/cache.json data/arhiiv.json data/linkcheck.json 2>/dev/null || git add site data/cache.json data/arhiiv.json
           git diff --staged --quiet || git commit -m "Andmed uuendatud $(date -u +%Y-%m-%d)"
           git push
 

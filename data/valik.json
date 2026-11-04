@@ -1,0 +1,73 @@
+{
+  "_juhend": [
+    "LostTimes näitab AINULT neid võistlusi. Kõik muu, mida allikad toovad, jääb lehelt välja.",
+    "Väljajäänud võistlused ei kao: täisarhiiv on data/arhiiv.json failis. Kui lisad siia uue rea,",
+    "ilmub see võistlus koos kõigi varasemate aastatega järgmisel öisel jooksul.",
+    "",
+    "match  — regulaaravaldis võistluse NIME peale. Tähesuurus ja täpitähed ei loe (ä = a, õ = o),",
+    "         nii et kirjuta ilma täpitähtedeta: 'tallinna maraton', 'puhajarve'.",
+    "         Kirjavahemärgid muutuvad tühikuks (punkt jääb). \\b on sõnapiir: 'tartu maraton\\b' ei taba 'Tartu Maratoni Avatud Rada'.",
+    "except — sama võistluse sees asjad, mida EI näidata (lastejooksud, virtuaaljooks).",
+    "ala    — ainult inimesele lugemiseks, programm seda ei kasuta."
+  ],
+
+  "_alati_valja": "Kehtib KÕIGILE ridadele. Suure võistluse kõrvalüritused, mida keegi tulemuste pärast ei otsi.",
+  "alatiValja": [
+    "\\blaste", "noortejooks", "noorte",
+    "virtuaal", "online", "kool", "spordinadal", "liikumispaev", "jareleaitamis", "ei toimu", "jaab ara",
+    "avatud rada", "kepikond", "kepikonni", "elamusmaraton"
+  ],
+
+  "voistlused": [
+    { "ala": "jooks", "nimi": "Tallinna Maraton",               "match": "tallinna maraton" , "except": ["teatemaraton"] },
+    { "ala": "jooks", "nimi": "Tallinna Sügisjooks",            "match": "tallinna sugisjooks" },
+    { "ala": "jooks", "nimi": "Tartu Linnamaraton",             "match": "tartu linnamaraton" },
+    { "ala": "jooks", "nimi": "Tartu Maastikumaraton",          "match": "tartu maastikumaraton|tartu jooksumaraton|otepaa tartu jooksumaraton" },
+    { "ala": "jooks", "nimi": "Saaremaa Kolme Päeva Jooks",     "match": "saaremaa (kolme|3) paeva jooks" },
+    { "ala": "jooks", "nimi": "Suurjooks ümber Viljandi järve", "match": "umber viljandi jarve" },
+    { "ala": "jooks", "nimi": "Jüri Jaansoni Kahe Silla jooks", "match": "kahe silla jooks", "except": ["kasari"] },
+    { "ala": "jooks", "nimi": "Jooks ümber Pühajärve",          "match": "umber puhajarve" },
+    { "ala": "jooks", "nimi": "Jooks ümber Ülemiste järve",     "match": "umber ulemiste jarve" },
+    { "ala": "jooks", "nimi": "Narva Energiajooks",             "match": "energiajooks" },
+    { "ala": "jooks", "nimi": "Pärnu Rannajooks",               "match": "parnu rannajooks" },
+    { "ala": "jooks", "nimi": "Paide–Türi rahvajooks",          "match": "paide turi rahvajooks" },
+    { "ala": "jooks", "nimi": "Viljandi Linnajooks",            "match": "viljandi linnajooks" },
+    { "ala": "jooks", "nimi": "Viimsi Jooks",                   "match": "viimsi jooks" },
+    { "ala": "jooks", "nimi": "Maijooks",                       "match": "\\bmaijooks", "except": ["kullamaa", "kilingi", "meie oma"] },
+    { "ala": "jooks", "nimi": "Sinilillejooks",                 "match": "sinilillejooks" },
+    { "ala": "jooks", "nimi": "Ülemiste Ööjooks",               "match": "ulemiste oojooks" },
+    { "ala": "jooks", "nimi": "Audi Vana-aasta jooks",          "match": "vana aasta jooks" },
+    { "ala": "jooks", "nimi": "Rannametsa Luitejooks",          "match": "luitejooks" },
+    { "ala": "jooks", "nimi": "Icebug Kõva Mehe jooks",         "match": "kova mehe jooks" },
+    { "ala": "jooks", "nimi": "Haanja 100 ultra",               "match": "haanja\\s*ultra|haanja ?100(?! mtb)" },
+
+    { "ala": "suusk", "nimi": "Tartu Maraton",                  "match": "tartu maraton\\b" },
+    { "ala": "suusk", "nimi": "Tamsalu–Neeruti Maraton",        "match": "neeruti maraton" },
+    { "ala": "suusk", "nimi": "Alutaguse Maraton",              "match": "^(\\d+\\. )?alutaguse maraton" },
+    { "ala": "suusk", "nimi": "Haanja Maraton",                 "match": "haanja maraton" },
+    { "ala": "suusk", "nimi": "Tallinna Suusamaraton",          "match": "tallinna suusamaraton" },
+    { "ala": "suusk", "nimi": "Viru Maraton",                   "match": "viru maraton" },
+
+    { "ala": "ratas", "nimi": "Tartu Rattamaraton",             "match": "tartu rattamaraton", "except": ["teate"] },
+    { "ala": "ratas", "nimi": "Tartu Rattaralli",               "match": "tartu rattaralli" },
+    { "ala": "ratas", "nimi": "Tallinna Rattamaraton",          "match": "tallinna rattamaraton" },
+    { "ala": "ratas", "nimi": "Filter Tour de Tallinn",         "match": "tour de tallinn" },
+    { "ala": "ratas", "nimi": "Rakvere Rattamaraton",           "match": "rakvere rattamaraton" },
+    { "ala": "ratas", "nimi": "Rõuge Rattamaraton",             "match": "rouge rattamaraton" },
+    { "ala": "ratas", "nimi": "Mulgi Rattamaraton",             "match": "mulgi rattamaraton" },
+    { "ala": "ratas", "nimi": "Alutaguse Rattamaraton",         "match": "alutaguse rattamaraton" },
+    { "ala": "ratas", "nimi": "Jõulumäe Rattamaraton",          "match": "joulumae rattamaraton" },
+    { "ala": "ratas", "nimi": "Valgehobusemäe Rattamaraton",    "match": "valgehobusemae rattamaraton" },
+    { "ala": "ratas", "nimi": "Haanja 100 MTB",                 "match": "haanja ?100 mtb" },
+    { "ala": "ratas", "nimi": "Tour of Estonia",                "match": "^tour of estonia" },
+    { "ala": "ratas", "nimi": "Baltic Chain Tour",              "match": "baltic chain tour|balti keti velotuur" },
+
+    { "ala": "triatlon", "nimi": "IRONMAN (Tallinn, Otepää)", "match": "^ironman (70\\.3 )?(tallinn|otepaa)" },
+    { "ala": "triatlon", "nimi": "Otepää triatlon",             "match": "otepaa triat(h)?lon" },
+    { "ala": "triatlon", "nimi": "Pühajärve pargitriatlon",     "match": "puhajarve pargitriatlon" },
+    { "ala": "triatlon", "nimi": "Haapsalu Triatlon",           "match": "haapsalu triatlon" },
+    { "ala": "triatlon", "nimi": "Pärnu triatlon",              "match": "parnu triatlon" },
+
+    { "ala": "rulluisk", "nimi": "Filter Rull de Tallinn",      "match": "rull de tallinn" }
+  ]
+}

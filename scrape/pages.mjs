@@ -17,6 +17,8 @@
 // Pealkirjad ja kirjeldused on EESTI KEELES, sest otsitakse eesti keeles.
 
 import { writeFile, readFile, mkdir, readdir, rm } from 'node:fs/promises';
+
+const SUUR_KORISTUS = process.argv.includes('--suur-koristus');
 import { normalizeName, reastus, reaLink } from './lib.mjs';
 
 const SITE = 'https://losttimes.ee';
@@ -615,6 +617,9 @@ export async function buildPages(events, years) {
   // see samm kogu saiti ara pyhkida. Seetottu kaks piiret, molemad peavad
   // kehtima: voistlusi peab olema mojuvalt palju ja kustutatav osa ei tohi
   // ulatuda ule poole kettal olevast.
+  // Kureeritud valik (data/valik.json) hoiab lehel u 800 võistlust, mitte
+  // 7000. Üleminekul kustub korraga üle poole lehtedest — see on tahtlik ja
+  // käivitatakse käsitsi lipuga --suur-koristus. Igaöine jooks jääb kaitse alla.
   const elus = new Set(events.map((e) => e.slug));
   for (const [hub, rows] of series) if (rows.length >= 2 && !used.has(hub)) elus.add(hub);
 
@@ -624,7 +629,7 @@ export async function buildPages(events, years) {
 
   if (!orvud.length) {
     console.log('[lehed] orbe ei ole');
-  } else if (events.length < 3000 || orvud.length > kettal.length / 2) {
+  } else if (events.length < 300 || (orvud.length > kettal.length / 2 && !SUUR_KORISTUS)) {
     console.warn(`[lehed] HOIATUS: ${orvud.length} orbu / ${kettal.length} kataloogi ` +
       `(${events.length} võistlust) — kahtlaselt palju, JÄTAN KORISTAMATA`);
   } else {
